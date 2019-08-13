@@ -5,103 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDHelper"
         mc:Ignorable="d"
-        Title="Black Desert Helper" Height="635" Width="790" Icon="pack://siteoforigin:,,,/Resources/BDOB_Icon.ico">
+        Title="Black Desert Helper" Height="635" Width="790" Icon="Resources/BDOB_Icon.ico" MinWidth="790" MinHeight="635" MaxWidth="790" MaxHeight="635" ResizeMode="NoResize">
     <Grid>
         <Label Content="Select Class" HorizontalAlignment="Left" Margin="22,21,0,0" VerticalAlignment="Top"/>
         <Label Content="Selected Class" HorizontalAlignment="Left" Margin="672,21,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="Cimg_imgt" HorizontalAlignment="Left" Height="70" Margin="679,53,0,0" VerticalAlignment="Top" Width="70" Source="pack://siteoforigin:,,,/Resources/None.png"/>
-        <Button x:Name="GearForm_btn" Content="Gear" HorizontalAlignment="Left" Margin="679,174,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button x:Name="GearForm_btn" Content="Gear" HorizontalAlignment="Left" Margin="679,174,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="GearForm_btn_Click"/>
         <Button x:Name="SkillTreeForm_btn" Content="Skill Tree" HorizontalAlignment="Left" Margin="679,202,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
         <Button x:Name="CraftForm_btn" Content="Craft" HorizontalAlignment="Left" Margin="679,230,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
         <Button x:Name="BuffTimerForm_btn" Content="Buff Timer" HorizontalAlignment="Left" Margin="679,258,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <Button x:Name="Warrior_btn" Content="" HorizontalAlignment="Left" Margin="23,53,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Warrior_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Warrior.png" Stretch="None"/>
+                <ImageBrush Stretch="None" ImageSource="Resources/Warrior.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Sorceress_btn" Content="" HorizontalAlignment="Left" Margin="98,53,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Sorceress_btn" Content="" HorizontalAlignment="Left" Margin="98,53,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Sorceress_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Sorceress.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Sorceress.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Berserker_btn" Content="" HorizontalAlignment="Left" Margin="173,53,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Berserker_btn" Content="" HorizontalAlignment="Left" Margin="173,53,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Berserker_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Berserker.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Berserker.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Ranger_btn" Content="" HorizontalAlignment="Left" Margin="248,53,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Ranger_btn" Content="" HorizontalAlignment="Left" Margin="248,53,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Ranger_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Ranger.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Ranger.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Tamer_btn" Content="" HorizontalAlignment="Left" Margin="23,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Tamer_btn" Content="" HorizontalAlignment="Left" Margin="23,158,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Tamer_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Tamer.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Tamer.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Valkyrie_btn" Content="" HorizontalAlignment="Left" Margin="98,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Valkyrie_btn" Content="" HorizontalAlignment="Left" Margin="98,158,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Valkyrie_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Valkyrie.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Valkyrie.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Musa_btn" Content="" HorizontalAlignment="Left" Margin="173,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Musa_btn" Content="" HorizontalAlignment="Left" Margin="173,158,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Musa_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Musa.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Musa.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Maehwa_btn" Content="" HorizontalAlignment="Left" Margin="248,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Maehwa_btn" Content="" HorizontalAlignment="Left" Margin="248,158,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Maehwa_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Maehwa.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Maehwa.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Witch_btn" Content="" HorizontalAlignment="Left" Margin="23,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Witch_btn" Content="" HorizontalAlignment="Left" Margin="23,262,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Witch_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Witch.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Witch.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Wizard_btn" Content="" HorizontalAlignment="Left" Margin="98,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Wizard_btn" Content="" HorizontalAlignment="Left" Margin="98,262,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Wizard_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Wizard.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Wizard.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Kunoichi_btn" Content="" HorizontalAlignment="Left" Margin="173,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Kunoichi_btn" Content="" HorizontalAlignment="Left" Margin="173,262,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Kunoichi_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Kunoichi.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Kunoichi.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Ninja_btn" Content="" HorizontalAlignment="Left" Margin="248,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Ninja_btn" Content="" HorizontalAlignment="Left" Margin="248,262,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Ninja_btn_Click">
             <Button.Background>
-                <ImageBrush Stretch="None" ImageSource="pack://siteoforigin:,,,/Resources/Ninja.png"/>
+                <ImageBrush Stretch="None" ImageSource="Resources/Ninja.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DK_btn" Content="" HorizontalAlignment="Left" Margin="23,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="DK_btn" Content="" HorizontalAlignment="Left" Margin="23,366,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="DK_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Dark Knight.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Dark Knight.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Striker_btn" Content="" HorizontalAlignment="Left" Margin="98,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Striker_btn" Content="" HorizontalAlignment="Left" Margin="98,366,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Striker_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Striker.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Striker.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Mystic_btn" Content="" HorizontalAlignment="Left" Margin="173,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Mystic_btn" Content="" HorizontalAlignment="Left" Margin="173,366,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Mystic_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Mystic.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Mystic.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Lahn_btn" Content="" HorizontalAlignment="Left" Margin="248,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Lahn_btn" Content="" HorizontalAlignment="Left" Margin="248,366,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Lahn_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Lahn.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Lahn.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Archer_btn" Content="" HorizontalAlignment="Left" Margin="23,477,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Archer_btn" Content="" HorizontalAlignment="Left" Margin="23,477,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Archer_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Archer.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Archer.png" Stretch="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Shai_btn" Content="" HorizontalAlignment="Left" Margin="98,477,0,0" VerticalAlignment="Top" Width="70" Height="70">
+        <Button x:Name="Shai_btn" Content="" HorizontalAlignment="Left" Margin="98,477,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Shai_btn_Click">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Shai.png" Stretch="None"/>
+                <ImageBrush ImageSource="Resources/Shai.png" Stretch="None"/>
             </Button.Background>
         </Button>
         <Label Content="Warrior" HorizontalAlignment="Left" Margin="32,121,0,0" VerticalAlignment="Top"/>
@@ -123,9 +122,9 @@
         <Label Content="Archer" HorizontalAlignment="Left" Margin="36,545,0,0" VerticalAlignment="Top"/>
         <Label Content="Shai" HorizontalAlignment="Left" Margin="117,545,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Sclass_lbl" Content="None" HorizontalAlignment="Left" Margin="694,121,0,0" VerticalAlignment="Top"/>
-        <Rectangle x:Name="Cimg_img" HorizontalAlignment="Left" Height="70" Margin="586,53,0,0" Stroke="Black" VerticalAlignment="Top" Width="70">
+        <Rectangle x:Name="Cimg_img" HorizontalAlignment="Left" Height="70" Margin="680,53,0,0" Stroke="Black" VerticalAlignment="Top" Width="70">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/None.png"/>
+                <ImageBrush ImageSource="Resources/None.png"/>
             </Rectangle.Fill>
         </Rectangle>
     </Grid>

@@ -13,5 +13,13 @@ namespace BDHelper
     /// </summary>
     public partial class App : Application
     {
+        [STAThread]
+        public static void Main()
+        {
+            if (!Base_Connect.Connect()) return;
+            var application = new App();
+            application.InitializeComponent();
+            application.Run();
+        }
     }
 }

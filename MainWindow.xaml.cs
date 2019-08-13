@@ -26,40 +26,23 @@ namespace BDHelper
         }
 
         string sclass = "None";
-        //string chWeapon = "None";
-        //string chSubWeapon = "None";
-        //Image cimg;
+        string chWeapon = "None";
+        string chSubWeapon = "None";
         Brush cimg;
-        //ImageSource cimg;
-
-     /*   private void GearForm_btn_Click(object sender, EventArgs e)
+        
+        private void GearForm_btn_Click(object sender, RoutedEventArgs e)
         {
-            GearForm gf = new GearForm
+            Gear g = new Gear
             {
                 sclass = sclass,
                 chWeapon = chWeapon,
                 chSubWeapon = chSubWeapon
             };
-            Image cimg = Cimg_img.Source;
-            gf.cimg = cimg;
+            Brush cimg = Cimg_img.Fill;
+            g.cimg = cimg;
             Hide();
-            if (gf.ShowDialog() == DialogResult.Cancel)
-            {
-                Show();
-                gf.Close();
-            }
-        } */
-
-       /* private void Warrior_btn_Click(object sender, EventArgs e)
-        {
-            cimg = Warrior_btn.Background;
-            Cimg_img.Source = cimg;
-            sclass = "Warrior";
-            Sclass_lbl.Content = sclass;
-            chWeapon = "Longsword";
-            chSubWeapon = "Shield";
-
-        } */
+            g.Show();
+        }
 
         private void Warrior_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -67,11 +50,11 @@ namespace BDHelper
             Cimg_img.Fill = cimg;
             sclass = "Warrior";
             Sclass_lbl.Content = sclass;
-            //chWeapon = "Longsword";
-            //chSubWeapon = "Shield";
+            chWeapon = "Longsword";
+            chSubWeapon = "Shield";
         }
 
-    /*    private void Sorceress_btn_Click(object sender, EventArgs e)
+        private void Sorceress_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Sorceress_btn.Background;
             Cimg_img.Fill = cimg;
@@ -82,7 +65,7 @@ namespace BDHelper
 
         }
 
-        private void Berserker_btn_Click(object sender, EventArgs e)
+        private void Berserker_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Berserker_btn.Background;
             Cimg_img.Fill = cimg;
@@ -93,7 +76,7 @@ namespace BDHelper
 
         }
 
-        private void Ranger_btn_Click(object sender, EventArgs e)
+        private void Ranger_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Ranger_btn.Background;
             Cimg_img.Fill = cimg;
@@ -103,7 +86,7 @@ namespace BDHelper
             chSubWeapon = "Dagger";
         }
 
-        private void Tamer_btn_Click(object sender, EventArgs e)
+        private void Tamer_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Tamer_btn.Background;
             Cimg_img.Fill = cimg;
@@ -114,7 +97,7 @@ namespace BDHelper
 
         }
 
-        private void Valkyrie_btn_Click(object sender, EventArgs e)
+        private void Valkyrie_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Valkyrie_btn.Background;
             Cimg_img.Fill = cimg;
@@ -124,7 +107,7 @@ namespace BDHelper
             chSubWeapon = "Shield";
         }
 
-        private void Musa_btn_Click(object sender, EventArgs e)
+        private void Musa_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Musa_btn.Background;
             Cimg_img.Fill = cimg;
@@ -135,7 +118,7 @@ namespace BDHelper
 
         }
 
-        private void Maehwa_btn_Click(object sender, EventArgs e)
+        private void Maehwa_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Maehwa_btn.Background;
             Cimg_img.Fill = cimg;
@@ -145,7 +128,7 @@ namespace BDHelper
             chSubWeapon = "Horn Bow";
         }
 
-        private void Witch_btn_Click(object sender, EventArgs e)
+        private void Witch_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Witch_btn.Background;
             Cimg_img.Fill = cimg;
@@ -157,7 +140,7 @@ namespace BDHelper
 
         }
 
-        private void Wizard_btn_Click(object sender, EventArgs e)
+        private void Wizard_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Wizard_btn.Background;
             Cimg_img.Fill = cimg;
@@ -168,7 +151,7 @@ namespace BDHelper
 
         }
 
-        private void Kunoichi_btn_Click(object sender, EventArgs e)
+        private void Kunoichi_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Kunoichi_btn.Background;
             Cimg_img.Fill = cimg;
@@ -179,7 +162,7 @@ namespace BDHelper
 
         }
 
-        private void Class_Ninja_btn_Click(object sender, EventArgs e)
+        private void Ninja_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Ninja_btn.Background;
             Cimg_img.Fill = cimg;
@@ -189,7 +172,7 @@ namespace BDHelper
             chSubWeapon = "Kunai and Shuriken";
         }
 
-        private void DK_btn_Click(object sender, EventArgs e)
+        private void DK_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = DK_btn.Background;
             Cimg_img.Fill = cimg;
@@ -199,7 +182,7 @@ namespace BDHelper
             chSubWeapon = "Ornamental Knot";
         }
 
-        private void Striker_btn_Click(object sender, EventArgs e)
+        private void Striker_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Striker_btn.Background;
             Cimg_img.Fill = cimg;
@@ -209,7 +192,7 @@ namespace BDHelper
             chSubWeapon = "Vambrace";
         }
 
-        private void Mystic_btn_Click(object sender, EventArgs e)
+        private void Mystic_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Mystic_btn.Background;
             Cimg_img.Fill = cimg;
@@ -219,7 +202,7 @@ namespace BDHelper
             chSubWeapon = "Vambrace";
         }
 
-        private void Lahn_btn_Click(object sender, EventArgs e)
+        private void Lahn_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Lahn_btn.Background;
             Cimg_img.Fill = cimg;
@@ -229,7 +212,7 @@ namespace BDHelper
             chSubWeapon = "Noble Sword";
         }
 
-        private void Archer_btn_Click(object sender, EventArgs e)
+        private void Archer_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Archer_btn.Background;
             Cimg_img.Fill = cimg;
@@ -240,7 +223,7 @@ namespace BDHelper
 
         }
 
-        private void Shai_btn_Click(object sender, EventArgs e)
+        private void Shai_btn_Click(object sender, RoutedEventArgs e)
         {
             cimg = Shai_btn.Background;
             Cimg_img.Fill = cimg;
@@ -248,7 +231,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Florang";
             chSubWeapon = "Vitclari";
-        } */
+        }
 
 
 
