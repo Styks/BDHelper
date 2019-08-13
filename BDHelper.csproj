@@ -189,6 +189,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BDO_Base.mdf</DependentUpon>
     </Content>
+    <Resource Include="Resources\SubWeapon.png" />
+    <Resource Include="Resources\Ring.png" />
+    <Resource Include="Resources\Necklace.png" />
+    <Resource Include="Resources\MainWeapon.png" />
+    <Resource Include="Resources\Helmet.png" />
+    <Resource Include="Resources\Gloves.png" />
+    <Resource Include="Resources\Earring.png" />
+    <Resource Include="Resources\Boots.png" />
+    <Resource Include="Resources\Belt.png" />
+    <Resource Include="Resources\AwakeningWeapon.png" />
+    <Resource Include="Resources\Armour.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

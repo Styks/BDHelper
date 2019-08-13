@@ -61,26 +61,26 @@ namespace BDHelper
             {
                 image.Source = BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
             }
-            img_i.Source = image.Source;
+            Item_img.Source = image.Source;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cs.cdp = Convert.ToInt32(cDP_n.Text);
-            cs.cap = Convert.ToInt32(cAP_n.Text);
-            cs.caap = Convert.ToInt32(cAAP_n.Text);
+            cs.cdp = Convert.ToInt32(cDP_n.Content);
+            cs.cap = Convert.ToInt32(cAP_n.Content);
+            cs.caap = Convert.ToInt32(cAAP_n.Content);
             Sclass_lbl.Content = sclass;
             Cimg_img.Fill = cimg;
-            if (sclass == "Shai") { cMistyHev_lbl.Visible = true; cMistyHev_n.Visible = true; cMistyHdp_lbl.Visible = true; cMistyHdp_n.Visible = true; cDelusLmvs_lbl.Visible = true; cDelusLmvs_n.Visible = true; cSunMoon_lbl.Visible = true; cSunMoon_n.Visible = true; Shai_gb.Visible = true; }
-            else { cMistyHev_lbl.Visible = false; cMistyHev_n.Visible = false; cMistyHdp_lbl.Visible = false; cMistyHdp_n.Visible = false; cDelusLmvs_lbl.Visible = false; cDelusLmvs_n.Visible = false; cSunMoon_lbl.Visible = false; cSunMoon_n.Visible = false; }
+            if (sclass == "Shai") { cMistyHev_lbl.Visibility = Visibility.Visible; cMistyHev_n.Visibility = Visibility.Visible; cMistyHdp_lbl.Visibility = Visibility.Visible; cMistyHdp_n.Visibility = Visibility.Visible; cDelusLmvs_lbl.Visibility = Visibility.Visible; cDelusLmvs_n.Visibility = Visibility.Visible; cSunMoon_lbl.Visibility = Visibility.Visible; cSunMoon_n.Visibility = Visibility.Visible; }
+            else { cMistyHev_lbl.Visibility = Visibility.Hidden; cMistyHev_n.Visibility = Visibility.Hidden; cMistyHdp_lbl.Visibility = Visibility.Hidden; cMistyHdp_n.Visibility = Visibility.Hidden; cDelusLmvs_lbl.Visibility = Visibility.Hidden; cDelusLmvs_n.Visibility = Visibility.Hidden; cSunMoon_lbl.Visibility = Visibility.Hidden; cSunMoon_n.Visibility = Visibility.Hidden; }
             ////////// Edit ComboBox
-            this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
+         // this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+         // this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
             //////////
-            ItemCaph_cb.Visible = false;
-            Caph_lbl.Visible = false;
-            ItemEnch_cb.Visible = false;
-            Ench_lbl.Visible = false; 
+            ItemCaph_cb.Visibility = Visibility.Hidden;
+            Caph_lbl.Visibility = Visibility.Hidden;
+            ItemEnch_cb.Visibility = Visibility.Hidden;
+            Ench_lbl.Visibility = Visibility.Hidden;
         }
         private void FillCharacterState()
         {
@@ -186,16 +186,19 @@ namespace BDHelper
         //Item load procedurs
         private void LoadBelts() //Belt
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Belts";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";        
+            //SelectGear_cb.DataSource = ds.Tables[0];
+            //SelectGear_cb.DisplayMember = "Name";
+            //SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Belts", cs.beltId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.beltId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -203,16 +206,19 @@ namespace BDHelper
 
         private void LoadNeck() //Neck
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Neck";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+            // SelectGear_cb.DataSource = ds.Tables[0];
+            // SelectGear_cb.DisplayMember = "Name";
+            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Neck", cs.neckId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.neckId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -220,16 +226,19 @@ namespace BDHelper
 
         private void Load1Ring() //First ring
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Rings";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Rings", cs.ring1Id);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring1Id;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -237,16 +246,19 @@ namespace BDHelper
 
         private void Load2Ring() //Second ring
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Rings";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Rings", cs.ring2Id);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring2Id;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -254,16 +266,19 @@ namespace BDHelper
 
         private void Load1Earring() //First earring
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Earrings";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+            // SelectGear_cb.DataSource = ds.Tables[0];
+            // SelectGear_cb.DisplayMember = "Name";
+            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Earrings", cs.ear1Id);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear1Id;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -271,16 +286,19 @@ namespace BDHelper
 
         private void Load2Earring() //Second earring
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Earrings";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Earrings", cs.ear2Id);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear2Id;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -288,16 +306,19 @@ namespace BDHelper
 
         private void LoadArmor() //Armor
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Armors";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+            // SelectGear_cb.DataSource = ds.Tables[0];
+            // SelectGear_cb.DisplayMember = "Name";
+            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Armors", cs.armId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.armId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -305,16 +326,19 @@ namespace BDHelper
 
         private void LoadHelmet() // Helmet
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Helmets";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Helmets", cs.helId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.helId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -322,16 +346,19 @@ namespace BDHelper
 
         private void LoadGloves() // Gloves
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Gloves";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+            // SelectGear_cb.DataSource = ds.Tables[0];
+            // SelectGear_cb.DisplayMember = "Name";
+            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Gloves", cs.glovId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.glovId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -339,16 +366,19 @@ namespace BDHelper
 
         private void LoadShoes() // Shoes
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Shoes";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Shoes", cs.shId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.shId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -356,16 +386,19 @@ namespace BDHelper
 
         private void LoadAW() // AW
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + sclass + " Awakening Weapons]";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load(sclass.ToString() + " Awakening Weapons", cs.awkId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.awkId;
 
             LoadItemEnch_cb();
@@ -373,16 +406,19 @@ namespace BDHelper
         }
         private void LoadMW() // MW
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + chWeapon + " Main Weapon]";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+            // SelectGear_cb.DataSource = ds.Tables[0];
+            // SelectGear_cb.DisplayMember = "Name";
+            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load(chWeapon.ToString() + " Main Weapon", cs.mwId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.mwId;
 
             LoadItemEnch_cb();
@@ -390,16 +426,19 @@ namespace BDHelper
         }
         private void LoadSW() // SW
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + chSubWeapon + " Sub-Weapons]";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load(chSubWeapon.ToString() + " Sub-Weapons", cs.swId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.swId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -407,23 +446,26 @@ namespace BDHelper
 
         private void LoadAS() // Alchemy Stone
         {
-            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [Alchemy Stones]";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            SelectGear_cb.DisplayMemberPath = "Name";
+            SelectGear_cb.SelectedValuePath = "Id";
+           // SelectGear_cb.DataSource = ds.Tables[0];
+           // SelectGear_cb.DisplayMember = "Name";
+           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Alchemy Stones", cs.asId);
-            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.asId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
         }
 
         //Lvl Bonus
-        private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
+  /*      private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
         {
             int lvlDP = 1;
             if (dpLvl_cb.Checked == true)
@@ -453,7 +495,7 @@ namespace BDHelper
             }
             cs.cap = Convert.ToInt32(cAP_n.Text);
             cs.caap = Convert.ToInt32(cAAP_n.Text);
-        }
+        } */
 
 
         //Item buttons
@@ -543,7 +585,7 @@ namespace BDHelper
             LoadAS();
         }
 
-        private void SelectedGear_cb_SelectedIndexChanged(object sender, RoutedEventArgs e)
+        private void SelectGear_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ItemStatClear();
             SqlCommand cmd = Base_Connect.Connection.CreateCommand();
@@ -574,24 +616,24 @@ namespace BDHelper
                 LoadItemCaph_cb();
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Belt_btn.BackgroundImage = Item_image.Image;
+                //Belt_btn.BackgroundImage = Item_image.Image;
                 cs.BeltState();
-                if (cs.beltEnch == false) Belt_btn.Text = "";
+                if (cs.beltEnch == false) Belt_btn.Content = "";
 
                 if (cs.beltEnch == true && SelectGear_cb.SelectedIndex == cs.beltId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.beltEnchLvl = TempEnchLvl; }
                 if (cs.beltEnch == true && SelectGear_cb.SelectedIndex != cs.beltId) { ItemEnch_cb.SelectedIndex = 0; cs.beltEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.beltEnch == false) { cs.beltEnchLvl = 0; }
 
-                iAP_n.Text = cs.beltap.ToString();
-                iDP_n.Text = cs.beltdp.ToString();
-                iEvas_n.Text = cs.beltev.ToString();
-                iAcc_n.Text = cs.beltacc.ToString();
-                iRes_n.Text = cs.beltResis.ToString();
-                iDR_n.Text = cs.beltDR.ToString();
-                iHP_n.Text = cs.beltHP.ToString();
-                iWeight_n.Text = cs.beltWeight.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.beltSpiritRage) + "%";
-                iEAPa_n.Text = cs.beltAPagaingst.ToString();
+                iAP_n.Content = cs.beltap.ToString();
+                iDP_n.Content = cs.beltdp.ToString();
+                iEvas_n.Content = cs.beltev.ToString();
+                iAcc_n.Content = cs.beltacc.ToString();
+                iRes_n.Content = cs.beltResis.ToString();
+                iDR_n.Content = cs.beltDR.ToString();
+                iHP_n.Content = cs.beltHP.ToString();
+                iWeight_n.Content = cs.beltWeight.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.beltSpiritRage) + "%";
+                iEAPa_n.Content = cs.beltAPagaingst.ToString();
 
                 cs.beltId = SelectGear_cb.SelectedIndex;
             } //Belt
@@ -627,29 +669,29 @@ namespace BDHelper
                 LoadItemCaph_cb();
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Necklace_btn.BackgroundImage = Item_image.Image;
+                //Necklace_btn.BackgroundImage = Item_image.Image;
                 cs.NeckState();
-                if (cs.neckEnch == false) Necklace_btn.Text = "";
+                if (cs.neckEnch == false) Necklace_btn.Content = "";
 
                 if (cs.neckEnch == true && SelectGear_cb.SelectedIndex == cs.neckId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.neckEnchLvl = TempEnchLvl; }
                 if (cs.neckEnch == true && SelectGear_cb.SelectedIndex != cs.neckId) { ItemEnch_cb.SelectedIndex = 0; cs.neckEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.neckEnch == false) { cs.neckEnchLvl = 0; }
 
-                iAP_n.Text = cs.neckap.ToString();
-                iDP_n.Text = cs.neckdp.ToString();
-                iEvas_n.Text = cs.neckev.ToString();
-                iAcc_n.Text = cs.neckacc.ToString();
-                iRes_n.Text = cs.neckAllRes.ToString() + "%";
-                iDR_n.Text = cs.neckDR.ToString();
-                iSSFR_n.Text = cs.neckSSF.ToString() + "%";
-                iKBR_n.Text = cs.neckKB.ToString() + "%";
-                iGrapR_n.Text = cs.neckG.ToString() + "%";
-                iKFR_n.Text = cs.neckKF.ToString() + "%";
-                iHP_n.Text = cs.neckHP.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.neckSpiritRage) + "%";
-                iEAPa_n.Text = cs.neckAPagaingst.ToString();
-                iExtraDamKama_n.Text = cs.neckKamaDamage.ToString();
-                iEDtoBack_n.Text = cs.neckBackDamage.ToString() + "%";
+                iAP_n.Content = cs.neckap.ToString();
+                iDP_n.Content = cs.neckdp.ToString();
+                iEvas_n.Content = cs.neckev.ToString();
+                iAcc_n.Content = cs.neckacc.ToString();
+                iRes_n.Content = cs.neckAllRes.ToString() + "%";
+                iDR_n.Content = cs.neckDR.ToString();
+                iSSFR_n.Content = cs.neckSSF.ToString() + "%";
+                iKBR_n.Content = cs.neckKB.ToString() + "%";
+                iGrapR_n.Content = cs.neckG.ToString() + "%";
+                iKFR_n.Content = cs.neckKF.ToString() + "%";
+                iHP_n.Content = cs.neckHP.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.neckSpiritRage) + "%";
+                iEAPa_n.Content = cs.neckAPagaingst.ToString();
+                iExtraDamKama_n.Content = cs.neckKamaDamage.ToString();
+                iEDtoBack_n.Content = cs.neckBackDamage.ToString() + "%";
 
                 cs.neckId = SelectGear_cb.SelectedIndex;
             } //Necklace            
@@ -687,31 +729,31 @@ namespace BDHelper
 
                 cs.Type = "Rings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Ring1_btn.BackgroundImage = Item_image.Image;
+                //Ring1_btn.BackgroundImage = Item_image.Image;
                 cs.Ring1State();
-                if (cs.ring1Ench == false) Ring1_btn.Text = "";
+                if (cs.ring1Ench == false) Ring1_btn.Content = "";
 
                 if (cs.ring1Ench == true && SelectGear_cb.SelectedIndex == cs.ring1Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ring1EnchLvl = TempEnchLvl; }
                 if (cs.ring1Ench == true && SelectGear_cb.SelectedIndex != cs.ring1Id) { ItemEnch_cb.SelectedIndex = 0; cs.ring1EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ring1Ench == false) { cs.ring1EnchLvl = 0; }
 
 
-                iAP_n.Text = cs.ring1ap.ToString();
-                iDP_n.Text = cs.ring1dp.ToString();
-                iEvas_n.Text = cs.ring1ev.ToString();
-                iAcc_n.Text = cs.ring1acc.ToString();
-                iDR_n.Text = cs.ring1DR.ToString();
-                iHP_n.Text = cs.ring1HP.ToString();
-                iMP_n.Text = cs.ring1MP.ToString();
-                iST_n.Text = cs.ring1ST.ToString();
-                iHEV_n.Text = cs.ring1HEv.ToString();
-                iEAPa_n.Text = cs.ring1APagaingst.ToString();
-                iExtraDamKama_n.Text = cs.ring1KamaDamage.ToString();
-                iEDH_n.Text = cs.ring1DamageHumans.ToString();
-                iADtDemiH_n.Text = cs.ring1DamageDemihumans.ToString();
-                iEDtAExcHumanAndDemi_n.Text = Convert.ToString(cs.ring1DamageAllExcept);
-                iBidding_n.Text = Convert.ToString(cs.ring1Bidding) + "%";
-                iSpiritRage_n.Text = Convert.ToString(cs.ring1SpiritRage) + "%";
+                iAP_n.Content = cs.ring1ap.ToString();
+                iDP_n.Content = cs.ring1dp.ToString();
+                iEvas_n.Content = cs.ring1ev.ToString();
+                iAcc_n.Content = cs.ring1acc.ToString();
+                iDR_n.Content = cs.ring1DR.ToString();
+                iHP_n.Content = cs.ring1HP.ToString();
+                iMP_n.Content = cs.ring1MP.ToString();
+                iST_n.Content = cs.ring1ST.ToString();
+                iHEV_n.Content = cs.ring1HEv.ToString();
+                iEAPa_n.Content = cs.ring1APagaingst.ToString();
+                iExtraDamKama_n.Content = cs.ring1KamaDamage.ToString();
+                iEDH_n.Content = cs.ring1DamageHumans.ToString();
+                iADtDemiH_n.Content = cs.ring1DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Content = Convert.ToString(cs.ring1DamageAllExcept);
+                iBidding_n.Content = Convert.ToString(cs.ring1Bidding) + "%";
+                iSpiritRage_n.Content = Convert.ToString(cs.ring1SpiritRage) + "%";
 
                 cs.ring1Id = SelectGear_cb.SelectedIndex;
             } //Ring1
@@ -749,31 +791,31 @@ namespace BDHelper
 
                 cs.Type = "Rings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Ring2_btn.BackgroundImage = Item_image.Image;
+                //Ring2_btn.BackgroundImage = Item_image.Image;
                 cs.Ring2State();
-                if (cs.ring2Ench == false) Ring2_btn.Text = "";
+                if (cs.ring2Ench == false) Ring2_btn.Content = "";
 
                 if (cs.ring2Ench == true && SelectGear_cb.SelectedIndex == cs.ring2Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ring2EnchLvl = TempEnchLvl; }
                 if (cs.ring2Ench == true && SelectGear_cb.SelectedIndex != cs.ring2Id) { ItemEnch_cb.SelectedIndex = 0; cs.ring2EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ring2Ench == false) { cs.ring2EnchLvl = 0; }
 
 
-                iAP_n.Text = cs.ring2ap.ToString();
-                iDP_n.Text = cs.ring2dp.ToString();
-                iEvas_n.Text = cs.ring2ev.ToString();
-                iAcc_n.Text = cs.ring2acc.ToString();
-                iDR_n.Text = cs.ring2DR.ToString();
-                iHP_n.Text = cs.ring2HP.ToString();
-                iMP_n.Text = cs.ring2MP.ToString();
-                iST_n.Text = cs.ring2ST.ToString();
-                iHEV_n.Text = cs.ring2HEv.ToString();
-                iEAPa_n.Text = cs.ring2APagaingst.ToString();
-                iExtraDamKama_n.Text = cs.ring2KamaDamage.ToString();
-                iEDH_n.Text = cs.ring2DamageHumans.ToString();
-                iADtDemiH_n.Text = cs.ring2DamageDemihumans.ToString();
-                iEDtAExcHumanAndDemi_n.Text = Convert.ToString(cs.ring2DamageAllExcept);
-                iBidding_n.Text = Convert.ToString(cs.ring2Bidding) + "%";
-                iSpiritRage_n.Text = Convert.ToString(cs.ring2SpiritRage) + "%";
+                iAP_n.Content = cs.ring2ap.ToString();
+                iDP_n.Content = cs.ring2dp.ToString();
+                iEvas_n.Content = cs.ring2ev.ToString();
+                iAcc_n.Content = cs.ring2acc.ToString();
+                iDR_n.Content = cs.ring2DR.ToString();
+                iHP_n.Content = cs.ring2HP.ToString();
+                iMP_n.Content = cs.ring2MP.ToString();
+                iST_n.Content = cs.ring2ST.ToString();
+                iHEV_n.Content = cs.ring2HEv.ToString();
+                iEAPa_n.Content = cs.ring2APagaingst.ToString();
+                iExtraDamKama_n.Content = cs.ring2KamaDamage.ToString();
+                iEDH_n.Content = cs.ring2DamageHumans.ToString();
+                iADtDemiH_n.Content = cs.ring2DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Content = Convert.ToString(cs.ring2DamageAllExcept);
+                iBidding_n.Content = Convert.ToString(cs.ring2Bidding) + "%";
+                iSpiritRage_n.Content = Convert.ToString(cs.ring2SpiritRage) + "%";
 
                 cs.ring2Id = SelectGear_cb.SelectedIndex;
             }//Ring 2
@@ -806,26 +848,26 @@ namespace BDHelper
 
                 cs.Type = "Earrings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Earring1_btn.BackgroundImage = Item_image.Image;
+                //Earring1_btn.BackgroundImage = Item_image.Image;
                 cs.Earring1State();
-                if (cs.ear1Ench == false) Earring1_btn.Text = "";
+                if (cs.ear1Ench == false) Earring1_btn.Content = "";
 
                 if (cs.ear1Ench == true && SelectGear_cb.SelectedIndex == cs.ear1Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ear1EnchLvl = TempEnchLvl; }
                 if (cs.ear1Ench == true && SelectGear_cb.SelectedIndex != cs.ear1Id) { ItemEnch_cb.SelectedIndex = 0; cs.ear1EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ear1Ench == false) { cs.ear1EnchLvl = 0; }
 
 
-                iAP_n.Text = cs.ear1ap.ToString();
-                iDP_n.Text = cs.ear1dp.ToString();
-                iEvas_n.Text = cs.ear1ev.ToString();
-                iAcc_n.Text = cs.ear1acc.ToString();
-                iDR_n.Text = cs.ear1DR.ToString();
-                iHP_n.Text = cs.ear1HP.ToString();
-                iMP_n.Text = cs.ear1MP.ToString();
-                iST_n.Text = cs.ear1ST.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.ear1SpiritRage) + "%";
-                iEAPa_n.Text = cs.ear1APagaingst.ToString();
-                iExtraDamKama_n.Text = cs.ear1KamaDamage.ToString();
+                iAP_n.Content = cs.ear1ap.ToString();
+                iDP_n.Content = cs.ear1dp.ToString();
+                iEvas_n.Content = cs.ear1ev.ToString();
+                iAcc_n.Content = cs.ear1acc.ToString();
+                iDR_n.Content = cs.ear1DR.ToString();
+                iHP_n.Content = cs.ear1HP.ToString();
+                iMP_n.Content = cs.ear1MP.ToString();
+                iST_n.Content = cs.ear1ST.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.ear1SpiritRage) + "%";
+                iEAPa_n.Content = cs.ear1APagaingst.ToString();
+                iExtraDamKama_n.Content = cs.ear1KamaDamage.ToString();
 
                 cs.ear1Id = SelectGear_cb.SelectedIndex;
             } //Earring 1
@@ -858,26 +900,26 @@ namespace BDHelper
 
                 cs.Type = "Earrings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Earring2_btn.BackgroundImage = Item_image.Image;
+                //Earring2_btn.BackgroundImage = Item_image.Image;
                 cs.Earring2State();
-                if (cs.ear2Ench == false) Earring2_btn.Text = "";
+                if (cs.ear2Ench == false) Earring2_btn.Content = "";
 
                 if (cs.ear2Ench == true && SelectGear_cb.SelectedIndex == cs.ear2Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ear2EnchLvl = TempEnchLvl; }
                 if (cs.ear2Ench == true && SelectGear_cb.SelectedIndex != cs.ear2Id) { ItemEnch_cb.SelectedIndex = 0; cs.ear2EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ear2Ench == false) { cs.ear2EnchLvl = 0; }
 
 
-                iAP_n.Text = cs.ear2ap.ToString();
-                iDP_n.Text = cs.ear2dp.ToString();
-                iEvas_n.Text = cs.ear2ev.ToString();
-                iAcc_n.Text = cs.ear2acc.ToString();
-                iDR_n.Text = cs.ear2DR.ToString();
-                iHP_n.Text = cs.ear2HP.ToString();
-                iMP_n.Text = cs.ear2MP.ToString();
-                iST_n.Text = cs.ear2ST.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.ear2SpiritRage) + "%";
-                iEAPa_n.Text = cs.ear2APagaingst.ToString();
-                iExtraDamKama_n.Text = cs.ear2KamaDamage.ToString();
+                iAP_n.Content = cs.ear2ap.ToString();
+                iDP_n.Content = cs.ear2dp.ToString();
+                iEvas_n.Content = cs.ear2ev.ToString();
+                iAcc_n.Content = cs.ear2acc.ToString();
+                iDR_n.Content = cs.ear2DR.ToString();
+                iHP_n.Content = cs.ear2HP.ToString();
+                iMP_n.Content = cs.ear2MP.ToString();
+                iST_n.Content = cs.ear2ST.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.ear2SpiritRage) + "%";
+                iEAPa_n.Content = cs.ear2APagaingst.ToString();
+                iExtraDamKama_n.Content = cs.ear2KamaDamage.ToString();
 
                 cs.ear2Id = SelectGear_cb.SelectedIndex;
             } //Earring 2
@@ -912,27 +954,27 @@ namespace BDHelper
 
                 cs.Type = "Armors";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Armour_btn.BackgroundImage = Item_image.Image;
+                //Armour_btn.BackgroundImage = Item_image.Image;
                 cs.ArmorState();
-                if (cs.armEnch == false) Armour_btn.Text = "";
+                if (cs.armEnch == false) Armour_btn.Content = "";
 
                 if (cs.armEnch == true && SelectGear_cb.SelectedIndex == cs.armId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.armEnchLvl = TempEnchLvl; }
                 if (cs.armEnch == true && SelectGear_cb.SelectedIndex != cs.armId) { ItemEnch_cb.SelectedIndex = 0; cs.armEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.armCaphLvl = 0; TempCaphLvl = 0; }
                 else if (cs.armEnch == false) { cs.armEnchLvl = 0; cs.armCaphLvl = 0; }
 
 
-                iDP_n.Text = cs.armdp.ToString();
-                iEvas_n.Text = cs.armev.ToString();
-                iHEV_n.Text = cs.armhev.ToString();
-                iDR_n.Text = cs.armdr.ToString();
-                iHDR_n.Text = cs.armhdr.ToString();
-                iHP_n.Text = cs.armHP.ToString();
-                iMP_n.Text = cs.armMP.ToString();
-                iSSFR_n.Text = cs.armSSFRes.ToString() + "%";
-                iWeight_n.Text = cs.armWeight.ToString();
-                iAcc_n.Text = cs.armAcc.ToString();
-                iHPR_n.Text = cs.armHPRecovery.ToString();
-                iMPR_n.Text = cs.armMPRecovery.ToString();
+                iDP_n.Content = cs.armdp.ToString();
+                iEvas_n.Content = cs.armev.ToString();
+                iHEV_n.Content = cs.armhev.ToString();
+                iDR_n.Content = cs.armdr.ToString();
+                iHDR_n.Content = cs.armhdr.ToString();
+                iHP_n.Content = cs.armHP.ToString();
+                iMP_n.Content = cs.armMP.ToString();
+                iSSFR_n.Content = cs.armSSFRes.ToString() + "%";
+                iWeight_n.Content = cs.armWeight.ToString();
+                iAcc_n.Content = cs.armAcc.ToString();
+                iHPR_n.Content = cs.armHPRecovery.ToString();
+                iMPR_n.Content = cs.armMPRecovery.ToString();
 
                 cs.armId = SelectGear_cb.SelectedIndex;
             } //Armor
@@ -969,29 +1011,29 @@ namespace BDHelper
 
                 cs.Type = "Helmets";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Helmet_btn.BackgroundImage = Item_image.Image;
+                //Helmet_btn.BackgroundImage = Item_image.Image;
                 cs.HelmetState();
-                if (cs.helEnch == false) Helmet_btn.Text = "";
+                if (cs.helEnch == false) Helmet_btn.Content = "";
 
                 if (cs.helEnch == true && SelectGear_cb.SelectedIndex == cs.helId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.helEnchLvl = TempEnchLvl; }
                 if (cs.helEnch == true && SelectGear_cb.SelectedIndex != cs.helId) { ItemEnch_cb.SelectedIndex = 0; cs.helEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.helCaphLvl = 0; TempCaphLvl = 0; }
                 else if (cs.helEnch == false) { cs.helEnchLvl = 0; cs.helCaphLvl = 0; }
 
 
-                iDP_n.Text = cs.heldp.ToString();
-                iEvas_n.Text = cs.helev.ToString();
-                iHEV_n.Text = cs.helhev.ToString();
-                iDR_n.Text = cs.heldr.ToString();
-                iHDR_n.Text = cs.helhdr.ToString();
-                iHP_n.Text = cs.helHP.ToString();
-                iSSFR_n.Text = cs.helSSFRes.ToString() + "%";
-                iKBR_n.Text = cs.helKBRes.ToString() + "%";
-                iGrapR_n.Text = cs.helGrapleRes.ToString() + "%";
-                iKFR_n.Text = cs.helKFRes.ToString() + "%";
-                iST_n.Text = cs.helST.ToString();
-                iWeight_n.Text = cs.helWeight.ToString();
-                iHPR_n.Text = cs.helHPRecovery.ToString();
-                iLuck_n.Text = cs.helLuck.ToString();
+                iDP_n.Content = cs.heldp.ToString();
+                iEvas_n.Content = cs.helev.ToString();
+                iHEV_n.Content = cs.helhev.ToString();
+                iDR_n.Content = cs.heldr.ToString();
+                iHDR_n.Content = cs.helhdr.ToString();
+                iHP_n.Content = cs.helHP.ToString();
+                iSSFR_n.Content = cs.helSSFRes.ToString() + "%";
+                iKBR_n.Content = cs.helKBRes.ToString() + "%";
+                iGrapR_n.Content = cs.helGrapleRes.ToString() + "%";
+                iKFR_n.Content = cs.helKFRes.ToString() + "%";
+                iST_n.Content = cs.helST.ToString();
+                iWeight_n.Content = cs.helWeight.ToString();
+                iHPR_n.Content = cs.helHPRecovery.ToString();
+                iLuck_n.Content = cs.helLuck.ToString();
 
                 cs.helId = SelectGear_cb.SelectedIndex;
             } //Helmet
@@ -1026,27 +1068,27 @@ namespace BDHelper
 
                 cs.Type = "Gloves";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Gloves_btn.BackgroundImage = Item_image.Image;
+                //Gloves_btn.BackgroundImage = Item_image.Image;
                 cs.GlovesState();
-                if (cs.glovEnch == false) Gloves_btn.Text = "";
+                if (cs.glovEnch == false) Gloves_btn.Content = "";
 
                 if (cs.glovEnch == true && SelectGear_cb.SelectedIndex == cs.glovId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.glovEnchLvl = TempEnchLvl; }
                 if (cs.glovEnch == true && SelectGear_cb.SelectedIndex != cs.glovId) { ItemEnch_cb.SelectedIndex = 0; cs.glovEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.glovCaphLvl = 0; TempCaphLvl = 0; }
                 else if (cs.glovEnch == false) { cs.glovEnchLvl = 0; cs.glovCaphLvl = 0; }
 
 
-                iDP_n.Text = cs.glovdp.ToString();
-                iEvas_n.Text = cs.glovev.ToString();
-                iHEV_n.Text = cs.glovhev.ToString();
-                iDR_n.Text = cs.glovdr.ToString();
-                iHDR_n.Text = cs.glovhdr.ToString();
-                iAcc_n.Text = cs.glovacc.ToString();
-                iGrapR_n.Text = cs.glovGrapleRes.ToString() + "%";
-                iAtkSpeed_n.Text = cs.glovAtkSpeed.ToString();
-                iCastSpeed_n.Text = cs.glovCastSpeed.ToString();
-                iCrit_n.Text = cs.glovCrit.ToString();
-                iWeight_n.Text = cs.glovWeight.ToString();
-                iEDtA_n.Text = cs.glovDamage.ToString();
+                iDP_n.Content = cs.glovdp.ToString();
+                iEvas_n.Content = cs.glovev.ToString();
+                iHEV_n.Content = cs.glovhev.ToString();
+                iDR_n.Content = cs.glovdr.ToString();
+                iHDR_n.Content = cs.glovhdr.ToString();
+                iAcc_n.Content = cs.glovacc.ToString();
+                iGrapR_n.Content = cs.glovGrapleRes.ToString() + "%";
+                iAtkSpeed_n.Content = cs.glovAtkSpeed.ToString();
+                iCastSpeed_n.Content = cs.glovCastSpeed.ToString();
+                iCrit_n.Content = cs.glovCrit.ToString();
+                iWeight_n.Content = cs.glovWeight.ToString();
+                iEDtA_n.Content = cs.glovDamage.ToString();
 
                 cs.glovId = SelectGear_cb.SelectedIndex;        
             } //Gloves
@@ -1080,23 +1122,23 @@ namespace BDHelper
 
                 cs.Type = "Shoes";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Boots_btn.BackgroundImage = Item_image.Image;
+                //Boots_btn.BackgroundImage = Item_image.Image;
                 cs.ShoesState();
-                if (cs.shEnch == false) Boots_btn.Text = "";
+                if (cs.shEnch == false) Boots_btn.Content = "";
                 if (cs.shEnch == true && SelectGear_cb.SelectedIndex == cs.shId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.shEnchLvl = TempEnchLvl; }
                 if (cs.shEnch == true && SelectGear_cb.SelectedIndex != cs.shId) { ItemEnch_cb.SelectedIndex = 0; cs.shEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.shCaphLvl = 0; TempCaphLvl = 0; }
                 else if (cs.shEnch == false) { cs.shEnchLvl = 0; cs.shCaphLvl = 0; }
 
 
-                iDP_n.Text = cs.shdp.ToString();
-                iEvas_n.Text = cs.shev.ToString();
-                iHEV_n.Text = cs.shhev.ToString();
-                iDR_n.Text = cs.shdr.ToString();
-                iHDR_n.Text = cs.shhdr.ToString();
-                iKBR_n.Text = cs.shKBRes.ToString();
-                iMVS_n.Text = cs.shMvs.ToString();
-                iST_n.Text = cs.shMaxST.ToString();
-                iWeight_n.Text = cs.shWeight.ToString();
+                iDP_n.Content = cs.shdp.ToString();
+                iEvas_n.Content = cs.shev.ToString();
+                iHEV_n.Content = cs.shhev.ToString();
+                iDR_n.Content = cs.shdr.ToString();
+                iHDR_n.Content = cs.shhdr.ToString();
+                iKBR_n.Content = cs.shKBRes.ToString();
+                iMVS_n.Content = cs.shMvs.ToString();
+                iST_n.Content = cs.shMaxST.ToString();
+                iWeight_n.Content = cs.shWeight.ToString();
 
                 cs.shId = SelectGear_cb.SelectedIndex;
             } //Shoes
@@ -1153,19 +1195,19 @@ namespace BDHelper
 
                 cs.Type = "" + sclass + " Awakening Weapons";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                AW_btn.BackgroundImage = Item_image.Image;
+                //AW_btn.BackgroundImage = Item_image.Image;
                 cs.AwakeningState(sclass);
-                if (cs.awkEnch == false) AW_btn.Text = "";
+                if (cs.awkEnch == false) AW_btn.Content = "";
 
                 if (cs.awkEnch == true && SelectGear_cb.SelectedIndex == cs.awkId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.awkEnchLvl = TempEnchLvl; }
                 if (cs.awkEnch == true && SelectGear_cb.SelectedIndex != cs.awkId) { ItemEnch_cb.SelectedIndex = 0; cs.awkEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.awkEnch == false) { cs.awkEnchLvl = 0; }
 
-                iAP_n.Text = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
-                iAcc_n.Text = cs.awkAccuracy.ToString();
-                iEDH_n.Text = cs.awkDamageHumans.ToString();
-                iEDtA_n.Text = cs.awkDamageAll.ToString();
-                iEAPa_n.Text = cs.awkAPagainst.ToString();
+                iAP_n.Content = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
+                iAcc_n.Content = cs.awkAccuracy.ToString();
+                iEDH_n.Content = cs.awkDamageHumans.ToString();
+                iEDtA_n.Content = cs.awkDamageAll.ToString();
+                iEAPa_n.Content = cs.awkAPagainst.ToString();
 
                 cs.awkId = SelectGear_cb.SelectedIndex;
                 LoadItemEnch_cb();
@@ -1205,25 +1247,25 @@ namespace BDHelper
 
                 cs.Type = "" + chWeapon + " Main Weapon";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                MW_btn.BackgroundImage = Item_image.Image;
+                //MW_btn.BackgroundImage = Item_image.Image;
                 cs.MainWeaponState(chWeapon);
-                if (cs.mwEnch == false) MW_btn.Text = "";
+                if (cs.mwEnch == false) MW_btn.Content = "";
 
                 if (cs.mwEnch == true && SelectGear_cb.SelectedIndex == cs.mwId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.mwEnchLvl = TempEnchLvl; }
                 if (cs.mwEnch == true && SelectGear_cb.SelectedIndex != cs.mwId) { ItemEnch_cb.SelectedIndex = 0; cs.mwEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.mwEnch == false) { cs.mwEnchLvl = 0; }
 
-                iAP_n.Text = cs.mwAPlow.ToString() + '~' + cs.mwAPhigh.ToString();
-                iAcc_n.Text = cs.mwAccuracy.ToString();
-                iEDH_n.Text = cs.mwDamageHumans.ToString();
-                iEDtA_n.Text = cs.mwDamageAll.ToString();
-                iEAPa_n.Text = cs.mwAPagainst.ToString();
-                iADtDemiH_n.Text = cs.mwDamDemi.ToString();
-                iAtkSpeed_n.Text = cs.mwAtkSpeed.ToString();
-                iCastSpeed_n.Text = cs.mwCastSpeed.ToString();
-                iCrit_n.Text = cs.mwCrit.ToString();
-                iHPRecoveryChance_n.Text = cs.mwRecoveryChance.ToString();
-                iIgnoreResistance_n.Text = cs.mwIgnore.ToString();
+                iAP_n.Content = cs.mwAPlow.ToString() + '~' + cs.mwAPhigh.ToString();
+                iAcc_n.Content = cs.mwAccuracy.ToString();
+                iEDH_n.Content = cs.mwDamageHumans.ToString();
+                iEDtA_n.Content = cs.mwDamageAll.ToString();
+                iEAPa_n.Content = cs.mwAPagainst.ToString();
+                iADtDemiH_n.Content = cs.mwDamDemi.ToString();
+                iAtkSpeed_n.Content = cs.mwAtkSpeed.ToString();
+                iCastSpeed_n.Content = cs.mwCastSpeed.ToString();
+                iCrit_n.Content = cs.mwCrit.ToString();
+                iHPRecoveryChance_n.Content = cs.mwRecoveryChance.ToString();
+                iIgnoreResistance_n.Content = cs.mwIgnore.ToString();
 
 
 
@@ -1265,31 +1307,31 @@ namespace BDHelper
 
                 cs.Type = "" + chSubWeapon + " Sub-Weapons";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                SW_btn.BackgroundImage = Item_image.Image;
+                //SW_btn.BackgroundImage = Item_image.Image;
                 cs.SubWeaponState(chSubWeapon);
-                if (cs.swEnch == false) SW_btn.Text = "";
+                if (cs.swEnch == false) SW_btn.Content = "";
 
                 if (cs.swEnch == true && SelectGear_cb.SelectedIndex == cs.swId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.swEnchLvl = TempEnchLvl; }
                 if (cs.swEnch == true && SelectGear_cb.SelectedIndex != cs.swId) { ItemEnch_cb.SelectedIndex = 0; cs.swEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.swEnch == false) { cs.swEnchLvl = 0; }
 
-                iAP_n.Text = cs.swAPlow.ToString() + '~' + cs.swAPhigh.ToString();
-                iAcc_n.Text = cs.swAccuracy.ToString();
-                iEAPa_n.Text = cs.swAPagainst.ToString();
-                iIgnoreResistance_n.Text = cs.swIgnore.ToString();
-                iDP_n.Text = cs.swDP.ToString();
-                iEvas_n.Text = cs.swEvasion.ToString();
-                iHEV_n.Text = cs.swHEvasion.ToString();
-                iDR_n.Text = cs.swDR.ToString();
-                iHP_n.Text = cs.swMaxHP.ToString();
-                iMP_n.Text = cs.swMaxMP.ToString();
-                iST_n.Text = cs.swMaxST.ToString();
-                iRes_n.Text = cs.swAllRes.ToString();
-                iST_n.Text = cs.swMaxST.ToString();
-                iST_n.Text = cs.swMaxST.ToString();
-                iHAP_n.Text = cs.swHidenAP.ToString();
-                iSpecialAttackED_n.Text = cs.swSpecialAttackDam.ToString();
-                iSpecialAttackEvRate_n.Text = cs.swSpecialAttackEv.ToString();
+                iAP_n.Content = cs.swAPlow.ToString() + '~' + cs.swAPhigh.ToString();
+                iAcc_n.Content = cs.swAccuracy.ToString();
+                iEAPa_n.Content = cs.swAPagainst.ToString();
+                iIgnoreResistance_n.Content = cs.swIgnore.ToString();
+                iDP_n.Content = cs.swDP.ToString();
+                iEvas_n.Content = cs.swEvasion.ToString();
+                iHEV_n.Content = cs.swHEvasion.ToString();
+                iDR_n.Content = cs.swDR.ToString();
+                iHP_n.Content = cs.swMaxHP.ToString();
+                iMP_n.Content = cs.swMaxMP.ToString();
+                iST_n.Content = cs.swMaxST.ToString();
+                iRes_n.Content = cs.swAllRes.ToString();
+                iST_n.Content = cs.swMaxST.ToString();
+                iST_n.Content = cs.swMaxST.ToString();
+                iHAP_n.Content = cs.swHidenAP.ToString();
+                iSpecialAttackED_n.Content = cs.swSpecialAttackDam.ToString();
+                iSpecialAttackEvRate_n.Content = cs.swSpecialAttackEv.ToString();
 
 
                 cs.swId = SelectGear_cb.SelectedIndex;
@@ -1329,26 +1371,26 @@ namespace BDHelper
 
                 cs.Type = "Alchemy Stones";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                AS_btn.BackgroundImage = Item_image.Image;
+                //AS_btn.BackgroundImage = Item_image.Image;
                 cs.AlchemyStoneState();
-                if (cs.asEnch == false) AS_btn.Text = "";
+                if (cs.asEnch == false) AS_btn.Content = "";
 
-                iAP_n.Text = cs.asAPlow.ToString() + '~' + cs.asAPhigh.ToString();
-                iAcc_n.Text = cs.asAccuracy.ToString();
-                iIgnoreResistance_n.Text = cs.asIgnore.ToString();
-                iEvas_n.Text = cs.asEvasion.ToString();
-                iDR_n.Text = cs.asDR.ToString();
-                iHP_n.Text = cs.asMaxHP.ToString();
-                iRes_n.Text = cs.asAllRes.ToString() + "%";
-                iHAP_n.Text = cs.asHidenAP.ToString();
-                iWeight_n.Text = cs.asWeightLimit.ToString();
-                iCastSpeedRate_n.Text = cs.asCastSpeed.ToString() + "%";
-                iAtkSpeedRate_n.Text = cs.asAtkSpeed.ToString() + "%";
-                iAlchCookTime_n.Text = cs.asAlchCookTime.ToString();
-                iProcessingRate_n.Text = cs.asProcRate.ToString() + "%";
-                iGathering_n.Text = cs.asGathFish.ToString();
-                iFishing_n.Text = cs.asGathFish.ToString();
-                iGathDropRate_n.Text = cs.asGathDropRate.ToString() + "%";
+                iAP_n.Content = cs.asAPlow.ToString() + '~' + cs.asAPhigh.ToString();
+                iAcc_n.Content = cs.asAccuracy.ToString();
+                iIgnoreResistance_n.Content = cs.asIgnore.ToString();
+                iEvas_n.Content = cs.asEvasion.ToString();
+                iDR_n.Content = cs.asDR.ToString();
+                iHP_n.Content = cs.asMaxHP.ToString();
+                iRes_n.Content = cs.asAllRes.ToString() + "%";
+                iHAP_n.Content = cs.asHidenAP.ToString();
+                iWeight_n.Content = cs.asWeightLimit.ToString();
+                iCastSpeedRate_n.Content = cs.asCastSpeed.ToString() + "%";
+                iAtkSpeedRate_n.Content = cs.asAtkSpeed.ToString() + "%";
+                iAlchCookTime_n.Content = cs.asAlchCookTime.ToString();
+                iProcessingRate_n.Content = cs.asProcRate.ToString() + "%";
+                iGathering_n.Content = cs.asGathFish.ToString();
+                iFishing_n.Content = cs.asGathFish.ToString();
+                iGathDropRate_n.Content = cs.asGathDropRate.ToString() + "%";
 
 
 
@@ -1371,11 +1413,11 @@ namespace BDHelper
             if (cs.sgn == 1 & cs.beltEnch == true | cs.sgn == 2 & cs.neckEnch == true | cs.sgn == 3 & cs.ring1Ench == true |
                 cs.sgn == 4 & cs.ring2Ench == true | cs.sgn == 5 & cs.ear1Ench == true | cs.sgn == 6 & cs.ear2Ench == true)
             {
-                ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
-                ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
+                ItemEnch_cb.SelectionChanged -= ItemEnch_cb_SelectionChanged;
+                ItemEnch_cb.Visibility = Visibility.Visible; Ench_lbl.Visibility = Visibility.Visible;
                 string[] EnchAccessories = { "0", "I", "II", "III", "IV", "V" };
-                ItemEnch_cb.DataSource = EnchAccessories;
-                ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
+                ItemEnch_cb.ItemsSource = EnchAccessories;
+                ItemEnch_cb.SelectionChanged += ItemEnch_cb_SelectionChanged;
                 if (cs.sgn == 1) ItemEnch_cb.SelectedIndex = cs.beltEnchLvl;
                 else if (cs.sgn == 2) ItemEnch_cb.SelectedIndex = cs.neckEnchLvl;
                 else if (cs.sgn == 3) ItemEnch_cb.SelectedIndex = cs.ring1EnchLvl;
@@ -1388,11 +1430,11 @@ namespace BDHelper
 
             else if (cs.sgn == 7 & cs.armEnch == true | cs.sgn == 8 & cs.helEnch == true | cs.sgn == 9 & cs.glovEnch == true | cs.sgn == 10 & cs.shEnch == true | cs.sgn == 11 & cs.awkEnch == true & cs.awkId != 1 | cs.sgn == 12 & cs.mwEnch == true & cs.mwId != 3 | cs.sgn == 13 & cs.swEnch == true & cs.swId != 7 & cs.swId != 38)
             {
-                ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
-                ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
+                ItemEnch_cb.SelectionChanged -= ItemEnch_cb_SelectionChanged;
+                ItemEnch_cb.Visibility = Visibility.Visible; Ench_lbl.Visibility = Visibility.Visible;
                 string[] EnchArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "I", "II", "III", "IV", "V" };
-                ItemEnch_cb.DataSource = EnchArmor;
-                ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
+                ItemEnch_cb.ItemsSource = EnchArmor;
+                ItemEnch_cb.SelectionChanged += ItemEnch_cb_SelectionChanged;
                 if (cs.sgn == 7) ItemEnch_cb.SelectedIndex = cs.armEnchLvl;
                 if (cs.sgn == 8) ItemEnch_cb.SelectedIndex = cs.helEnchLvl;
                 if (cs.sgn == 9) ItemEnch_cb.SelectedIndex = cs.glovEnchLvl;
@@ -1405,36 +1447,36 @@ namespace BDHelper
 
             else if (cs.sgn == 11 & cs.awkId == 1 & cs.awkEnch == true | cs.sgn == 12 & cs.mwId == 3 & cs.mwEnch == true | cs.sgn == 13 & cs.swId == 7 | cs.sgn == 13 & cs.swId == 38)
             {
-                ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
-                ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
+                ItemEnch_cb.SelectionChanged -= ItemEnch_cb_SelectionChanged;
+                ItemEnch_cb.Visibility = Visibility.Visible; Ench_lbl.Visibility = Visibility.Visible;
                 string[] EnchArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "I", "II", "III", "IV" };
-                ItemEnch_cb.DataSource = EnchArmor;
-                ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
+                ItemEnch_cb.ItemsSource = EnchArmor;
+                ItemEnch_cb.SelectionChanged += ItemEnch_cb_SelectionChanged;
                 if (cs.sgn == 11) ItemEnch_cb.SelectedIndex = cs.awkEnchLvl;
                 if (cs.sgn == 12) ItemEnch_cb.SelectedIndex = cs.mwEnchLvl;
                 if (cs.sgn == 13) ItemEnch_cb.SelectedIndex = cs.swEnchLvl;
 
             }
-            else { ItemEnch_cb.Visible = false; Ench_lbl.Visible = false; }
+            else { ItemEnch_cb.Visibility = Visibility.Hidden; Ench_lbl.Visibility = Visibility.Hidden; }
         }
 
         private void LoadItemCaph_cb()
         {
             if (cs.mwEnchLvl >= 18 & cs.mwId != 0 & cs.mwId != 3 & cs.sgn == 12 & cs.mwEnch == true | cs.awkEnchLvl >= 18 & cs.awkId != 1 & cs.sgn == 11 & cs.awkEnch == true | cs.swEnchLvl >= 18 & cs.swId != 7 & cs.sgn == 13 & cs.swEnch == true | cs.armEnchLvl >= 18 & cs.sgn == 7 & cs.armEnch == true | cs.helEnchLvl >= 18 & cs.sgn == 8 & cs.helEnch == true | cs.glovEnchLvl >= 18 & cs.sgn == 9 & cs.glovEnch == true | cs.shEnchLvl >= 18 & cs.sgn == 10 & cs.shEnch == true)
             {
-                ItemCaph_cb.SelectedIndexChanged -= ItemCaph_cb_SelectedIndexChanged;
-                ItemCaph_cb.Visible = true;
-                Caph_lbl.Visible = true;
+                ItemCaph_cb.SelectionChanged -= ItemCaph_cb_SelectionChanged;
+                ItemCaph_cb.Visibility = Visibility.Visible;
+                Caph_lbl.Visibility = Visibility.Visible;
                 string[] CaphArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
-                ItemCaph_cb.DataSource = CaphArmor;
-                ItemCaph_cb.SelectedIndexChanged += ItemCaph_cb_SelectedIndexChanged;
+                ItemCaph_cb.ItemsSource = CaphArmor;
+                ItemCaph_cb.SelectionChanged += ItemCaph_cb_SelectionChanged;
             }
             else
             {
-                ItemCaph_cb.Visible = false;
-                Caph_lbl.Visible = false;
+                ItemCaph_cb.Visibility = Visibility.Visible;
+                Caph_lbl.Visibility = Visibility.Visible;
                 string[] CaphArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
-                ItemCaph_cb.DataSource = CaphArmor;
+                ItemCaph_cb.ItemsSource = CaphArmor;
             }
             if (cs.sgn == 7) ItemCaph_cb.SelectedIndex = cs.armCaphLvl;
             if (cs.sgn == 8) ItemCaph_cb.SelectedIndex = cs.helCaphLvl;
@@ -1445,7 +1487,7 @@ namespace BDHelper
             if (cs.sgn == 13) ItemCaph_cb.SelectedIndex = cs.swCaphLvl;
         }
 
-        private void ItemEnch_cb_SelectedIndexChanged(object sender, EventArgs e)
+        private void ItemEnch_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ItemStatClear();
             if (cs.sgn == 1)
@@ -1453,20 +1495,20 @@ namespace BDHelper
                 cs.beltEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.BeltState();
 
-                iAP_n.Text = cs.beltap.ToString();
-                iDP_n.Text = cs.beltdp.ToString();
-                iEvas_n.Text = cs.beltev.ToString();
-                iAcc_n.Text = cs.beltacc.ToString();
-                iRes_n.Text = cs.beltResis.ToString();
-                iDR_n.Text = cs.beltDR.ToString();
-                iHP_n.Text = cs.beltHP.ToString();
-                iWeight_n.Text = cs.beltWeight.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.beltSpiritRage) + "%";
-                iEAPa_n.Text = cs.beltAPagaingst.ToString();
+                iAP_n.Content = cs.beltap.ToString();
+                iDP_n.Content = cs.beltdp.ToString();
+                iEvas_n.Content = cs.beltev.ToString();
+                iAcc_n.Content = cs.beltacc.ToString();
+                iRes_n.Content = cs.beltResis.ToString();
+                iDR_n.Content = cs.beltDR.ToString();
+                iHP_n.Content = cs.beltHP.ToString();
+                iWeight_n.Content = cs.beltWeight.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.beltSpiritRage) + "%";
+                iEAPa_n.Content = cs.beltAPagaingst.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Text = ""; }
-                else if (cs.beltEnch == false) Belt_btn.Text = "";
-                else { Belt_btn.Text = ItemEnch_cb.Text; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
+                else if (cs.beltEnch == false) Belt_btn.Content = "";
+                else { Belt_btn.Content = ItemEnch_cb.Text; }
 
                 FillCharacterState();
 
@@ -1477,24 +1519,24 @@ namespace BDHelper
                 cs.neckEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.NeckState();
 
-                iAP_n.Text = cs.neckap.ToString();
-                iDP_n.Text = cs.neckdp.ToString();
-                iEvas_n.Text = cs.neckev.ToString();
-                iAcc_n.Text = cs.neckacc.ToString();
-                iRes_n.Text = cs.neckAllRes.ToString() + "%";
-                iDR_n.Text = cs.neckDR.ToString();
-                iSSFR_n.Text = cs.neckSSF.ToString() + "%";
-                iKBR_n.Text = cs.neckKB.ToString() + "%";
-                iGrapR_n.Text = cs.neckG.ToString() + "%";
-                iKFR_n.Text = cs.neckKF.ToString() + "%";
-                iHP_n.Text = cs.neckHP.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.neckSpiritRage) + "%";
-                iEAPa_n.Text = cs.neckAPagaingst.ToString();
-                iExtraDamKama_n.Text = cs.neckKamaDamage.ToString();
-                iEDtoBack_n.Text = cs.neckBackDamage.ToString() + "%";
+                iAP_n.Content = cs.neckap.ToString();
+                iDP_n.Content = cs.neckdp.ToString();
+                iEvas_n.Content = cs.neckev.ToString();
+                iAcc_n.Content = cs.neckacc.ToString();
+                iRes_n.Content = cs.neckAllRes.ToString() + "%";
+                iDR_n.Content = cs.neckDR.ToString();
+                iSSFR_n.Content = cs.neckSSF.ToString() + "%";
+                iKBR_n.Content = cs.neckKB.ToString() + "%";
+                iGrapR_n.Content = cs.neckG.ToString() + "%";
+                iKFR_n.Content = cs.neckKF.ToString() + "%";
+                iHP_n.Content = cs.neckHP.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.neckSpiritRage) + "%";
+                iEAPa_n.Content = cs.neckAPagaingst.ToString();
+                iExtraDamKama_n.Content = cs.neckKamaDamage.ToString();
+                iEDtoBack_n.Content = cs.neckBackDamage.ToString() + "%";
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Text = ""; }
-                else { Necklace_btn.Text = ItemEnch_cb.Text; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Content = ""; }
+                else { Necklace_btn.Content = ItemEnch_cb.Text; }
 
                 FillCharacterState();
 
@@ -1505,23 +1547,23 @@ namespace BDHelper
                 cs.ring1EnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.Ring1State();
 
-                iAP_n.Text = cs.ring1ap.ToString();
-                iDP_n.Text = cs.ring1dp.ToString();
-                iEvas_n.Text = cs.ring1ev.ToString();
-                iAcc_n.Text = cs.ring1acc.ToString();
-                iDR_n.Text = cs.ring1DR.ToString();
-                iHP_n.Text = cs.ring1HP.ToString();
-                iMP_n.Text = cs.ring1MP.ToString();
-                iST_n.Text = cs.ring1ST.ToString();
-                iEDH_n.Text = cs.ring1DamageHumans.ToString();
-                iADtDemiH_n.Text = cs.ring1DamageDemihumans.ToString();
-                iEDtAExcHumanAndDemi_n.Text = cs.ring1DamageAllExcept.ToString();
-                iEAPa_n.Text = cs.ring1APagaingst.ToString();
-                iBidding_n.Text = Convert.ToString(cs.ring1Bidding) + "%";
-                iSpiritRage_n.Text = Convert.ToString(cs.ring1SpiritRage) + "%";
+                iAP_n.Content = cs.ring1ap.ToString();
+                iDP_n.Content = cs.ring1dp.ToString();
+                iEvas_n.Content = cs.ring1ev.ToString();
+                iAcc_n.Content = cs.ring1acc.ToString();
+                iDR_n.Content = cs.ring1DR.ToString();
+                iHP_n.Content = cs.ring1HP.ToString();
+                iMP_n.Content = cs.ring1MP.ToString();
+                iST_n.Content = cs.ring1ST.ToString();
+                iEDH_n.Content = cs.ring1DamageHumans.ToString();
+                iADtDemiH_n.Content = cs.ring1DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Content = cs.ring1DamageAllExcept.ToString();
+                iEAPa_n.Content = cs.ring1APagaingst.ToString();
+                iBidding_n.Content = Convert.ToString(cs.ring1Bidding) + "%";
+                iSpiritRage_n.Content = Convert.ToString(cs.ring1SpiritRage) + "%";
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Text = ""; }
-                else { Ring1_btn.Text = ItemEnch_cb.Text; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Content = ""; }
+                else { Ring1_btn.Content = ItemEnch_cb.Text; }
 
                 FillCharacterState();
             } // Ring1
@@ -1531,23 +1573,23 @@ namespace BDHelper
                 cs.ring2EnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.Ring2State();
 
-                iAP_n.Text = cs.ring2ap.ToString();
-                iDP_n.Text = cs.ring2dp.ToString();
-                iEvas_n.Text = cs.ring2ev.ToString();
-                iAcc_n.Text = cs.ring2acc.ToString();
-                iDR_n.Text = cs.ring2DR.ToString();
-                iHP_n.Text = cs.ring2HP.ToString();
-                iMP_n.Text = cs.ring2MP.ToString();
-                iST_n.Text = cs.ring2ST.ToString();
-                iEDH_n.Text = cs.ring2DamageHumans.ToString();
-                iADtDemiH_n.Text = cs.ring2DamageDemihumans.ToString();
-                iEDtAExcHumanAndDemi_n.Text = cs.ring2DamageAllExcept.ToString();
-                iEAPa_n.Text = cs.ring2APagaingst.ToString();
-                iBidding_n.Text = Convert.ToString(cs.ring2Bidding) + "%";
-                iSpiritRage_n.Text = Convert.ToString(cs.ring2SpiritRage) + "%";
+                iAP_n.Content = cs.ring2ap.ToString();
+                iDP_n.Content = cs.ring2dp.ToString();
+                iEvas_n.Content = cs.ring2ev.ToString();
+                iAcc_n.Content = cs.ring2acc.ToString();
+                iDR_n.Content = cs.ring2DR.ToString();
+                iHP_n.Content = cs.ring2HP.ToString();
+                iMP_n.Content = cs.ring2MP.ToString();
+                iST_n.Content = cs.ring2ST.ToString();
+                iEDH_n.Content = cs.ring2DamageHumans.ToString();
+                iADtDemiH_n.Content = cs.ring2DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Content = cs.ring2DamageAllExcept.ToString();
+                iEAPa_n.Content = cs.ring2APagaingst.ToString();
+                iBidding_n.Content = Convert.ToString(cs.ring2Bidding) + "%";
+                iSpiritRage_n.Content = Convert.ToString(cs.ring2SpiritRage) + "%";
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Text = ""; }
-                else { Ring2_btn.Text = ItemEnch_cb.Text; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Content = ""; }
+                else { Ring2_btn.Content = ItemEnch_cb.Text; }
 
                 FillCharacterState();
             } //Ring2
@@ -1557,20 +1599,20 @@ namespace BDHelper
                 cs.ear1EnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.Earring1State();
 
-                iAP_n.Text = cs.ear1ap.ToString();
-                iDP_n.Text = cs.ear1dp.ToString();
-                iEvas_n.Text = cs.ear1ev.ToString();
-                iAcc_n.Text = cs.ear1acc.ToString();
-                iDR_n.Text = cs.ear1DR.ToString();
-                iHP_n.Text = cs.ear1HP.ToString();
-                iMP_n.Text = cs.ear1MP.ToString();
-                iST_n.Text = cs.ear1ST.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.ear1SpiritRage) + "%";
-                iEAPa_n.Text = cs.ear1APagaingst.ToString();
-                iExtraDamKama_n.Text = cs.ear1KamaDamage.ToString();
+                iAP_n.Content = cs.ear1ap.ToString();
+                iDP_n.Content = cs.ear1dp.ToString();
+                iEvas_n.Content = cs.ear1ev.ToString();
+                iAcc_n.Content = cs.ear1acc.ToString();
+                iDR_n.Content = cs.ear1DR.ToString();
+                iHP_n.Content = cs.ear1HP.ToString();
+                iMP_n.Content = cs.ear1MP.ToString();
+                iST_n.Content = cs.ear1ST.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.ear1SpiritRage) + "%";
+                iEAPa_n.Content = cs.ear1APagaingst.ToString();
+                iExtraDamKama_n.Content = cs.ear1KamaDamage.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Text = ""; }
-                else { Earring1_btn.Text = ItemEnch_cb.Text; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Content = ""; }
+                else { Earring1_btn.Content = ItemEnch_cb.Text; }
 
                 FillCharacterState();
             } //Earring 1
@@ -1580,20 +1622,20 @@ namespace BDHelper
                 cs.ear2EnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.Earring2State();
 
-                iAP_n.Text = cs.ear2ap.ToString();
-                iDP_n.Text = cs.ear2dp.ToString();
-                iEvas_n.Text = cs.ear2ev.ToString();
-                iAcc_n.Text = cs.ear2acc.ToString();
-                iDR_n.Text = cs.ear2DR.ToString();
-                iHP_n.Text = cs.ear2HP.ToString();
-                iMP_n.Text = cs.ear2MP.ToString();
-                iST_n.Text = cs.ear2ST.ToString();
-                iSpiritRage_n.Text = Convert.ToString(cs.ear2SpiritRage) + "%";
-                iEAPa_n.Text = cs.ear2APagaingst.ToString();
-                iExtraDamKama_n.Text = cs.ear2KamaDamage.ToString();
+                iAP_n.Content = cs.ear2ap.ToString();
+                iDP_n.Content = cs.ear2dp.ToString();
+                iEvas_n.Content = cs.ear2ev.ToString();
+                iAcc_n.Content = cs.ear2acc.ToString();
+                iDR_n.Content = cs.ear2DR.ToString();
+                iHP_n.Content = cs.ear2HP.ToString();
+                iMP_n.Content = cs.ear2MP.ToString();
+                iST_n.Content = cs.ear2ST.ToString();
+                iSpiritRage_n.Content = Convert.ToString(cs.ear2SpiritRage) + "%";
+                iEAPa_n.Content = cs.ear2APagaingst.ToString();
+                iExtraDamKama_n.Content = cs.ear2KamaDamage.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Text = ""; }
-                else { Earring2_btn.Text = ItemEnch_cb.Text; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Content = ""; }
+                else { Earring2_btn.Content = ItemEnch_cb.Text; }
 
                 FillCharacterState();
             } //Earring 2
@@ -1608,22 +1650,22 @@ namespace BDHelper
                 cs.armEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.ArmorState();
 
-                iDP_n.Text = cs.armdp.ToString();
-                iEvas_n.Text = cs.armev.ToString();
-                iHEV_n.Text = cs.armhev.ToString();
-                iDR_n.Text = cs.armdr.ToString();
-                iHDR_n.Text = cs.armhdr.ToString();
-                iHP_n.Text = cs.armHP.ToString();
-                iMP_n.Text = cs.armMP.ToString();
-                iSSFR_n.Text = cs.armSSFRes.ToString() + "%";
-                iWeight_n.Text = cs.armWeight.ToString();
-                iAcc_n.Text = cs.armAcc.ToString();
-                iHPR_n.Text = cs.armHPRecovery.ToString();
-                iMPR_n.Text = cs.armMPRecovery.ToString();
+                iDP_n.Content = cs.armdp.ToString();
+                iEvas_n.Content = cs.armev.ToString();
+                iHEV_n.Content = cs.armhev.ToString();
+                iDR_n.Content = cs.armdr.ToString();
+                iHDR_n.Content = cs.armhdr.ToString();
+                iHP_n.Content = cs.armHP.ToString();
+                iMP_n.Content = cs.armMP.ToString();
+                iSSFR_n.Content = cs.armSSFRes.ToString() + "%";
+                iWeight_n.Content = cs.armWeight.ToString();
+                iAcc_n.Content = cs.armAcc.ToString();
+                iHPR_n.Content = cs.armHPRecovery.ToString();
+                iMPR_n.Content = cs.armMPRecovery.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Text = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Text = "+" + ItemEnch_cb.Text; }
-                else Armour_btn.Text = ItemEnch_cb.Text;
+                if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Content = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.Text; }
+                else Armour_btn.Content = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } // Armor
@@ -1638,24 +1680,23 @@ namespace BDHelper
                 cs.helEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.HelmetState();
 
-                iDP_n.Text = cs.heldp.ToString();
-                iEvas_n.Text = cs.helev.ToString();
-                iHEV_n.Text = cs.helhev.ToString();
-                iDR_n.Text = cs.heldr.ToString();
-                iHDR_n.Text = cs.helhdr.ToString();
-                iHP_n.Text = cs.helHP.ToString();
-                iSSFR_n.Text = cs.helSSFRes.ToString() + "%";
-                iKBR_n.Text = cs.helKBRes.ToString() + "%";
-                iGrapR_n.Text = cs.helGrapleRes.ToString() + "%";
-                iKFR_n.Text = cs.helKFRes.ToString() + "%";
-                iST_n.Text = cs.helWeight.ToString();
-                iHPR_n.Text = cs.helHPRecovery.ToString();
-                iLuck_n.Text = cs.helLuck.ToString();
+                iDP_n.Content = cs.heldp.ToString();
+                iEvas_n.Content = cs.helev.ToString();
+                iHEV_n.Content = cs.helhev.ToString();
+                iDR_n.Content = cs.heldr.ToString();
+                iHDR_n.Content = cs.helhdr.ToString();
+                iHP_n.Content = cs.helHP.ToString();
+                iSSFR_n.Content = cs.helSSFRes.ToString() + "%";
+                iKBR_n.Content = cs.helKBRes.ToString() + "%";
+                iGrapR_n.Content = cs.helGrapleRes.ToString() + "%";
+                iKFR_n.Content = cs.helKFRes.ToString() + "%";
+                iST_n.Content = cs.helWeight.ToString();
+                iHPR_n.Content = cs.helHPRecovery.ToString();
+                iLuck_n.Content = cs.helLuck.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Text = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Text = "+" + ItemEnch_cb.Text; }
-                else Helmet_btn.Text = ItemEnch_cb.Text;
-
+                if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Content = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.Text; }
+                else Helmet_btn.Content = ItemEnch_cb.Text;
                 FillCharacterState();
             } // Helmet
 
@@ -1669,22 +1710,22 @@ namespace BDHelper
                 cs.glovEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.GlovesState();
 
-                iDP_n.Text = cs.glovdp.ToString();
-                iAcc_n.Text = cs.glovacc.ToString();
-                iEvas_n.Text = cs.glovev.ToString();
-                iHEV_n.Text = cs.glovhev.ToString();
-                iDR_n.Text = cs.glovdr.ToString();
-                iHDR_n.Text = cs.glovhdr.ToString();
-                iGrapR_n.Text = cs.glovGrapleRes.ToString() + "%";
-                iAtkSpeed_n.Text = cs.glovAtkSpeed.ToString();
-                iCastSpeed_n.Text = cs.glovCastSpeed.ToString();
-                iCrit_n.Text = cs.glovCrit.ToString();
-                iWeight_n.Text = cs.glovWeight.ToString();
-                iEDtA_n.Text = cs.glovDamage.ToString();
+                iDP_n.Content = cs.glovdp.ToString();
+                iAcc_n.Content = cs.glovacc.ToString();
+                iEvas_n.Content = cs.glovev.ToString();
+                iHEV_n.Content = cs.glovhev.ToString();
+                iDR_n.Content = cs.glovdr.ToString();
+                iHDR_n.Content = cs.glovhdr.ToString();
+                iGrapR_n.Content = cs.glovGrapleRes.ToString() + "%";
+                iAtkSpeed_n.Content = cs.glovAtkSpeed.ToString();
+                iCastSpeed_n.Content = cs.glovCastSpeed.ToString();
+                iCrit_n.Content = cs.glovCrit.ToString();
+                iWeight_n.Content = cs.glovWeight.ToString();
+                iEDtA_n.Content = cs.glovDamage.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Text = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Text = "+" + ItemEnch_cb.Text; }
-                else Gloves_btn.Text = ItemEnch_cb.Text;
+                if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Content = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.Text; }
+                else Gloves_btn.Content = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Gloves
@@ -1699,19 +1740,19 @@ namespace BDHelper
                 cs.shEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.ShoesState();
 
-                iDP_n.Text = cs.shdp.ToString();
-                iEvas_n.Text = cs.shev.ToString();
-                iHEV_n.Text = cs.shhev.ToString();
-                iDR_n.Text = cs.shdr.ToString();
-                iHDR_n.Text = cs.shhdr.ToString();
-                iKBR_n.Text = cs.shKBRes.ToString();
-                iMVS_n.Text = cs.shMvs.ToString();
-                iST_n.Text = cs.shMaxST.ToString();
-                iWeight_n.Text = cs.shWeight.ToString();
+                iDP_n.Content = cs.shdp.ToString();
+                iEvas_n.Content = cs.shev.ToString();
+                iHEV_n.Content = cs.shhev.ToString();
+                iDR_n.Content = cs.shdr.ToString();
+                iHDR_n.Content = cs.shhdr.ToString();
+                iKBR_n.Content = cs.shKBRes.ToString();
+                iMVS_n.Content = cs.shMvs.ToString();
+                iST_n.Content = cs.shMaxST.ToString();
+                iWeight_n.Content = cs.shWeight.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Text = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Text = "+" + ItemEnch_cb.Text; }
-                else Boots_btn.Text = ItemEnch_cb.Text;
+                if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Content = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.Text; }
+                else Boots_btn.Content = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Shoes
@@ -1726,15 +1767,15 @@ namespace BDHelper
                 cs.awkEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.AwakeningState(sclass);
 
-                iAP_n.Text = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
-                iAcc_n.Text = cs.awkAccuracy.ToString();
-                iEDH_n.Text = cs.awkDamageHumans.ToString();
-                iEDtA_n.Text = cs.awkDamageAll.ToString();
-                iEAPa_n.Text = cs.awkAPagainst.ToString();
+                iAP_n.Content = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
+                iAcc_n.Content = cs.awkAccuracy.ToString();
+                iEDH_n.Content = cs.awkDamageHumans.ToString();
+                iEDtA_n.Content = cs.awkDamageAll.ToString();
+                iEAPa_n.Content = cs.awkAPagainst.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Text = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Text = "+" + ItemEnch_cb.Text; }
-                else AW_btn.Text = ItemEnch_cb.Text;
+                if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Content = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.Text; }
+                else AW_btn.Content = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Awakening Weapons
@@ -1749,21 +1790,21 @@ namespace BDHelper
                 cs.mwEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.MainWeaponState(chWeapon);
 
-                iAP_n.Text = cs.mwAPlow.ToString() + '~' + cs.mwAPhigh.ToString();
-                iAcc_n.Text = cs.mwAccuracy.ToString();
-                iEDH_n.Text = cs.mwDamageHumans.ToString();
-                iEDtA_n.Text = cs.mwDamageAll.ToString();
-                iEAPa_n.Text = cs.mwAPagainst.ToString();
-                iADtDemiH_n.Text = cs.mwDamDemi.ToString();
-                iAtkSpeed_n.Text = cs.mwAtkSpeed.ToString();
-                iCastSpeed_n.Text = cs.mwCastSpeed.ToString();
-                iCrit_n.Text = cs.mwCrit.ToString();
-                iHPRecoveryChance_n.Text = cs.mwRecoveryChance.ToString();
-                iIgnoreResistance_n.Text = cs.mwIgnore.ToString();
+                iAP_n.Content = cs.mwAPlow.ToString() + '~' + cs.mwAPhigh.ToString();
+                iAcc_n.Content = cs.mwAccuracy.ToString();
+                iEDH_n.Content = cs.mwDamageHumans.ToString();
+                iEDtA_n.Content = cs.mwDamageAll.ToString();
+                iEAPa_n.Content = cs.mwAPagainst.ToString();
+                iADtDemiH_n.Content = cs.mwDamDemi.ToString();
+                iAtkSpeed_n.Content = cs.mwAtkSpeed.ToString();
+                iCastSpeed_n.Content = cs.mwCastSpeed.ToString();
+                iCrit_n.Content = cs.mwCrit.ToString();
+                iHPRecoveryChance_n.Content = cs.mwRecoveryChance.ToString();
+                iIgnoreResistance_n.Content = cs.mwIgnore.ToString();
 
-                if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Text = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Text = "+" + ItemEnch_cb.Text; }
-                else MW_btn.Text = ItemEnch_cb.Text;
+                if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Content = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.Text; }
+                else MW_btn.Content = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Main Weapons
@@ -1777,35 +1818,35 @@ namespace BDHelper
                 cs.swEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.SubWeaponState(chSubWeapon);
 
-                iAP_n.Text = cs.swAPlow.ToString() + '~' + cs.swAPhigh.ToString();
-                iAcc_n.Text = cs.swAccuracy.ToString();
-                iEAPa_n.Text = cs.swAPagainst.ToString();
-                iIgnoreResistance_n.Text = cs.swIgnore.ToString();
-                iDP_n.Text = cs.swDP.ToString();
-                iEvas_n.Text = cs.swEvasion.ToString();
-                iHEV_n.Text = cs.swHEvasion.ToString();
-                iDR_n.Text = cs.swDR.ToString();
-                iHP_n.Text = cs.swMaxHP.ToString();
-                iMP_n.Text = cs.swMaxMP.ToString();
-                iST_n.Text = cs.swMaxST.ToString();
-                iRes_n.Text = cs.swAllRes.ToString();
-                iST_n.Text = cs.swMaxST.ToString();
-                iST_n.Text = cs.swMaxST.ToString();
-                iHAP_n.Text = cs.swHidenAP.ToString();
-                iSpecialAttackED_n.Text = cs.swSpecialAttackDam.ToString();
-                iSpecialAttackEvRate_n.Text = cs.swSpecialAttackEv.ToString();
+                iAP_n.Content = cs.swAPlow.ToString() + '~' + cs.swAPhigh.ToString();
+                iAcc_n.Content = cs.swAccuracy.ToString();
+                iEAPa_n.Content = cs.swAPagainst.ToString();
+                iIgnoreResistance_n.Content = cs.swIgnore.ToString();
+                iDP_n.Content = cs.swDP.ToString();
+                iEvas_n.Content = cs.swEvasion.ToString();
+                iHEV_n.Content = cs.swHEvasion.ToString();
+                iDR_n.Content = cs.swDR.ToString();
+                iHP_n.Content = cs.swMaxHP.ToString();
+                iMP_n.Content = cs.swMaxMP.ToString();
+                iST_n.Content = cs.swMaxST.ToString();
+                iRes_n.Content = cs.swAllRes.ToString();
+                iST_n.Content = cs.swMaxST.ToString();
+                iST_n.Content = cs.swMaxST.ToString();
+                iHAP_n.Content = cs.swHidenAP.ToString();
+                iSpecialAttackED_n.Content = cs.swSpecialAttackDam.ToString();
+                iSpecialAttackEvRate_n.Content = cs.swSpecialAttackEv.ToString();
 
 
-                if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Text = ""; }
-                else if (cs.swEnch == false) SW_btn.Text = "";
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Text = "+" + ItemEnch_cb.Text; }
-                else SW_btn.Text = ItemEnch_cb.Text;
+                if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Content = ""; }
+                else if (cs.swEnch == false) SW_btn.Content = "";
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.Text; }
+                else SW_btn.Content = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Sub-Weapons
             LoadItemCaph_cb();
         }
-        private void ItemCaph_cb_SelectedIndexChanged(object sender, EventArgs e)
+        private void ItemCaph_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cs.sgn == 7 | cs.sgn == 8 | cs.sgn == 9 | cs.sgn == 10)
             {
@@ -1827,7 +1868,7 @@ namespace BDHelper
             } // Weapons
         }
 
-        private void CharacterS_btn_Click(object sender, EventArgs e)
+     /*   private void CharacterS_btn_Click(object sender, EventArgs e)
         {
             CharacterS_gb.Visible = true;
             ShopS_gb.Visible = false;
@@ -2035,7 +2076,7 @@ namespace BDHelper
             if (rtChapter1_cb.Checked == true) { cs.cWeight += 6; cs.cMaxHP += 18; }
             else { cs.cWeight -= 6; cs.cMaxHP -= 18; }
             FillCharacterState();
-        }
+        } */
 
     }
 }

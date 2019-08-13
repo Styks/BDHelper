@@ -71,12 +71,42 @@ namespace BDHelper.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Armour {
+            get {
+                object obj = ResourceManager.GetObject("Armour", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AwakeningWeapon {
+            get {
+                object obj = ResourceManager.GetObject("AwakeningWeapon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
         internal static System.Drawing.Icon BDOB_Icon {
             get {
                 object obj = ResourceManager.GetObject("BDOB_Icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Belt {
+            get {
+                object obj = ResourceManager.GetObject("Belt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -93,9 +123,49 @@ namespace BDHelper.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Boots {
+            get {
+                object obj = ResourceManager.GetObject("Boots", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dark_Knight {
             get {
                 object obj = ResourceManager.GetObject("Dark_Knight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Earring {
+            get {
+                object obj = ResourceManager.GetObject("Earring", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gloves {
+            get {
+                object obj = ResourceManager.GetObject("Gloves", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Helmet {
+            get {
+                object obj = ResourceManager.GetObject("Helmet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +203,16 @@ namespace BDHelper.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MainWeapon {
+            get {
+                object obj = ResourceManager.GetObject("MainWeapon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Musa {
             get {
                 object obj = ResourceManager.GetObject("Musa", resourceCulture);
@@ -146,6 +226,16 @@ namespace BDHelper.Properties {
         internal static System.Drawing.Bitmap Mystic {
             get {
                 object obj = ResourceManager.GetObject("Mystic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Necklace {
+            get {
+                object obj = ResourceManager.GetObject("Necklace", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +273,16 @@ namespace BDHelper.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ring {
+            get {
+                object obj = ResourceManager.GetObject("Ring", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shai {
             get {
                 object obj = ResourceManager.GetObject("Shai", resourceCulture);
@@ -206,6 +306,16 @@ namespace BDHelper.Properties {
         internal static System.Drawing.Bitmap Striker {
             get {
                 object obj = ResourceManager.GetObject("Striker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SubWeapon {
+            get {
+                object obj = ResourceManager.GetObject("SubWeapon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
