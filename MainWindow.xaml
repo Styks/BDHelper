@@ -5,8 +5,128 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDHelper"
         mc:Ignorable="d"
-        Title="Black Desert Helper" Height="635" Width="790">
+        Title="Black Desert Helper" Height="635" Width="790" Icon="pack://siteoforigin:,,,/Resources/BDOB_Icon.ico">
     <Grid>
-
+        <Label Content="Select Class" HorizontalAlignment="Left" Margin="22,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="Selected Class" HorizontalAlignment="Left" Margin="672,21,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="Cimg_imgt" HorizontalAlignment="Left" Height="70" Margin="679,53,0,0" VerticalAlignment="Top" Width="70" Source="pack://siteoforigin:,,,/Resources/None.png"/>
+        <Button x:Name="GearForm_btn" Content="Gear" HorizontalAlignment="Left" Margin="679,174,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button x:Name="SkillTreeForm_btn" Content="Skill Tree" HorizontalAlignment="Left" Margin="679,202,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
+        <Button x:Name="CraftForm_btn" Content="Craft" HorizontalAlignment="Left" Margin="679,230,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
+        <Button x:Name="BuffTimerForm_btn" Content="Buff Timer" HorizontalAlignment="Left" Margin="679,258,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button x:Name="Warrior_btn" Content="" HorizontalAlignment="Left" Margin="23,53,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Warrior_btn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Warrior.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Sorceress_btn" Content="" HorizontalAlignment="Left" Margin="98,53,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Sorceress.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Berserker_btn" Content="" HorizontalAlignment="Left" Margin="173,53,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Berserker.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Ranger_btn" Content="" HorizontalAlignment="Left" Margin="248,53,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Ranger.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Tamer_btn" Content="" HorizontalAlignment="Left" Margin="23,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Tamer.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Valkyrie_btn" Content="" HorizontalAlignment="Left" Margin="98,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Valkyrie.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Musa_btn" Content="" HorizontalAlignment="Left" Margin="173,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Musa.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Maehwa_btn" Content="" HorizontalAlignment="Left" Margin="248,158,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Maehwa.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Witch_btn" Content="" HorizontalAlignment="Left" Margin="23,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Witch.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Wizard_btn" Content="" HorizontalAlignment="Left" Margin="98,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Wizard.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Kunoichi_btn" Content="" HorizontalAlignment="Left" Margin="173,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Kunoichi.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Ninja_btn" Content="" HorizontalAlignment="Left" Margin="248,262,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush Stretch="None" ImageSource="pack://siteoforigin:,,,/Resources/Ninja.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DK_btn" Content="" HorizontalAlignment="Left" Margin="23,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Dark Knight.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Striker_btn" Content="" HorizontalAlignment="Left" Margin="98,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Striker.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Mystic_btn" Content="" HorizontalAlignment="Left" Margin="173,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Mystic.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Lahn_btn" Content="" HorizontalAlignment="Left" Margin="248,366,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Lahn.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Archer_btn" Content="" HorizontalAlignment="Left" Margin="23,477,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Archer.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Shai_btn" Content="" HorizontalAlignment="Left" Margin="98,477,0,0" VerticalAlignment="Top" Width="70" Height="70">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Shai.png" Stretch="None"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Warrior" HorizontalAlignment="Left" Margin="32,121,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sorceress" HorizontalAlignment="Left" Margin="102,121,0,0" VerticalAlignment="Top"/>
+        <Label Content="Berserker" HorizontalAlignment="Left" Margin="177,121,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ranger" HorizontalAlignment="Left" Margin="259,121,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tamer" HorizontalAlignment="Left" Margin="36,225,0,0" VerticalAlignment="Top"/>
+        <Label Content="Valkyrie" HorizontalAlignment="Left" Margin="107,225,0,0" VerticalAlignment="Top"/>
+        <Label Content="Musa" HorizontalAlignment="Left" Margin="187,225,0,0" VerticalAlignment="Top"/>
+        <Label Content="Maehwa" HorizontalAlignment="Left" Margin="256,226,0,0" VerticalAlignment="Top"/>
+        <Label Content="Witch" HorizontalAlignment="Left" Margin="36,328,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wizard" HorizontalAlignment="Left" Margin="109,328,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kunoichi" HorizontalAlignment="Left" Margin="180,328,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ninja" HorizontalAlignment="Left" Margin="264,329,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dark Knight" HorizontalAlignment="Left" Margin="22,432,0,0" VerticalAlignment="Top"/>
+        <Label Content="Striker" HorizontalAlignment="Left" Margin="110,432,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mystic" HorizontalAlignment="Left" Margin="185,432,0,0" VerticalAlignment="Top"/>
+        <Label Content="Lahn" HorizontalAlignment="Left" Margin="264,433,0,0" VerticalAlignment="Top"/>
+        <Label Content="Archer" HorizontalAlignment="Left" Margin="36,545,0,0" VerticalAlignment="Top"/>
+        <Label Content="Shai" HorizontalAlignment="Left" Margin="117,545,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Sclass_lbl" Content="None" HorizontalAlignment="Left" Margin="694,121,0,0" VerticalAlignment="Top"/>
+        <Rectangle x:Name="Cimg_img" HorizontalAlignment="Left" Height="70" Margin="586,53,0,0" Stroke="Black" VerticalAlignment="Top" Width="70">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/None.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </Window>

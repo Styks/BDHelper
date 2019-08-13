@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -93,6 +94,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\None.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BDOB_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Archer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Berserker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark Knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kunoichi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lahn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maehwa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Musa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mystic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ninja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ranger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sorceress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Striker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tamer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Valkyrie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warrior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Witch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wizard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
