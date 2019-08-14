@@ -121,7 +121,7 @@
         <Label Content="Lahn" HorizontalAlignment="Left" Margin="264,433,0,0" VerticalAlignment="Top"/>
         <Label Content="Archer" HorizontalAlignment="Left" Margin="36,545,0,0" VerticalAlignment="Top"/>
         <Label Content="Shai" HorizontalAlignment="Left" Margin="117,545,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Sclass_lbl" Content="None" HorizontalAlignment="Left" Margin="694,121,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Sclass_lbl" Content="None" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="678,119,0,0" VerticalAlignment="Top" Width="74"/>
         <Rectangle x:Name="Cimg_img" HorizontalAlignment="Left" Height="70" Margin="680,53,0,0" Stroke="Black" VerticalAlignment="Top" Width="70">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Resources/None.png"/>

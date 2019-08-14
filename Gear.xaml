@@ -22,7 +22,7 @@
                         <ImageBrush ImageSource="Resources/Helmet.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Label x:Name="Sclass_lbl" Content="None" HorizontalAlignment="Left" Margin="162,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.793,0.479" Width="70" FontFamily="Microsoft Sans Serif" UseLayoutRounding="False" Background="{x:Null}"/>
+                <Label x:Name="Sclass_lbl" Content="None" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="159,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.793,0.479" Width="74" FontFamily="Microsoft Sans Serif" UseLayoutRounding="False" Background="{x:Null}"/>
                 <Rectangle x:Name="Cimg_img" HorizontalAlignment="Left" Height="70" Margin="161,114,0,0" Stroke="Black" VerticalAlignment="Top" Width="70">
                     <Rectangle.Fill>
                         <ImageBrush ImageSource="Resources/None.png"/>
@@ -89,21 +89,21 @@
                     </Button.Background>
                 </Button>
                 <Button x:Name="AS_btn" Content="" HorizontalAlignment="Left" Margin="178,221,0,0" VerticalAlignment="Top" Width="40" Height="40" Background="{x:Null}" Click="AS_btn_Click"/>
-                <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="161,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysH2_btn" Content="" HorizontalAlignment="Left" Margin="161,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysA1_btn" Content="" HorizontalAlignment="Left" Margin="210,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysA2_btn" Content="" HorizontalAlignment="Left" Margin="210,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysG1_btn" Content="" HorizontalAlignment="Left" Margin="284,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysG2_btn" Content="" HorizontalAlignment="Left" Margin="284,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysB1_btn" Content="" HorizontalAlignment="Left" Margin="90,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysB2_btn" Content="" HorizontalAlignment="Left" Margin="90,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysSW1_btn" Content="" HorizontalAlignment="Left" Margin="233,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysSW2_btn" Content="" HorizontalAlignment="Left" Margin="255,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysMW1_btn" Content="" HorizontalAlignment="Left" Margin="118,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
-                <Button x:Name="CrysMW2_btn" Content="" HorizontalAlignment="Left" Margin="140,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="Armour_btn_Click" Background="{x:Null}"/>
+                <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="161,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysH2_btn" Content="" HorizontalAlignment="Left" Margin="161,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysA1_btn" Content="" HorizontalAlignment="Left" Margin="210,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysA2_btn" Content="" HorizontalAlignment="Left" Margin="210,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysG1_btn" Content="" HorizontalAlignment="Left" Margin="284,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysG2_btn" Content="" HorizontalAlignment="Left" Margin="284,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysB1_btn" Content="" HorizontalAlignment="Left" Margin="90,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysB2_btn" Content="" HorizontalAlignment="Left" Margin="90,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysSW1_btn" Content="" HorizontalAlignment="Left" Margin="233,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysSW2_btn" Content="" HorizontalAlignment="Left" Margin="255,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysMW1_btn" Content="" HorizontalAlignment="Left" Margin="118,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysMW2_btn" Content="" HorizontalAlignment="Left" Margin="140,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
             </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="860" Margin="793,10,0,0" VerticalAlignment="Top" Width="476">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="860" Margin="732,10,0,0" VerticalAlignment="Top" Width="476">
             <Grid Margin="9">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -225,7 +225,7 @@
                 <Label x:Name="iGathDropRate_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,726,0,0" RenderTransformOrigin="-1.312,0.654"/>
             </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="491" Margin="10,379,0,0" VerticalAlignment="Top" Width="778">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="491" Margin="10,379,0,0" VerticalAlignment="Top" Width="717">
             <Grid Margin="9">
                 <Label x:Name="cAP_lbl" Content="AP" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Label x:Name="cAAP_lbl" Content="AAP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
@@ -329,6 +329,49 @@
                 <Label x:Name="iGathering_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1111,327,-369,0" RenderTransformOrigin="-1.312,0.654"/>
                 <Label Content="Fishing" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1059,301,-348,0" RenderTransformOrigin="0.563,0.308"/>
                 <Label x:Name="iFishing_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1111,301,-369,0" RenderTransformOrigin="-1.312,0.654"/>
+            </Grid>
+        </Border>
+        <Button x:Name="CharacterS_btn" Content="Character" HorizontalAlignment="Left" Margin="408,10,0,0" VerticalAlignment="Top" Width="76" Background="White" Click="CharacterS_btn_Click"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="570,10,0,0" VerticalAlignment="Top" Width="76" Background="White" IsEnabled="False"/>
+        <Button x:Name="JournalsS_btn" Content="Journals" HorizontalAlignment="Left" Margin="489,10,0,0" VerticalAlignment="Top" Width="76" Background="White" Click="JournalsS_btn_Click"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="651,10,0,0" VerticalAlignment="Top" Width="76" Background="White" IsEnabled="False"/>
+        <Border x:Name="CharacterS_border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="339" Margin="408,35,0,0" VerticalAlignment="Top" Width="319">
+            <Grid x:Name="CharacterS_grid" Margin="9">
+                <CheckBox x:Name="dpLvl_cb" Content="56 Lvl (+1 DP)" HorizontalAlignment="Left" Margin="12,50,0,0" VerticalAlignment="Top" Checked="DpLvl_cb_Checked" Unchecked="DpLvl_cb_Checked"/>
+                <CheckBox x:Name="apLvl_cb" Content="60 Lvl (+1 AP)" HorizontalAlignment="Left" Margin="12,70,0,0" VerticalAlignment="Top" Checked="ApLvl_cb_Checked" Unchecked="ApLvl_cb_Checked"/>
+                <Label x:Name="CharSet_lbl" Content="Character Settings:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                <Label x:Name="Breath_lbl" Content="Breath" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Breath_tb" HorizontalAlignment="Left" Height="23" Margin="65,108,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="40" TextAlignment="Center" UndoLimit="2" PreviewTextInput="Breath_tb_PreviewTextInput" TextChanged="Breath_tb_TextChanged"/>
+                <Label x:Name="Strength_lbl" Content="Strength" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Strength_tb" HorizontalAlignment="Left" Height="23" Margin="65,136,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="40" TextAlignment="Center" UndoLimit="2" PreviewTextInput="Strength_tb_PreviewTextInput" TextChanged="Strength_tb_TextChanged"/>
+                <Label x:Name="Health_lbl" Content="Health" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Health_tb" HorizontalAlignment="Left" Height="23" Margin="65,164,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="40" TextAlignment="Center" UndoLimit="2" PreviewTextInput="Health_tb_PreviewTextInput" TextChanged="Health_tb_TextChanged"/>
+                <CheckBox x:Name="Underwear_cb" Content="Underwear" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.962,-0.267" Checked="Underwear_cb_Checked" Unchecked="Underwear_cb_Checked"/>
+                <Button x:Name="ShopCrystal_btn" Content="" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" Width="30" Height="30" Background="White" IsEnabled="False"/>
+                <Label x:Name="SCrystal_lbl" Content="Shop Crystal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,263,0,0"/>
+            </Grid>
+        </Border>
+        <Border x:Name="JournalsS_border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="319" Margin="1245,23,0,0">
+            <Grid x:Name="JournalsS_grid" Margin="9">
+                <CheckBox x:Name="ibChapter1_cb" Content="Chapter 1" HorizontalAlignment="Left" Margin="30,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter1_cb_Checked" Unchecked="IbChapter1_cb_Checked"/>
+                <Label x:Name="JournalsS1_lbl" Content="Igor Bartali's Adventure Log" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="ibChapter2_cb" Content="Chapter 2" HorizontalAlignment="Left" Margin="30,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter2_cb_Checked" Unchecked="IbChapter2_cb_Checked"/>
+                <CheckBox x:Name="ibChapter3_cb" Content="Chapter 3" HorizontalAlignment="Left" Margin="30,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter3_cb_Checked" Unchecked="IbChapter3_cb_Checked"/>
+                <CheckBox x:Name="ibChapter4_cb" Content="Chapter 4" HorizontalAlignment="Left" Margin="30,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter4_cb_Checked" Unchecked="IbChapter4_cb_Checked"/>
+                <CheckBox x:Name="ibChapter5_cb" Content="Chapter 5" HorizontalAlignment="Left" Margin="30,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter5_cb_Checked" Unchecked="IbChapter5_cb_Checked"/>
+                <CheckBox x:Name="ibChapter6_cb" Content="Chapter 6" HorizontalAlignment="Left" Margin="107,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter6_cb_Checked" Unchecked="IbChapter6_cb_Checked"/>
+                <CheckBox x:Name="ibChapter7_cb" Content="Chapter 7" HorizontalAlignment="Left" Margin="107,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter7_cb_Checked" Unchecked="IbChapter7_cb_Checked"/>
+                <CheckBox x:Name="ibChapter8_cb" Content="Chapter 8" HorizontalAlignment="Left" Margin="107,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter8_cb_Checked" Unchecked="IbChapter8_cb_Checked"/>
+                <CheckBox x:Name="ibChapter9_cb" Content="Chapter 9" HorizontalAlignment="Left" Margin="107,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter9_cb_Checked" Unchecked="IbChapter9_cb_Checked"/>
+                <CheckBox x:Name="ibChapter10_cb" Content="Chapter 10" HorizontalAlignment="Left" Margin="107,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter10_cb_Checked" Unchecked="IbChapter10_cb_Checked"/>
+                <CheckBox x:Name="ibChapter11_cb" Content="Chapter 11" HorizontalAlignment="Left" Margin="190,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
+                <CheckBox x:Name="ibChapter12_cb" Content="Chapter 12" HorizontalAlignment="Left" Margin="190,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
+                <CheckBox x:Name="ibChapter13_cb" Content="Chapter 13" HorizontalAlignment="Left" Margin="190,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
+                <CheckBox x:Name="ibChapter14_cb" Content="Chapter 14" HorizontalAlignment="Left" Margin="190,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
+                <CheckBox x:Name="ibChapter15_cb" Content="Chapter 15" HorizontalAlignment="Left" Margin="190,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
+                <Label x:Name="JournalsS2_lbl" Content="Rulupee's Travel Log" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="ibCheckAll_cb" Content="Check All" HorizontalAlignment="Left" Margin="30,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbCheckAll_cb_Checked" Unchecked="IbCheckAll_cb_Checked"/>
+                <CheckBox x:Name="rtChapter1_cb" Content="Chapter 1" HorizontalAlignment="Left" Margin="27,243,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="RtChapter1_cb_Checked" Unchecked="RtChapter1_cb_Checked"/>
             </Grid>
         </Border>
 

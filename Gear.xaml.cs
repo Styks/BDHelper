@@ -73,14 +73,11 @@ namespace BDHelper
             Cimg_img.Fill = cimg;
             if (sclass == "Shai") { cMistyHev_lbl.Visibility = Visibility.Visible; cMistyHev_n.Visibility = Visibility.Visible; cMistyHdp_lbl.Visibility = Visibility.Visible; cMistyHdp_n.Visibility = Visibility.Visible; cDelusLmvs_lbl.Visibility = Visibility.Visible; cDelusLmvs_n.Visibility = Visibility.Visible; cSunMoon_lbl.Visibility = Visibility.Visible; cSunMoon_n.Visibility = Visibility.Visible; }
             else { cMistyHev_lbl.Visibility = Visibility.Hidden; cMistyHev_n.Visibility = Visibility.Hidden; cMistyHdp_lbl.Visibility = Visibility.Hidden; cMistyHdp_n.Visibility = Visibility.Hidden; cDelusLmvs_lbl.Visibility = Visibility.Hidden; cDelusLmvs_n.Visibility = Visibility.Hidden; cSunMoon_lbl.Visibility = Visibility.Hidden; cSunMoon_n.Visibility = Visibility.Hidden; }
-            ////////// Edit ComboBox
-         // this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-         // this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
-            //////////
             ItemCaph_cb.Visibility = Visibility.Hidden;
             Caph_lbl.Visibility = Visibility.Hidden;
             ItemEnch_cb.Visibility = Visibility.Hidden;
             Ench_lbl.Visibility = Visibility.Hidden;
+            JournalsS_border.Visibility = Visibility.Hidden;
         }
         private void FillCharacterState()
         {
@@ -395,37 +392,37 @@ namespace BDHelper
         }
 
         //Lvl Bonus
-  /*      private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
+        private void DpLvl_cb_Checked(object sender, RoutedEventArgs e)
         {
             int lvlDP = 1;
-            if (dpLvl_cb.Checked == true)
+            if (dpLvl_cb.IsChecked == true)
             {
-                cDP_n.Text = Convert.ToString(cs.cdp + lvlDP);
+                cDP_n.Content = Convert.ToString(cs.cdp + lvlDP);
             }
             else
             {
-                cDP_n.Text = Convert.ToString(cs.cdp - lvlDP);
+                cDP_n.Content = Convert.ToString(cs.cdp - lvlDP);
             }
-            cs.cdp = Convert.ToInt32(cDP_n.Text);
+            cs.cdp = Convert.ToInt32(cDP_n.Content);
         }
 
-        private void ApLvl_cb_CheckedChanged(object sender, EventArgs e)
+        private void ApLvl_cb_Checked(object sender, RoutedEventArgs e)
         {
             int lvlAP = 1;
             int lvlAAP = 1;
-            if (apLvl_cb.Checked == true)
+            if (apLvl_cb.IsChecked == true)
             {
-                cAP_n.Text = Convert.ToString(cs.cap + lvlAP);
-                cAAP_n.Text = Convert.ToString(cs.caap + lvlAAP);
+                cAP_n.Content = Convert.ToString(cs.cap + lvlAP);
+                cAAP_n.Content = Convert.ToString(cs.caap + lvlAAP);
             }
             else
             {
-                cAP_n.Text = Convert.ToString(cs.cap - lvlAP);
-                cAAP_n.Text = Convert.ToString(cs.caap - lvlAAP);
+                cAP_n.Content = Convert.ToString(cs.cap - lvlAP);
+                cAAP_n.Content = Convert.ToString(cs.caap - lvlAAP);
             }
-            cs.cap = Convert.ToInt32(cAP_n.Text);
-            cs.caap = Convert.ToInt32(cAAP_n.Text);
-        } */
+            cs.cap = Convert.ToInt32(cAP_n.Content);
+            cs.caap = Convert.ToInt32(cAAP_n.Content);
+        }
 
 
         //Item buttons
@@ -1796,32 +1793,20 @@ namespace BDHelper
             } // Weapons
         }
 
-     /*   private void CharacterS_btn_Click(object sender, EventArgs e)
+        private void CharacterS_btn_Click(object sender, RoutedEventArgs e)
         {
-            CharacterS_gb.Visible = true;
-            ShopS_gb.Visible = false;
-            JournalsS_gb.Visible = false;
+            CharacterS_border.Visibility = Visibility.Visible;
+            JournalsS_border.Visibility = Visibility.Hidden;
         }
 
-        private void ShopS_btn_Click(object sender, EventArgs e)
+        private void JournalsS_btn_Click(object sender, RoutedEventArgs e)
         {
-            ShopS_gb.Visible = true;
-            ShopS_gb.Location = CharacterS_gb.Location;
-            ShopS_gb.Size = CharacterS_gb.Size;
-            CharacterS_gb.Visible = false;
-            JournalsS_gb.Visible = false;
+            JournalsS_border.Visibility = Visibility.Visible;
+            CharacterS_border.Visibility = Visibility.Hidden;
+            JournalsS_border.Margin = CharacterS_border.Margin;
         }
 
-        private void BooksS_btn_Click(object sender, EventArgs e)
-        {
-            JournalsS_gb.Visible = true;
-            JournalsS_gb.Location = CharacterS_gb.Location;
-            JournalsS_gb.Size = new Size(243, 322);
-            CharacterS_gb.Visible = false;
-            ShopS_gb.Visible = false;
-        }
-
-        private void Breath_tb_TextChanged(object sender, EventArgs e)
+        private void Breath_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (string.IsNullOrEmpty(Breath_tb.Text))
             {
@@ -1838,173 +1823,159 @@ namespace BDHelper
             if (Convert.ToInt32(Breath_tb.Text) > 40 & Convert.ToInt32(Breath_tb.Text) <= 50) { cs.cMaxST -= cs.tcsb; cs.tcsb = 20 * Convert.ToInt32(Breath_tb.Text) - 200; cs.cMaxST += cs.tcsb; }
             FillCharacterState();
         }
-        private void Breath_tb_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar)))
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-        private void Strength_tb_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(Strength_tb.Text))
-            {
-                Strength_tb.Text = "1";
-            }
-            if (Convert.ToInt32(Strength_tb.Text) > 50) { Strength_tb.Text = Convert.ToString(50); }
-            if (Convert.ToInt32(Strength_tb.Text) <= 0) { Strength_tb.Text = Convert.ToString(1); }
 
-            if (Convert.ToInt32(Strength_tb.Text) <= 10) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 2; cs.cWeight += cs.tcss; }
-            if (Convert.ToInt32(Strength_tb.Text) > 10 & Convert.ToInt32(Strength_tb.Text) < 20) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 8; cs.cWeight += cs.tcss; }
-            if (Convert.ToInt32(Strength_tb.Text) == 20) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 11; cs.cWeight += cs.tcss; }
-            if (Convert.ToInt32(Strength_tb.Text) > 20 & Convert.ToInt32(Strength_tb.Text) <= 28) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 9; cs.cWeight += cs.tcss; }
-            if (Convert.ToInt32(Strength_tb.Text) > 28 & Convert.ToInt32(Strength_tb.Text) <= 30) { cs.cWeight -= cs.tcss; cs.tcss = 1.5 * Convert.ToInt32(Strength_tb.Text) - 5; cs.cWeight += cs.tcss; }
-            if (Convert.ToInt32(Strength_tb.Text) > 30) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 20; cs.cWeight += cs.tcss; }
-            FillCharacterState();
-        }
-        private void Strength_tb_KeyPress(object sender, KeyPressEventArgs e)
+        private void Breath_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!(Char.IsDigit(e.KeyChar)))
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-        private void Health_tb_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(Health_tb.Text))
-            {
-                Health_tb.Text = "1";
-            }
-            if (Convert.ToInt32(Health_tb.Text) > 50) { Health_tb.Text = Convert.ToString(50); }
-            if (Convert.ToInt32(Health_tb.Text) <= 0) { Health_tb.Text = Convert.ToString(1); }
-            if (Convert.ToInt32(Health_tb.Text) <= 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-            if (Convert.ToInt32(Health_tb.Text) > 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; ; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 40; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-            if (Convert.ToInt32(Health_tb.Text) > 28 & Convert.ToInt32(Health_tb.Text) <= 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 100; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-            if (Convert.ToInt32(Health_tb.Text) > 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 50; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-            FillCharacterState();
-        }
-        private void Health_tb_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar)))
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-                    e.Handled = true;
-                }
-            }
+            if (!Char.IsDigit(e.Text, 0) |  Breath_tb.Text.Length > 2) e.Handled = true;
         }
 
-        private void Underwear_cb_CheckedChanged(object sender, EventArgs e)
+        private void Strength_tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+               if (string.IsNullOrEmpty(Strength_tb.Text))
+               {
+                   Strength_tb.Text = "1";
+               }
+               if (Convert.ToInt32(Strength_tb.Text) > 50) { Strength_tb.Text = Convert.ToString(50); }
+               if (Convert.ToInt32(Strength_tb.Text) <= 0) { Strength_tb.Text = Convert.ToString(1); }
+
+               if (Convert.ToInt32(Strength_tb.Text) <= 10) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 2; cs.cWeight += cs.tcss; }
+               if (Convert.ToInt32(Strength_tb.Text) > 10 & Convert.ToInt32(Strength_tb.Text) < 20) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 8; cs.cWeight += cs.tcss; }
+               if (Convert.ToInt32(Strength_tb.Text) == 20) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 11; cs.cWeight += cs.tcss; }
+               if (Convert.ToInt32(Strength_tb.Text) > 20 & Convert.ToInt32(Strength_tb.Text) <= 28) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 9; cs.cWeight += cs.tcss; }
+               if (Convert.ToInt32(Strength_tb.Text) > 28 & Convert.ToInt32(Strength_tb.Text) <= 30) { cs.cWeight -= cs.tcss; cs.tcss = 1.5 * Convert.ToInt32(Strength_tb.Text) - 5; cs.cWeight += cs.tcss; }
+               if (Convert.ToInt32(Strength_tb.Text) > 30) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 20; cs.cWeight += cs.tcss; }
+               FillCharacterState();
+        }
+        private void Strength_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0) | Strength_tb.Text.Length > 2) e.Handled = true;
+        }
+        private void Health_tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+               if (string.IsNullOrEmpty(Health_tb.Text))
+               {
+                   Health_tb.Text = "1";
+               }
+               if (Convert.ToInt32(Health_tb.Text) > 50) { Health_tb.Text = Convert.ToString(50); }
+               if (Convert.ToInt32(Health_tb.Text) <= 0) { Health_tb.Text = Convert.ToString(1); }
+               if (Convert.ToInt32(Health_tb.Text) <= 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+               if (Convert.ToInt32(Health_tb.Text) > 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; ; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 40; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+               if (Convert.ToInt32(Health_tb.Text) > 28 & Convert.ToInt32(Health_tb.Text) <= 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 100; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+               if (Convert.ToInt32(Health_tb.Text) > 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 50; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+               FillCharacterState();
+        }
+        private void Health_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!Char.IsDigit(e.Text, 0) | Health_tb.Text.Length > 2) e.Handled = true;
+        }
+
+        private void Underwear_cb_Checked(object sender, RoutedEventArgs e)
         {
             int uwluck = 1;
-            if (Underwear_cb.Checked == true) { cLuck_n.Text = Convert.ToString(cs.cluck + uwluck); }
-            else { cLuck_n.Text = Convert.ToString(cs.cluck - uwluck); }
-            cs.cluck = Convert.ToInt32(cLuck_n.Text);
+            if (Underwear_cb.IsChecked == true) { cLuck_n.Content = Convert.ToString(cs.cluck + uwluck); }
+            else { cLuck_n.Content = Convert.ToString(cs.cluck - uwluck); }
+            cs.cluck = Convert.ToInt32(cLuck_n.Content);
+            
         }
 
         //IB journal
-        private void IbCheckAll_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbCheckAll_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibCheckAll_cb.Checked == true)
+            if (ibCheckAll_cb.IsChecked == true)
             {
-                ibChapter1_cb.Checked = true;
-                ibChapter2_cb.Checked = true;
-                ibChapter3_cb.Checked = true;
-                ibChapter4_cb.Checked = true;
-                ibChapter5_cb.Checked = true;
-                ibChapter6_cb.Checked = true;
-                ibChapter7_cb.Checked = true;
-                ibChapter8_cb.Checked = true;
-                ibChapter9_cb.Checked = true;
-                ibChapter10_cb.Checked = true;
+                ibChapter1_cb.IsChecked = true;
+                ibChapter2_cb.IsChecked = true;
+                ibChapter3_cb.IsChecked = true;
+                ibChapter4_cb.IsChecked = true;
+                ibChapter5_cb.IsChecked = true;
+                ibChapter6_cb.IsChecked = true;
+                ibChapter7_cb.IsChecked = true;
+                ibChapter8_cb.IsChecked = true;
+                ibChapter9_cb.IsChecked = true;
+                ibChapter10_cb.IsChecked = true;
             }
             else
             {
-                ibChapter1_cb.Checked = false;
-                ibChapter2_cb.Checked = false;
-                ibChapter3_cb.Checked = false;
-                ibChapter4_cb.Checked = false;
-                ibChapter5_cb.Checked = false;
-                ibChapter6_cb.Checked = false;
-                ibChapter7_cb.Checked = false;
-                ibChapter8_cb.Checked = false;
-                ibChapter9_cb.Checked = false;
-                ibChapter10_cb.Checked = false;
+                ibChapter1_cb.IsChecked = false;
+                ibChapter2_cb.IsChecked = false;
+                ibChapter3_cb.IsChecked = false;
+                ibChapter4_cb.IsChecked = false;
+                ibChapter5_cb.IsChecked = false;
+                ibChapter6_cb.IsChecked = false;
+                ibChapter7_cb.IsChecked = false;
+                ibChapter8_cb.IsChecked = false;
+                ibChapter9_cb.IsChecked = false;
+                ibChapter10_cb.IsChecked = false;
             }
         }
-        private void IbChapter1_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter1_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter1_cb.Checked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; }
+            if (ibChapter1_cb.IsChecked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cMaxHP -= 6; cs.cMaxST -= 5; }
             FillCharacterState();
         }
-        private void IbChapter2_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter2_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter2_cb.Checked == true) { cs.cWeight += 4; cs.cacc += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
+            if (ibChapter2_cb.IsChecked == true) { cs.cWeight += 4; cs.cacc += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cWeight -= 4; cs.cacc -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
             FillCharacterState();
         }
-        private void IbChapter3_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter3_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter3_cb.Checked == true) { cs.cWeight += 2; cs.cdp += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
+            if (ibChapter3_cb.IsChecked == true) { cs.cWeight += 2; cs.cdp += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cWeight -= 2; cs.cdp -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
             FillCharacterState();
         }
-        private void IbChapter4_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter4_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter4_cb.Checked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; cs.cev += 2; }
+            if (ibChapter4_cb.IsChecked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; cs.cev += 2; }
             else { cs.cMaxHP -= 6; cs.cMaxST -= 5; cs.cev -= 2; }
             FillCharacterState();
         }
-        private void IbChapter5_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter5_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter5_cb.Checked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
+            if (ibChapter5_cb.IsChecked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
             else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
             FillCharacterState();
         }
-        private void IbChapter6_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter6_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter6_cb.Checked == true) { cs.cap += 1; cs.cacc += 1; cs.cMaxHP += 8; cs.cMaxST += 5; }
+            if (ibChapter6_cb.IsChecked == true) { cs.cap += 1; cs.cacc += 1; cs.cMaxHP += 8; cs.cMaxST += 5; }
             else { cs.cap -= 1; cs.cacc -= 1; cs.cMaxHP -= 8; cs.cMaxST -= 5; }
             FillCharacterState();
         }
-        private void IbChapter7_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter7_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter7_cb.Checked == true) { cs.cWeight += 5; cs.cMaxHP += 6; cs.cMaxST += 10; }
+            if (ibChapter7_cb.IsChecked == true) { cs.cWeight += 5; cs.cMaxHP += 6; cs.cMaxST += 10; }
             else { cs.cWeight -= 5; cs.cMaxHP -= 6; cs.cMaxST -= 10; }
             FillCharacterState();
         }
-        private void IbChapter8_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter8_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter8_cb.Checked == true) { cs.cWeight += 2; cs.cacc += 2; cs.cMaxHP += 14; cs.cev += 1; }
+            if (ibChapter8_cb.IsChecked == true) { cs.cWeight += 2; cs.cacc += 2; cs.cMaxHP += 14; cs.cev += 1; }
             else { cs.cWeight -= 2; cs.cacc -= 2; cs.cMaxHP -= 14; cs.cev -= 1; }
             FillCharacterState();
         }
-        private void IbChapter9_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter9_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter9_cb.Checked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
+            if (ibChapter9_cb.IsChecked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
             else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
             FillCharacterState();
         }
-        private void IbChapter10_cb_CheckedChanged(object sender, EventArgs e)
+        private void IbChapter10_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter10_cb.Checked == true) { cs.cev += 2; cs.cMaxHP += 6; cs.cMaxST += 5; }
+            if (ibChapter10_cb.IsChecked == true) { cs.cev += 2; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cev -= 2; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
             FillCharacterState();
         }
         //RT journal
-        private void RtChapter1_cb_CheckedChanged(object sender, EventArgs e)
+        private void RtChapter1_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (rtChapter1_cb.Checked == true) { cs.cWeight += 6; cs.cMaxHP += 18; }
+            if (rtChapter1_cb.IsChecked == true) { cs.cWeight += 6; cs.cMaxHP += 18; }
             else { cs.cWeight -= 6; cs.cMaxHP -= 18; }
             FillCharacterState();
-        } */
+        }
+
 
     }
 }
