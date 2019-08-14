@@ -192,11 +192,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";        
-            //SelectGear_cb.DataSource = ds.Tables[0];
-            //SelectGear_cb.DisplayMember = "Name";
-            //SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Belts", cs.beltId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.beltId;
@@ -212,11 +207,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-            // SelectGear_cb.DataSource = ds.Tables[0];
-            // SelectGear_cb.DisplayMember = "Name";
-            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Neck", cs.neckId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.neckId;
@@ -232,11 +222,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Rings", cs.ring1Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring1Id;
@@ -252,11 +237,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Rings", cs.ring2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring2Id;
@@ -272,11 +252,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-            // SelectGear_cb.DataSource = ds.Tables[0];
-            // SelectGear_cb.DisplayMember = "Name";
-            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Earrings", cs.ear1Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear1Id;
@@ -292,11 +267,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Earrings", cs.ear2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear2Id;
@@ -312,11 +282,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-            // SelectGear_cb.DataSource = ds.Tables[0];
-            // SelectGear_cb.DisplayMember = "Name";
-            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Armors", cs.armId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.armId;
@@ -332,11 +297,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Helmets", cs.helId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.helId;
@@ -352,11 +312,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-            // SelectGear_cb.DataSource = ds.Tables[0];
-            // SelectGear_cb.DisplayMember = "Name";
-            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Gloves", cs.glovId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.glovId;
@@ -372,11 +327,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Shoes", cs.shId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.shId;
@@ -392,11 +342,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load(sclass.ToString() + " Awakening Weapons", cs.awkId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.awkId;
@@ -412,11 +357,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-            // SelectGear_cb.DataSource = ds.Tables[0];
-            // SelectGear_cb.DisplayMember = "Name";
-            // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load(chWeapon.ToString() + " Main Weapon", cs.mwId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.mwId;
@@ -432,11 +372,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load(chSubWeapon.ToString() + " Sub-Weapons", cs.swId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.swId;
@@ -452,11 +387,6 @@ namespace BDHelper
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            SelectGear_cb.DisplayMemberPath = "Name";
-            SelectGear_cb.SelectedValuePath = "Id";
-           // SelectGear_cb.DataSource = ds.Tables[0];
-           // SelectGear_cb.DisplayMember = "Name";
-           // SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Alchemy Stones", cs.asId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.asId;
@@ -616,7 +546,7 @@ namespace BDHelper
                 LoadItemCaph_cb();
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Belt_btn.BackgroundImage = Item_image.Image;
+                Belt_btn.Background = new ImageBrush(Item_img.Source);
                 cs.BeltState();
                 if (cs.beltEnch == false) Belt_btn.Content = "";
 
@@ -669,7 +599,7 @@ namespace BDHelper
                 LoadItemCaph_cb();
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Necklace_btn.BackgroundImage = Item_image.Image;
+                Necklace_btn.Background = new ImageBrush(Item_img.Source);
                 cs.NeckState();
                 if (cs.neckEnch == false) Necklace_btn.Content = "";
 
@@ -729,7 +659,7 @@ namespace BDHelper
 
                 cs.Type = "Rings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Ring1_btn.BackgroundImage = Item_image.Image;
+                Ring1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.Ring1State();
                 if (cs.ring1Ench == false) Ring1_btn.Content = "";
 
@@ -791,7 +721,7 @@ namespace BDHelper
 
                 cs.Type = "Rings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Ring2_btn.BackgroundImage = Item_image.Image;
+                Ring2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.Ring2State();
                 if (cs.ring2Ench == false) Ring2_btn.Content = "";
 
@@ -848,7 +778,7 @@ namespace BDHelper
 
                 cs.Type = "Earrings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Earring1_btn.BackgroundImage = Item_image.Image;
+                Earring1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.Earring1State();
                 if (cs.ear1Ench == false) Earring1_btn.Content = "";
 
@@ -900,7 +830,7 @@ namespace BDHelper
 
                 cs.Type = "Earrings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Earring2_btn.BackgroundImage = Item_image.Image;
+                Earring2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.Earring2State();
                 if (cs.ear2Ench == false) Earring2_btn.Content = "";
 
@@ -954,7 +884,7 @@ namespace BDHelper
 
                 cs.Type = "Armors";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Armour_btn.BackgroundImage = Item_image.Image;
+                Armour_btn.Background = new ImageBrush(Item_img.Source);
                 cs.ArmorState();
                 if (cs.armEnch == false) Armour_btn.Content = "";
 
@@ -1011,7 +941,7 @@ namespace BDHelper
 
                 cs.Type = "Helmets";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Helmet_btn.BackgroundImage = Item_image.Image;
+                Helmet_btn.Background = new ImageBrush(Item_img.Source);
                 cs.HelmetState();
                 if (cs.helEnch == false) Helmet_btn.Content = "";
 
@@ -1068,7 +998,7 @@ namespace BDHelper
 
                 cs.Type = "Gloves";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Gloves_btn.BackgroundImage = Item_image.Image;
+                Gloves_btn.Background = new ImageBrush(Item_img.Source);
                 cs.GlovesState();
                 if (cs.glovEnch == false) Gloves_btn.Content = "";
 
@@ -1122,7 +1052,7 @@ namespace BDHelper
 
                 cs.Type = "Shoes";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //Boots_btn.BackgroundImage = Item_image.Image;
+                Boots_btn.Background = new ImageBrush(Item_img.Source);
                 cs.ShoesState();
                 if (cs.shEnch == false) Boots_btn.Content = "";
                 if (cs.shEnch == true && SelectGear_cb.SelectedIndex == cs.shId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.shEnchLvl = TempEnchLvl; }
@@ -1195,7 +1125,7 @@ namespace BDHelper
 
                 cs.Type = "" + sclass + " Awakening Weapons";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //AW_btn.BackgroundImage = Item_image.Image;
+                AW_btn.Background = new ImageBrush(Item_img.Source);
                 cs.AwakeningState(sclass);
                 if (cs.awkEnch == false) AW_btn.Content = "";
 
@@ -1247,7 +1177,7 @@ namespace BDHelper
 
                 cs.Type = "" + chWeapon + " Main Weapon";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //MW_btn.BackgroundImage = Item_image.Image;
+                MW_btn.Background = new ImageBrush(Item_img.Source);
                 cs.MainWeaponState(chWeapon);
                 if (cs.mwEnch == false) MW_btn.Content = "";
 
@@ -1307,7 +1237,7 @@ namespace BDHelper
 
                 cs.Type = "" + chSubWeapon + " Sub-Weapons";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //SW_btn.BackgroundImage = Item_image.Image;
+                SW_btn.Background = new ImageBrush(Item_img.Source);
                 cs.SubWeaponState(chSubWeapon);
                 if (cs.swEnch == false) SW_btn.Content = "";
 
@@ -1371,7 +1301,7 @@ namespace BDHelper
 
                 cs.Type = "Alchemy Stones";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                //AS_btn.BackgroundImage = Item_image.Image;
+                AS_btn.Background = new ImageBrush(Item_img.Source);
                 cs.AlchemyStoneState();
                 if (cs.asEnch == false) AS_btn.Content = "";
 
@@ -1473,10 +1403,8 @@ namespace BDHelper
             }
             else
             {
-                ItemCaph_cb.Visibility = Visibility.Visible;
-                Caph_lbl.Visibility = Visibility.Visible;
-                string[] CaphArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
-                ItemCaph_cb.ItemsSource = CaphArmor;
+                ItemCaph_cb.Visibility = Visibility.Hidden;
+                Caph_lbl.Visibility = Visibility.Hidden;
             }
             if (cs.sgn == 7) ItemCaph_cb.SelectedIndex = cs.armCaphLvl;
             if (cs.sgn == 8) ItemCaph_cb.SelectedIndex = cs.helCaphLvl;
@@ -1508,7 +1436,7 @@ namespace BDHelper
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
                 else if (cs.beltEnch == false) Belt_btn.Content = "";
-                else { Belt_btn.Content = ItemEnch_cb.Text; }
+                else  Belt_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
 
@@ -1536,7 +1464,7 @@ namespace BDHelper
                 iEDtoBack_n.Content = cs.neckBackDamage.ToString() + "%";
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Content = ""; }
-                else { Necklace_btn.Content = ItemEnch_cb.Text; }
+                else { Necklace_btn.Content = ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
 
@@ -1563,7 +1491,7 @@ namespace BDHelper
                 iSpiritRage_n.Content = Convert.ToString(cs.ring1SpiritRage) + "%";
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Content = ""; }
-                else { Ring1_btn.Content = ItemEnch_cb.Text; }
+                else { Ring1_btn.Content = ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } // Ring1
@@ -1589,7 +1517,7 @@ namespace BDHelper
                 iSpiritRage_n.Content = Convert.ToString(cs.ring2SpiritRage) + "%";
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Content = ""; }
-                else { Ring2_btn.Content = ItemEnch_cb.Text; }
+                else { Ring2_btn.Content = ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } //Ring2
@@ -1612,7 +1540,7 @@ namespace BDHelper
                 iExtraDamKama_n.Content = cs.ear1KamaDamage.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Content = ""; }
-                else { Earring1_btn.Content = ItemEnch_cb.Text; }
+                else { Earring1_btn.Content = ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } //Earring 1
@@ -1635,7 +1563,7 @@ namespace BDHelper
                 iExtraDamKama_n.Content = cs.ear2KamaDamage.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Content = ""; }
-                else { Earring2_btn.Content = ItemEnch_cb.Text; }
+                else { Earring2_btn.Content = ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } //Earring 2
@@ -1664,8 +1592,8 @@ namespace BDHelper
                 iMPR_n.Content = cs.armMPRecovery.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.Text; }
-                else Armour_btn.Content = ItemEnch_cb.Text;
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                else Armour_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } // Armor
@@ -1695,8 +1623,8 @@ namespace BDHelper
                 iLuck_n.Content = cs.helLuck.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.Text; }
-                else Helmet_btn.Content = ItemEnch_cb.Text;
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                else Helmet_btn.Content = ItemEnch_cb.SelectedValue;
                 FillCharacterState();
             } // Helmet
 
@@ -1724,8 +1652,8 @@ namespace BDHelper
                 iEDtA_n.Content = cs.glovDamage.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.Text; }
-                else Gloves_btn.Content = ItemEnch_cb.Text;
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                else Gloves_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Gloves
@@ -1751,8 +1679,8 @@ namespace BDHelper
                 iWeight_n.Content = cs.shWeight.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.Text; }
-                else Boots_btn.Content = ItemEnch_cb.Text;
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                else Boots_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Shoes
@@ -1774,8 +1702,8 @@ namespace BDHelper
                 iEAPa_n.Content = cs.awkAPagainst.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.Text; }
-                else AW_btn.Content = ItemEnch_cb.Text;
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                else AW_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Awakening Weapons
@@ -1803,8 +1731,8 @@ namespace BDHelper
                 iIgnoreResistance_n.Content = cs.mwIgnore.ToString();
 
                 if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.Text; }
-                else MW_btn.Content = ItemEnch_cb.Text;
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                else MW_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Main Weapons
@@ -1839,8 +1767,8 @@ namespace BDHelper
 
                 if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Content = ""; }
                 else if (cs.swEnch == false) SW_btn.Content = "";
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.Text; }
-                else SW_btn.Content = ItemEnch_cb.Text;
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                else SW_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Sub-Weapons

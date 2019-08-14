@@ -6,6 +6,14 @@
         xmlns:local="clr-namespace:BDHelper"
         mc:Ignorable="d"
         Title="Gear" Height="911" Width="1855" Icon="Resources/BDOB_Icon.ico" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <DataTemplate x:Key="cmbTemplate">
+            <WrapPanel Margin="0 -5 0 -5" Height="40">
+                <Image Width="20" Height="20" Stretch="Fill" Source="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,15,0"/>
+                <Label Content="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Foreground="{Binding Grade}"/>
+            </WrapPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="364" Margin="10,10,0,0" VerticalAlignment="Top" Width="393">
             <Grid Margin="-1,4,9,-1">
@@ -20,7 +28,7 @@
                         <ImageBrush ImageSource="Resources/None.png"/>
                     </Rectangle.Fill>
                 </Rectangle>
-                <Button x:Name="Armour_btn" Content="" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click">
+                <Button x:Name="Armour_btn" Content="" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click" FontSize="22" FontWeight="SemiBold">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Armour.png" Stretch="None"/>
                     </Button.Background>
@@ -100,7 +108,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ComboBox x:Name="SelectGear_cb" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="296" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="SelectGear_cb_SelectionChanged">
+                <ComboBox x:Name="SelectGear_cb" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" ItemTemplate="{StaticResource cmbTemplate}" Width="296" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="SelectGear_cb_SelectionChanged">
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF0F0F0" Offset="0"/>
