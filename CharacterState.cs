@@ -65,6 +65,33 @@ namespace BDHelper
         public int cGathDropRate; // Gathering Drop Rate
         public int cGathering; //Gathering level
         public int cFishing; //Fishing level
+        public int cCombatExp; //Combat EXP bonus
+        public int cSkillExp; //Skill EXP bonus
+
+        public int cEDtoAir; //Air extra damage
+        public int cEDtoCounter; //Counter extra damage
+        public int cEDtoDown; //Down extra damage
+        public int cGrapResistIgnore; // Ignore Graple Resistance
+        public int cKBResistIgnore; // Ignore Knockback Resistance
+        public int cKDResistIgnore; // Ignore KnockDown Resistance
+        public int cStunResistIgnore; // Ignore Stun Resistance
+        public int cSpeedAtkDmg; // Aditional Speed Atack Damage
+        public int cCritHitDmg; // Critical Hit Damage
+        public int cVisionRange; // Vision Range
+        public int cMagicDR; //Magic Damage Reduction    
+        public int cMeleeDR; //Melle Damage Reduction    
+        public int cRangeDR; //Range Damage Reduction    
+        public int cSiegeWeaponEvRate; //Siege Weapon Evasion Rate    
+
+        public int cMagicAP; //Magic AP    
+        public int cMelleAP; //Melle AP    
+        public int cRangeAP; //Range AP
+
+        public int cJump; // Jump Height
+        public int cFallDamage; // Fall Damage
+        public int cUnderwaterBreath; // Underwater Breathing 
+        public int cMaxEnergy; //Max Energy
+
 
         //Training
         public int tcsb; //Breath
@@ -562,6 +589,7 @@ namespace BDHelper
 
         //Armor stats
         public int armdp;// Armor DP
+        public int armGems; // Armor gems count
         public int armev;// Armor evasion
         public int armhev;// Armor hiden evasion
         public int armdr;// Armor damage reduction
@@ -596,6 +624,7 @@ namespace BDHelper
         public int armSB; //set bonus
 
         //Helmet stats
+        public int helGems;
         public int heldp;// Helmet DP
         public int helev;// Helmet evasion
         public int helhev;// Helmet hiden evasion
@@ -632,6 +661,7 @@ namespace BDHelper
         public int helDefLuck;
 
         //Gloves stats
+        public int glovGems;
         public int glovdp;// Gloves DP
         public int glovacc;// Gloves acc
         public int glovev;// Gloves evasion
@@ -665,6 +695,7 @@ namespace BDHelper
         public int glovDefDamage;
 
         //Shoes stats
+        public int shGems;
         public int shdp;// Shoes DP
         public int shev;// Shoes evasion
         public int shhev;// Shoes hiden evasion
@@ -731,6 +762,7 @@ namespace BDHelper
 
 
         //Main Weapons State
+        public int mwGems;
         public int mwId = 0;
         public bool mwEnch;
         public int mwEnchLvl = 0;
@@ -767,6 +799,7 @@ namespace BDHelper
 
         //Sub-Weapons State
         public int swId = 0;
+        public int swGems;
         public bool swEnch;
         public int swEnchLvl = 0;
         public int swCaphLvl = 0;
@@ -842,9 +875,543 @@ namespace BDHelper
         public int asAllRes;
         public int asDefAllRes;
 
+        //Weapon Magic Crystal - 1
+        public int wmcId = 0;
+        public string wmcType = "Weapon";
+        public int wmcCrit;
+        public int wmcDefCrit;
+        public int wmcCastSpeed;
+        public int wmcDefCastSpeed;
+        public int wmcAtkSpeed;
+        public int wmcDefAtkSpeed;
+        public int wmcHidenAP;
+        public int wmcDefHidenAP;
+        public int wmcIgnoreAll;
+        public int wmcDefIgnoreAll;
+        public int wmcAccuracy;
+        public int wmcDefAccuracy;
+        public int wmcDmgToHumans;
+        public int wmcDefDmgToHumans;
+        public int wmcDmgToDemi;
+        public int wmcDefDmgToDemi;
+        public int wmcWeight;
+        public int wmcDefWeight;
+        public int wmcAllRes;
+        public int wmcDefAllRes;
+        public int wmcMaxHP;
+        public int wmcDefMaxHP;
+        public int wmcMaxST;
+        public int wmcDefMaxST;
+        public int wmcDR;
+        public int wmcDefDR;
+        public int wmcLuck;
+        public int wmcDefLuck;
+        public int wmcCombatEXP;
+        public int wmcDefCombatEXP;
+        public int wmcSkillEXP;
+        public int wmcDefSkillEXP;
+
+        //Weapon Magic Crystal - 2
+        public int wmc2Id = 0;
+        public string wmc2Type = "Weapon";
+        public int wmc2Crit;
+        public int wmc2DefCrit;
+        public int wmc2CastSpeed;
+        public int wmc2DefCastSpeed;
+        public int wmc2AtkSpeed;
+        public int wmc2DefAtkSpeed;
+        public int wmc2HidenAP;
+        public int wmc2DefHidenAP;
+        public int wmc2IgnoreAll;
+        public int wmc2DefIgnoreAll;
+        public int wmc2Accuracy;
+        public int wmc2DefAccuracy;
+        public int wmc2DmgToHumans;
+        public int wmc2DefDmgToHumans;
+        public int wmc2DmgToDemi;
+        public int wmc2DefDmgToDemi;
+        public int wmc2Weight;
+        public int wmc2DefWeight;
+        public int wmc2AllRes;
+        public int wmc2DefAllRes;
+        public int wmc2MaxHP;
+        public int wmc2DefMaxHP;
+        public int wmc2MaxST;
+        public int wmc2DefMaxST;
+        public int wmc2DR;
+        public int wmc2DefDR;
+        public int wmc2Luck;
+        public int wmc2DefLuck;
+        public int wmc2CombatEXP;
+        public int wmc2DefCombatEXP;
+        public int wmc2SkillEXP;
+        public int wmc2DefSkillEXP;
+
+        //Sub-Weapon Magic Crystal - 1
+        public int swmcId = 0;
+        public string swmcType = "Sub-Weapon";
+        public int swmcHidenAP;
+        public int swmcDefHidenAP;
+        public int swmcIgnoreAll;
+        public int swmcDefIgnoreAll;
+        public int swmcAccuracy;
+        public int swmcDefAccuracy;
+        public int swmcDmgToHumans;
+        public int swmcDefDmgToHumans;
+        public int swmcDmgToDemi;
+        public int swmcDefDmgToDemi;
+        public int swmcWeight;
+        public int swmcDefWeight;
+        public int swmcAllRes;
+        public int swmcDefAllRes;
+        public int swmcMaxHP;
+        public int swmcDefMaxHP;
+        public int swmcMaxST;
+        public int swmcDefMaxST;
+        public int swmcDR;
+        public int swmcDefDR;
+        public int swmcLuck;
+        public int swmcDefLuck;
+        public int swmcCombatEXP;
+        public int swmcDefCombatEXP;
+        public int swmcSkillEXP;
+        public int swmcDefSkillEXP;
+        public int swmcCritDmg;
+        public int swmcDefCritDmg;
+        public int swmcAirDmg;
+        public int swmcDefAirDmg;
+        public int swmcBackDmg;
+        public int swmcDefBackDmg;
+        public int swmcCounterDmg;
+        public int swmcDefCounterDmg;
+        public int swmcSpeedAtkDmg;
+        public int swmcDefSpeedAtkDmg;
+        public int swmcDownDmg;
+        public int swmcDefDownDmg;
+        public int swmcGrapResIgnore;
+        public int swmcDefGrapResIgnore;
+        public int swmcKBResIgnore;
+        public int swmcDefKBResIgnore;
+        public int swmcKDResIgnore;
+        public int swmcDefKDResIgnore;
+        public int swmcStunResIgnore;
+        public int swmcDefStunResIgnore;
+        public int swmcDmgToKama;
+        public int swmcDefDmgToKama;
+
+        //Sub-Weapon Magic Crystal - 2
+        public int swmc2Id = 0;
+        public string swmc2Type = "Sub-Weapon";
+        public int swmc2HidenAP;
+        public int swmc2DefHidenAP;
+        public int swmc2IgnoreAll;
+        public int swmc2DefIgnoreAll;
+        public int swmc2Accuracy;
+        public int swmc2DefAccuracy;
+        public int swmc2DmgToHumans;
+        public int swmc2DefDmgToHumans;
+        public int swmc2DmgToDemi;
+        public int swmc2DefDmgToDemi;
+        public int swmc2Weight;
+        public int swmc2DefWeight;
+        public int swmc2AllRes;
+        public int swmc2DefAllRes;
+        public int swmc2MaxHP;
+        public int swmc2DefMaxHP;
+        public int swmc2MaxST;
+        public int swmc2DefMaxST;
+        public int swmc2DR;
+        public int swmc2DefDR;
+        public int swmc2Luck;
+        public int swmc2DefLuck;
+        public int swmc2CombatEXP;
+        public int swmc2DefCombatEXP;
+        public int swmc2SkillEXP;
+        public int swmc2DefSkillEXP;
+
+        public int swmc2CritDmg;
+        public int swmc2DefCritDmg;
+        public int swmc2AirDmg;
+        public int swmc2DefAirDmg;
+        public int swmc2BackDmg;
+        public int swmc2DefBackDmg;
+        public int swmc2CounterDmg;
+        public int swmc2DefCounterDmg;
+        public int swmc2SpeedAtkDmg;
+        public int swmc2DefSpeedAtkDmg;
+        public int swmc2DownDmg;
+        public int swmc2DefDownDmg;
+        public int swmc2GrapResIgnore;
+        public int swmc2DefGrapResIgnore;
+        public int swmc2KBResIgnore;
+        public int swmc2DefKBResIgnore;
+        public int swmc2KDResIgnore;
+        public int swmc2DefKDResIgnore;
+        public int swmc2StunResIgnore;
+        public int swmc2DefStunResIgnore;
+        public int swmc2DmgToKama;
+        public int swmc2DefDmgToKama;
 
 
-        
+        //Helmet Magic Crystal - 1
+        public int hmcId = 0;
+        public string hmcType = "Helmet";
+        public int hmcIgnoreAll;
+        public int hmcDefIgnoreAll;
+        public int hmcAccuracy;
+        public int hmcDefAccuracy;
+        public int hmcDmgToHumans;
+        public int hmcDefDmgToHumans;
+        public int hmcDmgToDemi;
+        public int hmcDefDmgToDemi;
+        public int hmcWeight;
+        public int hmcDefWeight;
+        public int hmcAllRes;
+        public int hmcDefAllRes;
+        public int hmcMaxHP;
+        public int hmcDefMaxHP;
+        public int hmcMaxST;
+        public int hmcDefMaxST;
+        public int hmcDR;
+        public int hmcDefDR;
+        public int hmcLuck;
+        public int hmcDefLuck;
+        public int hmcCombatEXP;
+        public int hmcDefCombatEXP;
+        public int hmcSkillEXP;
+        public int hmcDefSkillEXP;
+        public int hmcHPRecovery;
+        public int hmcDefHPRecovery;
+        public int hmcEV;
+        public int hmcDefEV;
+        public int hmcKBRes;
+        public int hmcDefKBRes;
+        public int hmcSSFRes;
+        public int hmcDefSSFRes;
+        public int hmcCastSpeed;
+        public int hmcDefCastSpeed;
+        public int hmcVisionRange;
+        public int hmcDefVisionRange;
+
+        //Helmet Magic Crystal - 2
+        public int hmc2Id = 0;
+        public string hmc2Type = "Helmet";
+        public int hmc2IgnoreAll;
+        public int hmc2DefIgnoreAll;
+        public int hmc2Accuracy;
+        public int hmc2DefAccuracy;
+        public int hmc2DmgToHumans;
+        public int hmc2DefDmgToHumans;
+        public int hmc2DmgToDemi;
+        public int hmc2DefDmgToDemi;
+        public int hmc2Weight;
+        public int hmc2DefWeight;
+        public int hmc2AllRes;
+        public int hmc2DefAllRes;
+        public int hmc2MaxHP;
+        public int hmc2DefMaxHP;
+        public int hmc2MaxST;
+        public int hmc2DefMaxST;
+        public int hmc2DR;
+        public int hmc2DefDR;
+        public int hmc2Luck;
+        public int hmc2DefLuck;
+        public int hmc2CombatEXP;
+        public int hmc2DefCombatEXP;
+        public int hmc2SkillEXP;
+        public int hmc2DefSkillEXP;
+        public int hmc2HPRecovery;
+        public int hmc2DefHPRecovery;
+        public int hmc2EV;
+        public int hmc2DefEV;
+        public int hmc2KBRes;
+        public int hmc2DefKBRes;
+        public int hmc2SSFRes;
+        public int hmc2DefSSFRes;
+        public int hmc2CastSpeed;
+        public int hmc2DefCastSpeed;
+        public int hmc2VisionRange;
+        public int hmc2DefVisionRange;
+
+        //Armor Magic Crystal - 1
+        public int amcId = 0;
+        public string amcType = "Armor";
+        public int amcIgnoreAll;
+        public int amcDefIgnoreAll;
+        public int amcAccuracy;
+        public int amcDefAccuracy;
+        public int amcDmgToHumans;
+        public int amcDefDmgToHumans;
+        public int amcDmgToDemi;
+        public int amcDefDmgToDemi;
+        public int amcWeight;
+        public int amcDefWeight;
+        public int amcAllRes;
+        public int amcDefAllRes;
+        public int amcMaxHP;
+        public int amcDefMaxHP;
+        public int amcMaxST;
+        public int amcDefMaxST;
+        public int amcDR;
+        public int amcDefDR;
+        public int amcLuck;
+        public int amcDefLuck;
+        public int amcCombatEXP;
+        public int amcDefCombatEXP;
+        public int amcSkillEXP;
+        public int amcDefSkillEXP;
+
+        public int amcMaxMP;
+        public int amcDefMaxMP;
+        public int amcHPRecovery;
+        public int amcDefHPRecovery;
+        public int amcMPRecovery;
+        public int amcDefMPRecovery;
+        public int amcSSFRes;
+        public int amcDefSSFRes;
+        public int amcSpecialAtkEvRate;
+        public int amcDefSpecialAtkEvRate;
+        public int amcMagicDR;
+        public int amcDefMagicDR;
+        public int amcMelleDR;
+        public int amcDefMelleDR;
+        public int amcRangeDR;
+        public int amcDefRangeDR;
+        public int amcSiegeWeaponEvRate;
+        public int amcDefSiegeWeaponEvRate;
+
+        //Armor Magic Crystal - 2
+        public int amc2Id = 0;
+        public string amc2Type = "Armor";
+        public int amc2IgnoreAll;
+        public int amc2DefIgnoreAll;
+        public int amc2Accuracy;
+        public int amc2DefAccuracy;
+        public int amc2DmgToHumans;
+        public int amc2DefDmgToHumans;
+        public int amc2DmgToDemi;
+        public int amc2DefDmgToDemi;
+        public int amc2Weight;
+        public int amc2DefWeight;
+        public int amc2AllRes;
+        public int amc2DefAllRes;
+        public int amc2MaxHP;
+        public int amc2DefMaxHP;
+        public int amc2MaxST;
+        public int amc2DefMaxST;
+        public int amc2DR;
+        public int amc2DefDR;
+        public int amc2Luck;
+        public int amc2DefLuck;
+        public int amc2CombatEXP;
+        public int amc2DefCombatEXP;
+        public int amc2SkillEXP;
+        public int amc2DefSkillEXP;
+
+        public int amc2MaxMP;
+        public int amc2DefMaxMP;
+        public int amc2HPRecovery;
+        public int amc2DefHPRecovery;
+        public int amc2MPRecovery;
+        public int amc2DefMPRecovery;
+        public int amc2SSFRes;
+        public int amc2DefSSFRes;
+        public int amc2SpecialAtkEvRate;
+        public int amc2DefSpecialAtkEvRate;
+        public int amc2MagicDR;
+        public int amc2DefMagicDR;
+        public int amc2MelleDR;
+        public int amc2DefMelleDR;
+        public int amc2RangeDR;
+        public int amc2DefRangeDR;
+        public int amc2SiegeWeaponEvRate;
+        public int amc2DefSiegeWeaponEvRate;
+
+
+        //Gloves Magic Crystal - 1
+        public int gmcId = 0;
+        public string gmcType = "Gloves";
+        public int gmcIgnoreAll;
+        public int gmcDefIgnoreAll;
+        public int gmcAccuracy;
+        public int gmcDefAccuracy;
+        public int gmcDmgToHumans;
+        public int gmcDefDmgToHumans;
+        public int gmcDmgToDemi;
+        public int gmcDefDmgToDemi;
+        public int gmcWeight;
+        public int gmcDefWeight;
+        public int gmcAllRes;
+        public int gmcDefAllRes;
+        public int gmcMaxHP;
+        public int gmcDefMaxHP;
+        public int gmcMaxST;
+        public int gmcDefMaxST;
+        public int gmcDR;
+        public int gmcDefDR;
+        public int gmcLuck;
+        public int gmcDefLuck;
+        public int gmcCombatEXP;
+        public int gmcDefCombatEXP;
+        public int gmcSkillEXP;
+        public int gmcDefSkillEXP;
+
+        public int gmcAtkSpeed;
+        public int gmcDefAtkSpeed;
+        public int gmcCastSpeed;
+        public int gmcDefCastSpeed;
+        public int gmcCrit;
+        public int gmcDefCrit;
+        public int gmcGrapRes;
+        public int gmcDefGrapRes;
+        public int gmcKFRes;
+        public int gmcDefKFRes;
+        public int gmcHidenAP;
+        public int gmcDefHidenAP;
+        public int gmcMagicAP;
+        public int gmcDefMagicAP;
+        public int gmcMelleAP;
+        public int gmcDefMelleAP;
+        public int gmcRangedAP;
+        public int gmcDefRangedAP;
+
+        //Gloves Magic Crystal - 2
+        public int gmc2Id = 0;
+        public string gmc2Type = "Gloves";
+        public int gmc2IgnoreAll;
+        public int gmc2DefIgnoreAll;
+        public int gmc2Accuracy;
+        public int gmc2DefAccuracy;
+        public int gmc2DmgToHumans;
+        public int gmc2DefDmgToHumans;
+        public int gmc2DmgToDemi;
+        public int gmc2DefDmgToDemi;
+        public int gmc2Weight;
+        public int gmc2DefWeight;
+        public int gmc2AllRes;
+        public int gmc2DefAllRes;
+        public int gmc2MaxHP;
+        public int gmc2DefMaxHP;
+        public int gmc2MaxST;
+        public int gmc2DefMaxST;
+        public int gmc2DR;
+        public int gmc2DefDR;
+        public int gmc2Luck;
+        public int gmc2DefLuck;
+        public int gmc2CombatEXP;
+        public int gmc2DefCombatEXP;
+        public int gmc2SkillEXP;
+        public int gmc2DefSkillEXP;
+
+        public int gmc2AtkSpeed;
+        public int gmc2DefAtkSpeed;
+        public int gmc2CastSpeed;
+        public int gmc2DefCastSpeed;
+        public int gmc2Crit;
+        public int gmc2DefCrit;
+        public int gmc2GrapRes;
+        public int gmc2DefGrapRes;
+        public int gmc2KFRes;
+        public int gmc2DefKFRes;
+        public int gmc2HidenAP;
+        public int gmc2DefHidenAP;
+        public int gmc2MagicAP;
+        public int gmc2DefMagicAP;
+        public int gmc2MelleAP;
+        public int gmc2DefMelleAP;
+        public int gmc2RangedAP;
+        public int gmc2DefRangedAP;
+
+        //Shoes Magic Crystal - 1
+        public int smcId = 0;
+        public string smcType = "Shoes";
+        public int smcIgnoreAll;
+        public int smcDefIgnoreAll;
+        public int smcAccuracy;
+        public int smcDefAccuracy;
+        public int smcDmgToHumans;
+        public int smcDefDmgToHumans;
+        public int smcDmgToDemi;
+        public int smcDefDmgToDemi;
+        public int smcWeight;
+        public int smcDefWeight;
+        public int smcAllRes;
+        public int smcDefAllRes;
+        public int smcMaxHP;
+        public int smcDefMaxHP;
+        public int smcMaxST;
+        public int smcDefMaxST;
+        public int smcDR;
+        public int smcDefDR;
+        public int smcLuck;
+        public int smcDefLuck;
+        public int smcCombatEXP;
+        public int smcDefCombatEXP;
+        public int smcSkillEXP;
+        public int smcDefSkillEXP;
+
+        public int smcMVSpeed;
+        public int smcDefMVSpeed;
+        public int smcKBRes;
+        public int smcDefKBRes;
+        public int smcKFRes;
+        public int smcDefKFRes;
+        public int smcSSFRes;
+        public int smcDefSSFRes;
+        public int smcJump;
+        public int smcDefJump;
+        public int smcFallDamage;
+        public int smcDefFallDamage;
+        public int smcUnderWaterBreath;
+        public int smcDefUnderWaterBreath;
+        public int smcMaxEnergy;
+        public int smcDefMaxEnergy;
+
+        //Shoes Magic Crystal - 2
+        public int smc2Id = 0;
+        public string smc2Type = "Shoes";
+        public int smc2IgnoreAll;
+        public int smc2DefIgnoreAll;
+        public int smc2Accuracy;
+        public int smc2DefAccuracy;
+        public int smc2DmgToHumans;
+        public int smc2DefDmgToHumans;
+        public int smc2DmgToDemi;
+        public int smc2DefDmgToDemi;
+        public int smc2Weight;
+        public int smc2DefWeight;
+        public int smc2AllRes;
+        public int smc2DefAllRes;
+        public int smc2MaxHP;
+        public int smc2DefMaxHP;
+        public int smc2MaxST;
+        public int smc2DefMaxST;
+        public int smc2DR;
+        public int smc2DefDR;
+        public int smc2Luck;
+        public int smc2DefLuck;
+        public int smc2CombatEXP;
+        public int smc2DefCombatEXP;
+        public int smc2SkillEXP;
+        public int smc2DefSkillEXP;
+
+        public int smc2MVSpeed;
+        public int smc2DefMVSpeed;
+        public int smc2KBRes;
+        public int smc2DefKBRes;
+        public int smc2KFRes;
+        public int smc2DefKFRes;
+        public int smc2SSFRes;
+        public int smc2DefSSFRes;
+        public int smc2Jump;
+        public int smc2DefJump;
+        public int smc2FallDamage;
+        public int smc2DefFallDamage;
+        public int smc2UnderWaterBreath;
+        public int smc2DefUnderWaterBreath;
+        public int smc2MaxEnergy;
+        public int smc2DefMaxEnergy;
+
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
         
 
@@ -6598,6 +7165,1278 @@ namespace BDHelper
             }
         }
 
+        public void CrysMW1()
+        {
 
-   }
+            ccr -= wmcCrit;
+                cCastSpeed -= wmcCastSpeed;
+                cAtkSpeed -= wmcAtkSpeed;
+                chap -= wmcHidenAP;
+                cResistIgnore -= wmcIgnoreAll;
+                cacc -= wmcAccuracy;
+                cedh -= wmcDmgToHumans;
+
+                cADtDemiH -= wmcDmgToDemi;
+                cWeight -= wmcWeight;
+                cRes1 -= wmcAllRes;
+                cRes2 -= wmcAllRes;
+                cRes3 -= wmcAllRes;
+                cRes4 -= wmcAllRes;
+                cMaxHP -= wmcMaxHP;
+                cMaxST -= wmcMaxST;
+                cDR -= wmcDR;
+                cluck -= wmcLuck;
+                cCombatExp -= wmcCombatEXP;
+                cSkillExp -= wmcSkillEXP;
+
+                wmcCrit = wmcDefCrit;
+                wmcCastSpeed = wmcDefCastSpeed;
+                wmcAtkSpeed = wmcDefAtkSpeed;
+                wmcHidenAP = wmcDefHidenAP;
+                wmcIgnoreAll = wmcDefIgnoreAll;
+                wmcAccuracy = wmcDefAccuracy;
+                wmcDmgToHumans = wmcDefDmgToHumans;
+
+                wmcDmgToDemi = wmcDefDmgToDemi;
+                wmcWeight = wmcDefWeight;
+                wmcAllRes = wmcDefAllRes;
+                wmcMaxHP = wmcDefMaxHP;
+                wmcMaxST = wmcDefMaxST;
+                wmcDR = wmcDefDR;
+                wmcLuck = wmcDefLuck;
+                wmcCombatEXP = wmcDefCombatEXP;
+                wmcSkillEXP = wmcDefSkillEXP;
+
+                ccr += wmcCrit;
+                cCastSpeed += wmcCastSpeed;
+                cAtkSpeed += wmcAtkSpeed;
+                chap += wmcHidenAP;
+                cResistIgnore += wmcIgnoreAll;
+                cacc += wmcAccuracy;
+                cedh += wmcDmgToHumans;
+
+                cADtDemiH += wmcDmgToDemi;
+                cWeight += wmcWeight;
+                cRes1 += wmcAllRes;
+                cRes2 += wmcAllRes;
+                cRes3 += wmcAllRes;
+                cRes4 += wmcAllRes;
+                cMaxHP += wmcMaxHP;
+                cMaxST += wmcMaxST;
+                cDR += wmcDR;
+                cluck += wmcLuck;
+                cCombatExp += wmcCombatEXP;
+                cSkillExp += wmcSkillEXP;
+
+        }
+        public void CrysMW1Clear()
+        {
+         wmcId = 0;
+         wmcType = "Weapon";
+         wmcDefCrit= 0;
+         wmcDefCastSpeed= 0;
+         wmcDefAtkSpeed= 0;
+         wmcDefHidenAP= 0;
+         wmcDefIgnoreAll= 0;
+         wmcDefAccuracy= 0;
+         wmcDefDmgToHumans= 0;
+         wmcDefDmgToDemi= 0;
+         wmcDefWeight= 0;
+         wmcDefAllRes= 0;
+         wmcDefMaxHP= 0;
+         wmcDefMaxST= 0;
+         wmcDefDR= 0;
+         wmcDefLuck= 0;
+         wmcDefCombatEXP= 0;
+         wmcDefSkillEXP= 0;
+    }
+
+        public void CrysMW2()
+        {
+
+            ccr -= wmc2Crit;
+            cCastSpeed -= wmc2CastSpeed;
+            cAtkSpeed -= wmc2AtkSpeed;
+            chap -= wmc2HidenAP;
+            cResistIgnore -= wmc2IgnoreAll;
+            cacc -= wmc2Accuracy;
+            cedh -= wmc2DmgToHumans;
+
+            cADtDemiH -= wmc2DmgToDemi;
+            cWeight -= wmc2Weight;
+            cRes1 -= wmc2AllRes;
+            cRes2 -= wmc2AllRes;
+            cRes3 -= wmc2AllRes;
+            cRes4 -= wmc2AllRes;
+            cMaxHP -= wmc2MaxHP;
+            cMaxST -= wmc2MaxST;
+            cDR -= wmc2DR;
+            cluck -= wmc2Luck;
+            cCombatExp -= wmc2CombatEXP;
+            cSkillExp -= wmc2SkillEXP;
+
+            wmc2Crit = wmc2DefCrit;
+            wmc2CastSpeed = wmc2DefCastSpeed;
+            wmc2AtkSpeed = wmc2DefAtkSpeed;
+            wmc2HidenAP = wmc2DefHidenAP;
+            wmc2IgnoreAll = wmc2DefIgnoreAll;
+            wmc2Accuracy = wmc2DefAccuracy;
+            wmc2DmgToHumans = wmc2DefDmgToHumans;
+
+            wmc2DmgToDemi = wmc2DefDmgToDemi;
+            wmc2Weight = wmc2DefWeight;
+            wmc2AllRes = wmc2DefAllRes;
+            wmc2MaxHP = wmc2DefMaxHP;
+            wmc2MaxST = wmc2DefMaxST;
+            wmc2DR = wmc2DefDR;
+            wmc2Luck = wmc2DefLuck;
+            wmc2CombatEXP = wmc2DefCombatEXP;
+            wmc2SkillEXP = wmc2DefSkillEXP;
+
+            ccr += wmc2Crit;
+            cCastSpeed += wmc2CastSpeed;
+            cAtkSpeed += wmc2AtkSpeed;
+            chap += wmc2HidenAP;
+            cResistIgnore += wmc2IgnoreAll;
+            cacc += wmc2Accuracy;
+            cedh += wmc2DmgToHumans;
+
+            cADtDemiH += wmc2DmgToDemi;
+            cWeight += wmc2Weight;
+            cRes1 += wmc2AllRes;
+            cRes2 += wmc2AllRes;
+            cRes3 += wmc2AllRes;
+            cRes4 += wmc2AllRes;
+            cMaxHP += wmc2MaxHP;
+            cMaxST += wmc2MaxST;
+            cDR += wmc2DR;
+            cluck += wmc2Luck;
+            cCombatExp += wmc2CombatEXP;
+            cSkillExp += wmc2SkillEXP;
+
+        }
+        public void CrysMW2Clear()
+        {
+            wmc2Id = 0;
+            wmc2Type = "Weapon";
+            wmc2DefCrit = 0;
+            wmc2DefCastSpeed = 0;
+            wmc2DefAtkSpeed = 0;
+            wmc2DefHidenAP = 0;
+            wmc2DefIgnoreAll = 0;
+            wmc2DefAccuracy = 0;
+            wmc2DefDmgToHumans = 0;
+            wmc2DefDmgToDemi = 0;
+            wmc2DefWeight = 0;
+            wmc2DefAllRes = 0;
+            wmc2DefMaxHP = 0;
+            wmc2DefMaxST = 0;
+            wmc2DefDR = 0;
+            wmc2DefLuck = 0;
+            wmc2DefCombatEXP = 0;
+            wmc2DefSkillEXP = 0;
+        }
+
+        public void CrysSW1()
+        {
+
+            chap -= swmcHidenAP;
+            cResistIgnore -= swmcIgnoreAll;
+            cacc -= swmcAccuracy;
+            cedh -= swmcDmgToHumans;
+            cADtDemiH -= swmcDmgToDemi;
+            cWeight -= swmcWeight;
+            cRes1 -= swmcAllRes;
+            cRes2 -= swmcAllRes;
+            cRes3 -= swmcAllRes;
+            cRes4 -= swmcAllRes;
+            cMaxHP -= swmcMaxHP;
+            cMaxST -= swmcMaxST;
+            cDR -= swmcDR;
+            cluck -= swmcLuck;
+            cCombatExp -= swmcCombatEXP;
+            cSkillExp -= swmcSkillEXP;
+
+            cEDtoAir -= swmcAirDmg; 
+            cEDtoCounter -=swmcCounterDmg;
+            cEDtoDown -= swmcDownDmg;
+            cGrapResistIgnore -= swmcGrapResIgnore; 
+            cKBResistIgnore -= swmcKBResIgnore;
+            cKDResistIgnore -= swmcKDResIgnore; 
+            cStunResistIgnore -= swmcStunResIgnore; 
+            cSpeedAtkDmg -= swmcSpeedAtkDmg;
+            cCritHitDmg -= swmcCritDmg;
+
+
+            swmcHidenAP = swmcDefHidenAP;
+            swmcIgnoreAll = swmcDefIgnoreAll;
+            swmcAccuracy = swmcDefAccuracy;
+            swmcDmgToHumans = swmcDefDmgToHumans;
+            swmcDmgToDemi = swmcDefDmgToDemi;
+            swmcWeight = swmcDefWeight;
+            swmcAllRes = swmcDefAllRes;
+            swmcMaxHP = swmcDefMaxHP;
+            swmcMaxST = swmcDefMaxST;
+            swmcDR = swmcDefDR;
+            swmcLuck = swmcDefLuck;
+            swmcCombatEXP = swmcDefCombatEXP;
+            swmcSkillEXP = swmcDefSkillEXP;
+
+            swmcAirDmg = swmcDefAirDmg;
+            swmcCounterDmg = swmcDefCounterDmg;
+            swmcDownDmg = swmcDefDownDmg;
+            swmcGrapResIgnore = swmcDefGrapResIgnore;
+            swmcKBResIgnore = swmcDefKBResIgnore;
+            swmcKDResIgnore = swmcDefKDResIgnore;
+            swmcStunResIgnore = swmcDefStunResIgnore;
+            swmcSpeedAtkDmg = swmcDefSpeedAtkDmg;
+            swmcCritDmg = swmcDefCritDmg;
+
+            chap += swmcHidenAP;
+            cResistIgnore += swmcIgnoreAll;
+            cacc += swmcAccuracy;
+            cedh += swmcDmgToHumans;
+            cADtDemiH += swmcDmgToDemi;
+            cWeight += swmcWeight;
+            cRes1 += swmcAllRes;
+            cRes2 += swmcAllRes;
+            cRes3 += swmcAllRes;
+            cRes4 += swmcAllRes;
+            cMaxHP += swmcMaxHP;
+            cMaxST += swmcMaxST;
+            cDR += swmcDR;
+            cluck += swmcLuck;
+            cCombatExp += swmcCombatEXP;
+            cSkillExp += swmcSkillEXP;
+
+            cEDtoAir += swmcAirDmg;
+            cEDtoCounter += swmcCounterDmg;
+            cEDtoDown += swmcDownDmg;
+            cGrapResistIgnore += swmcGrapResIgnore;
+            cKBResistIgnore += swmcKBResIgnore;
+            cKDResistIgnore += swmcKDResIgnore;
+            cStunResistIgnore += swmcStunResIgnore;
+            cSpeedAtkDmg += swmcSpeedAtkDmg;
+            cCritHitDmg += swmcCritDmg;
+
+
+        }
+        public void CrysSW1Clear()
+        {
+             swmcId = 0;
+        swmcType = "Sub-Weapon";
+         swmcDefHidenAP= 0;
+         swmcDefIgnoreAll= 0;
+         swmcDefAccuracy= 0;
+         swmcDefDmgToHumans= 0;
+         swmcDefDmgToDemi= 0;
+         swmcDefWeight= 0;
+         swmcDefAllRes= 0;
+         swmcDefMaxHP= 0;
+         swmcDefMaxST= 0;
+         swmcDefDR= 0;
+         swmcDefLuck= 0;
+         swmcDefCombatEXP= 0;
+         swmcDefSkillEXP= 0;
+         swmcDefCritDmg= 0;
+         swmcDefAirDmg= 0;
+         swmcDefBackDmg= 0;
+         swmcDefCounterDmg= 0;
+         swmcDefSpeedAtkDmg= 0;
+         swmcDefDownDmg= 0;
+         swmcDefGrapResIgnore= 0;
+         swmcDefKBResIgnore= 0;
+         swmcDefKDResIgnore= 0;
+         swmcDefStunResIgnore= 0;
+         swmcDefDmgToKama= 0;
+    }
+
+        public void CrysSW2()
+        {
+
+            chap -= swmc2HidenAP;
+            cResistIgnore -= swmc2IgnoreAll;
+            cacc -= swmc2Accuracy;
+            cedh -= swmc2DmgToHumans;
+            cADtDemiH -= swmc2DmgToDemi;
+            cWeight -= swmc2Weight;
+            cRes1 -= swmc2AllRes;
+            cRes2 -= swmc2AllRes;
+            cRes3 -= swmc2AllRes;
+            cRes4 -= swmc2AllRes;
+            cMaxHP -= swmc2MaxHP;
+            cMaxST -= swmc2MaxST;
+            cDR -= swmc2DR;
+            cluck -= swmc2Luck;
+            cCombatExp -= swmc2CombatEXP;
+            cSkillExp -= swmc2SkillEXP;
+
+            cEDtoAir -= swmc2AirDmg;
+            cEDtoCounter -= swmc2CounterDmg;
+            cEDtoDown -= swmc2DownDmg;
+            cGrapResistIgnore -= swmc2GrapResIgnore;
+            cKBResistIgnore -= swmc2KBResIgnore;
+            cKDResistIgnore -= swmc2KDResIgnore;
+            cStunResistIgnore -= swmc2StunResIgnore;
+            cSpeedAtkDmg -= swmc2SpeedAtkDmg;
+            cCritHitDmg -= swmc2CritDmg;
+
+
+            swmc2HidenAP = swmc2DefHidenAP;
+            swmc2IgnoreAll = swmc2DefIgnoreAll;
+            swmc2Accuracy = swmc2DefAccuracy;
+            swmc2DmgToHumans = swmc2DefDmgToHumans;
+            swmc2DmgToDemi = swmc2DefDmgToDemi;
+            swmc2Weight = swmc2DefWeight;
+            swmc2AllRes = swmc2DefAllRes;
+            swmc2MaxHP = swmc2DefMaxHP;
+            swmc2MaxST = swmc2DefMaxST;
+            swmc2DR = swmc2DefDR;
+            swmc2Luck = swmc2DefLuck;
+            swmc2CombatEXP = swmc2DefCombatEXP;
+            swmc2SkillEXP = swmc2DefSkillEXP;
+
+            swmc2AirDmg = swmc2DefAirDmg;
+            swmc2CounterDmg = swmc2DefCounterDmg;
+            swmc2DownDmg = swmc2DefDownDmg;
+            swmc2GrapResIgnore = swmc2DefGrapResIgnore;
+            swmc2KBResIgnore = swmc2DefKBResIgnore;
+            swmc2KDResIgnore = swmc2DefKDResIgnore;
+            swmc2StunResIgnore = swmc2DefStunResIgnore;
+            swmc2SpeedAtkDmg = swmc2DefSpeedAtkDmg;
+            swmc2CritDmg = swmc2DefCritDmg;
+
+            chap += swmc2HidenAP;
+            cResistIgnore += swmc2IgnoreAll;
+            cacc += swmc2Accuracy;
+            cedh += swmc2DmgToHumans;
+            cADtDemiH += swmc2DmgToDemi;
+            cWeight += swmc2Weight;
+            cRes1 += swmc2AllRes;
+            cRes2 += swmc2AllRes;
+            cRes3 += swmc2AllRes;
+            cRes4 += swmc2AllRes;
+            cMaxHP += swmc2MaxHP;
+            cMaxST += swmc2MaxST;
+            cDR += swmc2DR;
+            cluck += swmc2Luck;
+            cCombatExp += swmc2CombatEXP;
+            cSkillExp += swmc2SkillEXP;
+
+            cEDtoAir += swmc2AirDmg;
+            cEDtoCounter += swmc2CounterDmg;
+            cEDtoDown += swmc2DownDmg;
+            cGrapResistIgnore += swmc2GrapResIgnore;
+            cKBResistIgnore += swmc2KBResIgnore;
+            cKDResistIgnore += swmc2KDResIgnore;
+            cStunResistIgnore += swmc2StunResIgnore;
+            cSpeedAtkDmg += swmc2SpeedAtkDmg;
+            cCritHitDmg += swmc2CritDmg;
+
+
+        }
+        public void CrysSW2Clear()
+        {
+            swmc2Id = 0;
+            swmc2Type = "Sub-Weapon";
+            swmc2DefHidenAP = 0;
+            swmc2DefIgnoreAll = 0;
+            swmc2DefAccuracy = 0;
+            swmc2DefDmgToHumans = 0;
+            swmc2DefDmgToDemi = 0;
+            swmc2DefWeight = 0;
+            swmc2DefAllRes = 0;
+            swmc2DefMaxHP = 0;
+            swmc2DefMaxST = 0;
+            swmc2DefDR = 0;
+            swmc2DefLuck = 0;
+            swmc2DefCombatEXP = 0;
+            swmc2DefSkillEXP = 0;
+            swmc2DefCritDmg = 0;
+            swmc2DefAirDmg = 0;
+            swmc2DefBackDmg = 0;
+            swmc2DefCounterDmg = 0;
+            swmc2DefSpeedAtkDmg = 0;
+            swmc2DefDownDmg = 0;
+            swmc2DefGrapResIgnore = 0;
+            swmc2DefKBResIgnore = 0;
+            swmc2DefKDResIgnore = 0;
+            swmc2DefStunResIgnore = 0;
+            swmc2DefDmgToKama = 0;
+        }
+
+        public void CrysH1()
+        {
+
+            cResistIgnore -= hmcIgnoreAll;
+            cacc -= hmcAccuracy;
+            cedh -= hmcDmgToHumans;
+            cADtDemiH -= hmcDmgToDemi;
+            cWeight -= hmcWeight;
+            cRes1 -= hmcAllRes;
+            cRes2 -= hmcAllRes;
+            cRes3 -= hmcAllRes;
+            cRes4 -= hmcAllRes;
+            cMaxHP -= hmcMaxHP;
+            cMaxST -= hmcMaxST;
+            cDR -= hmcDR;
+            cluck -= hmcLuck;
+            cCombatExp -= hmcCombatEXP;
+            cSkillExp -= hmcSkillEXP;
+
+            chpr -= hmcHPRecovery;
+            cev -= hmcEV;
+            cCastSpeed -= hmcCastSpeed;
+            cVisionRange -= hmcVisionRange;
+            cRes1 -= hmcSSFRes;
+            cRes2 -= hmcKBRes;
+
+
+
+
+
+            hmcIgnoreAll = hmcDefIgnoreAll;
+            hmcAccuracy = hmcDefAccuracy;
+            hmcDmgToHumans = hmcDefDmgToHumans;
+            hmcDmgToDemi = hmcDefDmgToDemi;
+            hmcWeight = hmcDefWeight;
+            hmcAllRes = hmcDefAllRes;
+            hmcMaxHP = hmcDefMaxHP;
+            hmcMaxST = hmcDefMaxST;
+            hmcDR = hmcDefDR;
+            hmcLuck = hmcDefLuck;
+            hmcCombatEXP = hmcDefCombatEXP;
+            hmcSkillEXP = hmcDefSkillEXP;
+
+            hmcHPRecovery = hmcDefHPRecovery;
+            hmcEV = hmcDefEV;
+            hmcKBRes = hmcDefKBRes;
+            hmcSSFRes = hmcDefSSFRes;
+            hmcVisionRange = hmcDefVisionRange;
+            hmcCastSpeed = hmcDefCastSpeed;
+
+
+
+            cResistIgnore += hmcIgnoreAll;
+            cacc += hmcAccuracy;
+            cedh += hmcDmgToHumans;
+            cADtDemiH += hmcDmgToDemi;
+            cWeight += hmcWeight;
+            cRes1 += hmcAllRes;
+            cRes2 += hmcAllRes;
+            cRes3 += hmcAllRes;
+            cRes4 += hmcAllRes;
+            cMaxHP += hmcMaxHP;
+            cMaxST += hmcMaxST;
+            cDR += hmcDR;
+            cluck += hmcLuck;
+            cCombatExp += hmcCombatEXP;
+            cSkillExp += hmcSkillEXP;
+
+            chpr += hmcHPRecovery;
+            cev += hmcEV;
+            cCastSpeed += hmcCastSpeed;
+            cVisionRange += hmcVisionRange;
+            cRes1 += hmcSSFRes;
+            cRes2 += hmcKBRes;
+
+
+
+        }
+        public void CrysH1Clear()
+        {
+
+         hmcId = 0;
+         hmcType = "Helmet";
+         hmcDefIgnoreAll= 0 ;
+         hmcDefAccuracy= 0 ;
+         hmcDefDmgToHumans= 0 ;
+         hmcDefDmgToDemi= 0 ;
+         hmcDefWeight= 0 ;
+         hmcDefAllRes= 0 ;
+         hmcDefMaxHP= 0 ;
+         hmcDefMaxST= 0 ;
+         hmcDefDR= 0 ;
+         hmcDefLuck= 0 ;
+         hmcDefCombatEXP= 0 ;
+         hmcDefSkillEXP= 0 ;
+         hmcDefHPRecovery= 0 ;
+         hmcDefEV= 0 ;
+         hmcDefKBRes= 0 ;
+         hmcDefSSFRes= 0 ;
+         hmcDefCastSpeed= 0 ;
+         hmcDefVisionRange= 0 ;
+
+    }
+
+        public void CrysH2()
+        {
+
+            cResistIgnore -= hmc2IgnoreAll;
+            cacc -= hmc2Accuracy;
+            cedh -= hmc2DmgToHumans;
+            cADtDemiH -= hmc2DmgToDemi;
+            cWeight -= hmc2Weight;
+            cRes1 -= hmc2AllRes;
+            cRes2 -= hmc2AllRes;
+            cRes3 -= hmc2AllRes;
+            cRes4 -= hmc2AllRes;
+            cMaxHP -= hmc2MaxHP;
+            cMaxST -= hmc2MaxST;
+            cDR -= hmc2DR;
+            cluck -= hmc2Luck;
+            cCombatExp -= hmc2CombatEXP;
+            cSkillExp -= hmc2SkillEXP;
+
+            chpr -= hmc2HPRecovery;
+            cev -= hmc2EV;
+            cCastSpeed -= hmc2CastSpeed;
+            cVisionRange -= hmc2VisionRange;
+            cRes1 -= hmc2SSFRes;
+            cRes2 -= hmc2KBRes;
+
+
+
+
+
+            hmc2IgnoreAll = hmc2DefIgnoreAll;
+            hmc2Accuracy = hmc2DefAccuracy;
+            hmc2DmgToHumans = hmc2DefDmgToHumans;
+            hmc2DmgToDemi = hmc2DefDmgToDemi;
+            hmc2Weight = hmc2DefWeight;
+            hmc2AllRes = hmc2DefAllRes;
+            hmc2MaxHP = hmc2DefMaxHP;
+            hmc2MaxST = hmc2DefMaxST;
+            hmc2DR = hmc2DefDR;
+            hmc2Luck = hmc2DefLuck;
+            hmc2CombatEXP = hmc2DefCombatEXP;
+            hmc2SkillEXP = hmc2DefSkillEXP;
+
+            hmc2HPRecovery = hmc2DefHPRecovery;
+            hmc2EV = hmc2DefEV;
+            hmc2KBRes = hmc2DefKBRes;
+            hmc2SSFRes = hmc2DefSSFRes;
+            hmc2VisionRange = hmc2DefVisionRange;
+            hmc2CastSpeed = hmc2DefCastSpeed;
+
+
+
+            cResistIgnore += hmc2IgnoreAll;
+            cacc += hmc2Accuracy;
+            cedh += hmc2DmgToHumans;
+            cADtDemiH += hmc2DmgToDemi;
+            cWeight += hmc2Weight;
+            cRes1 += hmc2AllRes;
+            cRes2 += hmc2AllRes;
+            cRes3 += hmc2AllRes;
+            cRes4 += hmc2AllRes;
+            cMaxHP += hmc2MaxHP;
+            cMaxST += hmc2MaxST;
+            cDR += hmc2DR;
+            cluck += hmc2Luck;
+            cCombatExp += hmc2CombatEXP;
+            cSkillExp += hmc2SkillEXP;
+
+            chpr += hmc2HPRecovery;
+            cev += hmc2EV;
+            cCastSpeed += hmc2CastSpeed;
+            cVisionRange += hmc2VisionRange;
+            cRes1 += hmc2SSFRes;
+            cRes2 += hmc2KBRes;
+
+
+
+        }
+        public void CrysH2Clear()
+        {
+
+            hmc2Id = 0;
+            hmc2Type = "Helmet";
+            hmc2DefIgnoreAll = 0;
+            hmc2DefAccuracy = 0;
+            hmc2DefDmgToHumans = 0;
+            hmc2DefDmgToDemi = 0;
+            hmc2DefWeight = 0;
+            hmc2DefAllRes = 0;
+            hmc2DefMaxHP = 0;
+            hmc2DefMaxST = 0;
+            hmc2DefDR = 0;
+            hmc2DefLuck = 0;
+            hmc2DefCombatEXP = 0;
+            hmc2DefSkillEXP = 0;
+            hmc2DefHPRecovery = 0;
+            hmc2DefEV = 0;
+            hmc2DefKBRes = 0;
+            hmc2DefSSFRes = 0;
+            hmc2DefCastSpeed = 0;
+            hmc2DefVisionRange = 0;
+
+        }
+
+        public void CrysA1()
+        {
+
+            cResistIgnore -= amcIgnoreAll;
+            cacc -= amcAccuracy;
+            cedh -= amcDmgToHumans;
+            cADtDemiH -= amcDmgToDemi;
+            cWeight -= amcWeight;
+            cRes1 -= amcAllRes;
+            cRes2 -= amcAllRes;
+            cRes3 -= amcAllRes;
+            cRes4 -= amcAllRes;
+            cMaxHP -= amcMaxHP;
+            cMaxST -= amcMaxST;
+            cDR -= amcDR;
+            cluck -= amcLuck;
+            cCombatExp -= amcCombatEXP;
+            cSkillExp -= amcSkillEXP;
+            chpr -= amcHPRecovery;
+
+            cMaxMP -= amcMaxMP;
+            cRes1 -= amcSSFRes;
+            cSpecialAttackEv -= amcSpecialAtkEvRate;
+            cMagicDR -= amcMagicDR;
+            cMeleeDR -= amcMelleDR;
+            cRangeDR -= amcRangeDR;
+            cSiegeWeaponEvRate -= amcSiegeWeaponEvRate;
+            cmpr -= amcMPRecovery;
+
+
+
+
+            amcIgnoreAll = amcDefIgnoreAll;
+            amcAccuracy = amcDefAccuracy;
+            amcDmgToHumans = amcDefDmgToHumans;
+            amcDmgToDemi = amcDefDmgToDemi;
+            amcWeight = amcDefWeight;
+            amcAllRes = amcDefAllRes;
+            amcMaxHP = amcDefMaxHP;
+            amcMaxST = amcDefMaxST;
+            amcDR = amcDefDR;
+            amcLuck = amcDefLuck;
+            amcCombatEXP = amcDefCombatEXP;
+            amcSkillEXP = amcDefSkillEXP;
+            amcHPRecovery = amcDefHPRecovery;
+            amcSSFRes = amcDefSSFRes;
+
+            amcMaxMP = amcDefMaxMP;
+            amcSSFRes = amcDefSSFRes;
+            amcSpecialAtkEvRate = amcDefSpecialAtkEvRate;
+            amcMagicDR = amcDefMagicDR;
+            amcMelleDR = amcDefMelleDR;
+            amcRangeDR = amcDefRangeDR;
+            amcSiegeWeaponEvRate = amcDefSiegeWeaponEvRate;
+            amcMPRecovery = amcDefMPRecovery;
+
+            cResistIgnore += amcIgnoreAll;
+            cacc += amcAccuracy;
+            cedh += amcDmgToHumans;
+            cADtDemiH += amcDmgToDemi;
+            cWeight += amcWeight;
+            cRes1 += amcAllRes;
+            cRes2 += amcAllRes;
+            cRes3 += amcAllRes;
+            cRes4 += amcAllRes;
+            cMaxHP += amcMaxHP;
+            cMaxST += amcMaxST;
+            cDR += amcDR;
+            cluck += amcLuck;
+            cCombatExp += amcCombatEXP;
+            cSkillExp += amcSkillEXP;
+            chpr += amcHPRecovery;
+            cRes1 += amcSSFRes;
+            cMaxMP += amcMaxMP;
+            cSpecialAttackEv += amcSpecialAtkEvRate;
+            cMagicDR += amcMagicDR;
+            cMeleeDR += amcMelleDR;
+            cRangeDR += amcRangeDR;
+            cSiegeWeaponEvRate += amcSiegeWeaponEvRate;
+            cmpr += amcMPRecovery;
+
+        }
+        public void CrysA1Clear()
+        {
+            amcId = 0;
+            amcType = "Armor";
+            amcDefIgnoreAll = 0;
+            amcDefAccuracy = 0;
+            amcDefDmgToHumans = 0;
+            amcDefDmgToDemi = 0;
+            amcDefWeight = 0;
+            amcDefAllRes = 0;
+            amcDefMaxHP = 0;
+            amcDefMaxST = 0;
+            amcDefDR = 0;
+            amcDefLuck = 0;
+            amcDefCombatEXP = 0;
+            amcDefSkillEXP = 0;
+
+            amcDefMaxMP = 0;
+            amcDefHPRecovery = 0;
+            amcDefMPRecovery = 0;
+            amcDefSSFRes = 0;
+            amcDefSpecialAtkEvRate = 0;
+            amcDefMagicDR = 0;
+            amcDefMelleDR = 0;
+            amcDefRangeDR = 0;
+            amcDefSiegeWeaponEvRate = 0;
+        }
+
+        public void CrysA2()
+        {
+
+            cResistIgnore -= amc2IgnoreAll;
+            cacc -= amc2Accuracy;
+            cedh -= amc2DmgToHumans;
+            cADtDemiH -= amc2DmgToDemi;
+            cWeight -= amc2Weight;
+            cRes1 -= amc2AllRes;
+            cRes2 -= amc2AllRes;
+            cRes3 -= amc2AllRes;
+            cRes4 -= amc2AllRes;
+            cMaxHP -= amc2MaxHP;
+            cMaxST -= amc2MaxST;
+            cDR -= amc2DR;
+            cluck -= amc2Luck;
+            cCombatExp -= amc2CombatEXP;
+            cSkillExp -= amc2SkillEXP;
+            chpr -= amc2HPRecovery;
+
+            cMaxMP -= amc2MaxMP;
+            cRes1 -= amc2SSFRes;
+            cSpecialAttackEv -= amc2SpecialAtkEvRate;
+            cMagicDR -= amc2MagicDR;
+            cMeleeDR -= amc2MelleDR;
+            cRangeDR -= amc2RangeDR;
+            cSiegeWeaponEvRate -= amc2SiegeWeaponEvRate;
+            cmpr -= amc2MPRecovery;
+
+
+
+
+            amc2IgnoreAll = amc2DefIgnoreAll;
+            amc2Accuracy = amc2DefAccuracy;
+            amc2DmgToHumans = amc2DefDmgToHumans;
+            amc2DmgToDemi = amc2DefDmgToDemi;
+            amc2Weight = amc2DefWeight;
+            amc2AllRes = amc2DefAllRes;
+            amc2MaxHP = amc2DefMaxHP;
+            amc2MaxST = amc2DefMaxST;
+            amc2DR = amc2DefDR;
+            amc2Luck = amc2DefLuck;
+            amc2CombatEXP = amc2DefCombatEXP;
+            amc2SkillEXP = amc2DefSkillEXP;
+            amc2HPRecovery = amc2DefHPRecovery;
+            amc2SSFRes = amc2DefSSFRes;
+
+            amc2MaxMP = amc2DefMaxMP;
+            amc2SSFRes = amc2DefSSFRes;
+            amc2SpecialAtkEvRate = amc2DefSpecialAtkEvRate;
+            amc2MagicDR = amc2DefMagicDR;
+            amc2MelleDR = amc2DefMelleDR;
+            amc2RangeDR = amc2DefRangeDR;
+            amc2SiegeWeaponEvRate = amc2DefSiegeWeaponEvRate;
+            amc2MPRecovery = amc2DefMPRecovery;
+
+            cResistIgnore += amc2IgnoreAll;
+            cacc += amc2Accuracy;
+            cedh += amc2DmgToHumans;
+            cADtDemiH += amc2DmgToDemi;
+            cWeight += amc2Weight;
+            cRes1 += amc2AllRes;
+            cRes2 += amc2AllRes;
+            cRes3 += amc2AllRes;
+            cRes4 += amc2AllRes;
+            cMaxHP += amc2MaxHP;
+            cMaxST += amc2MaxST;
+            cDR += amc2DR;
+            cluck += amc2Luck;
+            cCombatExp += amc2CombatEXP;
+            cSkillExp += amc2SkillEXP;
+            chpr += amc2HPRecovery;
+            cRes1 += amc2SSFRes;
+            cMaxMP += amc2MaxMP;
+            cSpecialAttackEv += amc2SpecialAtkEvRate;
+            cMagicDR += amc2MagicDR;
+            cMeleeDR += amc2MelleDR;
+            cRangeDR += amc2RangeDR;
+            cSiegeWeaponEvRate += amc2SiegeWeaponEvRate;
+            cmpr += amc2MPRecovery;
+
+        }
+        public void CrysA2Clear()
+        {
+            amc2Id = 0;
+            amc2Type = "Armor";
+            amc2DefIgnoreAll = 0;
+            amc2DefAccuracy = 0;
+            amc2DefDmgToHumans = 0;
+            amc2DefDmgToDemi = 0;
+            amc2DefWeight = 0;
+            amc2DefAllRes = 0;
+            amc2DefMaxHP = 0;
+            amc2DefMaxST = 0;
+            amc2DefDR = 0;
+            amc2DefLuck = 0;
+            amc2DefCombatEXP = 0;
+            amc2DefSkillEXP = 0;
+
+            amc2DefMaxMP = 0;
+            amc2DefHPRecovery = 0;
+            amc2DefMPRecovery = 0;
+            amc2DefSSFRes = 0;
+            amc2DefSpecialAtkEvRate = 0;
+            amc2DefMagicDR = 0;
+            amc2DefMelleDR = 0;
+            amc2DefRangeDR = 0;
+            amc2DefSiegeWeaponEvRate = 0;
+        }
+
+        public void CrysG1()
+        {
+
+            cResistIgnore -= gmcIgnoreAll;
+            cacc -= gmcAccuracy;
+            cedh -= gmcDmgToHumans;
+            cADtDemiH -= gmcDmgToDemi;
+            cWeight -= gmcWeight;
+            cRes1 -= gmcAllRes;
+            cRes2 -= gmcAllRes;
+            cRes3 -= gmcAllRes;
+            cRes4 -= gmcAllRes;
+            cMaxHP -= gmcMaxHP;
+            cMaxST -= gmcMaxST;
+            cDR -= gmcDR;
+            cluck -= gmcLuck;
+            cCombatExp -= gmcCombatEXP;
+            cSkillExp -= gmcSkillEXP;
+
+            cAtkSpeed -= gmcAtkSpeed;
+            cCastSpeed -= gmcCastSpeed;
+            ccr -= gmcCrit;
+            cRes3 -= gmcGrapRes;
+            cRes4 -= gmcKFRes;
+            cMagicAP -= gmcMagicAP;
+            cMelleAP -= gmcMelleAP;
+            cRangeAP -= gmcRangedAP;
+            chap -= gmcHidenAP;
+
+
+
+
+
+            gmcAccuracy = gmcDefAccuracy;
+            gmcDmgToHumans = gmcDefDmgToHumans;
+            gmcDmgToDemi = gmcDefDmgToDemi;
+            gmcWeight = gmcDefWeight;
+            gmcAllRes = gmcDefAllRes;
+            gmcMaxHP = gmcDefMaxHP;
+            gmcMaxST = gmcDefMaxST;
+            gmcDR = gmcDefDR;
+            gmcLuck = gmcDefLuck;
+            gmcCombatEXP = gmcDefCombatEXP;
+            gmcSkillEXP = gmcDefSkillEXP;
+            gmcIgnoreAll = gmcDefIgnoreAll;
+
+
+            gmcAtkSpeed = gmcDefAtkSpeed;
+            gmcCastSpeed = gmcDefCastSpeed;
+            gmcCrit = gmcDefCrit;
+            gmcGrapRes = gmcDefGrapRes;
+            gmcKFRes = gmcDefKFRes;
+            gmcMagicAP = gmcDefMagicAP;
+            gmcMelleAP = gmcDefMelleAP;
+            gmcRangedAP = gmcDefRangedAP;
+            gmcHidenAP = gmcDefHidenAP;
+
+            cResistIgnore += gmcIgnoreAll;
+            cacc += gmcAccuracy;
+            cedh += gmcDmgToHumans;
+            cADtDemiH += gmcDmgToDemi;
+            cWeight += gmcWeight;
+            cRes1 += gmcAllRes;
+            cRes2 += gmcAllRes;
+            cRes3 += gmcAllRes;
+            cRes4 += gmcAllRes;
+            cMaxHP += gmcMaxHP;
+            cMaxST += gmcMaxST;
+            cDR += gmcDR;
+            cluck += gmcLuck;
+            cCombatExp += gmcCombatEXP;
+            cSkillExp += gmcSkillEXP;
+
+            cAtkSpeed += gmcAtkSpeed;
+            cCastSpeed += gmcCastSpeed;
+            ccr += gmcCrit;
+            cRes3 += gmcGrapRes;
+            cRes4 += gmcKFRes;
+            cMagicAP += gmcMagicAP;
+            cMelleAP += gmcMelleAP;
+            cRangeAP += gmcRangedAP;
+            chap += gmcHidenAP;
+        }
+        public void CrysG1Clear()
+        {
+             gmcId = 0;
+        gmcType = "Gloves";
+         gmcDefIgnoreAll= 0;
+         gmcDefAccuracy= 0;
+         gmcDefDmgToHumans= 0;
+         gmcDefDmgToDemi= 0;
+         gmcDefWeight= 0;
+         gmcDefAllRes= 0;
+         gmcDefMaxHP= 0;
+         gmcDefMaxST= 0;
+         gmcDefDR= 0;
+         gmcDefLuck= 0;
+         gmcDefCombatEXP= 0;
+         gmcDefSkillEXP= 0;
+
+         gmcDefAtkSpeed= 0;
+         gmcDefCastSpeed= 0;
+         gmcDefCrit= 0;
+         gmcDefGrapRes= 0;
+         gmcDefKFRes= 0;
+         gmcDefHidenAP= 0;
+         gmcDefMagicAP= 0;
+         gmcDefMelleAP= 0;
+         gmcDefRangedAP= 0;
+    }
+
+        public void CrysG2()
+        {
+
+            cResistIgnore -= gmc2IgnoreAll;
+            cacc -= gmc2Accuracy;
+            cedh -= gmc2DmgToHumans;
+            cADtDemiH -= gmc2DmgToDemi;
+            cWeight -= gmc2Weight;
+            cRes1 -= gmc2AllRes;
+            cRes2 -= gmc2AllRes;
+            cRes3 -= gmc2AllRes;
+            cRes4 -= gmc2AllRes;
+            cMaxHP -= gmc2MaxHP;
+            cMaxST -= gmc2MaxST;
+            cDR -= gmc2DR;
+            cluck -= gmc2Luck;
+            cCombatExp -= gmc2CombatEXP;
+            cSkillExp -= gmc2SkillEXP;
+
+            cAtkSpeed -= gmc2AtkSpeed;
+            cCastSpeed -= gmc2CastSpeed;
+            ccr -= gmc2Crit;
+            cRes3 -= gmc2GrapRes;
+            cRes4 -= gmc2KFRes;
+            chap -= gmc2HidenAP;
+            cMagicAP -= gmc2MagicAP;
+            cMelleAP -= gmc2MelleAP;
+            cRangeAP -= gmc2RangedAP;
+
+
+
+
+
+            gmc2Accuracy = gmc2DefAccuracy;
+            gmc2DmgToHumans = gmc2DefDmgToHumans;
+            gmc2DmgToDemi = gmc2DefDmgToDemi;
+            gmc2Weight = gmc2DefWeight;
+            gmc2AllRes = gmc2DefAllRes;
+            gmc2MaxHP = gmc2DefMaxHP;
+            gmc2MaxST = gmc2DefMaxST;
+            gmc2DR = gmc2DefDR;
+            gmc2Luck = gmc2DefLuck;
+            gmc2CombatEXP = gmc2DefCombatEXP;
+            gmc2SkillEXP = gmc2DefSkillEXP;
+            gmc2IgnoreAll = gmc2DefIgnoreAll;
+
+
+            gmc2AtkSpeed = gmc2DefAtkSpeed;
+            gmc2CastSpeed = gmc2DefCastSpeed;
+            gmc2Crit = gmc2DefCrit;
+            gmc2GrapRes = gmc2DefGrapRes;
+            gmc2KFRes = gmc2DefKFRes;
+            gmc2MagicAP = gmc2DefMagicAP;
+            gmc2MelleAP = gmc2DefMelleAP;
+            gmc2RangedAP = gmc2DefRangedAP;
+            gmc2HidenAP = gmc2DefHidenAP;
+
+
+            cResistIgnore += gmc2IgnoreAll;
+            cacc += gmc2Accuracy;
+            cedh += gmc2DmgToHumans;
+            cADtDemiH += gmc2DmgToDemi;
+            cWeight += gmc2Weight;
+            cRes1 += gmc2AllRes;
+            cRes2 += gmc2AllRes;
+            cRes3 += gmc2AllRes;
+            cRes4 += gmc2AllRes;
+            cMaxHP += gmc2MaxHP;
+            cMaxST += gmc2MaxST;
+            cDR += gmc2DR;
+            cluck += gmc2Luck;
+            cCombatExp += gmc2CombatEXP;
+            cSkillExp += gmc2SkillEXP;
+
+            cAtkSpeed += gmc2AtkSpeed;
+            cCastSpeed += gmc2CastSpeed;
+            ccr += gmc2Crit;
+            cRes3 += gmc2GrapRes;
+            cRes4 += gmc2KFRes;
+            cMagicAP += gmc2MagicAP;
+            cMelleAP += gmc2MelleAP;
+            cRangeAP += gmc2RangedAP;
+            chap += gmc2HidenAP;
+        }
+        public void CrysG2Clear()
+        {
+            gmc2Id = 0;
+            gmc2Type = "Gloves";
+            gmc2DefIgnoreAll = 0;
+            gmc2DefAccuracy = 0;
+            gmc2DefDmgToHumans = 0;
+            gmc2DefDmgToDemi = 0;
+            gmc2DefWeight = 0;
+            gmc2DefAllRes = 0;
+            gmc2DefMaxHP = 0;
+            gmc2DefMaxST = 0;
+            gmc2DefDR = 0;
+            gmc2DefLuck = 0;
+            gmc2DefCombatEXP = 0;
+            gmc2DefSkillEXP = 0;
+
+            gmc2DefAtkSpeed = 0;
+            gmc2DefCastSpeed = 0;
+            gmc2DefCrit = 0;
+            gmc2DefGrapRes = 0;
+            gmc2DefKFRes = 0;
+            gmc2DefHidenAP = 0;
+            gmc2DefMagicAP = 0;
+            gmc2DefMelleAP = 0;
+            gmc2DefRangedAP = 0;
+        }
+
+        public void CrysS1()
+        {
+
+            cResistIgnore -= smcIgnoreAll;
+            cacc -= smcAccuracy;
+            cedh -= smcDmgToHumans;
+            cADtDemiH -= smcDmgToDemi;
+            cWeight -= smcWeight;
+            cRes1 -= smcAllRes;
+            cRes2 -= smcAllRes;
+            cRes3 -= smcAllRes;
+            cRes4 -= smcAllRes;
+            cMaxHP -= smcMaxHP;
+            cMaxST -= smcMaxST;
+            cDR -= smcDR;
+            cluck -= smcLuck;
+            cCombatExp -= smcCombatEXP;
+            cSkillExp -= smcSkillEXP;
+
+            cRes4 -= smcKFRes;
+            cRes2 -= smcKBRes;
+            cRes1 -= smcSSFRes;
+            cmvs -= smcMVSpeed;
+            cJump -= smcJump;
+            cFallDamage -= smcFallDamage;
+            cUnderwaterBreath -= smcUnderWaterBreath;
+            cMaxEnergy -= smcMaxEnergy;
+          
+
+
+
+
+
+
+            smcAccuracy = smcDefAccuracy;
+            smcDmgToHumans = smcDefDmgToHumans;
+            smcDmgToDemi = smcDefDmgToDemi;
+            smcWeight = smcDefWeight;
+            smcAllRes = smcDefAllRes;
+            smcMaxHP = smcDefMaxHP;
+            smcMaxST = smcDefMaxST;
+            smcDR = smcDefDR;
+            smcLuck = smcDefLuck;
+            smcCombatEXP = smcDefCombatEXP;
+            smcSkillEXP = smcDefSkillEXP;
+            smcIgnoreAll = smcDefIgnoreAll;
+
+
+
+            smcKFRes = smcDefKFRes;
+            smcKBRes = smcDefKBRes;
+            smcSSFRes = smcDefSSFRes;
+            smcMVSpeed = smcDefMVSpeed;
+            smcJump = smcDefJump;
+            smcFallDamage = smcDefFallDamage;
+            smcUnderWaterBreath = smcDefUnderWaterBreath;
+            smcMaxEnergy = smcDefMaxEnergy;
+
+
+            cResistIgnore += smcIgnoreAll;
+            cacc += smcAccuracy;
+            cedh += smcDmgToHumans;
+            cADtDemiH += smcDmgToDemi;
+            cWeight += smcWeight;
+            cRes1 += smcAllRes;
+            cRes2 += smcAllRes;
+            cRes3 += smcAllRes;
+            cRes4 += smcAllRes;
+            cMaxHP += smcMaxHP;
+            cMaxST += smcMaxST;
+            cDR += smcDR;
+            cluck += smcLuck;
+            cCombatExp += smcCombatEXP;
+            cSkillExp += smcSkillEXP;
+
+
+            cRes4 += smcKFRes;
+            cRes2 += smcKBRes;
+            cRes1 += smcSSFRes;
+            cmvs += smcMVSpeed;
+            cJump += smcJump;
+            cFallDamage += smcFallDamage;
+            cUnderwaterBreath += smcUnderWaterBreath;
+            cMaxEnergy += smcMaxEnergy;
+        }
+        public void CrysS1Clear()
+        {
+         smcId = 0;
+         smcType = "Shoes";
+         smcDefIgnoreAll= 0;
+         smcDefAccuracy= 0;
+         smcDefDmgToHumans= 0;
+         smcDefDmgToDemi= 0;
+         smcDefWeight= 0;
+         smcDefAllRes= 0;
+         smcDefMaxHP= 0;
+         smcDefMaxST= 0;
+         smcDefDR= 0;
+         smcDefLuck= 0;
+         smcDefCombatEXP= 0;
+         smcDefSkillEXP= 0;
+
+         smcDefMVSpeed= 0;
+         smcDefKBRes= 0;
+         smcDefKFRes= 0;
+         smcDefSSFRes= 0;
+         smcDefJump= 0;
+         smcDefFallDamage= 0;
+         smcDefUnderWaterBreath= 0;
+         smcDefMaxEnergy= 0;
+    }
+
+        public void CrysS2()
+        {
+
+            cResistIgnore -= smc2IgnoreAll;
+            cacc -= smc2Accuracy;
+            cedh -= smc2DmgToHumans;
+            cADtDemiH -= smc2DmgToDemi;
+            cWeight -= smc2Weight;
+            cRes1 -= smc2AllRes;
+            cRes2 -= smc2AllRes;
+            cRes3 -= smc2AllRes;
+            cRes4 -= smc2AllRes;
+            cMaxHP -= smc2MaxHP;
+            cMaxST -= smc2MaxST;
+            cDR -= smc2DR;
+            cluck -= smc2Luck;
+            cCombatExp -= smc2CombatEXP;
+            cSkillExp -= smc2SkillEXP;
+
+            cRes4 -= smc2KFRes;
+            cRes2 -= smc2KBRes;
+            cRes1 -= smc2SSFRes;
+            cmvs -= smc2MVSpeed;
+            cJump -= smc2Jump;
+            cFallDamage -= smc2FallDamage;
+            cUnderwaterBreath -= smc2UnderWaterBreath;
+            cMaxEnergy -= smc2MaxEnergy;
+
+
+
+
+
+
+
+            smc2Accuracy = smc2DefAccuracy;
+            smc2DmgToHumans = smc2DefDmgToHumans;
+            smc2DmgToDemi = smc2DefDmgToDemi;
+            smc2Weight = smc2DefWeight;
+            smc2AllRes = smc2DefAllRes;
+            smc2MaxHP = smc2DefMaxHP;
+            smc2MaxST = smc2DefMaxST;
+            smc2DR = smc2DefDR;
+            smc2Luck = smc2DefLuck;
+            smc2CombatEXP = smc2DefCombatEXP;
+            smc2SkillEXP = smc2DefSkillEXP;
+            smc2IgnoreAll = smc2DefIgnoreAll;
+
+
+            smc2KFRes = smc2DefKFRes;
+            smc2KBRes = smc2DefKBRes;
+            smc2SSFRes = smc2DefSSFRes;
+            smc2MVSpeed = smc2DefMVSpeed;
+            smc2Jump = smc2DefJump;
+            smc2FallDamage = smc2DefFallDamage;
+            smc2UnderWaterBreath = smc2DefUnderWaterBreath;
+            smc2MaxEnergy = smc2DefMaxEnergy;
+
+
+            cResistIgnore += smc2IgnoreAll;
+            cacc += smc2Accuracy;
+            cedh += smc2DmgToHumans;
+            cADtDemiH += smc2DmgToDemi;
+            cWeight += smc2Weight;
+            cRes1 += smc2AllRes;
+            cRes2 += smc2AllRes;
+            cRes3 += smc2AllRes;
+            cRes4 += smc2AllRes;
+            cMaxHP += smc2MaxHP;
+            cMaxST += smc2MaxST;
+            cDR += smc2DR;
+            cluck += smc2Luck;
+            cCombatExp += smc2CombatEXP;
+            cSkillExp += smc2SkillEXP;
+
+
+            cRes4 += smc2KFRes;
+            cRes2 += smc2KBRes;
+            cRes1 += smc2SSFRes;
+            cmvs += smc2MVSpeed;
+            cJump += smc2Jump;
+            cFallDamage += smc2FallDamage;
+            cUnderwaterBreath += smc2UnderWaterBreath;
+            cMaxEnergy += smc2MaxEnergy;
+        }
+        public void CrysS2Clear()
+        {
+            smc2Id = 0;
+            smc2Type = "Shoes";
+            smc2DefIgnoreAll = 0;
+            smc2DefAccuracy = 0;
+            smc2DefDmgToHumans = 0;
+            smc2DefDmgToDemi = 0;
+            smc2DefWeight = 0;
+            smc2DefAllRes = 0;
+            smc2DefMaxHP = 0;
+            smc2DefMaxST = 0;
+            smc2DefDR = 0;
+            smc2DefLuck = 0;
+            smc2DefCombatEXP = 0;
+            smc2DefSkillEXP = 0;
+
+            smc2DefMVSpeed = 0;
+            smc2DefKBRes = 0;
+            smc2DefKFRes = 0;
+            smc2DefSSFRes = 0;
+            smc2DefJump = 0;
+            smc2DefFallDamage = 0;
+            smc2DefUnderWaterBreath = 0;
+            smc2DefMaxEnergy = 0;
+        }
+    }
 }

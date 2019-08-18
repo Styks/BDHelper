@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDHelper"
         mc:Ignorable="d"
-        Title="Gear" Height="911" Width="1855" Icon="Resources/BDOB_Icon.ico" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="Gear" Height="921" Width="1855" Icon="Resources/BDOB_Icon.ico" Loaded="Window_Loaded" Closing="Window_Closing" WindowState="Maximized">
     <Window.Resources>
         <DataTemplate x:Key="cmbTemplate">
-            <WrapPanel Margin="0 -5 0 -5" Height="40">
-                <Image Width="20" Height="20" Stretch="Fill" Source="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,15,0"/>
+            <WrapPanel Margin="0 -3 0 0" Height="30">
+                <Image Width="30" Height="30" Stretch="Fill" Source="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                 <Label Content="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Foreground="{Binding Grade}"/>
             </WrapPanel>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="0,0,0,1">
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="364" Margin="10,10,0,0" VerticalAlignment="Top" Width="393">
             <Grid Margin="-1,4,9,-1">
                 <Button x:Name="Helmet_btn" Content="" HorizontalAlignment="Left" Margin="118,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Helmet_btn_Click">
@@ -89,26 +89,26 @@
                     </Button.Background>
                 </Button>
                 <Button x:Name="AS_btn" Content="" HorizontalAlignment="Left" Margin="178,221,0,0" VerticalAlignment="Top" Width="40" Height="40" Background="{x:Null}" Click="AS_btn_Click"/>
-                <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="161,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysH2_btn" Content="" HorizontalAlignment="Left" Margin="161,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysA1_btn" Content="" HorizontalAlignment="Left" Margin="210,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysA2_btn" Content="" HorizontalAlignment="Left" Margin="210,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysG1_btn" Content="" HorizontalAlignment="Left" Margin="284,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysG2_btn" Content="" HorizontalAlignment="Left" Margin="284,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysB1_btn" Content="" HorizontalAlignment="Left" Margin="90,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysB2_btn" Content="" HorizontalAlignment="Left" Margin="90,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysSW1_btn" Content="" HorizontalAlignment="Left" Margin="233,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysSW2_btn" Content="" HorizontalAlignment="Left" Margin="255,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysMW1_btn" Content="" HorizontalAlignment="Left" Margin="118,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
-                <Button x:Name="CrysMW2_btn" Content="" HorizontalAlignment="Left" Margin="140,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}"/>
+                <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="161,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH1_btn_Click"/>
+                <Button x:Name="CrysH2_btn" Content="" HorizontalAlignment="Left" Margin="161,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH2_btn_Click"/>
+                <Button x:Name="CrysA1_btn" Content="" HorizontalAlignment="Left" Margin="210,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysA1_btn_Click"/>
+                <Button x:Name="CrysA2_btn" Content="" HorizontalAlignment="Left" Margin="210,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysA2_btn_Click"/>
+                <Button x:Name="CrysG1_btn" Content="" HorizontalAlignment="Left" Margin="284,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysG1_btn_Click"/>
+                <Button x:Name="CrysG2_btn" Content="" HorizontalAlignment="Left" Margin="284,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysG2_btn_Click"/>
+                <Button x:Name="CrysB1_btn" Content="" HorizontalAlignment="Left" Margin="90,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysB1_btn_Click"/>
+                <Button x:Name="CrysB2_btn" Content="" HorizontalAlignment="Left" Margin="90,199,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysB2_btn_Click"/>
+                <Button x:Name="CrysSW1_btn" Content="" HorizontalAlignment="Left" Margin="233,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysSW1_btn_Click"/>
+                <Button x:Name="CrysSW2_btn" Content="" HorizontalAlignment="Left" Margin="255,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysSW2_btn_Click"/>
+                <Button x:Name="CrysMW1_btn" Content="" HorizontalAlignment="Left" Margin="118,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysMW1_btn_Click"/>
+                <Button x:Name="CrysMW2_btn" Content="" HorizontalAlignment="Left" Margin="140,317,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysMW2_btn_Click"/>
             </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="860" Margin="732,10,0,0" VerticalAlignment="Top" Width="476">
-            <Grid Margin="9">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="870,11,0,9" Width="570">
+            <Grid Margin="9,9,9,0" Height="850" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ComboBox x:Name="SelectGear_cb" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" ItemTemplate="{StaticResource cmbTemplate}" Width="296" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="SelectGear_cb_SelectionChanged">
+                <ComboBox x:Name="SelectGear_cb" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" ItemTemplate="{StaticResource cmbTemplate}" Width="360" BorderBrush="#FFEEEEEE" Height="30" SelectionChanged="SelectGear_cb_SelectionChanged">
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -223,10 +223,60 @@
                 <Label x:Name="iProcessingRate_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,752,0,0" RenderTransformOrigin="-1.312,0.654"/>
                 <Label Content="Gathering Drop Rate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,726,0,0" RenderTransformOrigin="0.563,0.308"/>
                 <Label x:Name="iGathDropRate_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,726,0,0" RenderTransformOrigin="-1.312,0.654"/>
+                <Label Content="Combat EXP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,623,0,0"/>
+                <Label x:Name="iCombatEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,623,0,0" RenderTransformOrigin="-0.769,0.538"/>
+                <Label Content="Skill EXP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,649,0,0"/>
+                <Label x:Name="iSkillEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,649,0,0" RenderTransformOrigin="-0.769,0.538"/>
+                <Label x:Name="iEDtoAir_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="439,509,0,0"/>
+                <Label x:Name="iEDtoCounter_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="439,529,0,0"/>
+                <Label x:Name="iEDtoDown_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="439,552,0,0"/>
+                <Label Content="Air Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="301,509,0,0"/>
+                <Label Content="Counter Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="301,529,0,0"/>
+                <Label Content="Down Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="301,552,0,0"/>
+                <Label Content="Ignore Graple Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,407,0,0"/>
+                <Label x:Name="iIgnoreGrapleResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,407,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Ignore Knockdown Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,427,0,0"/>
+                <Label x:Name="iIgnoreKDResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,427,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Ignore Knockback Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,450,0,0"/>
+                <Label x:Name="iIgnoreKBResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,450,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Ignore Stun Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,466,0,0"/>
+                <Label x:Name="iIgnoreStunResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,466,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Critical Hit Damage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,675,0,0"/>
+                <Label x:Name="iCHDamage_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="379,675,0,0"/>
+                <Label Content="Speed Attack Damage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,701,0,0"/>
+                <Label x:Name="iAtkSpeedDmg_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="375,701,0,0" RenderTransformOrigin="-0.769,0.462"/>
+                <Label Content="Vision Range" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,803,0,0"/>
+                <Label x:Name="iVisionRange_n" Content="+0m" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="131,803,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Magic Damage Reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,102,0,0"/>
+                <Label x:Name="iMagicDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="514,102,0,0"/>
+                <Label Content="Melle Damage Reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,128,0,0"/>
+                <Label x:Name="iMelleDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="514,128,0,0"/>
+                <Label Content="Range Damage Reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,154,0,0"/>
+                <Label x:Name="iRangeDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="514,154,0,0"/>
+                <Label Content="Siege Weapon Evasion Rate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,206,0,0"/>
+                <Label x:Name="iSiegeWeaponEvRate_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="514,206,0,0"/>
+                <Label Content="Magic AP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,292,0,0"/>
+                <Label x:Name="iMagicAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,292,0,0"/>
+                <Label Content="Melle AP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,318,0,0"/>
+                <Label x:Name="iMelleAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,318,0,0"/>
+                <Label Content="Range AP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,344,0,0"/>
+                <Label x:Name="iRangeAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="482,344,0,0"/>
+                <Label Content="Gathering" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="268,832,0,-8" RenderTransformOrigin="0.563,0.308"/>
+                <Label x:Name="iGathering_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,832,0,-8" RenderTransformOrigin="-1.312,0.654"/>
+                <Label Content="Fishing" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,806,0,0" RenderTransformOrigin="0.563,0.308"/>
+                <Label x:Name="iFishing_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,806,0,0" RenderTransformOrigin="-1.312,0.654"/>
+                <Label Content="Max Energy" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="413,675,0,0"/>
+                <Label x:Name="iMaxEnergy_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="524,675,0,0" RenderTransformOrigin="-2.812,0.538"/>
+                <Label Content="Jump Height" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="383,597,0,0"/>
+                <Label x:Name="iJump_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="524,597,0,0"/>
+                <Label Content="Fall Damage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="383,623,0,0"/>
+                <Label x:Name="iFallDamage_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="524,623,0,0"/>
+                <Label Content="Underwater Breathing" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="383,649,0,0"/>
+                <Label x:Name="iUnderwaterBreath_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="524,649,0,0"/>
             </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="491" Margin="10,379,0,0" VerticalAlignment="Top" Width="717">
-            <Grid Margin="9">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,379,0,9" Width="855">
+            <Grid Margin="9,9,9,0" Height="482" VerticalAlignment="Top">
                 <Label x:Name="cAP_lbl" Content="AP" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Label x:Name="cAAP_lbl" Content="AAP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
                 <Label x:Name="cDP_lbl" Content="DP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,52,0,0"/>
@@ -307,28 +357,70 @@
                 <Label Content="Kamasylvians" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="368,267,0,0"/>
                 <Label Content="Demihumans" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="368,293,0,0"/>
                 <Label Content="All Species Except Humans, Demihumans" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="368,319,0,0"/>
-                <Label Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="368,345,0,0"/>
-                <Label Content="Special Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="368,371,0,0"/>
+                <Label Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="484,267,0,0"/>
+                <Label Content="Special Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="484,293,0,0"/>
                 <Label x:Name="cEDtAExcHumanAndDemi_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,319,0,0"/>
-                <Label x:Name="cEDtoBack_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,345,0,0"/>
-                <Label x:Name="cSpecialAttackED_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,371,0,0"/>
-                <Label x:Name="cADtDemiH_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,293,0,0"/>
-                <Label x:Name="cExtraDamKama_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,267,0,0"/>
-                <Label x:Name="cEAPa_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,241,0,0"/>
-                <Label x:Name="cEDH_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,215,0,0"/>
-                <Label x:Name="cEDA_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,189,0,0"/>
-                <Label x:Name="cMistyHev_lbl" Content="[Misty Haze] All Evasion Rate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,419,0,0"/>
-                <Label x:Name="cMistyHdp_lbl" Content="[Misty Haze] DP reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,445,0,0"/>
-                <Label x:Name="cMistyHev_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="169,419,0,0"/>
-                <Label x:Name="cMistyHdp_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="169,445,0,0"/>
-                <Label x:Name="cDelusLmvs_lbl" Content="[Delusive Light] Movement Speed reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="229,419,0,0"/>
-                <Label x:Name="cSunMoon_lbl" Content="[Sun, Moon, Stars] All Speed increase" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="229,445,0,0"/>
-                <Label x:Name="cDelusLmvs_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="477,419,0,0"/>
-                <Label x:Name="cSunMoon_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="477,445,0,0"/>
-                <Label Content="Gathering" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1049,327,-353,0" RenderTransformOrigin="0.563,0.308"/>
-                <Label x:Name="iGathering_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1111,327,-369,0" RenderTransformOrigin="-1.312,0.654"/>
-                <Label Content="Fishing" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1059,301,-348,0" RenderTransformOrigin="0.563,0.308"/>
-                <Label x:Name="iFishing_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1111,301,-369,0" RenderTransformOrigin="-1.312,0.654"/>
+                <Label x:Name="cEDtoBack_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,267,0,0"/>
+                <Label x:Name="cSpecialAttackED_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,293,0,0"/>
+                <Label x:Name="cADtDemiH_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="458,293,0,0"/>
+                <Label x:Name="cExtraDamKama_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="458,267,0,0"/>
+                <Label x:Name="cEAPa_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="458,241,0,0"/>
+                <Label x:Name="cEDH_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="458,215,0,0"/>
+                <Label x:Name="cEDA_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="458,189,0,0"/>
+                <Label x:Name="cMistyHev_lbl" Content="[Misty Haze] All Evasion Rate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,427,0,0"/>
+                <Label x:Name="cMistyHdp_lbl" Content="[Misty Haze] DP reduction" HorizontalAlignment="Left" Margin="10,453,0,0" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="cMistyHev_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="177,427,0,0"/>
+                <Label x:Name="cMistyHdp_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="177,453,0,0"/>
+                <Label x:Name="cDelusLmvs_lbl" Content="[Delusive Light] Movement Speed reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="237,427,0,0"/>
+                <Label x:Name="cSunMoon_lbl" Content="[Sun, Moon, Stars] All Speed increase" HorizontalAlignment="Left" Margin="237,453,0,0" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="cDelusLmvs_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,427,0,0"/>
+                <Label x:Name="cSunMoon_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,453,0,0"/>
+                <Label Content="Combat EXP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,319,0,0"/>
+                <Label x:Name="cCombatEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,319,0,0" RenderTransformOrigin="-0.769,0.538"/>
+                <Label Content="Skill EXP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,345,0,0"/>
+                <Label x:Name="cSkillEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,345,0,0" RenderTransformOrigin="-0.769,0.538"/>
+                <Label Content="Air Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="484,187,0,0"/>
+                <Label x:Name="cEDtoAir_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,187,0,0"/>
+                <Label Content="Counter Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="484,218,0,0"/>
+                <Label x:Name="cEDtoCounter_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,218,0,0"/>
+                <Label Content="Down Attack" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="484,241,0,0"/>
+                <Label x:Name="cEDtoDown_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,241,0,0"/>
+                <Label Content="Ignore Graple Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,345,0,0"/>
+                <Label x:Name="cIgnoreGrapleResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="429,345,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Ignore Knockdown Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,371,0,0"/>
+                <Label x:Name="cIgnoreKDResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="429,371,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Ignore Knockback Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="471,345,0,0"/>
+                <Label x:Name="cIgnoreKBResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="653,345,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Ignore Stun Resistance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="471,371,0,0"/>
+                <Label x:Name="cIgnoreStunResistance_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="653,371,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Critical Hit Damage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,370,0,0"/>
+                <Label x:Name="cCHDamage_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="134,370,0,0"/>
+                <Label Content="Speed Attack Damage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,396,0,0"/>
+                <Label x:Name="cAtkSpeedDmg_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,396,0,0" RenderTransformOrigin="-0.769,0.462"/>
+                <Label Content="Vision Range" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,396,0,0"/>
+                <Label x:Name="cVisionRange_n" Content="+0m" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="429,396,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label Content="Magic Damage Reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="643,0,0,0"/>
+                <Label x:Name="cMagicDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="795,0,0,0"/>
+                <Label Content="Melle Damage Reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="643,26,0,0"/>
+                <Label x:Name="cMelleDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="795,26,0,0"/>
+                <Label Content="Range Damage Reduction" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="643,52,0,0"/>
+                <Label x:Name="cRangeDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="795,52,0,0"/>
+                <Label Content="Siege Weapon Evasion Rate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="643,104,0,0"/>
+                <Label x:Name="cSiegeWeaponEvRate_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="795,104,0,0"/>
+                <Label Content="Magic AP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="643,189,0,0"/>
+                <Label x:Name="cMagicAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="795,189,0,0"/>
+                <Label Content="Melle AP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="643,215,0,0"/>
+                <Label x:Name="cMelleAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="795,215,0,0"/>
+                <Label Content="Range AP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="643,241,0,0"/>
+                <Label x:Name="cRangeAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="795,241,0,0"/>
+                <Label Content="Jump Height" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="536,404,0,0"/>
+                <Label x:Name="cJump_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="688,404,0,0"/>
+                <Label Content="Fall Damage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="536,430,0,0"/>
+                <Label x:Name="cFallDamage_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="688,430,0,0"/>
+                <Label Content="Underwater Breathing" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="536,456,0,0"/>
+                <Label x:Name="cUnderwaterBreath_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="688,456,0,0"/>
+                <Label Content="Max Energy" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="708,404,0,0"/>
+                <Label x:Name="cMaxEnergy_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="809,404,0,0" RenderTransformOrigin="-2.812,0.538"/>
             </Grid>
         </Border>
         <Button x:Name="CharacterS_btn" Content="Character" HorizontalAlignment="Left" Margin="408,10,0,0" VerticalAlignment="Top" Width="76" Background="White" Click="CharacterS_btn_Click"/>
@@ -351,7 +443,7 @@
                 <Label x:Name="SCrystal_lbl" Content="Shop Crystal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,263,0,0"/>
             </Grid>
         </Border>
-        <Border x:Name="JournalsS_border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="319" Margin="1245,23,0,0">
+        <Border x:Name="JournalsS_border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="319" Margin="1518,10,0,0">
             <Grid x:Name="JournalsS_grid" Margin="9">
                 <CheckBox x:Name="ibChapter1_cb" Content="Chapter 1" HorizontalAlignment="Left" Margin="30,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter1_cb_Checked" Unchecked="IbChapter1_cb_Checked"/>
                 <Label x:Name="JournalsS1_lbl" Content="Igor Bartali's Adventure Log" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
