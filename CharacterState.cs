@@ -315,6 +315,70 @@ namespace BDHelper
         //Rosar
         public int r_b2;
 
+        //Crys Set
+        //GervishSetBonus Check (CrysBonus = 1)
+        public int gCrys_sb;
+        public int gCrys_mw1;
+        public int gCrys_mw2;
+        public int gCrys_sw1;
+        public int gCrys_sw2;
+        public int gCrys_b1;
+        public int gCrys_b2;
+        public int gCrys_g1;
+        public int gCrys_g2;
+        public int gCrys_a1;
+        public int gCrys_a2;
+        public int gCrys_h1;
+        public int gCrys_h2;
+        //HoomSetBonus Check (CrysBonus = 2)
+        public int hCrys_sb;
+        public int hCrys_mw1;
+        public int hCrys_mw2;
+        public int hCrys_sw1;
+        public int hCrys_sw2;
+        public int hCrys_b1;
+        public int hCrys_b2;
+        public int hCrys_g1;
+        public int hCrys_g2;
+        public int hCrys_a1;
+        public int hCrys_a2;
+        public int hCrys_h1;
+        public int hCrys_h2;
+        //MacalodSetBonus Check (CrysBonus = 3)
+        public int mCrys_sb;
+        public int mCrys_mw1;
+        public int mCrys_mw2;
+        public int mCrys_sw1;
+        public int mCrys_sw2;
+        public int mCrys_b1;
+        public int mCrys_b2;
+        public int mCrys_g1;
+        public int mCrys_g2;
+        public int mCrys_a1;
+        public int mCrys_a2;
+        public int mCrys_h1;
+        public int mCrys_h2;
+
+        //Crys SetBonus (num)
+        //GervishSetBonus Check
+        public int gC_b2a;
+        public int gC_b2b;
+        public int gC_b2c;
+        public int gC_b4a;
+        public int gC_b4b;
+        //HoomSetBonus Check
+        public int hC_b2a;
+        public int hC_b2b;
+        public int hC_b2c;
+        public int hC_b4a;
+        public int hC_b4b;
+        //MacalodSetBonus Check
+        public int mC_b2a;
+        public int mC_b2b;
+        public int mC_b2c;
+        public int mC_b4a;
+        public int mC_b4b;
+
         //Caphras  Arm
         public int c_armHP;
         public int c_armdp;
@@ -910,6 +974,7 @@ namespace BDHelper
         public int wmcDefCombatEXP;
         public int wmcSkillEXP;
         public int wmcDefSkillEXP;
+        public int CrysMW1SB;
 
         //Weapon Magic Crystal - 2
         public int wmc2Id = 0;
@@ -946,6 +1011,7 @@ namespace BDHelper
         public int wmc2DefCombatEXP;
         public int wmc2SkillEXP;
         public int wmc2DefSkillEXP;
+        public int CrysMW2SB;
 
         //Sub-Weapon Magic Crystal - 1
         public int swmcId = 0;
@@ -998,6 +1064,7 @@ namespace BDHelper
         public int swmcDefStunResIgnore;
         public int swmcDmgToKama;
         public int swmcDefDmgToKama;
+        public int CrysSW1SB;
 
         //Sub-Weapon Magic Crystal - 2
         public int swmc2Id = 0;
@@ -1051,6 +1118,7 @@ namespace BDHelper
         public int swmc2DefStunResIgnore;
         public int swmc2DmgToKama;
         public int swmc2DefDmgToKama;
+        public int CrysSW2SB;
 
 
         //Helmet Magic Crystal - 1
@@ -1092,6 +1160,7 @@ namespace BDHelper
         public int hmcDefCastSpeed;
         public int hmcVisionRange;
         public int hmcDefVisionRange;
+        public int CrysH1SB;
 
         //Helmet Magic Crystal - 2
         public int hmc2Id = 0;
@@ -1132,6 +1201,7 @@ namespace BDHelper
         public int hmc2DefCastSpeed;
         public int hmc2VisionRange;
         public int hmc2DefVisionRange;
+        public int CrysH2SB;
 
         //Armor Magic Crystal - 1
         public int amcId = 0;
@@ -1179,6 +1249,7 @@ namespace BDHelper
         public int amcDefRangeDR;
         public int amcSiegeWeaponEvRate;
         public int amcDefSiegeWeaponEvRate;
+        public int CrysA1SB;
 
         //Armor Magic Crystal - 2
         public int amc2Id = 0;
@@ -1226,6 +1297,7 @@ namespace BDHelper
         public int amc2DefRangeDR;
         public int amc2SiegeWeaponEvRate;
         public int amc2DefSiegeWeaponEvRate;
+        public int CrysA2SB;
 
 
         //Gloves Magic Crystal - 1
@@ -1274,6 +1346,7 @@ namespace BDHelper
         public int gmcDefMelleAP;
         public int gmcRangedAP;
         public int gmcDefRangedAP;
+        public int CrysG1SB;
 
         //Gloves Magic Crystal - 2
         public int gmc2Id = 0;
@@ -1321,7 +1394,8 @@ namespace BDHelper
         public int gmc2DefMelleAP;
         public int gmc2RangedAP;
         public int gmc2DefRangedAP;
-
+        public int CrysG2SB;
+        
         //Shoes Magic Crystal - 1
         public int smcId = 0;
         public string smcType = "Shoes";
@@ -1366,6 +1440,7 @@ namespace BDHelper
         public int smcDefUnderWaterBreath;
         public int smcMaxEnergy;
         public int smcDefMaxEnergy;
+        public int CrysB1SB;
 
         //Shoes Magic Crystal - 2
         public int smc2Id = 0;
@@ -1411,6 +1486,7 @@ namespace BDHelper
         public int smc2DefUnderWaterBreath;
         public int smc2MaxEnergy;
         public int smc2DefMaxEnergy;
+        public int CrysB2SB;
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
         
@@ -1421,8 +1497,10 @@ namespace BDHelper
             cmd.CommandText = "select * from Belts where Id='" + beltId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
 
             if (beltEnch == true & beltEnchLvl >= 1)
@@ -1442,11 +1520,11 @@ namespace BDHelper
                 cSpiritRage -= beltSpiritRage;
                 ceapa -= beltAPagaingst;
 
-                if(beltId == 6)
+                if (beltId == 6)
                 {
                     if (beltEnchLvl == 2 | beltEnchLvl == 3) beltap = 15;
-                    else if (beltEnchLvl == 4 ) beltap = 16;
-                    else if (beltEnchLvl == 5 ) beltap = 17;
+                    else if (beltEnchLvl == 4) beltap = 16;
+                    else if (beltEnchLvl == 5) beltap = 17;
                 }
                 else beltap = beltDefap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
 
@@ -1456,7 +1534,7 @@ namespace BDHelper
                     else if (beltEnchLvl == 3 | beltEnchLvl == 4) beltdp = 2;
                     else if (beltEnchLvl == 5) beltdp = 3;
                 }
-                
+
                 else beltdp = beltDefdp + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
 
                 if (beltId == 29)
@@ -1467,11 +1545,11 @@ namespace BDHelper
                 }
                 else if (beltId == 6)
                 {
-                    if (beltEnchLvl == 1| beltEnchLvl == 2) beltacc = 9;
+                    if (beltEnchLvl == 1 | beltEnchLvl == 2) beltacc = 9;
                     else if (beltEnchLvl == 3 | beltEnchLvl == 4 | beltEnchLvl == 5) beltacc = 10;
                 }
                 else beltacc = beltDefacc + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
-                beltev = beltDefev + beltEnchLvl* Convert.ToInt32(dt.Rows[0]["Evsh"]);
+                beltev = beltDefev + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
                 beltResis = beltDefResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
 
                 if (beltId == 29)
@@ -1480,7 +1558,7 @@ namespace BDHelper
                     else if (beltEnchLvl == 3 | beltEnchLvl == 4) beltDR = 2;
                     else if (beltEnchLvl == 5) beltDR = 3;
                 }
-                else beltDR = beltDefDR + beltEnchLvl* Convert.ToInt32(dt.Rows[0]["DRsh"]);
+                else beltDR = beltDefDR + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
                 beltHP = beltDefHP + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
                 beltWeight = beltDefWeight + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Wgsh"]);
 
@@ -1495,15 +1573,15 @@ namespace BDHelper
                 else beltAPagaingst = beltDefAPagainst + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["shApAgainst"]);
                 beltSpiritRage = beltDefSpiritRage;
 
-                cap += beltap ;
-                caap += beltap ;
+                cap += beltap;
+                caap += beltap;
                 cdp += beltdp;
                 cev += beltev;
                 cacc += beltacc;
                 cRes1 += beltResis;
                 cRes2 += beltResis;
                 cRes3 += beltResis;
-                cRes4 += beltResis ;
+                cRes4 += beltResis;
                 cDR += beltDR;
                 cMaxHP += beltHP;
                 cWeight += beltWeight;
@@ -1562,25 +1640,27 @@ namespace BDHelper
             cmd.CommandText = "select * from Neck where Id='" + neckId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
             if (neckEnch == true & neckEnchLvl >= 1)
             {
                 cap -= neckap;
                 caap -= neckap;
                 cdp -= neckdp;
-                cev -= neckev ;
+                cev -= neckev;
                 cacc -= neckacc;
-                cRes1 -= neckSSF ;
-                cRes2 -= neckKB ;
-                cRes3 -= neckG ;
-                cRes4 -= neckKF ;
-                cDR -= neckDR ;
+                cRes1 -= neckSSF;
+                cRes2 -= neckKB;
+                cRes3 -= neckG;
+                cRes4 -= neckKF;
+                cDR -= neckDR;
                 cMaxHP -= neckHP;
-                cRes1 -= neckAllRes ;
-                cRes2 -= neckAllRes ;
-                cRes3 -= neckAllRes ;
-                cRes4 -= neckAllRes ;
+                cRes1 -= neckAllRes;
+                cRes2 -= neckAllRes;
+                cRes3 -= neckAllRes;
+                cRes4 -= neckAllRes;
                 ceapa -= neckAPagaingst;
                 cSpiritRage -= neckSpiritRage;
 
@@ -1594,7 +1674,7 @@ namespace BDHelper
                 }
                 else neckdp = neckDefdp + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DPSh"]);
 
-               
+
                 if (neckId == 26)
                 {
                     if (neckEnchLvl == 1) neckacc = 0;
@@ -5209,7 +5289,179 @@ namespace BDHelper
             if (r_sb == 2 && r_b2 == 0) { r_b2 = 10; cResistIgnore += r_b2; }
         }
 
-            public void AwakeningState(string chClass)
+        public void CrysSetBonusCheck()
+        {
+            gCrys_sb -= gCrys_mw1; //Gervish(1)
+            gCrys_sb -= gCrys_mw2;
+            gCrys_sb -= gCrys_sw1;
+            gCrys_sb -= gCrys_sw2;
+            gCrys_sb -= gCrys_b1;
+            gCrys_sb -= gCrys_b2;
+            gCrys_sb -= gCrys_g1;
+            gCrys_sb -= gCrys_g2;
+            gCrys_sb -= gCrys_a1;
+            gCrys_sb -= gCrys_a2;
+            gCrys_sb -= gCrys_h1;
+            gCrys_sb -= gCrys_h2;
+            hCrys_sb -= hCrys_mw1; //Hoom(2)
+            hCrys_sb -= hCrys_mw2;
+            hCrys_sb -= hCrys_sw1;
+            hCrys_sb -= hCrys_sw2;
+            hCrys_sb -= hCrys_b1;
+            hCrys_sb -= hCrys_b2;
+            hCrys_sb -= hCrys_g1;
+            hCrys_sb -= hCrys_g2;
+            hCrys_sb -= hCrys_a1;
+            hCrys_sb -= hCrys_a2;
+            hCrys_sb -= hCrys_h1;
+            hCrys_sb -= hCrys_h2;
+            mCrys_sb -= mCrys_mw1; //Macalod(3)
+            mCrys_sb -= mCrys_mw2;
+            mCrys_sb -= mCrys_sw1;
+            mCrys_sb -= mCrys_sw2;
+            mCrys_sb -= mCrys_b1;
+            mCrys_sb -= mCrys_b2;
+            mCrys_sb -= mCrys_g1;
+            mCrys_sb -= mCrys_g2;
+            mCrys_sb -= mCrys_a1;
+            mCrys_sb -= mCrys_a2;
+            mCrys_sb -= mCrys_h1;
+            mCrys_sb -= mCrys_h2;
+
+            //Gervish
+            if (CrysMW1SB == 1) { gCrys_mw1 = 1; }
+            if (CrysMW1SB != 1 && gCrys_mw1 > 0) { gCrys_mw1 -= 1; }
+            if (CrysMW2SB == 1) { gCrys_mw2 = 1; }
+            if (CrysMW2SB != 1 && gCrys_mw2 > 0) { gCrys_mw2 -= 1; }
+            if (CrysSW1SB == 1) { gCrys_sw1 = 1; }
+            if (CrysSW1SB != 1 && gCrys_sw1 > 0) { gCrys_sw1 -= 1; }
+            if (CrysSW2SB == 1) { gCrys_sw2 = 1; }
+            if (CrysSW2SB != 1 && gCrys_sw2 > 0) { gCrys_sw2 -= 1; }
+            if (CrysB1SB == 1) { gCrys_b1 = 1; }
+            if (CrysB1SB != 1 && gCrys_b1 > 0) { gCrys_b1 -= 1; }
+            if (CrysB2SB == 1) { gCrys_b2 = 1; }
+            if (CrysB2SB != 1 && gCrys_b2 > 0) { gCrys_b2 -= 1; }
+            if (CrysG1SB == 1) { gCrys_g1 = 1; }
+            if (CrysG1SB != 1 && gCrys_g1 > 0) { gCrys_g1 -= 1; }
+            if (CrysG2SB == 1) { gCrys_g2 = 1; }
+            if (CrysG2SB != 1 && gCrys_g2 > 0) { gCrys_g2 -= 1; }
+            if (CrysA1SB == 1) { gCrys_a1 = 1; }
+            if (CrysA1SB != 1 && gCrys_a1 > 0) { gCrys_a1 -= 1; }
+            if (CrysA2SB == 1) { gCrys_a2 = 1; }
+            if (CrysA2SB != 1 && gCrys_a2 > 0) { gCrys_a2 -= 1; }
+            if (CrysH1SB == 1) { gCrys_h1 = 1; }
+            if (CrysH1SB != 1 && gCrys_h1 > 0) { gCrys_h1 -= 1; }
+            if (CrysH2SB == 1) { gCrys_h2 = 1; }
+            if (CrysH2SB != 1 && gCrys_h2 > 0) { gCrys_h2 -= 1; }
+            //Hoom
+            if (CrysMW1SB == 2) { hCrys_mw1 = 1; }
+            if (CrysMW1SB != 2 && hCrys_mw1 > 0) { hCrys_mw1 -= 1; }
+            if (CrysMW2SB == 2) { hCrys_mw2 = 1; }
+            if (CrysMW2SB != 2 && hCrys_mw2 > 0) { hCrys_mw2 -= 1; }
+            if (CrysSW1SB == 2) { hCrys_sw1 = 1; }
+            if (CrysSW1SB != 2 && hCrys_sw1 > 0) { hCrys_sw1 -= 1; }
+            if (CrysSW2SB == 2) { hCrys_sw2 = 1; }
+            if (CrysSW2SB != 2 && hCrys_sw2 > 0) { hCrys_sw2 -= 1; }
+            if (CrysB1SB == 2) { hCrys_b1 = 1; }
+            if (CrysB1SB != 2 && hCrys_b1 > 0) { hCrys_b1 -= 1; }
+            if (CrysB2SB == 2) { hCrys_b2 = 1; }
+            if (CrysB2SB != 2 && hCrys_b2 > 0) { hCrys_b2 -= 1; }
+            if (CrysG1SB == 2) { hCrys_g1 = 1; }
+            if (CrysG1SB != 2 && hCrys_g1 > 0) { hCrys_g1 -= 1; }
+            if (CrysG2SB == 2) { hCrys_g2 = 1; }
+            if (CrysG2SB != 2 && hCrys_g2 > 0) { hCrys_g2 -= 1; }
+            if (CrysA1SB == 2) { hCrys_a1 = 1; }
+            if (CrysA1SB != 2 && hCrys_a1 > 0) { hCrys_a1 -= 1; }
+            if (CrysA2SB == 2) { hCrys_a2 = 1; }
+            if (CrysA2SB != 2 && hCrys_a2 > 0) { hCrys_a2 -= 1; }
+            if (CrysH1SB == 2) { hCrys_h1 = 1; }
+            if (CrysH1SB != 2 && hCrys_h1 > 0) { hCrys_h1 -= 1; }
+            if (CrysH2SB == 2) { hCrys_h2 = 1; }
+            if (CrysH2SB != 2 && hCrys_h2 > 0) { hCrys_h2 -= 1; }
+            //Macalod
+            if (CrysMW1SB == 3) { mCrys_mw1 = 1; }
+            if (CrysMW1SB != 3 && mCrys_mw1 > 0) { mCrys_mw1 -= 1; }
+            if (CrysMW2SB == 3) { mCrys_mw2 = 1; }
+            if (CrysMW2SB != 3 && mCrys_mw2 > 0) { mCrys_mw2 -= 1; }
+            if (CrysSW1SB == 3) { mCrys_sw1 = 1; }
+            if (CrysSW1SB != 3 && mCrys_sw1 > 0) { mCrys_sw1 -= 1; }
+            if (CrysSW2SB == 3) { mCrys_sw2 = 1; }
+            if (CrysSW2SB != 3 && mCrys_sw2 > 0) { mCrys_sw2 -= 1; }
+            if (CrysB1SB == 3) { mCrys_b1 = 1; }
+            if (CrysB1SB != 3 && mCrys_b1 > 0) { mCrys_b1 -= 1; }
+            if (CrysB2SB == 3) { mCrys_b2 = 1; }
+            if (CrysB2SB != 3 && mCrys_b2 > 0) { mCrys_b2 -= 1; }
+            if (CrysG1SB == 3) { mCrys_g1 = 1; }
+            if (CrysG1SB != 3 && mCrys_g1 > 0) { mCrys_g1 -= 1; }
+            if (CrysG2SB == 3) { mCrys_g2 = 1; }
+            if (CrysG2SB != 3 && mCrys_g2 > 0) { mCrys_g2 -= 1; }
+            if (CrysA1SB == 3) { mCrys_a1 = 1; }
+            if (CrysA1SB != 3 && mCrys_a1 > 0) { mCrys_a1 -= 1; }
+            if (CrysA2SB == 3) { mCrys_a2 = 1; }
+            if (CrysA2SB != 3 && mCrys_a2 > 0) { mCrys_a2 -= 1; }
+            if (CrysH1SB == 3) { mCrys_h1 = 1; }
+            if (CrysH1SB != 3 && mCrys_h1 > 0) { mCrys_h1 -= 1; }
+            if (CrysH2SB == 3) { mCrys_h2 = 1; }
+            if (CrysH2SB != 3 && mCrys_h2 > 0) { mCrys_h2 -= 1; }
+
+            gCrys_sb += gCrys_mw1; //Gervish(1)
+            gCrys_sb += gCrys_mw2;
+            gCrys_sb += gCrys_sw1;
+            gCrys_sb += gCrys_sw2;
+            gCrys_sb += gCrys_b1;
+            gCrys_sb += gCrys_b2;
+            gCrys_sb += gCrys_g1;
+            gCrys_sb += gCrys_g2;
+            gCrys_sb += gCrys_a1;
+            gCrys_sb += gCrys_a2;
+            gCrys_sb += gCrys_h1;
+            gCrys_sb += gCrys_h2;
+            hCrys_sb += hCrys_mw1; //Hoom(2)
+            hCrys_sb += hCrys_mw2;
+            hCrys_sb += hCrys_sw1;
+            hCrys_sb += hCrys_sw2;
+            hCrys_sb += hCrys_b1;
+            hCrys_sb += hCrys_b2;
+            hCrys_sb += hCrys_g1;
+            hCrys_sb += hCrys_g2;
+            hCrys_sb += hCrys_a1;
+            hCrys_sb += hCrys_a2;
+            hCrys_sb += hCrys_h1;
+            hCrys_sb += hCrys_h2;
+            mCrys_sb += mCrys_mw1; //Macalod(3)
+            mCrys_sb += mCrys_mw2;
+            mCrys_sb += mCrys_sw1;
+            mCrys_sb += mCrys_sw2;
+            mCrys_sb += mCrys_b1;
+            mCrys_sb += mCrys_b2;
+            mCrys_sb += mCrys_g1;
+            mCrys_sb += mCrys_g2;
+            mCrys_sb += mCrys_a1;
+            mCrys_sb += mCrys_a2;
+            mCrys_sb += mCrys_h1;
+            mCrys_sb += mCrys_h2;
+        }
+
+        public void CrysSetBonus()
+        {
+            //Gervish
+            if (gCrys_sb < 2) { ccr -= gC_b2a; cmvs -= gC_b2b; cWeight -= gC_b2c; gC_b2a = 0; gC_b2b = 0; gC_b2c = 0; }
+            if (gCrys_sb == 2 && gC_b2a == 0) { gC_b2a = 1; gC_b2b = 1; gC_b2c = 75; ccr += gC_b2a; cmvs += gC_b2b; cWeight += gC_b2c; }
+            if (gCrys_sb < 4) { cCombatExp -= gC_b4a; cSkillExp -= gC_b4b; gC_b4a = 0; gC_b4b = 0; } 
+            if (gCrys_sb == 4 && gC_b4a == 0) { gC_b4a = 5; gC_b4b = 3; cCombatExp += gC_b4a; cSkillExp += gC_b4b; }
+            //Hoom
+            if (hCrys_sb < 2) { cDR -= hC_b2a; cMaxHP -= hC_b2b; cev -= hC_b2c; hC_b2a = 0; hC_b2b = 0; hC_b2c = 0; }
+            if (hCrys_sb == 2 && hC_b2a == 0) { hC_b2a = 5; hC_b2b = 150; hC_b2c = 4; cDR += hC_b2a; cMaxHP += hC_b2b; cev += hC_b2c; }
+            if (hCrys_sb < 4) { cacc -= hC_b4a; cRes1 -= hC_b4b; cRes2 -= hC_b4b; cRes3 -= hC_b4b; cRes4 -= hC_b4b; hC_b4a = 0; hC_b4b = 0; }
+            if (hCrys_sb == 4 && hC_b4a == 0) { hC_b4a = 8; hC_b4b = 3; cacc += hC_b4a; cRes1 += hC_b4b; cRes2 += hC_b4b; cRes3 += hC_b4b; cRes4 += hC_b4b; }
+            //Macalod
+            if (mCrys_sb < 2) { chap -= mC_b2a; cMaxST -= mC_b2b; cacc -= mC_b2c; mC_b2a = 0; mC_b2b = 0; mC_b2c = 0; }
+            if (mCrys_sb == 2 && mC_b2a == 0) { mC_b2a = 5; mC_b2b = 100; mC_b2c = 4; chap += mC_b2a; cMaxST += mC_b2b; cacc += mC_b2c; }
+            if (mCrys_sb < 4) { cCombatExp -= mC_b4a; cResistIgnore -= mC_b4b; mC_b4a = 0; mC_b4b = 0; }
+            if (mCrys_sb == 4 && mC_b4a == 0) { mC_b4a = 5; mC_b4b = 3; cCombatExp += mC_b4a; cResistIgnore += mC_b4b; }
+        }
+
+        public void AwakeningState(string chClass)
         {
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from [" + chClass + " Awakening Weapons] where Id='" + awkId.ToString() + "'";
@@ -5657,7 +5909,6 @@ namespace BDHelper
                     }
 
                 }
-
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;

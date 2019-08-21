@@ -1814,6 +1814,7 @@ namespace BDHelper
                         cs.wmcDefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.wmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.wmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                        cs.CrysMW1SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.wmcDefCrit = 0;
                         cs.wmcDefCastSpeed = 0;
@@ -1911,6 +1912,7 @@ namespace BDHelper
                         cs.wmc2DefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.wmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.wmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                        cs.CrysMW2SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.wmc2DefCrit = 0;
                         cs.wmc2DefCastSpeed = 0;
@@ -2016,6 +2018,7 @@ namespace BDHelper
                         cs.swmcDefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.swmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.swmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                        cs.CrysSW1SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.swmcDefCritDmg = 0;
                         cs.swmcDefAirDmg = 0;
@@ -2139,6 +2142,7 @@ namespace BDHelper
                         cs.swmc2DefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.swmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.swmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                        cs.CrysSW2SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.swmc2DefCritDmg = 0;
                         cs.swmc2DefAirDmg = 0;
@@ -2258,6 +2262,7 @@ namespace BDHelper
                         cs.hmcDefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.hmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.hmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                        cs.CrysH1SB = Convert.ToInt32(dr["SetBonus"]);
 
 
                         cs.hmcDefHPRecovery = 0;
@@ -2366,6 +2371,7 @@ namespace BDHelper
                         cs.hmc2DefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.hmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.hmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                        cs.CrysH2SB = Convert.ToInt32(dr["SetBonus"]);
 
 
                         cs.hmc2DefHPRecovery = 0;
@@ -2479,6 +2485,7 @@ namespace BDHelper
                         cs.amcDefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.amcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.amcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                        cs.CrysA1SB = Convert.ToInt32(dr["SetBonus"]);
 
 
                         cs.amcDefHPRecovery = 0;
@@ -2599,7 +2606,7 @@ namespace BDHelper
                         cs.amc2DefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.amc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.amc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-
+                        cs.CrysA2SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.amc2DefHPRecovery = 0;
                         cs.amc2DefSSFRes = 0;
@@ -2720,7 +2727,7 @@ namespace BDHelper
                         cs.gmcDefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.gmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.gmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-
+                        cs.CrysG1SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.gmcDefAtkSpeed = 0;
                         cs.gmcDefCastSpeed = 0;
@@ -2842,7 +2849,7 @@ namespace BDHelper
                         cs.gmc2DefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.gmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.gmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-
+                        cs.CrysG2SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.gmc2DefAtkSpeed = 0;
                         cs.gmc2DefCastSpeed = 0;
@@ -2958,7 +2965,7 @@ namespace BDHelper
                         cs.smcDefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.smcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.smcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-
+                        cs.CrysB1SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.smcDefKFRes = 0;
                         cs.smcDefKBRes =0;
@@ -3074,7 +3081,7 @@ namespace BDHelper
                         cs.smc2DefLuck = Convert.ToInt32(dr["Luck"]);
                         cs.smc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                         cs.smc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-
+                        cs.CrysB2SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.smc2DefKFRes = 0;
                         cs.smc2DefKBRes = 0;
@@ -3131,9 +3138,11 @@ namespace BDHelper
             cs.BossSetBonusCheck();
             cs.AccSetBonusCheck();
             cs.WeaponSetBonusCheck();
+            cs.CrysSetBonusCheck();
             cs.BossSetBonus();
             cs.AccSetBonus();
             cs.WeaponSetBonus();
+            cs.CrysSetBonus();
             FillCharacterState();
         }
 
