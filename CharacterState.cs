@@ -92,6 +92,10 @@ namespace BDHelper
         public int cUnderwaterBreath; // Underwater Breathing 
         public int cMaxEnergy; //Max Energy
 
+        public int bcap; //GS bonus AP
+        public int bcaap; //GS bonus AAP
+        public double bcdr; //GS bonus DR (%)
+        
 
         //Training
         public int tcsb; //Breath
@@ -5459,6 +5463,78 @@ namespace BDHelper
             if (mCrys_sb == 2 && mC_b2a == 0) { mC_b2a = 5; mC_b2b = 100; mC_b2c = 4; chap += mC_b2a; cMaxST += mC_b2b; cacc += mC_b2c; }
             if (mCrys_sb < 4) { cCombatExp -= mC_b4a; cResistIgnore -= mC_b4b; mC_b4a = 0; mC_b4b = 0; }
             if (mCrys_sb == 4 && mC_b4a == 0) { mC_b4a = 5; mC_b4b = 3; cCombatExp += mC_b4a; cResistIgnore += mC_b4b; }
+        }
+
+        public void GearScoreBonus()
+        {
+            //Bonus AP/AAP
+            if (cap >= 100 & cap <= 139) { bcap = 5; }
+            if (caap >= 100 & caap <= 139) { bcaap = 5; }
+            if (cap >= 140 & cap <= 169) { bcap = 10; }
+            if (caap >= 140 & caap <= 169) { bcaap = 10; }
+            if (cap >= 170 & cap <= 183) { bcap = 15; }
+            if (caap >= 170 & caap <= 183) { bcaap = 15; }
+            if (cap >= 184 & cap <= 208) { bcap = 20; }
+            if (caap >= 184 & caap <= 208) { bcaap = 20; }
+            if (cap >= 209 & cap <= 234) { bcap = 30; }
+            if (caap >= 209 & caap <= 234) { bcaap = 30; }
+            if (cap >= 235 & cap <= 244) { bcap = 40; }
+            if (caap >= 235 & caap <= 244) { bcaap = 40; }
+            if (cap >= 245 & cap <= 248) { bcap = 48; }
+            if (caap >= 245 & caap <= 248) { bcaap = 48; }
+            if (cap >= 249 & cap <= 252) { bcap = 57; }
+            if (caap >= 249 & caap <= 252) { bcaap = 57; }
+            if (cap >= 253 & cap <= 256) { bcap = 69; }
+            if (caap >= 253 & caap <= 256) { bcaap = 69; }
+            if (cap >= 257 & cap <= 260) { bcap = 83; }
+            if (caap >= 257 & caap <= 260) { bcaap = 83; }
+            if (cap >= 261 & cap <= 264) { bcap = 101; }
+            if (caap >= 261 & caap <= 264) { bcaap = 101; }
+            if (cap >= 265 & cap <= 268) { bcap = 122; }
+            if (caap >= 265 & caap <= 268) { bcaap = 122; }
+            if (cap >= 269 & cap <= 272) { bcap = 137; }
+            if (caap >= 269 & caap <= 272) { bcaap = 137; }
+            if (cap >= 273 & cap <= 276) { bcap = 142; }
+            if (caap >= 273 & caap <= 276) { bcaap = 142; }
+            if (cap >= 277 & cap <= 280) { bcap = 148; }
+            if (caap >= 277 & caap <= 280) { bcaap = 148; }
+            if (cap >= 281 & cap <= 284) { bcap = 154; }
+            if (caap >= 281 & caap <= 284) { bcaap = 154; }
+            if (cap >= 285 & cap <= 288) { bcap = 160; }
+            if (caap >= 285 & caap <= 288) { bcaap = 160; }
+            if (cap >= 289 & cap <= 292) { bcap = 167; }
+            if (caap >= 289 & caap <= 292) { bcaap = 167; }
+            if (cap >= 293 & cap <= 296) { bcap = 174; }
+            if (caap >= 293 & caap <= 296) { bcaap = 174; }
+            if (cap >= 297 & cap <= 300) { bcap = 181; }
+            if (caap >= 297 & caap <= 300) { bcaap = 181; }
+            if (cap >= 301 & cap <= 304) { bcap = 188; }
+            if (caap >= 301 & caap <= 304) { bcaap = 188; }
+            if (cap >= 305 & cap <= 308) { bcap = 196; }
+            if (caap >= 305 & caap <= 308) { bcaap = 196; }
+            if (cap >= 309) { bcap = 200; }
+            if (caap >= 309) { bcaap = 200; }
+            //Bonus DR
+            if (cdp >= 203 & cdp <= 210) { bcdr = cdp * 0.01; }
+            if (cdp >= 211 & cdp <= 217) { bcdr = cdp * 0.02; }
+            if (cdp >= 218 & cdp <= 225) { bcdr = cdp * 0.03; }
+            if (cdp >= 226 & cdp <= 232) { bcdr = cdp * 0.04; }
+            if (cdp >= 233 & cdp <= 240) { bcdr = cdp * 0.05; }
+            if (cdp >= 241 & cdp <= 247) { bcdr = cdp * 0.06; }
+            if (cdp >= 248 & cdp <= 255) { bcdr = cdp * 0.07; }
+            if (cdp >= 256 & cdp <= 262) { bcdr = cdp * 0.08; }
+            if (cdp >= 263 & cdp <= 270) { bcdr = cdp * 0.09; }
+            if (cdp >= 271 & cdp <= 277) { bcdr = cdp * 0.10; }
+            if (cdp >= 278 & cdp <= 285) { bcdr = cdp * 0.11; }
+            if (cdp >= 286 & cdp <= 292) { bcdr = cdp * 0.12; }
+            if (cdp >= 293 & cdp <= 300) { bcdr = cdp * 0.13; }
+            if (cdp >= 301 & cdp <= 308) { bcdr = cdp * 0.14; }
+            if (cdp >= 309 & cdp <= 315) { bcdr = cdp * 0.15; }
+            if (cdp >= 316 & cdp <= 323) { bcdr = cdp * 0.16; }
+            if (cdp >= 324 & cdp <= 330) { bcdr = cdp * 0.17; }
+            if (cdp >= 331 & cdp <= 338) { bcdr = cdp * 0.18; }
+            if (cdp >= 339 & cdp <= 345) { bcdr = cdp * 0.19; }
+            if (cdp >= 346) { bcdr = cdp * 0.20; }
         }
 
         public void AwakeningState(string chClass)

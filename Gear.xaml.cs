@@ -163,6 +163,10 @@ namespace BDHelper
             cFallDamage_n.Content = cs.cFallDamage + "%";
             cUnderwaterBreath_n.Content = "+"+ cs.cUnderwaterBreath + "sec";
             cMaxEnergy_n.Content = cs.cMaxEnergy;
+
+            cBonusAP_n.Content = cs.bcap;
+            cBonusAAP_n.Content = cs.bcaap;
+            cBonusDR_n.Content = String.Format("{0:0}", cs.bcdr)  ;
         }
 
         private void ItemStatClear()
@@ -3143,7 +3147,8 @@ namespace BDHelper
             cs.AccSetBonus();
             cs.WeaponSetBonus();
             cs.CrysSetBonus();
-            FillCharacterState();
+            cs.GearScoreBonus();
+            FillCharacterState();          
         }
 
         private void LoadItemEnch_cb()
@@ -3581,6 +3586,8 @@ namespace BDHelper
                 FillCharacterState();
             } //Sub-Weapons
             LoadItemCaph_cb();
+            cs.GearScoreBonus();
+            FillCharacterState();
         }
         private void ItemCaph_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -3602,6 +3609,8 @@ namespace BDHelper
                 cs.AllWeaponCaphState();
                 FillCharacterState();
             } // Weapons
+            cs.GearScoreBonus();
+            FillCharacterState();
         }
 
         private void CharacterS_btn_Click(object sender, RoutedEventArgs e)
@@ -3786,7 +3795,6 @@ namespace BDHelper
             else { cs.cWeight -= 6; cs.cMaxHP -= 18; }
             FillCharacterState();
         }
-
 
     }
 }

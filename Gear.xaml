@@ -276,7 +276,7 @@
             </Grid>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,379,0,9" Width="855">
-            <Grid Margin="9,9,9,0" Height="482" VerticalAlignment="Top">
+            <Grid Margin="9,5,9,0" Height="482" VerticalAlignment="Top">
                 <Label x:Name="cAP_lbl" Content="AP" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Label x:Name="cAAP_lbl" Content="AAP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
                 <Label x:Name="cDP_lbl" Content="DP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,52,0,0"/>
@@ -301,12 +301,12 @@
                 <Label x:Name="cHE_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="213,104,0,0"/>
                 <Label x:Name="cAcc_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="213,130,0,0"/>
                 <Label x:Name="cDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="213,26,0,0"/>
-                <Label Content="HP Recovery" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,0,0,0"/>
-                <Label Content="MP Recovery" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,26,0,0"/>
-                <Label x:Name="cHPR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,0,0,0" RenderTransformOrigin="0.5,0.538"/>
-                <Label x:Name="cMPR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,26,0,0" RenderTransformOrigin="0.625,0.385"/>
-                <Label Content="Weight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,52,0,0"/>
-                <Label x:Name="Weight_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,52,0,0"/>
+                <Label Content="HP Recovery" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="254,78,0,0"/>
+                <Label Content="MP Recovery" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="254,104,0,0"/>
+                <Label x:Name="cHPR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="337,78,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label x:Name="cMPR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="337,104,0,0" RenderTransformOrigin="0.625,0.385"/>
+                <Label Content="Weight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="254,130,0,0"/>
+                <Label x:Name="Weight_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="337,130,0,0"/>
                 <Label Content="Damage from Monsters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="368,0,0,0"/>
                 <Label Content="Marketplace Bidding Succes Rate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="368,26,0,0"/>
                 <Label x:Name="cDFM_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,0,0,0" RenderTransformOrigin="0.5,0.538"/>
@@ -421,6 +421,12 @@
                 <Label x:Name="cUnderwaterBreath_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="688,456,0,0"/>
                 <Label Content="Max Energy" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="708,404,0,0"/>
                 <Label x:Name="cMaxEnergy_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="809,404,0,0" RenderTransformOrigin="-2.812,0.538"/>
+                <Label x:Name="cBonusAP_lbl" Content="Bonus AP" HorizontalAlignment="Left" Margin="254,0,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="cBonusAAP_lbl" Content="Bonus AAP" HorizontalAlignment="Left" Margin="254,26,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="cBonusAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="337,0,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label x:Name="cBonusDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="337,52,0,0" RenderTransformOrigin="0.5,0.538"/>
+                <Label x:Name="cBonusDR_lbl_Copy" Content="Bonus DR" HorizontalAlignment="Left" Margin="254,52,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="cBonusAAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="337,26,0,0" RenderTransformOrigin="0.5,0.538"/>
             </Grid>
         </Border>
         <Button x:Name="CharacterS_btn" Content="Character" HorizontalAlignment="Left" Margin="408,10,0,0" VerticalAlignment="Top" Width="76" Background="White" Click="CharacterS_btn_Click"/>
