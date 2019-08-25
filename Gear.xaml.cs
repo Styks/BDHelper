@@ -434,7 +434,7 @@ namespace BDHelper
         private void LoadAW() // AW
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
-            var sql = @"select * from [" + sclass + " Awakening Weapons]";
+            var sql = @"select * from [" + sclass + " Awakening Weapons] order by Id";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
             {
                 DataSet ds = new DataSet();

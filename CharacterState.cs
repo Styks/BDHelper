@@ -7002,13 +7002,13 @@ namespace BDHelper
                     chdr -= c_armhdr;
 
                     if (armCaphLvl == 0) { c_armHP = 0; c_armdp = 0; c_armev = 0; c_armhev = 0; c_armdr = 0; c_armMP = 0; c_armhdr = 0; }
-                    if (armCaphLvl == 1) { c_armHP = 10; }
-                    if (armCaphLvl == 2) { c_armHP = 20; c_armdp = 1; c_armev = 1; c_armhev = 2; }
-                    if (armCaphLvl == 3) { c_armHP = 30; c_armdp = 3; c_armev = 2; c_armhev = 3; c_armdr = 1; }
-                    if (armCaphLvl == 4) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; }
-                    if (armCaphLvl == 5) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; c_armMP = 5; }
-                    if (armCaphLvl == 6) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; c_armMP = 10; }
-                    if (armCaphLvl == 7) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 10; }
+                    if (armCaphLvl == 1) { c_armHP = 10; c_armdp = 0; c_armev = 0; c_armhev = 0; c_armdr = 0; c_armMP = 0; c_armhdr = 0; }
+                    if (armCaphLvl == 2) { c_armHP = 20; c_armdp = 1; c_armev = 1; c_armhev = 2; c_armdr = 0; c_armMP = 0; c_armhdr = 0; }
+                    if (armCaphLvl == 3) { c_armHP = 30; c_armdp = 3; c_armev = 2; c_armhev = 3; c_armdr = 1; c_armMP = 0; c_armhdr = 0; }
+                    if (armCaphLvl == 4) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; c_armMP = 0; c_armhdr = 0; }
+                    if (armCaphLvl == 5) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; c_armMP = 5; c_armhdr = 0; }
+                    if (armCaphLvl == 6) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; c_armMP = 10; c_armhdr = 0; }
+                    if (armCaphLvl == 7) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 10; c_armhdr = 0; }
                     if (armCaphLvl == 8) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 10; c_armhdr = 1; }
                     if (armCaphLvl == 9) { c_armHP = 60; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 10; c_armhdr = 1; }
                     if (armCaphLvl == 10) { c_armHP = 60; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 15; c_armhdr = 1; }
@@ -7041,8 +7041,8 @@ namespace BDHelper
                     cMaxMP -= c_armMP;
                     chdr -= c_armhdr;
 
-                    if (armCaphLvl == 0) { c_armHP = 0; c_armdp = 0; c_armev = 0; c_armhev = 0; c_armdr = 0; c_armMP = 0; c_armhdr = 0; }
-                    if (armCaphLvl == 1) { c_armHP = 20; c_armdp = 1; c_armev = 1; c_armhev = 1; c_armMP = 0; }
+                    if (armCaphLvl == 0) { c_armHP = 0; c_armdp = 0; c_armev = 0; c_armhev = 0; c_armdr = 0; c_armhdr = 0; c_armMP = 0; }
+                    if (armCaphLvl == 1) { c_armHP = 20; c_armdp = 1; c_armev = 1; c_armhev = 1; c_armdr = 0; c_armhdr = 0; c_armMP = 0; }
                     if (armCaphLvl == 2) { c_armHP = 30; c_armdp = 2; c_armev = 1; c_armhev = 1; c_armdr = 1; c_armhdr = 1; c_armMP = 0; }
                     if (armCaphLvl == 3) { c_armHP = 40; c_armdp = 3; c_armev = 2; c_armhev = 2; c_armdr = 1; c_armhdr = 1; c_armMP = 0; }
                     if (armCaphLvl == 4) { c_armHP = 50; c_armdp = 4; c_armev = 2; c_armhev = 2; c_armdr = 2; c_armhdr = 2; c_armMP = 0; }
@@ -7085,13 +7085,13 @@ namespace BDHelper
                     chdr -= c_helhdr;
 
                     if (helCaphLvl == 0) { c_helHP = 0; c_heldp = 0; c_helev = 0; c_helhev = 0; c_heldr = 0; c_helMP = 0; c_helhdr = 0; }
-                    if (helCaphLvl == 1) { c_helHP = 10; }
-                    if (helCaphLvl == 2) { c_helHP = 20; c_heldp = 1; c_helev = 1; c_helhev = 2; }
-                    if (helCaphLvl == 3) { c_helHP = 30; c_heldp = 3; c_helev = 2; c_helhev = 3; c_heldr = 1; }
-                    if (helCaphLvl == 4) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; }
-                    if (helCaphLvl == 5) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; c_helMP = 5; }
-                    if (helCaphLvl == 6) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; c_helMP = 10; }
-                    if (helCaphLvl == 7) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 10; }
+                    if (helCaphLvl == 1) { c_helHP = 10; c_heldp = 0; c_helev = 0; c_helhev = 0; c_heldr = 0; c_helMP = 0; c_helhdr = 0; }
+                    if (helCaphLvl == 2) { c_helHP = 20; c_heldp = 1; c_helev = 1; c_helhev = 2; c_heldr = 0; c_helMP = 0; c_helhdr = 0; }
+                    if (helCaphLvl == 3) { c_helHP = 30; c_heldp = 3; c_helev = 2; c_helhev = 3; c_heldr = 1; c_helMP = 0; c_helhdr = 0; }
+                    if (helCaphLvl == 4) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; c_helMP = 0; c_helhdr = 0; }
+                    if (helCaphLvl == 5) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; c_helMP = 5; c_helhdr = 0; }
+                    if (helCaphLvl == 6) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; c_helMP = 10; c_helhdr = 0; }
+                    if (helCaphLvl == 7) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 10; c_helhdr = 0; }
                     if (helCaphLvl == 8) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 10; c_helhdr = 1; }
                     if (helCaphLvl == 9) { c_helHP = 60; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 10; c_helhdr = 1; }
                     if (helCaphLvl == 10) { c_helHP = 60; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 15; c_helhdr = 1; }
@@ -7125,8 +7125,8 @@ namespace BDHelper
                     cMaxMP -= c_helMP;
                     chdr -= c_helhdr;
 
-                    if (helCaphLvl == 0) { c_helHP = 0; c_heldp = 0; c_helev = 0; c_helhev = 0; c_heldr = 0; c_helMP = 0; c_helhdr = 0; }
-                    if (helCaphLvl == 1) { c_helHP = 20; c_heldp = 1; c_helev = 1; c_helhev = 1; c_helMP = 0; }
+                    if (helCaphLvl == 0) { c_helHP = 0; c_heldp = 0; c_helev = 0; c_helhev = 0; c_heldr = 0; c_helhdr = 0;  }
+                    if (helCaphLvl == 1) { c_helHP = 20; c_heldp = 1; c_helev = 1; c_helhev = 1; c_heldr = 0; c_helhdr = 0; }
                     if (helCaphLvl == 2) { c_helHP = 30; c_heldp = 2; c_helev = 1; c_helhev = 1; c_heldr = 1; c_helhdr = 1; }
                     if (helCaphLvl == 3) { c_helHP = 40; c_heldp = 3; c_helev = 2; c_helhev = 2; c_heldr = 1; c_helhdr = 1; }
                     if (helCaphLvl == 4) { c_helHP = 50; c_heldp = 4; c_helev = 2; c_helhev = 2; c_heldr = 2; c_helhdr = 2; }
@@ -7169,13 +7169,13 @@ namespace BDHelper
                     chdr -= c_glovhdr;
 
                     if (glovCaphLvl == 0) { c_glovHP = 0; c_glovdp = 0; c_glovev = 0; c_glovhev = 0; c_glovdr = 0; c_glovMP = 0; c_glovhdr = 0; }
-                    if (glovCaphLvl == 1) { c_glovHP = 10; }
-                    if (glovCaphLvl == 2) { c_glovHP = 20; c_glovdp = 1; c_glovev = 1; c_glovhev = 2; }
-                    if (glovCaphLvl == 3) { c_glovHP = 30; c_glovdp = 3; c_glovev = 2; c_glovhev = 3; c_glovdr = 1; }
-                    if (glovCaphLvl == 4) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; }
-                    if (glovCaphLvl == 5) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; c_glovMP = 5; }
-                    if (glovCaphLvl == 6) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; c_glovMP = 10; }
-                    if (glovCaphLvl == 7) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 10; }
+                    if (glovCaphLvl == 1) { c_glovHP = 10; c_glovdp = 0; c_glovev = 0; c_glovhev = 0; c_glovdr = 0; c_glovMP = 0; c_glovhdr = 0; }
+                    if (glovCaphLvl == 2) { c_glovHP = 20; c_glovdp = 1; c_glovev = 1; c_glovhev = 2; c_glovdr = 0; c_glovMP = 0; c_glovhdr = 0; }
+                    if (glovCaphLvl == 3) { c_glovHP = 30; c_glovdp = 3; c_glovev = 2; c_glovhev = 3; c_glovdr = 1; c_glovMP = 0; c_glovhdr = 0; }
+                    if (glovCaphLvl == 4) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; c_glovMP = 0; c_glovhdr = 0; }
+                    if (glovCaphLvl == 5) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; c_glovMP = 5; c_glovhdr = 0; }
+                    if (glovCaphLvl == 6) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; c_glovMP = 10; c_glovhdr = 0; }
+                    if (glovCaphLvl == 7) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 10; c_glovhdr = 0; }
                     if (glovCaphLvl == 8) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 10; c_glovhdr = 1; }
                     if (glovCaphLvl == 9) { c_glovHP = 60; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 10; c_glovhdr = 1; }
                     if (glovCaphLvl == 10) { c_glovHP = 60; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 15; c_glovhdr = 1; }
@@ -7209,8 +7209,8 @@ namespace BDHelper
                     cMaxMP -= c_glovMP;
                     chdr -= c_glovhdr;
 
-                    if (glovCaphLvl == 0) { c_glovHP = 0; c_glovdp = 0; c_glovev = 0; c_glovhev = 0; c_glovdr = 0; c_glovMP = 0; c_glovhdr = 0; }
-                    if (glovCaphLvl == 1) { c_glovHP = 20; c_glovdp = 1; c_glovev = 1; c_glovhev = 1; }
+                    if (glovCaphLvl == 0) { c_glovHP = 0; c_glovdp = 0; c_glovev = 0; c_glovhev = 0; c_glovdr = 0;  c_glovhdr = 0; }
+                    if (glovCaphLvl == 1) { c_glovHP = 20; c_glovdp = 1; c_glovev = 1; c_glovhev = 1; c_glovdr = 0; c_glovhdr = 0; }
                     if (glovCaphLvl == 2) { c_glovHP = 30; c_glovdp = 2; c_glovev = 1; c_glovhev = 1; c_glovdr = 1; c_glovhdr = 1; }
                     if (glovCaphLvl == 3) { c_glovHP = 40; c_glovdp = 3; c_glovev = 2; c_glovhev = 2; c_glovdr = 1; c_glovhdr = 1; }
                     if (glovCaphLvl == 4) { c_glovHP = 50; c_glovdp = 4; c_glovev = 2; c_glovhev = 2; c_glovdr = 2; c_glovhdr = 2; }
@@ -7253,13 +7253,13 @@ namespace BDHelper
                     chdr -= c_shhdr;
 
                     if (shCaphLvl == 0) { c_shHP = 0; c_shdp = 0; c_shev = 0; c_shhev = 0; c_shdr = 0; c_shMP = 0; c_shhdr = 0; }
-                    if (shCaphLvl == 1) { c_shHP = 10; }
-                    if (shCaphLvl == 2) { c_shHP = 20; c_shdp = 1; c_shev = 1; c_shhev = 2; }
-                    if (shCaphLvl == 3) { c_shHP = 30; c_shdp = 3; c_shev = 2; c_shhev = 3; c_shdr = 1; }
-                    if (shCaphLvl == 4) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; }
-                    if (shCaphLvl == 5) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; c_shMP = 5; }
-                    if (shCaphLvl == 6) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; c_shMP = 10; }
-                    if (shCaphLvl == 7) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 10; }
+                    if (shCaphLvl == 1) { c_shHP = 10; c_shdp = 0; c_shev = 0; c_shhev = 0; c_shdr = 0; c_shMP = 0; c_shhdr = 0; }
+                    if (shCaphLvl == 2) { c_shHP = 20; c_shdp = 1; c_shev = 1; c_shhev = 2; c_shdr = 0; c_shMP = 0; c_shhdr = 0; }
+                    if (shCaphLvl == 3) { c_shHP = 30; c_shdp = 3; c_shev = 2; c_shhev = 3; c_shdr = 1; c_shMP = 0; c_shhdr = 0; }
+                    if (shCaphLvl == 4) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; c_shMP = 0; c_shhdr = 0; }
+                    if (shCaphLvl == 5) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; c_shMP = 5; c_shhdr = 0; }
+                    if (shCaphLvl == 6) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; c_shMP = 10; c_shhdr = 0; }
+                    if (shCaphLvl == 7) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 10; c_shhdr = 0; }
                     if (shCaphLvl == 8) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 10; c_shhdr = 1; }
                     if (shCaphLvl == 9) { c_shHP = 60; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 10; c_shhdr = 1; }
                     if (shCaphLvl == 10) { c_shHP = 60; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 15; c_shhdr = 1; }
@@ -7293,8 +7293,8 @@ namespace BDHelper
                     cMaxMP -= c_shMP;
                     chdr -= c_shhdr;
 
-                    if (shCaphLvl == 0) { c_shHP = 0; c_shdp = 0; c_shev = 0; c_shhev = 0; c_shdr = 0; c_shMP = 0; c_shhdr = 0; }
-                    if (shCaphLvl == 1) { c_shHP = 20; c_shdp = 1; c_shev = 1; c_shhev = 1; }
+                    if (shCaphLvl == 0) { c_shHP = 0; c_shdp = 0; c_shev = 0; c_shhev = 0; c_shdr = 0; c_shhdr = 0; }
+                    if (shCaphLvl == 1) { c_shHP = 20; c_shdp = 1; c_shev = 1; c_shhev = 1; c_shdr = 0; c_shhdr = 0; }
                     if (shCaphLvl == 2) { c_shHP = 30; c_shdp = 2; c_shev = 1; c_shhev = 1; c_shdr = 1; c_shhdr = 1; }
                     if (shCaphLvl == 3) { c_shHP = 40; c_shdp = 3; c_shev = 2; c_shhev = 2; c_shdr = 1; c_shhdr = 1; }
                     if (shCaphLvl == 4) { c_shHP = 50; c_shdp = 4; c_shev = 2; c_shhev = 2; c_shdr = 2; c_shhdr = 2; }
@@ -7335,10 +7335,10 @@ namespace BDHelper
                     cacc -= c_awAcc;
 
                     if (awkCaphLvl == 0) { c_awAAP = 0; c_awAcc = 0; }
-                    if (awkCaphLvl == 1) { c_awAAP = 1; }
-                    if (awkCaphLvl == 2) { c_awAAP = 2; }
-                    if (awkCaphLvl == 3) { c_awAAP = 3; }
-                    if (awkCaphLvl == 4) { c_awAAP = 4; }
+                    if (awkCaphLvl == 1) { c_awAAP = 1; c_awAcc = 0; }
+                    if (awkCaphLvl == 2) { c_awAAP = 2; c_awAcc = 0; }
+                    if (awkCaphLvl == 3) { c_awAAP = 3; c_awAcc = 0; }
+                    if (awkCaphLvl == 4) { c_awAAP = 4; c_awAcc = 0; }
                     if (awkCaphLvl == 5) { c_awAAP = 4; c_awAcc = 1; }
                     if (awkCaphLvl == 6) { c_awAAP = 4; c_awAcc = 2; }
                     if (awkCaphLvl == 7) { c_awAAP = 4; c_awAcc = 3; }
@@ -7365,7 +7365,7 @@ namespace BDHelper
                     cacc -= c_awAcc;
 
                     if (awkCaphLvl == 0) { c_awAAP = 0; c_awAcc = 0; }
-                    if (awkCaphLvl == 1) { c_awAAP = 1; }
+                    if (awkCaphLvl == 1) { c_awAAP = 1; c_awAcc = 0; }
                     if (awkCaphLvl == 2) { c_awAAP = 1; c_awAcc = 3; }
                     if (awkCaphLvl == 3) { c_awAAP = 2; c_awAcc = 3; }
                     if (awkCaphLvl == 4) { c_awAAP = 2; c_awAcc = 4; }
@@ -7398,10 +7398,10 @@ namespace BDHelper
                     cacc -= c_mwAcc;
 
                     if (mwCaphLvl == 0) { c_mwAP = 0; c_mwAcc = 0; }
-                    if (mwCaphLvl == 1) { c_mwAP = 1; }
-                    if (mwCaphLvl == 2) { c_mwAP = 2; }
-                    if (mwCaphLvl == 3) { c_mwAP = 3; }
-                    if (mwCaphLvl == 4) { c_mwAP = 4; }
+                    if (mwCaphLvl == 1) { c_mwAP = 1; c_mwAcc = 0; }
+                    if (mwCaphLvl == 2) { c_mwAP = 2; c_mwAcc = 0; }
+                    if (mwCaphLvl == 3) { c_mwAP = 3; c_mwAcc = 0; }
+                    if (mwCaphLvl == 4) { c_mwAP = 4; c_mwAcc = 0; }
                     if (mwCaphLvl == 5) { c_mwAP = 4; c_mwAcc = 1; }
                     if (mwCaphLvl == 6) { c_mwAP = 4; c_mwAcc = 2; }
                     if (mwCaphLvl == 7) { c_mwAP = 4; c_mwAcc = 3; }
@@ -7428,7 +7428,7 @@ namespace BDHelper
                     cacc -= c_mwAcc;
 
                     if (mwCaphLvl == 0) { c_mwAP = 0; c_mwAcc = 0; }
-                    if (mwCaphLvl == 1) { c_mwAP = 1; }
+                    if (mwCaphLvl == 1) { c_mwAP = 1; c_mwAcc = 0; }
                     if (mwCaphLvl == 2) { c_mwAP = 1; c_mwAcc = 3; }
                     if (mwCaphLvl == 3) { c_mwAP = 2; c_mwAcc = 3; }
                     if (mwCaphLvl == 4) { c_mwAP = 2; c_mwAcc = 4; }
@@ -7468,15 +7468,15 @@ namespace BDHelper
                     chev -= c_swHEva;
 
                     if (swCaphLvl == 0) { c_swAcc = 0; c_swHP = 0; c_swMP = 0; c_swDP = 0; c_swEva = 0; c_swHEva = 0; c_swHDR = 0; c_swAP = 0; c_swAAP = 0; }
-                    if (swCaphLvl == 1) { c_swAcc = 4; }
-                    if (swCaphLvl == 2) { c_swAcc = 4; c_swHP = 10; }
-                    if (swCaphLvl == 3) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; }
-                    if (swCaphLvl == 4) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; }
-                    if (swCaphLvl == 5) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; }
-                    if (swCaphLvl == 6) { c_swAcc = 4; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; }
-                    if (swCaphLvl == 7) { c_swAcc = 5; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; }
-                    if (swCaphLvl == 8) { c_swAcc = 5; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; }
-                    if (swCaphLvl == 9) { c_swAcc = 5; c_swHP = 20; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; }
+                    if (swCaphLvl == 1) { c_swAcc = 4; c_swHP = 0; c_swMP = 0; c_swDP = 0; c_swEva = 0; c_swHEva = 0; c_swHDR = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 2) { c_swAcc = 4; c_swHP = 10; c_swMP = 0; c_swDP = 0; c_swEva = 0; c_swHEva = 0; c_swHDR = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 3) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; c_swDP = 0; c_swEva = 0; c_swHEva = 0; c_swHDR = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 4) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 5) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 6) { c_swAcc = 4; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 7) { c_swAcc = 5; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 8) { c_swAcc = 5; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 9) { c_swAcc = 5; c_swHP = 20; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 0; c_swAAP = 0; }
                     if (swCaphLvl == 10) { c_swAcc = 5; c_swHP = 20; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
                     if (swCaphLvl == 11) { c_swAcc = 6; c_swHP = 20; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
                     if (swCaphLvl == 12) { c_swAcc = 6; c_swHP = 30; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
@@ -7512,12 +7512,12 @@ namespace BDHelper
                     chev -= c_swHEva;
 
                     if (swCaphLvl == 0) { c_swAcc = 0; c_swHDR = 0; c_swDP = 0; c_swDR = 0; c_swHEva = 0; c_swEva = 0; c_swHP = 0; c_swAP = 0; c_swAAP = 0; }
-                    if (swCaphLvl == 1) { c_swAcc = 4; }
-                    if (swCaphLvl == 2) { c_swAcc = 4; c_swHDR = 1; }
-                    if (swCaphLvl == 3) { c_swAcc = 4; c_swHDR = 1; c_swDP = 1; c_swDR = 1; }
-                    if (swCaphLvl == 4) { c_swAcc = 4; c_swHDR = 1; c_swDP = 1; c_swDR = 1; c_swHEva = 3; }
-                    if (swCaphLvl == 5) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; }
-                    if (swCaphLvl == 6) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; }
+                    if (swCaphLvl == 1) { c_swAcc = 4; c_swHDR = 0; c_swDP = 0; c_swDR = 0; c_swHEva = 0; c_swEva = 0; c_swHP = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 2) { c_swAcc = 4; c_swHDR = 1; c_swDP = 0; c_swDR = 0; c_swHEva = 0; c_swEva = 0; c_swHP = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 3) { c_swAcc = 4; c_swHDR = 1; c_swDP = 1; c_swDR = 1; c_swHEva = 0; c_swEva = 0; c_swHP = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 4) { c_swAcc = 4; c_swHDR = 1; c_swDP = 1; c_swDR = 1; c_swHEva = 3; c_swEva = 0; c_swHP = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 5) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 6) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 0; c_swAAP = 0; }
                     if (swCaphLvl == 7) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
                     if (swCaphLvl == 8) { c_swAcc = 8; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
                     if (swCaphLvl == 9) { c_swAcc = 8; c_swHDR = 2; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
