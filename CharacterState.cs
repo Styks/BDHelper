@@ -1873,8 +1873,10 @@ namespace BDHelper
             cmd.CommandText = "select * from Rings where Id='" + ring1Id.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
 
             if (ring1Ench == true & ring1EnchLvl >= 1)
@@ -1899,11 +1901,11 @@ namespace BDHelper
                 {
                     if (ring1EnchLvl == 1) ring1ap = 14;
                     else if (ring1EnchLvl == 2 | ring1EnchLvl == 3) ring1ap = 15;
-                    else if (ring1EnchLvl == 4 ) ring1ap = 16;
+                    else if (ring1EnchLvl == 4) ring1ap = 16;
                     else if (ring1EnchLvl == 5) ring1ap = 17;
                 }
-                   else ring1ap = ring1Defap + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                if(ring1Id == 25)
+                else ring1ap = ring1Defap + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
+                if (ring1Id == 25)
                 {
                     if (ring1EnchLvl == 1 | ring1EnchLvl == 2) ring1dp = 3;
                     else if (ring1EnchLvl == 3 | ring1EnchLvl == 4) ring1dp = 4;
@@ -1912,7 +1914,7 @@ namespace BDHelper
                 else ring1dp = ring1Defdp + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
 
 
-                if(ring1Id == 10)
+                if (ring1Id == 10)
                 {
                     if (ring1EnchLvl == 1) ring1acc = 6;
                     else if (ring1EnchLvl == 2) ring1acc = 8;
@@ -1920,7 +1922,7 @@ namespace BDHelper
                     else if (ring1EnchLvl == 4) ring1acc = 10;
                     else if (ring1EnchLvl == 5) ring1acc = 12;
                 }
-                else if(ring1Id == 25)
+                else if (ring1Id == 25)
                 {
                     if (ring1EnchLvl == 1) ring1acc = 0;
                     else if (ring1EnchLvl == 2 | ring1EnchLvl == 3) ring1acc = 2;
@@ -1929,25 +1931,25 @@ namespace BDHelper
                 else if (ring1Id == 3)
                 {
                     if (ring1EnchLvl == 1 | ring1EnchLvl == 2) ring1acc = 9;
-                    else if (ring1EnchLvl == 3 | ring1EnchLvl == 4 |ring1EnchLvl == 5) ring1acc = 10;
+                    else if (ring1EnchLvl == 3 | ring1EnchLvl == 4 | ring1EnchLvl == 5) ring1acc = 10;
                 }
                 else ring1acc = ring1Defacc + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
 
-                    ring1ev = ring1Defev + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
+                ring1ev = ring1Defev + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
 
-                if(ring1Id == 25)
+                if (ring1Id == 25)
                 {
-                    if (ring1EnchLvl == 1| ring1EnchLvl == 2) ring1DR = 3;
+                    if (ring1EnchLvl == 1 | ring1EnchLvl == 2) ring1DR = 3;
                     else if (ring1EnchLvl == 3 | ring1EnchLvl == 4) ring1DR = 4;
                     else if (ring1EnchLvl == 5) ring1DR = 5;
                 }
-                   else ring1DR = ring1DefDR + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
-                    ring1HP = ring1DefHP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
-                    ring1MP = ring1DefMP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
-                    ring1ST = ring1DefST + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
+                else ring1DR = ring1DefDR + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
+                ring1HP = ring1DefHP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
+                ring1MP = ring1DefMP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
+                ring1ST = ring1DefST + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
                 ring1HEv = ring1DefHEv;
 
-                if(ring1Id == 10)
+                if (ring1Id == 10)
                 {
                     if (ring1EnchLvl == 1) ring1APagaingst = 2;
                     else if (ring1EnchLvl == 2) ring1APagaingst = 3;
@@ -2048,8 +2050,10 @@ namespace BDHelper
             cmd.CommandText = "select * from Rings where Id='" + ring2Id.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
 
             if (ring2Ench == true & ring2EnchLvl >= 1)
@@ -2223,8 +2227,10 @@ namespace BDHelper
             cmd.CommandText = "select * from Earrings where Id='" + ear1Id.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
 
             if (ear1Ench == true & ear1EnchLvl >= 1)
@@ -2251,7 +2257,7 @@ namespace BDHelper
                     else if (ear1EnchLvl == 3 | ear1EnchLvl == 4) ear1dp = 2;
                     else if (ear1EnchLvl == 5) ear1dp = 3;
                 }
-                else if(ear1Id == 6)
+                else if (ear1Id == 6)
                 {
                     if (ear1EnchLvl == 2) ear1dp = 1;
                     else if (ear1EnchLvl == 3) ear1dp = 2;
@@ -2284,7 +2290,7 @@ namespace BDHelper
                 else ear1acc = ear1Defacc + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
 
                 ear1ev = ear1Defev + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
-                if(ear1Id == 25)
+                if (ear1Id == 25)
                 {
                     if (ear1EnchLvl == 1 | ear1EnchLvl == 2) ear1DR = 1;
                     else if (ear1EnchLvl == 3 | ear1EnchLvl == 4) ear1DR = 2;
@@ -2370,8 +2376,10 @@ namespace BDHelper
             cmd.CommandText = "select * from Earrings where Id='" + ear2Id.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
 
             if (ear2Ench == true & ear2EnchLvl >= 1)
@@ -2517,13 +2525,13 @@ namespace BDHelper
             cmd.CommandText = "select * from Armors where Id='" + armId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-
-            if (armEnch == true & armIsBoss == true | armId ==23)
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
             {
-                if(armEnchLvl >= 1 & armEnchLvl <= 5)
+                da.Fill(dt);
+            }
+            if (armEnch == true & armIsBoss == true | armId == 23)
+            {
+                if (armEnchLvl >= 1 & armEnchLvl <= 5)
                 {
 
                     cdp -= armdp;
@@ -2541,6 +2549,7 @@ namespace BDHelper
                     armhdr = armDefhdr + armEnchLvl * 0;
                     armMP = armDefMP;
                     armHP = armDefHP;
+
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -2549,10 +2558,8 @@ namespace BDHelper
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                 }
-
                 if (armEnchLvl >= 6 & armEnchLvl <= 15)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2576,7 +2583,6 @@ namespace BDHelper
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                 }
-
                 if (armEnchLvl >= 16 & armEnchLvl <= 17)
                 {
 
@@ -2588,14 +2594,13 @@ namespace BDHelper
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
 
-                    armdp = armDefdp + 55 +(armEnchLvl-15) * 5;
-                    armev = armDefev + 25+ (armEnchLvl - 15) * 2;
-                    armhev = armDefhev + 75+ (armEnchLvl - 15) * 6;
-                    armdr = armDefdr + 30 +(armEnchLvl - 15) * 3;
+                    armdp = armDefdp + 55 + (armEnchLvl - 15) * 5;
+                    armev = armDefev + 25 + (armEnchLvl - 15) * 2;
+                    armhev = armDefhev + 75 + (armEnchLvl - 15) * 6;
+                    armdr = armDefdr + 30 + (armEnchLvl - 15) * 3;
                     armhdr = armDefhdr + (armEnchLvl - 15) * 1;
                     armMP = armDefMP;
                     armHP = armDefHP;
-
 
                     cdp += armdp;
                     cev += armev;
@@ -2605,7 +2610,6 @@ namespace BDHelper
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                 }
-
                 if (armEnchLvl == 18)
                 {
 
@@ -2625,7 +2629,6 @@ namespace BDHelper
                     armMP = armDefMP;
                     armHP = armDefHP;
 
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -2634,7 +2637,6 @@ namespace BDHelper
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                 }
-
                 if (armEnchLvl == 19)
                 {
 
@@ -2654,7 +2656,6 @@ namespace BDHelper
                     armMP = armDefMP;
                     armHP = armDefHP;
 
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -2663,10 +2664,8 @@ namespace BDHelper
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                 }
-
                 if (armEnchLvl == 20)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2683,7 +2682,6 @@ namespace BDHelper
                     armMP = armDefMP;
                     armHP = armDefHP;
 
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -2693,12 +2691,10 @@ namespace BDHelper
                     cMaxMP += armMP;
                 }
             }
-
-            else if(armEnch == true & armIsBoss == false)
+            else if (armEnch == true & armIsBoss == false)
             {
                 if (armEnchLvl == 1)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2709,11 +2705,9 @@ namespace BDHelper
                     cWeight -= armWeight;
                     chpr -= armHPRecovery;
                     cmpr -= armMPRecovery;
-
-
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + 3;
-                    else armdp = armDefdp +  4;
+                    else armdp = armDefdp + 4;
                     //EV
                     armev = armDefev + 1;
                     //HEV
@@ -2739,12 +2733,9 @@ namespace BDHelper
                     cWeight += armWeight;
                     chpr += armHPRecovery;
                     cmpr += armMPRecovery;
-
                 }
-
                 if (armEnchLvl >= 2 & armEnchLvl <= 3)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2755,22 +2746,21 @@ namespace BDHelper
                     cWeight -= armWeight;
                     chpr -= armHPRecovery;
                     cmpr -= armMPRecovery;
-
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + armEnchLvl * 3;
-                    else armdp = armDefdp + 4 + (armEnchLvl-1) * 3;
+                    else armdp = armDefdp + 4 + (armEnchLvl - 1) * 3;
                     //EV
-                    armev = armDefev +armEnchLvl * 1;
+                    armev = armDefev + armEnchLvl * 1;
                     //HEV
-                    if(armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
+                    if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
                     {
-                        if(armEnchLvl == 2) armhev = armDefhev + 9;
+                        if (armEnchLvl == 2) armhev = armDefhev + 9;
                         else if (armEnchLvl == 3) armhev = armDefhev + 12;
                     } //Agerian, Taritas
                     else armhev = armDefhev + armEnchLvl * 3;
                     //DR
                     if (armId == 10 | armId == 19) armdr = armDefdr + armEnchLvl * 2;
-                    else armdr = armDefdr +3 +(armEnchLvl-1) * 2;
+                    else armdr = armDefdr + 3 + (armEnchLvl - 1) * 2;
                     //HDR
                     armhdr = armDefhdr;
                     armWeight = armDefWeight;
@@ -2789,10 +2779,8 @@ namespace BDHelper
                     chpr += armHPRecovery;
                     cmpr += armMPRecovery;
                 }
-
                 if (armEnchLvl >= 4 & armEnchLvl <= 5)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2804,14 +2792,14 @@ namespace BDHelper
                     chpr -= armHPRecovery;
                     cmpr -= armMPRecovery;
                     //DP
-                    if (armId == 10 | armId == 19 ) armdp = armDefdp + armEnchLvl * 3;
+                    if (armId == 10 | armId == 19) armdp = armDefdp + armEnchLvl * 3;
                     else armdp = armDefdp + 10 + (armEnchLvl - 3) * 2;
                     //EV
                     armev = armDefev + armEnchLvl * 1;
                     //HEV
-                    if(armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
+                    if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
                     {
-                        if(armEnchLvl == 4) armhev = armDefhev + 14;
+                        if (armEnchLvl == 4) armhev = armDefhev + 14;
                         else if (armEnchLvl == 5) armhev = armDefhev + 17;
                     } //Agerian, Taritas
                     else armhev = armDefhev + armEnchLvl * 3;
@@ -2836,10 +2824,8 @@ namespace BDHelper
                     chpr += armHPRecovery;
                     cmpr += armMPRecovery;
                 }
-
                 if (armEnchLvl >= 6 & armEnchLvl <= 15)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2853,34 +2839,30 @@ namespace BDHelper
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
                     else armdp = armDefdp + 14 + (armEnchLvl - 5) * 3;
-
                     //EV
                     if (armId == 10 | armId == 19) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
                     else armev = armDefev + armEnchLvl * 1;
-
                     //HEV
-                    if(armId == 10 | armId == 19) 
+                    if (armId == 10 | armId == 19)
                     {
                         if (armEnchLvl <= 10) armhev = armDefhev + 15 + (armEnchLvl - 5) * 6;
                         else if (armEnchLvl == 11) armhev = armDefhev + 50;
                         else if (armEnchLvl >= 12) armhev = armDefhev + 50 + (armEnchLvl - 11) * 6;
                     } //Akum
-                    else if(armId == 9| armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
+                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
                     {
-                        if(armEnchLvl ==6) armhev = armDefhev + 21;
+                        if (armEnchLvl == 6) armhev = armDefhev + 21;
                         else if (armEnchLvl == 7) armhev = armDefhev + 24;
                         else if (armEnchLvl == 8) armhev = armDefhev + 28;
                         else if (armEnchLvl == 9) armhev = armDefhev + 31;
                         else if (armEnchLvl >= 10) armhev = armDefhev + 31 + (armEnchLvl - 9) * 3;
                     } //Agerian, Taritas
                     else armhev = armDefhev + armEnchLvl * 3;
-
                     //DR
                     if (armId == 10 | armId == 19) armdr = armDefdr + armEnchLvl * 2;
                     else armdr = armDefdr + 9 + (armEnchLvl - 5) * 2;
-
                     //HDR
-                    if (armId == 10 & armEnchLvl >= 11 | armId == 19 & armEnchLvl >= 11) armhdr = armDefhdr + (armEnchLvl-10) * 1;
+                    if (armId == 10 & armEnchLvl >= 11 | armId == 19 & armEnchLvl >= 11) armhdr = armDefhdr + (armEnchLvl - 10) * 1;
                     else armhdr = armDefhdr;
                     armWeight = armDefWeight;
                     armHP = armDefHP;
@@ -2901,7 +2883,6 @@ namespace BDHelper
 
                 if (armEnchLvl == 16)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2918,7 +2899,6 @@ namespace BDHelper
                     //Ev
                     if (armId == 10 | armId == 19) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
                     else armev = armDefev + 17;
-
                     //Hev
                     if (armId == 10 | armId == 19) armhev = armDefhev + 79; //Akum
                     else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 55; //Agerian, Taritas, Zereth
@@ -2948,7 +2928,6 @@ namespace BDHelper
 
                 if (armEnchLvl == 17)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -2994,7 +2973,6 @@ namespace BDHelper
 
                 if (armEnchLvl == 18)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -3016,8 +2994,8 @@ namespace BDHelper
                     else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 67;
                     else armhev = armDefhev + 67;
                     //DR
-                    if (armId == 10 | armId == 19) armdr = armDefdr + (armEnchLvl-1) * 2 + 5;
-                    else  if (armId == 9 | armId == 24) armdr = armDefdr + 41;
+                    if (armId == 10 | armId == 19) armdr = armDefdr + (armEnchLvl - 1) * 2 + 5;
+                    else if (armId == 9 | armId == 24) armdr = armDefdr + 41;
                     else armdr = armDefdr + 41;
                     //HDR
                     if (armId == 10 | armId == 19) armhdr = armDefhdr + 9;
@@ -3038,10 +3016,8 @@ namespace BDHelper
                     chpr += armHPRecovery;
                     cmpr += armMPRecovery;
                 }
-
                 if (armEnchLvl >= 19 & armEnchLvl <= 20)
                 {
-
                     cdp -= armdp;
                     cev -= armev;
                     chev -= armhev;
@@ -3053,22 +3029,22 @@ namespace BDHelper
                     chpr -= armHPRecovery;
                     cmpr -= armMPRecovery;
                     //DP
-                    if (armId == 10 | armId == 19) armdp = armDefdp + 70 + (armEnchLvl-18) * 4;
-                    else armdp = armDefdp + 62 + (armEnchLvl-18)  * 5;
+                    if (armId == 10 | armId == 19) armdp = armDefdp + 70 + (armEnchLvl - 18) * 4;
+                    else armdp = armDefdp + 62 + (armEnchLvl - 18) * 5;
                     //EV
                     if (armId == 10 | armId == 19) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
                     else armev = armDefev + 21 + (armEnchLvl - 18) * 2;
                     //HEV
                     if (armId == 10 | armId == 19) armhev = armDefhev + 79 + (armEnchLvl - 16) * 6;
-                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 67 + (armEnchLvl -18) * 6;
-                    else armhev = armDefhev + 67+ (armEnchLvl - 18) * 6;
+                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 67 + (armEnchLvl - 18) * 6;
+                    else armhev = armDefhev + 67 + (armEnchLvl - 18) * 6;
                     //DR
-                    if (armId == 10 | armId == 19) armdr = armDefdr + 39 + (armEnchLvl-18) * 2;
+                    if (armId == 10 | armId == 19) armdr = armDefdr + 39 + (armEnchLvl - 18) * 2;
                     else if (armId == 9 | armId == 24) armdr = armDefdr + 41 + (armEnchLvl - 18) * 3;
-                    else armdr = armDefdr + 41+ (armEnchLvl - 18) * 3;
+                    else armdr = armDefdr + 41 + (armEnchLvl - 18) * 3;
                     //HDR
-                    if (armId == 10 | armId == 19) armhdr = armDefhdr + 9+(armEnchLvl - 18) * 2;
-                    else armhdr = armDefhdr + 3+ (armEnchLvl - 18) * 1;
+                    if (armId == 10 | armId == 19) armhdr = armDefhdr + 9 + (armEnchLvl - 18) * 2;
+                    else armhdr = armDefhdr + 3 + (armEnchLvl - 18) * 1;
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
@@ -3086,10 +3062,8 @@ namespace BDHelper
                     cmpr += armMPRecovery;
                 }
             }
-
             if (armEnch == false | armEnch == true & armEnchLvl == 0)
             {
-
                 cdp -= armdp;
                 cev -= armev;
                 chev -= armhev;
@@ -3115,7 +3089,6 @@ namespace BDHelper
                 armHPRecovery = armDefHPRecovery;
                 armMPRecovery = armDefMPRecovery;
 
-
                 cdp += armdp;
                 cev += armev;
                 chev += armhev;
@@ -3137,15 +3110,14 @@ namespace BDHelper
             cmd.CommandText = "select * from Helmets where Id='" + helId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
             if (helEnch == true & helIsBoss == true | helId == 21)
             {
                 if (helEnchLvl >= 1 & helEnchLvl <= 15)
                 {
-
                     cdp -= heldp;
                     cev -= helev;
                     chev -= helhev;
@@ -3348,7 +3320,7 @@ namespace BDHelper
                     helev = helDefev + 25;
                     helhev = helDefhev + 54;
                     heldr = helDefdr + 48;
-                    if (helId == 0 | helId == 21)  helhdr = helDefhdr + 14;
+                    if (helId == 0 | helId == 21) helhdr = helDefhdr + 14;
                     else helhdr = helDefhdr + 17;
                     helSSFRes = helSSFDefRes;
                     helKBRes = helKBDefRes;
@@ -3372,7 +3344,7 @@ namespace BDHelper
 
             else if (helEnch == true & helIsBoss == false)
             {
-                if (helEnchLvl >= 1 & helEnchLvl <=2)
+                if (helEnchLvl >= 1 & helEnchLvl <= 2)
                 {
 
                     cdp -= heldp;
@@ -3395,12 +3367,12 @@ namespace BDHelper
 
                     helev = helDefev + helEnchLvl * 1;
 
-                    if(helId == 8 | helId == 13 | helId == 14  | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33)
+                    if (helId == 8 | helId == 13 | helId == 14 | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33)
                     {
                         if (helEnchLvl == 1) helhev = helDefhev + 7;
                         else helhev = helDefhev + 9;
                     }
-                    else if(helId == 9 | helId == 19) helhev = helDefhev + helEnchLvl * 2;
+                    else if (helId == 9 | helId == 19) helhev = helDefhev + helEnchLvl * 2;
                     else helhev = helDefhev + helEnchLvl * 3;
 
                     if (helId == 9 | helId == 19)
@@ -3443,7 +3415,7 @@ namespace BDHelper
                     cRes3 -= helGrapleRes;
                     cRes4 -= helKFRes;
 
-                    if (helId == 9 | helId == 19) heldp = helDefdp + 2 + (helEnchLvl-2) *3;
+                    if (helId == 9 | helId == 19) heldp = helDefdp + 2 + (helEnchLvl - 2) * 3;
                     else heldp = helDefdp + 6 + (helEnchLvl - 2) * 3;
                     helev = helDefev + helEnchLvl * 1;
 
@@ -3456,7 +3428,7 @@ namespace BDHelper
                     else if (helId == 9 | helId == 19) helhev = helDefhev + helEnchLvl * 2;
                     else helhev = helDefhev + helEnchLvl * 3;
 
-                    if (helId == 9 | helId == 19) heldr = helDefdr + 1 + (helEnchLvl-1) * 2 ;
+                    if (helId == 9 | helId == 19) heldr = helDefdr + 1 + (helEnchLvl - 1) * 2;
                     else heldr = helDefdr + 4 + (helEnchLvl - 2) * 2;
 
                     helhdr = helDefhdr;
@@ -3548,7 +3520,7 @@ namespace BDHelper
                     cRes4 -= helKFRes;
 
                     if (helId == 9 | helId == 19) heldp = helDefdp + 48;
-                    else heldp = helDefdp + 47 ;
+                    else heldp = helDefdp + 47;
 
                     helev = helDefev + 17;
 
@@ -3763,10 +3735,10 @@ namespace BDHelper
             cmd.CommandText = "select * from Gloves where Id='" + glovId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
             if (glovEnch == true & glovIsBoss == true | glovId == 21)
             {
                 if (glovEnchLvl >= 1 & glovEnchLvl <= 5)
@@ -3780,13 +3752,13 @@ namespace BDHelper
                     chdr -= glovhdr;
 
                     glovdp = glovDefdp + glovEnchLvl * 2;
-                    if (glovId == 0 ) glovacc = glovDefacc + glovEnchLvl * 2;
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
                     else if (glovId == 21) glovacc = glovDefacc + glovEnchLvl * 1;
                     else glovacc = glovDefacc;
                     glovev = glovDefev + glovEnchLvl * 1;
                     glovhev = glovDefhev + glovEnchLvl * 3;
                     glovdr = glovDefdr + glovEnchLvl * 1;
-                    if(glovId == 21) glovhdr = glovDefhdr + 5;
+                    if (glovId == 21) glovhdr = glovDefhdr + 5;
                     else glovhdr = glovDefhdr;
 
                     cdp += glovdp;
@@ -3814,7 +3786,7 @@ namespace BDHelper
                         if (glovEnchLvl >= 15) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                         else glovacc = glovDefacc + glovEnchLvl * 1;
                     }
-                    else glovacc = glovDefacc + (glovEnchLvl-5) * 1;
+                    else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
                     glovev = glovDefev + glovEnchLvl * 1;
                     glovhev = glovDefhev + glovEnchLvl * 3;
                     glovdr = glovDefdr + glovEnchLvl * 1;
@@ -3829,7 +3801,7 @@ namespace BDHelper
                     chdr += glovhdr;
                 }
 
-                if (glovEnchLvl == 16 )
+                if (glovEnchLvl == 16)
                 {
 
                     cdp -= glovdp;
@@ -3845,8 +3817,8 @@ namespace BDHelper
                     else if (glovId == 21) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                     else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
 
-                    if (glovId == 0 | glovId == 21) glovev = glovDefev +17;
-                    else  glovev = glovDefev + 18;
+                    if (glovId == 0 | glovId == 21) glovev = glovDefev + 17;
+                    else glovev = glovDefev + 18;
 
                     if (glovId == 0 | glovId == 21) glovhev = 54;
                     else glovhev = 61;
@@ -3916,12 +3888,12 @@ namespace BDHelper
 
                     glovdp = glovDefdp + 48;
 
-                    if (glovId == 0 ) glovacc = glovDefacc + glovEnchLvl * 2;
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
                     else if (glovId == 21) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                     else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
 
                     if (glovId == 0 | glovId == 21) glovev = 22;
-                    else glovev = glovDefev +24;
+                    else glovev = glovDefev + 24;
 
                     if (glovId == 0 | glovId == 21) glovhev = 66;
                     else glovhev = 79;
@@ -3966,7 +3938,7 @@ namespace BDHelper
                     if (glovId == 0 | glovId == 21) glovhev = 72;
                     else glovhev = 91;
 
-                    if (glovId == 0 ) glovdr = 31;
+                    if (glovId == 0) glovdr = 31;
                     else if (glovId == 21) glovdr = 30;
                     else glovdr = 27;
 
@@ -4006,7 +3978,7 @@ namespace BDHelper
                     if (glovId == 0 | glovId == 21) glovhev = 78;
                     else glovhev = 103;
 
-                    if (glovId == 0 ) glovdr = 34;
+                    if (glovId == 0) glovdr = 34;
                     else if (glovId == 21) glovdr = 33;
                     else glovdr = 29;
 
@@ -4043,14 +4015,14 @@ namespace BDHelper
                     ceda -= glovDamage;
 
                     glovdp = glovDefdp + glovEnchLvl * 2;
-                    if(glovId == 9 | glovId == 19)
+                    if (glovId == 9 | glovId == 19)
                     {
                         if (glovEnchLvl <= 5) glovacc = glovDefacc;
                         else if (glovEnchLvl >= 6 & glovEnchLvl <= 10) glovacc = glovDefacc + 3;
                         else if (glovEnchLvl >= 11) glovacc = glovDefacc + 3 + (glovEnchLvl - 10) * 2;
                     }
                     glovev = glovDefev + glovEnchLvl * 1;
-                    if(glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33)
+                    if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33)
                     {
                         if (glovEnchLvl == 1) glovhev = glovDefhev + 7;
                         else if (glovEnchLvl == 2) glovhev = glovDefhev + 9;
@@ -4060,17 +4032,17 @@ namespace BDHelper
                         else if (glovEnchLvl == 6) glovhev = glovDefhev + 21;
                         else if (glovEnchLvl == 7) glovhev = glovDefhev + 24;
                         else if (glovEnchLvl == 8) glovhev = glovDefhev + 28;
-                        else glovhev = glovDefhev + 28 + (glovEnchLvl-8) * 3;
+                        else glovhev = glovDefhev + 28 + (glovEnchLvl - 8) * 3;
                     }
-                     else if (glovId == 9| glovId == 19)
-                     {
+                    else if (glovId == 9 | glovId == 19)
+                    {
                         if (glovEnchLvl <= 10) glovhev = glovDefhev + glovEnchLvl * 2;
                         else if (glovEnchLvl == 11) glovhev = glovDefhev + 23;
                         else glovhev = glovDefhev + 23 + (glovEnchLvl - 11) * 2;
-                     }
+                    }
                     else glovhev = glovDefhev + glovEnchLvl * 3;
                     glovdr = glovDefdr + glovEnchLvl * 1;
-                    if(glovId == 9| glovId == 19)
+                    if (glovId == 9 | glovId == 19)
                     {
                         if (glovEnchLvl <= 5) glovhdr = glovDefhdr;
                         else glovhdr = glovDefhdr + 3;
@@ -4116,9 +4088,9 @@ namespace BDHelper
                     cRes3 -= glovGrapleRes;
                     ceda -= glovDamage;
 
-                    glovdp = glovDefdp + (glovEnchLvl -1) * 2 + 5;
+                    glovdp = glovDefdp + (glovEnchLvl - 1) * 2 + 5;
                     if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 16;
-                    glovev = glovDefev + (glovEnchLvl-1) * 1 + 2;
+                    glovev = glovDefev + (glovEnchLvl - 1) * 1 + 2;
                     if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33) glovhev = glovDefhev + 55;
                     else if (glovId == 9 | glovId == 19) glovhev = glovDefhev + 39;
                     else glovhev = glovDefhev + (glovEnchLvl - 1) * 3 + 10;
@@ -4147,7 +4119,7 @@ namespace BDHelper
                     ceda += glovDamage;
                 }
 
-                if (glovEnchLvl ==17)
+                if (glovEnchLvl == 17)
                 {
 
                     cdp -= glovdp;
@@ -4171,7 +4143,7 @@ namespace BDHelper
                     else glovhev = glovDefhev + 61;
                     glovdr = glovDefdr + 21;
                     if (glovId == 9 | glovId == 19) glovhdr = glovDefhdr + 5;
-                    else glovhdr = glovDefhdr+2;
+                    else glovhdr = glovDefhdr + 2;
                     glovAtkSpeed = glovDefAtkSpeed;
                     glovCastSpeed = glovDefCastSpeed;
                     glovCrit = glovDefCrit;
@@ -4259,15 +4231,15 @@ namespace BDHelper
                     cRes3 -= glovGrapleRes;
                     ceda -= glovDamage;
 
-                    glovdp = glovDefdp + 48 + (glovEnchLvl-18) * 5;
-                    if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 22 + (glovEnchLvl -18) * 3;
+                    glovdp = glovDefdp + 48 + (glovEnchLvl - 18) * 5;
+                    if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 22 + (glovEnchLvl - 18) * 3;
                     glovev = glovDefev + 21 + (glovEnchLvl - 18) * 2;
-                    if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33) glovhev = glovDefhev + 67 + (glovEnchLvl-18) * 6;
-                    else if (glovId == 9 | glovId == 19) glovhev = glovDefhev + 51 + (glovEnchLvl-18) * 6;
-                    else glovhev = glovDefhev + 67 + (glovEnchLvl - 18)*6;
+                    if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33) glovhev = glovDefhev + 67 + (glovEnchLvl - 18) * 6;
+                    else if (glovId == 9 | glovId == 19) glovhev = glovDefhev + 51 + (glovEnchLvl - 18) * 6;
+                    else glovhev = glovDefhev + 67 + (glovEnchLvl - 18) * 6;
                     glovdr = glovDefdr + 27 + (glovEnchLvl - 18) * 3;
-                    if (glovId == 9 | glovId == 19) glovhdr = glovDefhdr + 6 + (glovEnchLvl-18) * 1;
-                    else glovhdr = glovDefhdr + 3 + (glovEnchLvl - 18)*1;
+                    if (glovId == 9 | glovId == 19) glovhdr = glovDefhdr + 6 + (glovEnchLvl - 18) * 1;
+                    else glovhdr = glovDefhdr + 3 + (glovEnchLvl - 18) * 1;
                     glovAtkSpeed = glovDefAtkSpeed;
                     glovCastSpeed = glovDefCastSpeed;
                     glovCrit = glovDefCrit;
@@ -4348,8 +4320,10 @@ namespace BDHelper
             cmd.CommandText = "select * from Shoes where Id='" + shId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
 
             if (shEnch == true & shIsBoss == true | shId == 25)
@@ -4408,7 +4382,7 @@ namespace BDHelper
 
                     shdr = shDefdr + 18;
 
-                    if (shId == 0 | shId == 25) shhdr = shDefhdr+1;
+                    if (shId == 0 | shId == 25) shhdr = shDefhdr + 1;
                     else shhdr = shDefhdr + 28;
                     shMvs = shDefMvs;
 
@@ -4433,7 +4407,7 @@ namespace BDHelper
 
                     shev = shDefev + shEnchLvl * 2;
 
-                    if (shId == 0 ) shhev = shDefhev + 72;
+                    if (shId == 0) shhev = shDefhev + 72;
                     else if (shId == 25) shhev = shDefhev + 71;
                     else shhev = shDefhev + 36;
 
@@ -4500,7 +4474,7 @@ namespace BDHelper
 
                     shev = shDefev + shEnchLvl * 2;
 
-                    if (shId == 0 ) shhev = shDefhev + 80;
+                    if (shId == 0) shhev = shDefhev + 80;
                     else if (shId == 25) shhev = shDefhev + 79;
                     else shhev = shDefhev + 40;
 
@@ -4569,14 +4543,14 @@ namespace BDHelper
                     cMaxST -= shMaxST;
                     cWeight -= shWeight;
 
-                    if(shId == 11 | shId == 23)
+                    if (shId == 11 | shId == 23)
                     {
                         if (shEnchLvl <= 5) shdp = shDefdp + shEnchLvl * 2;
                         else shdp = shDefdp + 10 + (shEnchLvl - 5) * 3;
                     }
                     else shdp = shDefdp + shEnchLvl * 2;
 
-                    if(shId == 11 | shId == 23)
+                    if (shId == 11 | shId == 23)
                     {
                         if (shEnchLvl <= 5) shev = shDefev + shEnchLvl * 1;
                         else shev = shDefev + 5 + (shEnchLvl - 5) * 2;
@@ -4603,7 +4577,7 @@ namespace BDHelper
                     else shhev = shDefhev + shEnchLvl * 3;
 
                     shdr = shDefdr + shEnchLvl * 1;
-                    if(shId == 11 | shId == 23)
+                    if (shId == 11 | shId == 23)
                     {
                         if (shEnchLvl <= 10) shhdr = shDefhdr;
                         else shhdr = shDefhdr + (shEnchLvl - 10) * 1;
@@ -4770,7 +4744,7 @@ namespace BDHelper
                     cMaxST -= shMaxST;
                     cWeight -= shWeight;
 
-                    if (shId == 11 | shId == 23) shdp = shDefdp + 58 + (shEnchLvl- 18) * 5;
+                    if (shId == 11 | shId == 23) shdp = shDefdp + 58 + (shEnchLvl - 18) * 5;
                     else shdp = shDefdp + 48 + (shEnchLvl - 18) * 5;
 
                     if (shId == 11 | shId == 23) shev = shDefev + 31 + (shEnchLvl - 18) * 2;
@@ -4782,7 +4756,7 @@ namespace BDHelper
 
                     shdr = shDefdr + 27 + (shEnchLvl - 18) * 3;
 
-                    if (shId == 11 | shId == 23) shhdr = shDefhdr + 8 +(shEnchLvl - 18) * 1;
+                    if (shId == 11 | shId == 23) shhdr = shDefhdr + 8 + (shEnchLvl - 18) * 1;
                     else shhdr = shDefhdr + 3 + (shEnchLvl - 18) * 1;
 
                     shMvs = shDefMvs;
@@ -5617,8 +5591,10 @@ namespace BDHelper
             cmd.CommandText = "select * from [" + chClass + " Awakening Weapons] where Id='" + awkId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
             if (awkEnch == true & awkEnchLvl == 1)
             {
@@ -5645,7 +5621,7 @@ namespace BDHelper
                 //Extra Damage to All Species
                 awkDamageAll = awkDefDamageAll;
 
-                if(chClass == "Shai")
+                if (chClass == "Shai")
                 {
                     awkDPReduction = 1;
                     awkAllEvasion = 1;
@@ -5844,15 +5820,15 @@ namespace BDHelper
                     else if (awkEnchLvl >= 13 & awkEnchLvl <= 15) awkDamageAll = awkDefDamageAll + 3;
                 }
                 if (chClass == "Shai")
-                { 
-                  if(awkEnchLvl >= 8 & awkEnchLvl <= 10)
+                {
+                    if (awkEnchLvl >= 8 & awkEnchLvl <= 10)
                     {
-                    awkDPReduction = 2;
-                    awkAllEvasion = 2;
-                    awkMvsSpeedRed = 2;
-                    awkSpeedIncrease = 2;
+                        awkDPReduction = 2;
+                        awkAllEvasion = 2;
+                        awkMvsSpeedRed = 2;
+                        awkSpeedIncrease = 2;
                     }
-                   else if (awkEnchLvl >= 11 & awkEnchLvl <= 12)
+                    else if (awkEnchLvl >= 11 & awkEnchLvl <= 12)
                     {
                         awkDPReduction = 3;
                         awkAllEvasion = 3;
@@ -5935,7 +5911,7 @@ namespace BDHelper
 
                 if (chClass == "Shai")
                 {
-                    awkDPReduction = 6 + (awkEnchLvl-15);
+                    awkDPReduction = 6 + (awkEnchLvl - 15);
                     awkAllEvasion = 6 + (awkEnchLvl - 15);
                     awkMvsSpeedRed = 6 + (awkEnchLvl - 15);
                     awkSpeedIncrease = 6 + (awkEnchLvl - 15);
@@ -5991,7 +5967,7 @@ namespace BDHelper
                     awkDPReduction = 9;
                     awkAllEvasion = 9;
                     awkMvsSpeedRed = 9;
-                    awkSpeedIncrease =9;
+                    awkSpeedIncrease = 9;
                 }
 
                 caap += awkAP;
@@ -6044,13 +6020,13 @@ namespace BDHelper
                 {
                     if (awkEnchLvl == 19)
                     {
-                    awkDPReduction = 11;
-                    awkAllEvasion = 11;
-                    awkMvsSpeedRed = 11;
-                    awkSpeedIncrease = 11;
+                        awkDPReduction = 11;
+                        awkAllEvasion = 11;
+                        awkMvsSpeedRed = 11;
+                        awkSpeedIncrease = 11;
                     }
 
-                   else  if (awkEnchLvl == 20)
+                    else if (awkEnchLvl == 20)
                     {
                         awkDPReduction = 15;
                         awkAllEvasion = 15;
@@ -6113,10 +6089,12 @@ namespace BDHelper
             cmd.CommandText = "select * from [" + weapon + " Main Weapon] where Id='" + mwId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
 
-            if(mwEnch == true & mwEnchLvl >= 1)
+            if (mwEnch == true & mwEnchLvl >= 1)
             {
                 cap -= mwAP;
                 cacc -= mwAccuracy;
@@ -6132,9 +6110,9 @@ namespace BDHelper
                 cHPrecoveryChance -= mwRecoveryChance;
 
                 //High and low AP
-                if(mwId == 3 | mwId == 6 | mwId == 7 | mwId == 21)
+                if (mwId == 3 | mwId == 6 | mwId == 7 | mwId == 21)
                 {
-                    if(mwEnchLvl == 1)
+                    if (mwEnchLvl == 1)
                     {
                         //AP High
                         mwAPhigh = mwDefAPhigh + 4;
@@ -6142,10 +6120,10 @@ namespace BDHelper
                         mwAPlow = mwDefAPlow + 4;
                     }
 
-                    else if (mwEnchLvl >= 2 & mwEnchLvl<=3)
+                    else if (mwEnchLvl >= 2 & mwEnchLvl <= 3)
                     {
                         //AP High
-                        mwAPhigh = mwDefAPhigh + 4 + (mwEnchLvl-1) * 3;
+                        mwAPhigh = mwDefAPhigh + 4 + (mwEnchLvl - 1) * 3;
                         //AP Low
                         mwAPlow = mwDefAPlow + 4 + (mwEnchLvl - 1) * 3;
                     }
@@ -6182,10 +6160,10 @@ namespace BDHelper
                         mwAPlow = mwDefAPlow + 60 + (mwEnchLvl - 15) * 8;
                     }
 
-                    else if (mwEnchLvl == 18 )
+                    else if (mwEnchLvl == 18)
                     {
                         //AP High
-                        mwAPhigh = mwDefAPhigh + 88 ;
+                        mwAPhigh = mwDefAPhigh + 88;
                         //AP Low
                         mwAPlow = mwDefAPlow + 88;
                     }
@@ -6244,7 +6222,7 @@ namespace BDHelper
                     else if (mwEnchLvl == 17)
                     {
                         //AP High
-                        mwAPhigh = mwDefAPhigh + 84 ;
+                        mwAPhigh = mwDefAPhigh + 84;
                         //AP Low
                         mwAPlow = mwDefAPlow + 84;
                     }
@@ -6335,19 +6313,19 @@ namespace BDHelper
                 //Main AP
                 mwAP = (mwAPhigh + mwAPlow) / 2;
                 //Accuracy
-                if(mwId == 6 |mwId ==8 | mwId == 30)
+                if (mwId == 6 | mwId == 8 | mwId == 30)
                 {
                     if (mwEnchLvl >= 1 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + mwEnchLvl * 10;
                     else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 150 + (mwEnchLvl - 15) * 8;
 
                 }
-                else if(mwId == 0)
+                else if (mwId == 0)
                 {
                     if (mwEnchLvl >= 1 & mwEnchLvl <= 14) mwAccuracy = mwDefAccuracy + mwEnchLvl * 10;
                     else if (mwEnchLvl >= 15 & mwEnchLvl <= 19) mwAccuracy = mwDefAccuracy + 140 + (mwEnchLvl - 14) * 8;
                     else if (mwEnchLvl == 20) mwAccuracy = mwDefAccuracy + 192;
                 }
-                else if( mwId == 3)
+                else if (mwId == 3)
                 {
                     if (mwEnchLvl == 1) mwAccuracy = mwDefAccuracy + 6;
                     else if (mwEnchLvl == 2) mwAccuracy = mwDefAccuracy + 12;
@@ -6355,18 +6333,18 @@ namespace BDHelper
                     else if (mwEnchLvl >= 4 & mwEnchLvl <= 5) mwAccuracy = mwDefAccuracy + 18 + (mwEnchLvl - 3) * 4;
                     else if (mwEnchLvl >= 6 & mwEnchLvl <= 7) mwAccuracy = mwDefAccuracy + 26 + (mwEnchLvl - 5) * 6;
                     else if (mwEnchLvl >= 8 & mwEnchLvl <= 10) mwAccuracy = mwDefAccuracy + 38 + (mwEnchLvl - 7) * 8;
-                    else if (mwEnchLvl == 11 ) mwAccuracy = mwDefAccuracy + 74;
+                    else if (mwEnchLvl == 11) mwAccuracy = mwDefAccuracy + 74;
                     else if (mwEnchLvl >= 12 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + 74 + (mwEnchLvl - 11) * 14;
                     else if (mwEnchLvl >= 16 & mwEnchLvl <= 19) mwAccuracy = mwDefAccuracy + 130 + (mwEnchLvl - 15) * 10;
                 }
-                else if(mwId == 7)
+                else if (mwId == 7)
                 {
-                    if (mwEnchLvl >= 1 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + mwEnchLvl * 5;                    
-                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + 15 + (mwEnchLvl-3) * 10;
-                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 135 + (mwEnchLvl-15) * 8;
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + mwEnchLvl * 5;
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + 15 + (mwEnchLvl - 3) * 10;
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 135 + (mwEnchLvl - 15) * 8;
 
                 }
-                else if(mwId == 21)
+                else if (mwId == 21)
                 {
                     if (mwEnchLvl == 1) mwAccuracy = mwDefAccuracy + 8;
                     else if (mwEnchLvl >= 2 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + 8 + (mwEnchLvl - 1) * 6;
@@ -6378,7 +6356,7 @@ namespace BDHelper
                     else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 132 + (mwEnchLvl - 15) * 10;
 
                 }
-                else if(mwId == 25)
+                else if (mwId == 25)
                 {
                     if (mwEnchLvl == 1) mwAccuracy = mwDefAccuracy + 8;
                     else if (mwEnchLvl >= 2 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + 8 + (mwEnchLvl - 1) * 6;
@@ -6397,9 +6375,9 @@ namespace BDHelper
                     else if (mwEnchLvl >= 4 & mwEnchLvl <= 5) mwAccuracy = mwDefAccuracy + 20 + (mwEnchLvl - 3) * 4;
                     else if (mwEnchLvl >= 6 & mwEnchLvl <= 7) mwAccuracy = mwDefAccuracy + 28 + (mwEnchLvl - 5) * 6;
                     else if (mwEnchLvl >= 8 & mwEnchLvl <= 10) mwAccuracy = mwDefAccuracy + 40 + (mwEnchLvl - 7) * 4;
-                    else if(mwId ==31| mwId == 32 | mwId == 33 | mwId == 34 | mwId == 36 | mwId ==22|mwId == 27)
+                    else if (mwId == 31 | mwId == 32 | mwId == 33 | mwId == 34 | mwId == 36 | mwId == 22 | mwId == 27)
                     {
-                        if(mwEnchLvl == 11) mwAccuracy = mwDefAccuracy + 40 + (mwEnchLvl - 7) * 4;
+                        if (mwEnchLvl == 11) mwAccuracy = mwDefAccuracy + 40 + (mwEnchLvl - 7) * 4;
                         else mwAccuracy = mwDefAccuracy + 56 + (mwEnchLvl - 11) * 6;
                     }
                     else if (mwEnchLvl == 11) mwAccuracy = mwDefAccuracy + 64;
@@ -6407,9 +6385,9 @@ namespace BDHelper
                     else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 120 + (mwEnchLvl - 15) * 10;
                 }
                 //AP against monsters
-                if(mwId == 0)
+                if (mwId == 0)
                 {
-                    if(mwEnchLvl== 16) mwAPagainst = mwDefAPagainst +5;
+                    if (mwEnchLvl == 16) mwAPagainst = mwDefAPagainst + 5;
                     else if (mwEnchLvl == 17) mwAPagainst = mwDefAPagainst + 12;
                     else if (mwEnchLvl == 18) mwAPagainst = mwDefAPagainst + 21;
                     else if (mwEnchLvl == 19) mwAPagainst = mwDefAPagainst + 32;
@@ -6424,26 +6402,26 @@ namespace BDHelper
                     else if (mwEnchLvl == 20) mwAPagainst = mwDefAPagainst + 15;
                 }
                 //Extra damage tp Humans
-                if(mwId == 36| mwId == 13)
+                if (mwId == 36 | mwId == 13)
                 {
                     mwDamageHumans = mwDefDamageHumans + mwEnchLvl;
                 }
-                else if(mwId == 34 | mwId == 12)
+                else if (mwId == 34 | mwId == 12)
                 {
-                    if(mwEnchLvl >=1 & mwEnchLvl <= 15) mwDamageHumans = mwDefDamageHumans + mwEnchLvl;
-                    else mwDamageHumans = mwDefDamageHumans + 15 +(mwEnchLvl-15)*2;
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 15) mwDamageHumans = mwDefDamageHumans + mwEnchLvl;
+                    else mwDamageHumans = mwDefDamageHumans + 15 + (mwEnchLvl - 15) * 2;
 
                 }
                 else mwDamageHumans = mwDefDamageHumans;
 
                 //Extra Damage to All Species
-                if ( mwId == 0)
+                if (mwId == 0)
                 {
-                    if(mwEnchLvl >= 1 & mwEnchLvl <=12) mwDamageAll = mwDefDamageAll;
-                    else if (mwEnchLvl >= 13 & mwEnchLvl <= 20) mwDamageAll = mwDefDamageAll + (mwEnchLvl-12) * 1;
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 12) mwDamageAll = mwDefDamageAll;
+                    else if (mwEnchLvl >= 13 & mwEnchLvl <= 20) mwDamageAll = mwDefDamageAll + (mwEnchLvl - 12) * 1;
                 }
 
-                else if(mwId == 6|mwId == 7)
+                else if (mwId == 6 | mwId == 7)
                 {
                     if (mwEnchLvl >= 1 & mwEnchLvl <= 10) mwDamageAll = mwDefDamageAll;
                     else if (mwEnchLvl >= 11 & mwEnchLvl <= 20) mwDamageAll = mwDefDamageAll + (mwEnchLvl - 10) * 1;
@@ -6455,18 +6433,18 @@ namespace BDHelper
                 }
                 else if (mwId == 26 | mwId == 28)
                 {
-                     mwDamageAll = mwDefDamageAll + mwEnchLvl * 1;
+                    mwDamageAll = mwDefDamageAll + mwEnchLvl * 1;
                 }
                 else mwDamageAll = mwDefDamageAll;
-                
+
                 //Extra damage tp DemiHumans
                 if (mwId == 24 | mwId == 22)
                 {
                     if (mwEnchLvl >= 1 & mwEnchLvl <= 15) mwDamDemi = mwDefDamDemi + mwEnchLvl;
-                    else if(mwEnchLvl>= 16 & mwEnchLvl<=20) mwDamDemi = mwDefDamDemi +15+ (mwEnchLvl-15) * 2;
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwDamDemi = mwDefDamDemi + 15 + (mwEnchLvl - 15) * 2;
                 }
                 else mwDamDemi = mwDefDamDemi;
-                
+
                 mwAtkSpeed = mwDefAtkSpeed;
                 mwCastSpeed = mwDefCastSpeed;
                 mwIgnore = mwDefIgnore;
@@ -6503,8 +6481,8 @@ namespace BDHelper
                 cResistIgnore -= mwIgnore;
                 cHPrecoveryChance -= mwRecoveryChance;
 
-                
-                
+
+
                 //AP High
                 mwAPhigh = mwDefAPhigh;
                 //AP Low
@@ -6516,13 +6494,13 @@ namespace BDHelper
                 //AP against monsters
                 mwAPagainst = mwDefAPagainst;
                 //Extra damage tp Humans
-                 mwDamageHumans = mwDefDamageHumans;
+                mwDamageHumans = mwDefDamageHumans;
 
                 //Extra Damage to All Species
-               mwDamageAll = mwDefDamageAll;
+                mwDamageAll = mwDefDamageAll;
 
                 //Extra damage tp DemiHumans
-                 mwDamDemi = mwDefDamDemi;
+                mwDamDemi = mwDefDamDemi;
 
                 mwAtkSpeed = mwDefAtkSpeed;
                 mwCastSpeed = mwDefCastSpeed;
@@ -6552,8 +6530,10 @@ namespace BDHelper
             cmd.CommandText = "select * from [" + SubWeapon + " Sub-Weapons] where Id='" + swId.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
             if (swEnch == true & swEnchLvl >= 1)
             {
                 cap -= swAP;
@@ -6796,7 +6776,7 @@ namespace BDHelper
                 }
                 else if (swId >= 15 & swId <= 18 | swId >= 46 & swId <= 49)
                 {
-                    if (swEnchLvl <= 15) swHEvasion = swDefHEvasion + swEnchLvl *2;
+                    if (swEnchLvl <= 15) swHEvasion = swDefHEvasion + swEnchLvl * 2;
                     else if (swEnchLvl >= 16 & swEnchLvl <= 17) swHEvasion = swDefHEvasion + 30 + (swEnchLvl - 15) * 4;
                     else if (swEnchLvl == 18) swHEvasion = swDefHEvasion + 48;
                     else if (swEnchLvl >= 19 & swEnchLvl <= 20) swHEvasion = swDefHEvasion + 48 + (swEnchLvl - 18) * 4;
@@ -6811,7 +6791,7 @@ namespace BDHelper
                 else swHEvasion = swDefHEvasion;
 
                 //AP against monsters
-                if (swId == 0|swId == 1 | swId == 31 | swId == 32)
+                if (swId == 0 | swId == 1 | swId == 31 | swId == 32)
                 {
                     if (swEnchLvl <= 15) swAPagainst = swDefAPagainst + swEnchLvl;
                     else if (swEnchLvl == 16) swAPagainst = swDefAPagainst + 23;
@@ -6823,7 +6803,7 @@ namespace BDHelper
                 else
                 {
                     if (swEnchLvl <= 15) swAPagainst = swDefAPagainst;
-                    else swAPagainst = swDefAPagainst + (swEnchLvl-15);
+                    else swAPagainst = swDefAPagainst + (swEnchLvl - 15);
                 }
                 //Max HP
                 swMaxHP = swDefMaxHP;

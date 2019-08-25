@@ -116,7 +116,7 @@
                         </LinearGradientBrush>
                     </ComboBox.Background>
                 </ComboBox>
-                <ComboBox x:Name="ItemCaph_cb" HorizontalAlignment="Left" Margin="240,26,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemCaph_cb_SelectionChanged">
+                <ComboBox x:Name="ItemCaph_cb" HorizontalAlignment="Left" Margin="304,26,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemCaph_cb_SelectionChanged">
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -124,7 +124,7 @@
                         </LinearGradientBrush>
                     </ComboBox.Background>
                 </ComboBox>
-                <ComboBox x:Name="ItemEnch_cb" HorizontalAlignment="Left" Margin="240,2,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemEnch_cb_SelectionChanged">
+                <ComboBox x:Name="ItemEnch_cb" HorizontalAlignment="Left" Margin="304,2,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemEnch_cb_SelectionChanged">
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -132,8 +132,8 @@
                         </LinearGradientBrush>
                     </ComboBox.Background>
                 </ComboBox>
-                <Label x:Name="Ench_lbl" Content="Enhancement level" HorizontalAlignment="Left" Margin="131,-1,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Caph_lbl" Content="Caphras level" HorizontalAlignment="Left" Margin="131,21,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Ench_lbl" Content="Enhancement level" HorizontalAlignment="Left" Margin="194,-1,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Caph_lbl" Content="Caphras level" HorizontalAlignment="Left" Margin="194,21,0,0" VerticalAlignment="Top"/>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="44" Margin="2,1,0,0" VerticalAlignment="Top" Width="44">
                     <Image x:Name="Item_img" HorizontalAlignment="Left" Height="44" Margin="-1,0,-1,-2" VerticalAlignment="Top" Width="44"/>
                 </Border>
@@ -523,7 +523,7 @@
                 <Label x:Name="SCrystal_lbl" Content="Shop Crystal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,263,0,0"/>
             </Grid>
         </Border>
-        <Border x:Name="JournalsS_border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="319" Margin="1518,10,0,0">
+        <Border x:Name="JournalsS_border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="377" VerticalAlignment="Top" Width="319" Margin="1518,10,0,0">
             <Grid x:Name="JournalsS_grid" Margin="9">
                 <CheckBox x:Name="ibChapter1_cb" Content="Chapter 1" HorizontalAlignment="Left" Margin="30,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter1_cb_Checked" Unchecked="IbChapter1_cb_Checked"/>
                 <Label x:Name="JournalsS1_lbl" Content="Igor Bartali's Adventure Log" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -544,6 +544,18 @@
                 <Label x:Name="JournalsS2_lbl" Content="Rulupee's Travel Log" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="ibCheckAll_cb" Content="Check All" HorizontalAlignment="Left" Margin="30,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbCheckAll_cb_Checked" Unchecked="IbCheckAll_cb_Checked"/>
                 <CheckBox x:Name="rtChapter1_cb" Content="Chapter 1" HorizontalAlignment="Left" Margin="27,243,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="RtChapter1_cb_Checked" Unchecked="RtChapter1_cb_Checked"/>
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="402" Margin="732,10,0,0" VerticalAlignment="Top" Width="129">
+            <Grid Margin="9">
+                <Button x:Name="Save_btn" Content="Save" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Width="89" Background="White" Click="Save_btn_Click"/>
+                <TextBox x:Name="SaveBuild_tb" HorizontalAlignment="Left" Height="23" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89"/>
+                <Label x:Name="BuildN_lbl" Content="Build Name" HorizontalAlignment="Left" Margin="5,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.5" Height="24"/>
+                <Label x:Name="slb_lbl" Content="Save/Load builds" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.423" Margin="4,0,0,0"/>
+                <ComboBox x:Name="LoadBuild_cb" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="89" DropDownOpened="LoadBuild_cb_DropDownOpened"/>
+                <Label x:Name="SelectBuildN_lbl" Content="Select build" HorizontalAlignment="Left" Margin="6,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.5" Height="24"/>
+                <Button x:Name="Load_btn" Content="Load" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="89" Background="White" Click="Load_btn_Click"/>
+                <Button x:Name="Delete_btn" Content="Delete" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Width="89" Background="White" Click="Delete_btn_Click"/>
             </Grid>
         </Border>
 

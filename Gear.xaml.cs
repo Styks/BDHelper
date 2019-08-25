@@ -34,6 +34,9 @@ namespace BDHelper
 
         readonly CharacterState cs = new CharacterState();
 
+        public string progvers = "0.1";
+        public string progvers_sf;
+
         public Gear()
         {
             InitializeComponent();
@@ -51,17 +54,19 @@ namespace BDHelper
                 Connection = Base_Connect.Connection,
                 CommandType = CommandType.Text
             };
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            Byte[] img;
-            img = (Byte[])ds.Tables[0].Rows[0]["Icon"];
-            Image image = new Image();
-            using (MemoryStream stream = new MemoryStream(img))
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
             {
-                image.Source = BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                Byte[] img;
+                img = (Byte[])ds.Tables[0].Rows[0]["Icon"];
+                Image image = new Image();
+                using (MemoryStream stream = new MemoryStream(img))
+                {
+                    image.Source = BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                }
+                Item_img.Source = image.Source;
             }
-            Item_img.Source = image.Source;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -85,7 +90,7 @@ namespace BDHelper
             CrysH1_btn.Visibility = Visibility.Hidden; CrysH2_btn.Visibility = Visibility.Hidden;
             CrysMW1_btn.Visibility = Visibility.Hidden; CrysMW2_btn.Visibility = Visibility.Hidden;
             CrysSW1_btn.Visibility = Visibility.Hidden; CrysSW2_btn.Visibility = Visibility.Hidden;
-            
+
             MainStateLabels();
             AbilitiesLabels();
             OffenceStateLabels();
@@ -97,7 +102,6 @@ namespace BDHelper
             OtherStateLabels();
             ItemStateLabels();
             ResistanceStateLabels();
-
         }
         private void FillCharacterState()
         {
@@ -261,10 +265,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Belts";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }
             Item_Icon_Load("Belts", cs.beltId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.beltId;
@@ -276,10 +282,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Neck";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }
             Item_Icon_Load("Neck", cs.neckId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.neckId;
@@ -291,10 +299,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Rings";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load("Rings", cs.ring1Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring1Id;
@@ -306,10 +316,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Rings";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load("Rings", cs.ring2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring2Id;
@@ -321,10 +333,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Earrings";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load("Earrings", cs.ear1Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear1Id;
@@ -336,10 +350,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Earrings";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }
             Item_Icon_Load("Earrings", cs.ear2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear2Id;
@@ -351,10 +367,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Armors";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load("Armors", cs.armId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.armId;
@@ -366,10 +384,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Helmets";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load("Helmets", cs.helId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.helId;
@@ -381,10 +401,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Gloves";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }
             Item_Icon_Load("Gloves", cs.glovId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.glovId;
@@ -396,10 +418,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Shoes";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }          
             Item_Icon_Load("Shoes", cs.shId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.shId;
@@ -411,10 +435,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + sclass + " Awakening Weapons]";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }          
             Item_Icon_Load(sclass.ToString() + " Awakening Weapons", cs.awkId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.awkId;
@@ -426,10 +452,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + chWeapon + " Main Weapon]";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load(chWeapon.ToString() + " Main Weapon", cs.mwId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.mwId;
@@ -441,10 +469,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + chSubWeapon + " Sub-Weapons]";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load(chSubWeapon.ToString() + " Sub-Weapons", cs.swId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.swId;
@@ -456,10 +486,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [Alchemy Stones]";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load("Alchemy Stones", cs.asId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.asId;
@@ -471,10 +503,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load(cs.wmcType + " Magic Crystal", cs.wmcId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.wmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.wmcId + 26;
@@ -487,10 +521,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }
             Item_Icon_Load(cs.wmc2Type + " Magic Crystal", cs.wmc2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.wmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.wmc2Id + 26;
@@ -503,10 +539,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Sub-Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load(cs.swmcType + " Magic Crystal", cs.swmcId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.swmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.swmcId + 15;
@@ -519,10 +557,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Sub-Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load(cs.swmc2Type + " Magic Crystal", cs.swmc2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.swmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.swmc2Id + 15;
@@ -536,10 +576,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Helmet Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load(cs.hmcType + " Magic Crystal", cs.hmcId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.hmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.hmcId + 21;
@@ -552,10 +594,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Helmet Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }          
             Item_Icon_Load(cs.hmc2Type + " Magic Crystal", cs.hmc2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.hmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.hmc2Id + 21;
@@ -569,10 +613,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Armor Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load(cs.amcType + " Magic Crystal", cs.amcId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.amcType == "Versatile") SelectGear_cb.SelectedIndex = cs.amcId + 28;
@@ -585,10 +631,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Armor Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load(cs.amc2Type + " Magic Crystal", cs.amc2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.amc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.amc2Id + 28;
@@ -602,10 +650,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Gloves Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load(cs.gmcType + " Magic Crystal", cs.gmcId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.gmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.gmcId + 24;
@@ -618,10 +668,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Gloves Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }
             Item_Icon_Load(cs.gmc2Type + " Magic Crystal", cs.gmc2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.gmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.gmc2Id + 24;
@@ -635,10 +687,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Shoes Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }           
             Item_Icon_Load(cs.smcType + " Magic Crystal", cs.smcId);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.smcType == "Versatile") SelectGear_cb.SelectedIndex = cs.smcId + 25;
@@ -651,10 +705,12 @@ namespace BDHelper
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Shoes Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
-            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }            
             Item_Icon_Load(cs.smc2Type + " Magic Crystal", cs.smc2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.smc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.smc2Id + 25;
@@ -879,8 +935,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Belts where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.beltDefap = Convert.ToInt32(dr["AP"]);
@@ -939,8 +997,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Neck where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.neckDefap = Convert.ToInt32(dr["AP"]);
@@ -998,13 +1058,13 @@ namespace BDHelper
                 cs.iDR = cs.neckDR;
                 cs.iSSFR = cs.neckSSF;
                 cs.iKBR = cs.neckKB;
-                cs.iGrapR = cs.neckG ;
-                cs.iKFR = cs.neckKF ;
+                cs.iGrapR = cs.neckG;
+                cs.iKFR = cs.neckKF;
                 cs.iHP = cs.neckHP;
                 cs.iSpiritRage = cs.neckSpiritRage;
                 cs.iEAPa = cs.neckAPagaingst;
                 cs.iExtraDamKama = cs.neckKamaDamage;
-                cs.iEDtoBack = cs.neckBackDamage ;
+                cs.iEDtoBack = cs.neckBackDamage;
 
                 cs.neckId = SelectGear_cb.SelectedIndex;
             } //Necklace            
@@ -1013,8 +1073,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.ring1Defap = Convert.ToInt32(dr["AP"]);
@@ -1082,8 +1144,8 @@ namespace BDHelper
                 cs.iExtraDamKama = cs.ring1KamaDamage;
                 cs.iEDH = cs.ring1DamageHumans;
                 cs.iADtDemiH = cs.ring1DamageDemihumans;
-                cs.iEDtAExcHumanAndDemi =cs.ring1DamageAllExcept;
-                cs.iBidding =cs.ring1Bidding;
+                cs.iEDtAExcHumanAndDemi = cs.ring1DamageAllExcept;
+                cs.iBidding = cs.ring1Bidding;
                 cs.iSpiritRage = cs.ring1SpiritRage;
 
                 cs.ring1Id = SelectGear_cb.SelectedIndex;
@@ -1093,8 +1155,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.ring2Defap = Convert.ToInt32(dr["AP"]);
@@ -1172,8 +1236,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.ear1Defap = Convert.ToInt32(dr["AP"]);
@@ -1236,8 +1302,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.ear2Defap = Convert.ToInt32(dr["AP"]);
@@ -1300,8 +1368,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Armors where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.armGems = Convert.ToInt32(dr["Gems"]);
@@ -1386,8 +1456,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Helmets where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.helGems = Convert.ToInt32(dr["Gems"]);
@@ -1460,8 +1532,8 @@ namespace BDHelper
                 cs.iHDR = cs.helhdr;
                 cs.iHP = cs.helHP;
                 cs.iSSFR = cs.helSSFRes;
-                cs.iKBR = cs.helKBRes ;
-                cs.iGrapR = cs.helGrapleRes ;
+                cs.iKBR = cs.helKBRes;
+                cs.iGrapR = cs.helGrapleRes;
                 cs.iKFR = cs.helKFRes;
                 cs.iST = cs.helST;
                 cs.iWeight = cs.helWeight;
@@ -1475,8 +1547,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Gloves where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.glovGems = Convert.ToInt32(dr["Gems"]);
@@ -1558,8 +1632,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from Shoes where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.shGems = Convert.ToInt32(dr["Gems"]);
@@ -1633,8 +1709,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from [" + sclass + " Awakening Weapons] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 if (sclass == "Shai")
                 {
                     foreach (DataRow dr in dt.Rows)
@@ -1695,7 +1773,7 @@ namespace BDHelper
                 iEDtA_n.Content = cs.awkDamageAll.ToString();
                 iEAPa_n.Content = cs.awkAPagainst.ToString();
 
-                cs.iAAP = (cs.awkAPlow + cs.awkAPhigh) /2;
+                cs.iAAP = (cs.awkAPlow + cs.awkAPhigh) / 2;
                 cs.iAcc = cs.awkAccuracy;
                 cs.iEDH = cs.awkDamageHumans;
                 cs.iEDtA = cs.awkDamageAll;
@@ -1710,8 +1788,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from [" + chWeapon + " Main Weapon] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
 
 
                 foreach (DataRow dr in dt.Rows)
@@ -1774,7 +1854,7 @@ namespace BDHelper
                 iHPRecoveryChance_n.Content = cs.mwRecoveryChance.ToString();
                 iIgnoreResistance_n.Content = cs.mwIgnore.ToString();
 
-                cs.iAP = (cs.mwAPlow + cs.mwAPhigh)/2;
+                cs.iAP = (cs.mwAPlow + cs.mwAPhigh) / 2;
                 cs.iAcc = cs.mwAccuracy;
                 cs.iEDH = cs.mwDamageHumans;
                 cs.iEDtA = cs.mwDamageAll;
@@ -1798,8 +1878,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from [" + chSubWeapon + " Sub-Weapons] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.swGems = Convert.ToInt32(dr["Gems"]);
@@ -1868,7 +1950,7 @@ namespace BDHelper
                 iSpecialAttackED_n.Content = cs.swSpecialAttackDam.ToString();
                 iSpecialAttackEvRate_n.Content = cs.swSpecialAttackEv.ToString();
 
-                cs.iAP = (cs.swAPlow + cs.swAPhigh)/2;
+                cs.iAP = (cs.swAPlow + cs.swAPhigh) / 2;
                 cs.iAcc = cs.swAccuracy;
                 cs.iEAPa = cs.swAPagainst;
                 cs.iIgnoreResistance = cs.swIgnore;
@@ -1895,8 +1977,10 @@ namespace BDHelper
                 cmd.CommandText = "select * from [Alchemy Stones] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
                 foreach (DataRow dr in dt.Rows)
                 {
                     cs.asDefAPhigh = Convert.ToInt32(dr["APhigh"]);
@@ -1944,13 +2028,13 @@ namespace BDHelper
                 iFishing_n.Content = cs.asGathFish.ToString();
                 iGathDropRate_n.Content = cs.asGathDropRate.ToString() + "%";
 
-                cs.iAP = (cs.asAPlow +  cs.asAPhigh)/2;
+                cs.iAP = (cs.asAPlow + cs.asAPhigh) / 2;
                 cs.iAcc = cs.asAccuracy;
                 cs.iIgnoreResistance = cs.asIgnore;
                 cs.iEvas = cs.asEvasion;
                 cs.iDR = cs.asDR;
                 cs.iHP = cs.asMaxHP;
-                cs.iRes = cs.asAllRes ;
+                cs.iRes = cs.asAllRes;
                 cs.iHAP = cs.asHidenAP;
                 cs.iWeight = cs.asWeightLimit;
                 cs.iCastSpeedRate = cs.asCastSpeed;
@@ -1972,8 +2056,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.wmcId = Convert.ToInt32(dr["Id"]);
@@ -2003,8 +2089,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 26).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.wmcId = Convert.ToInt32(dr["Id"]);
@@ -2087,8 +2175,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.wmc2Id = Convert.ToInt32(dr["Id"]);
@@ -2118,8 +2208,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 26).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.wmc2Id = Convert.ToInt32(dr["Id"]);
@@ -2202,8 +2294,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Sub-Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.swmcId = Convert.ToInt32(dr["Id"]);
@@ -2241,8 +2335,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 15).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.swmcId = Convert.ToInt32(dr["Id"]);
@@ -2352,8 +2448,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Sub-Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.swmc2Id = Convert.ToInt32(dr["Id"]);
@@ -2391,8 +2489,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 15).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.swmc2Id = Convert.ToInt32(dr["Id"]);
@@ -2501,8 +2601,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Helmet Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.hmcId = Convert.ToInt32(dr["Id"]);
@@ -2537,8 +2639,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 21).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.hmcId = Convert.ToInt32(dr["Id"]);
@@ -2632,8 +2736,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Helmet Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.hmc2Id = Convert.ToInt32(dr["Id"]);
@@ -2668,8 +2774,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 21).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.hmc2Id = Convert.ToInt32(dr["Id"]);
@@ -2763,8 +2871,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Armor Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.amcId = Convert.ToInt32(dr["Id"]);
@@ -2804,8 +2914,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 28).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.amcId = Convert.ToInt32(dr["Id"]);
@@ -2907,8 +3019,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Armor Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.amc2Id = Convert.ToInt32(dr["Id"]);
@@ -2948,8 +3062,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 28).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.amc2Id = Convert.ToInt32(dr["Id"]);
@@ -3051,8 +3167,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Gloves Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.gmcId = Convert.ToInt32(dr["Id"]);
@@ -3079,12 +3197,6 @@ namespace BDHelper
                         cs.gmcDefMelleAP = Convert.ToInt32(dr["MelleAP"]);
                         cs.gmcDefMagicAP = Convert.ToInt32(dr["MagicAP"]);
                         cs.gmcDefRangedAP = Convert.ToInt32(dr["RangedAP"]);
-
-
-
-
-
-
                     }
                 }
 
@@ -3093,8 +3205,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 24).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.gmcId = Convert.ToInt32(dr["Id"]);
@@ -3197,8 +3311,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Gloves Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.gmc2Id = Convert.ToInt32(dr["Id"]);
@@ -3225,12 +3341,6 @@ namespace BDHelper
                         cs.gmc2DefMelleAP = Convert.ToInt32(dr["MelleAP"]);
                         cs.gmc2DefMagicAP = Convert.ToInt32(dr["MagicAP"]);
                         cs.gmc2DefRangedAP = Convert.ToInt32(dr["RangedAP"]);
-
-
-
-
-
-
                     }
                 }
 
@@ -3239,8 +3349,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 24).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.gmc2Id = Convert.ToInt32(dr["Id"]);
@@ -3343,8 +3455,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Shoes Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.smcId = Convert.ToInt32(dr["Id"]);
@@ -3379,8 +3493,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 25).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.smcId = Convert.ToInt32(dr["Id"]);
@@ -3477,8 +3593,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Shoes Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.smc2Id = Convert.ToInt32(dr["Id"]);
@@ -3506,12 +3624,6 @@ namespace BDHelper
                         cs.smc2DefUnderWaterBreath = Convert.ToInt32(dr["UnderwaterBreath"]);
                         cs.smc2DefMaxEnergy = Convert.ToInt32(dr["MaxEnergy"]);
 
-
-
-
-
-
-
                     }
                 }
 
@@ -3520,8 +3632,10 @@ namespace BDHelper
                     cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 25).ToString() + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                     foreach (DataRow dr in dt.Rows)
                     {
                         cs.smc2Id = Convert.ToInt32(dr["Id"]);
@@ -3751,7 +3865,6 @@ namespace BDHelper
                 cs.iEAPa = cs.beltAPagaingst;
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
-                else if (cs.beltEnch == false) Belt_btn.Content = "";
                 else Belt_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
@@ -5727,6 +5840,256 @@ namespace BDHelper
         {
             ResistanceStatsExp.Margin = new Thickness(610, AdditionalStateExp.Height + 5, 0, 141 + (343 - AdditionalStateExp.Height));
 
+        }
+
+        private void Save_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (SaveBuild_tb.Text != string.Empty)
+            {
+                using (StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + SaveBuild_tb.Text + ".save"))
+                {
+                    sw.WriteLine(progvers); //program version check //
+                    sw.WriteLine(sclass); //Class + img + Awa Weapon
+                    sw.WriteLine(chWeapon); //Class Main Weapon
+                    sw.WriteLine(chSubWeapon); //Class Sub Weapon
+                    sw.WriteLine(cs.beltId); sw.WriteLine(cs.beltEnchLvl); //1
+                    sw.WriteLine(cs.neckId); sw.WriteLine(cs.neckEnchLvl);//2
+                    sw.WriteLine(cs.ring1Id); sw.WriteLine(cs.ring1EnchLvl);//3
+                    sw.WriteLine(cs.ring2Id); sw.WriteLine(cs.ring2EnchLvl);//4
+                    sw.WriteLine(cs.ear1Id); sw.WriteLine(cs.ear1EnchLvl);//5
+                    sw.WriteLine(cs.ear2Id); sw.WriteLine(cs.ear2EnchLvl);//6
+                    sw.WriteLine(cs.armId); sw.WriteLine(cs.armEnchLvl); sw.WriteLine(cs.armCaphLvl); //7
+                    sw.WriteLine(cs.helId); sw.WriteLine(cs.helEnchLvl); sw.WriteLine(cs.helCaphLvl); //8
+                    sw.WriteLine(cs.glovId); sw.WriteLine(cs.glovEnchLvl); sw.WriteLine(cs.glovCaphLvl); //9
+                    sw.WriteLine(cs.shId); sw.WriteLine(cs.shEnchLvl); sw.WriteLine(cs.shCaphLvl);//10
+                    sw.WriteLine(cs.awkId); sw.WriteLine(cs.awkEnchLvl); sw.WriteLine(cs.awkCaphLvl);//11
+                    sw.WriteLine(cs.mwId); sw.WriteLine(cs.mwEnchLvl); sw.WriteLine(cs.mwCaphLvl);//12
+                    sw.WriteLine(cs.swId); sw.WriteLine(cs.swEnchLvl); sw.WriteLine(cs.swCaphLvl);//13
+                    sw.WriteLine(cs.asId); //14
+                    sw.WriteLine(cs.wmcId); //15
+                    sw.WriteLine(cs.wmc2Id); //16
+                    sw.WriteLine(cs.swmcId); //17
+                    sw.WriteLine(cs.swmc2Id); //18
+                    sw.WriteLine(cs.hmcId); //19
+                    sw.WriteLine(cs.hmc2Id); //20
+                    sw.WriteLine(cs.amcId); //21
+                    sw.WriteLine(cs.amc2Id); //22
+                    sw.WriteLine(cs.gmcId); //23
+                    sw.WriteLine(cs.gmc2Id); //24
+                    sw.WriteLine(cs.smcId); //25
+                    sw.WriteLine(cs.smc2Id); //26
+                    //Character stats
+                    sw.WriteLine(apLvl_cb.IsChecked);
+                    sw.WriteLine(dpLvl_cb.IsChecked);
+                    sw.WriteLine(Breath_tb.Text);
+                    sw.WriteLine(Strength_tb.Text);
+                    sw.WriteLine(Health_tb.Text);
+                    //Shop Crys [PH]//
+                    sw.WriteLine(Underwear_cb.IsChecked);
+                    //Journals (IB)
+                    sw.WriteLine(ibCheckAll_cb.IsChecked);
+                    sw.WriteLine(ibChapter1_cb.IsChecked);
+                    sw.WriteLine(ibChapter2_cb.IsChecked);
+                    sw.WriteLine(ibChapter3_cb.IsChecked);
+                    sw.WriteLine(ibChapter4_cb.IsChecked);
+                    sw.WriteLine(ibChapter5_cb.IsChecked);
+                    sw.WriteLine(ibChapter6_cb.IsChecked);
+                    sw.WriteLine(ibChapter7_cb.IsChecked);
+                    sw.WriteLine(ibChapter8_cb.IsChecked);
+                    sw.WriteLine(ibChapter9_cb.IsChecked);
+                    sw.WriteLine(ibChapter10_cb.IsChecked);
+                    sw.WriteLine(ibChapter11_cb.IsChecked);
+                    sw.WriteLine(ibChapter12_cb.IsChecked);
+                    sw.WriteLine(ibChapter13_cb.IsChecked);
+                    sw.WriteLine(ibChapter14_cb.IsChecked);
+                    sw.WriteLine(ibChapter15_cb.IsChecked);
+                    //(RT)
+                    sw.WriteLine(rtChapter1_cb.IsChecked);
+                    //Settings (Crystals)
+                    sw.WriteLine(cs.hmcType);
+                    sw.WriteLine(cs.hmc2Type);
+                    sw.WriteLine(cs.amcType);
+                    sw.WriteLine(cs.amc2Type);
+                    sw.WriteLine(cs.gmcType);
+                    sw.WriteLine(cs.gmc2Type);
+                    sw.WriteLine(cs.smcType);
+                    sw.WriteLine(cs.smc2Type);
+                }
+                MessageBox.Show("Saved", "Done");
+            }
+            else { MessageBox.Show("Wrong name", "Error"); }
+        }
+
+        private void Load_btn_Click(object sender, RoutedEventArgs e)
+        {            
+            if (LoadBuild_cb.Text != string.Empty)
+            {            
+                {
+                    using (StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + LoadBuild_cb.Text))
+                    {
+                        progvers_sf = sr.ReadLine();
+                        sclass = sr.ReadLine();
+                        chWeapon = sr.ReadLine();
+                        chSubWeapon = sr.ReadLine();
+                        cs.beltId = Convert.ToInt32(sr.ReadLine()); cs.beltEnchLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.neckId = Convert.ToInt32(sr.ReadLine()); cs.neckEnchLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.ring1Id = Convert.ToInt32(sr.ReadLine()); cs.ring1EnchLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.ring2Id = Convert.ToInt32(sr.ReadLine()); cs.ring2EnchLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.ear1Id = Convert.ToInt32(sr.ReadLine()); cs.ear1EnchLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.ear2Id = Convert.ToInt32(sr.ReadLine()); cs.ear2EnchLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.armId = Convert.ToInt32(sr.ReadLine()); cs.armEnchLvl = Convert.ToInt32(sr.ReadLine()); cs.armCaphLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.helId = Convert.ToInt32(sr.ReadLine()); cs.helEnchLvl = Convert.ToInt32(sr.ReadLine()); cs.helCaphLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.glovId = Convert.ToInt32(sr.ReadLine()); cs.glovEnchLvl = Convert.ToInt32(sr.ReadLine()); cs.glovCaphLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.shId = Convert.ToInt32(sr.ReadLine()); cs.shEnchLvl = Convert.ToInt32(sr.ReadLine()); cs.shCaphLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.awkId = Convert.ToInt32(sr.ReadLine()); cs.awkEnchLvl = Convert.ToInt32(sr.ReadLine()); cs.awkCaphLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.mwId = Convert.ToInt32(sr.ReadLine()); cs.mwEnchLvl = Convert.ToInt32(sr.ReadLine()); cs.mwCaphLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.swId = Convert.ToInt32(sr.ReadLine()); cs.swEnchLvl = Convert.ToInt32(sr.ReadLine()); cs.swCaphLvl = Convert.ToInt32(sr.ReadLine());
+                        cs.asId = Convert.ToInt32(sr.ReadLine());
+                        cs.wmcId = Convert.ToInt32(sr.ReadLine());
+                        cs.wmc2Id = Convert.ToInt32(sr.ReadLine());
+                        cs.swmcId = Convert.ToInt32(sr.ReadLine());
+                        cs.swmc2Id = Convert.ToInt32(sr.ReadLine());
+                        cs.hmcId = Convert.ToInt32(sr.ReadLine());
+                        cs.hmc2Id = Convert.ToInt32(sr.ReadLine());
+                        cs.amcId = Convert.ToInt32(sr.ReadLine());
+                        cs.amc2Id = Convert.ToInt32(sr.ReadLine());
+                        cs.gmcId = Convert.ToInt32(sr.ReadLine());
+                        cs.gmc2Id = Convert.ToInt32(sr.ReadLine());
+                        cs.smcId = Convert.ToInt32(sr.ReadLine());
+                        cs.smc2Id = Convert.ToInt32(sr.ReadLine());
+                        //Character stats
+                        apLvl_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        dpLvl_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        Breath_tb.Text = sr.ReadLine();
+                        Strength_tb.Text = sr.ReadLine();
+                        Health_tb.Text = sr.ReadLine();
+                        //Shop Crys [PH]//
+                        Underwear_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        //Journals (IB)
+                        ibCheckAll_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter1_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter2_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter3_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter4_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter5_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter6_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter7_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter8_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter9_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter10_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter11_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter12_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter13_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter14_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        ibChapter15_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        //(RT)
+                        rtChapter1_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
+                        //Settings (Crystals)
+                        cs.hmcType = sr.ReadLine();
+                        cs.hmc2Type = sr.ReadLine();
+                        cs.amcType = sr.ReadLine();
+                        cs.amc2Type = sr.ReadLine();
+                        cs.gmcType = sr.ReadLine();
+                        cs.gmc2Type = sr.ReadLine();
+                        cs.smcType = sr.ReadLine();
+                        cs.smc2Type = sr.ReadLine();
+                    }
+                    if (string.Compare(progvers, progvers_sf) != 0) { MessageBox.Show("Wrong version", "Error"); return; }
+                    Window_Loaded(sender, e);
+                    cs.sgn = 1; LoadBelts();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
+                    else Belt_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 2; LoadNeck();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Content = ""; }
+                    else { Necklace_btn.Content = ItemEnch_cb.SelectedValue; }
+                    cs.sgn = 3; Load1Ring();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Content = ""; }
+                    else { Ring1_btn.Content = ItemEnch_cb.SelectedValue; }
+                    cs.sgn = 4; Load2Ring();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Content = ""; }
+                    else { Ring2_btn.Content = ItemEnch_cb.SelectedValue; }
+                    cs.sgn = 5; Load1Earring();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Content = ""; }
+                    else { Earring1_btn.Content = ItemEnch_cb.SelectedValue; }
+                    cs.sgn = 6; Load2Earring();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Content = ""; }
+                    else { Earring2_btn.Content = ItemEnch_cb.SelectedValue; }
+                    cs.sgn = 7; LoadArmor();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Content = ""; }
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                    else Armour_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 8; LoadHelmet();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Content = ""; }
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                    else Helmet_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 9; LoadGloves();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Content = ""; }
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                    else Gloves_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 10; LoadShoes();
+                    if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Content = ""; }
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                    else Boots_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 11; LoadAW();
+                    if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Content = ""; }
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                    else AW_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 12; LoadMW();
+                    if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Content = ""; }
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                    else MW_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 13; LoadSW();
+                    if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Content = ""; }
+                    else if (cs.swEnch == false) SW_btn.Content = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
+                    else SW_btn.Content = ItemEnch_cb.SelectedValue;
+                    cs.sgn = 14; LoadAS();
+                    cs.sgn = 15; LoadCrysMW1();
+                    cs.sgn = 16; LoadCrysMW2();
+                    cs.sgn = 17; LoadCrysSW1();
+                    cs.sgn = 18; LoadCrysSW2();
+                    cs.sgn = 19; LoadCrysH1();
+                    cs.sgn = 20; LoadCrysH2();
+                    cs.sgn = 21; LoadCrysA1();
+                    cs.sgn = 22; LoadCrysA2();
+                    cs.sgn = 23; LoadCrysG1();
+                    cs.sgn = 24; LoadCrysG2();
+                    cs.sgn = 25; LoadCrysS1();
+                    cs.sgn = 26; LoadCrysS2();
+                    FillCharacterState();
+                    CharacterS_border.Visibility = Visibility.Visible;
+                    string bnstr = LoadBuild_cb.Text;
+                    int bnint = bnstr.Length - 5;
+                    SaveBuild_tb.Text = bnstr.Remove(bnint);
+                    var uri = new Uri("pack://application:,,,/Resources/" + sclass + ".png");
+                    var imgc = new BitmapImage(uri);
+                    Cimg_img.Fill = new ImageBrush(imgc);
+                }
+            }
+            else { MessageBox.Show("Wrong name", "Error"); }
+        }
+
+        private void Delete_btn_Click(object sender, RoutedEventArgs e)
+        {
+            var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            MessageBoxResult result = MessageBox.Show("Delete " + Convert.ToString(LoadBuild_cb.SelectedItem) + " ?", "Delete",
+            MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                if (LoadBuild_cb.Text != string.Empty)
+                {
+                    File.Delete(dir + Convert.ToString(LoadBuild_cb.SelectedItem));
+                    LoadBuild_cb.SelectedItem = null;
+                }
+            }
+        }
+
+        private void LoadBuild_cb_DropDownOpened(object sender, EventArgs e)
+        {
+            var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            FileInfo[] files = dir.GetFiles("*.save");
+            LoadBuild_cb.ItemsSource = files;
+            LoadBuild_cb.DisplayMemberPath = "Name";
         }
     }
 }
