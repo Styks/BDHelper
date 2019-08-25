@@ -733,6 +733,7 @@ namespace BDHelper
                 cDP_n.Content = Convert.ToString(cs.cdp - lvlDP);
             }
             cs.cdp = Convert.ToInt32(cDP_n.Content);
+            MainStateLabels();
         }
 
         private void ApLvl_cb_Checked(object sender, RoutedEventArgs e)
@@ -751,8 +752,8 @@ namespace BDHelper
             }
             cs.cap = Convert.ToInt32(cAP_n.Content);
             cs.caap = Convert.ToInt32(cAAP_n.Content);
+            MainStateLabels();
         }
-
 
         //Item buttons
         private void Belt_btn_Click(object sender, RoutedEventArgs e)
@@ -4441,6 +4442,7 @@ namespace BDHelper
             if (Convert.ToInt32(Breath_tb.Text) > 28 & Convert.ToInt32(Breath_tb.Text) <= 30) { cs.cMaxST -= cs.tcsb; cs.tcsb = 25 * Convert.ToInt32(Breath_tb.Text) - 250; cs.cMaxST += cs.tcsb; }
             if (Convert.ToInt32(Breath_tb.Text) > 30 & Convert.ToInt32(Breath_tb.Text) <= 40) { cs.cMaxST -= cs.tcsb; cs.tcsb = 10 * Convert.ToInt32(Breath_tb.Text) + 200; cs.cMaxST += cs.tcsb; }
             if (Convert.ToInt32(Breath_tb.Text) > 40 & Convert.ToInt32(Breath_tb.Text) <= 50) { cs.cMaxST -= cs.tcsb; cs.tcsb = 20 * Convert.ToInt32(Breath_tb.Text) - 200; cs.cMaxST += cs.tcsb; }
+            MainStateLabels();
             FillCharacterState();
         }
 
@@ -4464,6 +4466,7 @@ namespace BDHelper
             if (Convert.ToInt32(Strength_tb.Text) > 20 & Convert.ToInt32(Strength_tb.Text) <= 28) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 9; cs.cWeight += cs.tcss; }
             if (Convert.ToInt32(Strength_tb.Text) > 28 & Convert.ToInt32(Strength_tb.Text) <= 30) { cs.cWeight -= cs.tcss; cs.tcss = 1.5 * Convert.ToInt32(Strength_tb.Text) - 5; cs.cWeight += cs.tcss; }
             if (Convert.ToInt32(Strength_tb.Text) > 30) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 20; cs.cWeight += cs.tcss; }
+            MainStateLabels();
             FillCharacterState();
         }
         private void Strength_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -4482,6 +4485,7 @@ namespace BDHelper
             if (Convert.ToInt32(Health_tb.Text) > 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; ; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 40; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
             if (Convert.ToInt32(Health_tb.Text) > 28 & Convert.ToInt32(Health_tb.Text) <= 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 100; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
             if (Convert.ToInt32(Health_tb.Text) > 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 50; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            MainStateLabels();
             FillCharacterState();
         }
         private void Health_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -4495,7 +4499,7 @@ namespace BDHelper
             if (Underwear_cb.IsChecked == true) { cLuck_n.Content = Convert.ToString(cs.cluck + uwluck); }
             else { cLuck_n.Content = Convert.ToString(cs.cluck - uwluck); }
             cs.cluck = Convert.ToInt32(cLuck_n.Content);
-
+            AbilitiesLabels();
         }
 
         //IB journal
@@ -4513,6 +4517,11 @@ namespace BDHelper
                 ibChapter8_cb.IsChecked = true;
                 ibChapter9_cb.IsChecked = true;
                 ibChapter10_cb.IsChecked = true;
+                ibChapter11_cb.IsChecked = true;
+                ibChapter12_cb.IsChecked = true;
+                ibChapter13_cb.IsChecked = true;
+                ibChapter14_cb.IsChecked = true;
+                ibChapter15_cb.IsChecked = true;
             }
             else
             {
@@ -4526,66 +4535,146 @@ namespace BDHelper
                 ibChapter8_cb.IsChecked = false;
                 ibChapter9_cb.IsChecked = false;
                 ibChapter10_cb.IsChecked = false;
+                ibChapter11_cb.IsChecked = false;
+                ibChapter12_cb.IsChecked = false;
+                ibChapter13_cb.IsChecked = false;
+                ibChapter14_cb.IsChecked = false;
+                ibChapter15_cb.IsChecked = false;
             }
         }
         private void IbChapter1_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter1_cb.IsChecked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter2_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter2_cb.IsChecked == true) { cs.cWeight += 4; cs.cacc += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cWeight -= 4; cs.cacc -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter3_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter3_cb.IsChecked == true) { cs.cWeight += 2; cs.cdp += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cWeight -= 2; cs.cdp -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter4_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter4_cb.IsChecked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; cs.cev += 2; }
             else { cs.cMaxHP -= 6; cs.cMaxST -= 5; cs.cev -= 2; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter5_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter5_cb.IsChecked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
             else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter6_cb_Checked(object sender, RoutedEventArgs e)
         {
-            if (ibChapter6_cb.IsChecked == true) { cs.cap += 1; cs.cacc += 1; cs.cMaxHP += 8; cs.cMaxST += 5; }
-            else { cs.cap -= 1; cs.cacc -= 1; cs.cMaxHP -= 8; cs.cMaxST -= 5; }
+            if (ibChapter6_cb.IsChecked == true) { cs.cap += 1; cs.caap += 1; cs.cacc += 1; cs.cMaxHP += 8; cs.cMaxST += 5; }
+            else { cs.cap -= 1; cs.caap -= 1; cs.cacc -= 1; cs.cMaxHP -= 8; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter7_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter7_cb.IsChecked == true) { cs.cWeight += 5; cs.cMaxHP += 6; cs.cMaxST += 10; }
             else { cs.cWeight -= 5; cs.cMaxHP -= 6; cs.cMaxST -= 10; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter8_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter8_cb.IsChecked == true) { cs.cWeight += 2; cs.cacc += 2; cs.cMaxHP += 14; cs.cev += 1; }
             else { cs.cWeight -= 2; cs.cacc -= 2; cs.cMaxHP -= 14; cs.cev -= 1; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter9_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter9_cb.IsChecked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
             else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         private void IbChapter10_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter10_cb.IsChecked == true) { cs.cev += 2; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cev -= 2; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
+            FillCharacterState();
+        }
+        private void IbChapter11_cb_Checked(object sender, RoutedEventArgs e)
+        {
+            if (ibChapter11_cb.IsChecked == true) { cs.cWeight += 2; cs.cMaxST += 5; cs.cMaxHP += 7; }
+            else { cs.cWeight -= 2; cs.cMaxST -= 5; cs.cMaxHP -= 7; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
+            FillCharacterState();
+        }
+        private void IbChapter12_cb_Checked(object sender, RoutedEventArgs e)
+        {
+            if (ibChapter12_cb.IsChecked == true) { cs.cap += 1; cs.caap += 1; cs.cdp += 1; cs.cev += 1; cs.cMaxST += 5; }
+            else { cs.cap -= 1; cs.caap -= 1; cs.cdp -= 1; cs.cev -= 1; cs.cMaxST -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
+            FillCharacterState();
+        }
+        private void IbChapter13_cb_Checked(object sender, RoutedEventArgs e)
+        {
+            if (ibChapter13_cb.IsChecked == true) { cs.cev += 1; cs.cMaxHP += 10; cs.cacc += 1; cs.cWeight += 5; }
+            else { cs.cev -= 1; cs.cMaxHP -= 10; cs.cacc -= 1; cs.cWeight -= 5; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
+            FillCharacterState();
+        }
+        private void IbChapter14_cb_Checked(object sender, RoutedEventArgs e)
+        {
+            if (ibChapter14_cb.IsChecked == true) { cs.cap += 2; cs.caap += 2; cs.cMaxHP += 2; cs.cMaxST += 10; }
+            else { cs.cap -= 2; cs.caap -= 2; cs.cMaxHP -= 2; cs.cMaxST -= 10; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
+            FillCharacterState();
+        }
+        private void IbChapter15_cb_Checked(object sender, RoutedEventArgs e)
+        {
+            if (ibChapter15_cb.IsChecked == true) { cs.cev += 1; cs.cMaxHP += 7; cs.cWeight += 2; }
+            else { cs.cev -= 1; cs.cMaxHP -= 7; cs.cWeight -= 2; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
         //RT journal
@@ -4593,6 +4682,9 @@ namespace BDHelper
         {
             if (rtChapter1_cb.IsChecked == true) { cs.cWeight += 6; cs.cMaxHP += 18; }
             else { cs.cWeight -= 6; cs.cMaxHP -= 18; }
+            MainStateLabels();
+            OffenceStateLabels();
+            DefenceStateLabels();
             FillCharacterState();
         }
 

@@ -52,6 +52,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Longsword";
             chSubWeapon = "Shield";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Sorceress_btn_Click(object sender, RoutedEventArgs e)
@@ -62,7 +63,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Amulet";
             chSubWeapon = "Talisman";
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Berserker_btn_Click(object sender, RoutedEventArgs e)
@@ -73,7 +74,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Axe";
             chSubWeapon = "Ornamental Knot";
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Ranger_btn_Click(object sender, RoutedEventArgs e)
@@ -84,6 +85,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Longbow";
             chSubWeapon = "Dagger";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Tamer_btn_Click(object sender, RoutedEventArgs e)
@@ -94,7 +96,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Shortsword";
             chSubWeapon = "Trinket";
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Valkyrie_btn_Click(object sender, RoutedEventArgs e)
@@ -105,6 +107,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Longsword";
             chSubWeapon = "Shield";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Musa_btn_Click(object sender, RoutedEventArgs e)
@@ -115,7 +118,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Blade";
             chSubWeapon = "Horn Bow";
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Maehwa_btn_Click(object sender, RoutedEventArgs e)
@@ -126,6 +129,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Blade";
             chSubWeapon = "Horn Bow";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Witch_btn_Click(object sender, RoutedEventArgs e)
@@ -136,8 +140,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Staff";
             chSubWeapon = "Dagger";
-
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Wizard_btn_Click(object sender, RoutedEventArgs e)
@@ -148,7 +151,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Staff";
             chSubWeapon = "Dagger";
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Kunoichi_btn_Click(object sender, RoutedEventArgs e)
@@ -159,7 +162,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Shortsword";
             chSubWeapon = "Kunai and Shuriken";
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Ninja_btn_Click(object sender, RoutedEventArgs e)
@@ -170,6 +173,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Shortsword";
             chSubWeapon = "Kunai and Shuriken";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void DK_btn_Click(object sender, RoutedEventArgs e)
@@ -180,6 +184,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Kriegmesser";
             chSubWeapon = "Ornamental Knot";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Striker_btn_Click(object sender, RoutedEventArgs e)
@@ -190,6 +195,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Gauntlet";
             chSubWeapon = "Vambrace";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Mystic_btn_Click(object sender, RoutedEventArgs e)
@@ -200,6 +206,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Gauntlet";
             chSubWeapon = "Vambrace";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Lahn_btn_Click(object sender, RoutedEventArgs e)
@@ -210,6 +217,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Crescent Pendulum";
             chSubWeapon = "Noble Sword";
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Archer_btn_Click(object sender, RoutedEventArgs e)
@@ -220,7 +228,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Crossbow";
             chSubWeapon = "Ra'ghon";
-
+            GearForm_btn.IsEnabled = true;
         }
 
         private void Shai_btn_Click(object sender, RoutedEventArgs e)
@@ -231,6 +239,7 @@ namespace BDHelper
             Sclass_lbl.Content = sclass;
             chWeapon = "Florang";
             chSubWeapon = "Vitclari";
+            GearForm_btn.IsEnabled = true;
         }
 
 

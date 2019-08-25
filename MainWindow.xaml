@@ -9,10 +9,10 @@
     <Grid>
         <Label Content="Select Class" HorizontalAlignment="Left" Margin="22,21,0,0" VerticalAlignment="Top"/>
         <Label Content="Selected Class" HorizontalAlignment="Left" Margin="672,21,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="GearForm_btn" Content="Gear" HorizontalAlignment="Left" Margin="679,174,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="GearForm_btn_Click"/>
-        <Button x:Name="SkillTreeForm_btn" Content="Skill Tree" HorizontalAlignment="Left" Margin="679,202,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
-        <Button x:Name="CraftForm_btn" Content="Craft" HorizontalAlignment="Left" Margin="679,230,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
-        <Button x:Name="BuffTimerForm_btn" Content="Buff Timer" HorizontalAlignment="Left" Margin="679,258,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button x:Name="GearForm_btn" Content="Gear" HorizontalAlignment="Left" Margin="679,174,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="GearForm_btn_Click" IsEnabled="False"/>
+        <Button x:Name="SkillTreeForm_btn" Content="Skill Tree (PH)" HorizontalAlignment="Left" Margin="679,202,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
+        <Button x:Name="CraftForm_btn" Content="Craft (PH)" HorizontalAlignment="Left" Margin="679,230,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
+        <Button x:Name="BuffTimerForm_btn" Content="Buff Timer" HorizontalAlignment="Left" Margin="679,315,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <Button x:Name="Warrior_btn" Content="" HorizontalAlignment="Left" Margin="23,53,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Warrior_btn_Click">
             <Button.Background>
                 <ImageBrush Stretch="None" ImageSource="Resources/Warrior.png"/>
@@ -127,5 +127,7 @@
                 <ImageBrush ImageSource="Resources/None.png"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Button x:Name="HorseCalcForm_btn" Content="HorseCalc (PH)" HorizontalAlignment="Left" Margin="679,258,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
+        <Button x:Name="TradingForm_btn" Content="Trading (PH)" HorizontalAlignment="Left" Margin="680,286,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
     </Grid>
 </Window>

@@ -307,7 +307,7 @@
                         <Label x:Name="cWeight_n" Content="0" Margin="115,155,34,21" RenderTransformOrigin="1.714,0.692"/>
                     </Grid>
                 </Expander>
-                <Expander x:Name="OffenceStatsExp" Header="Offense" HorizontalAlignment="Left" Height="307" Margin="170,0,0,0" VerticalAlignment="Top" Width="239" IsExpanded="True">
+                <Expander x:Name="OffenceStatsExp" Header="Offence" HorizontalAlignment="Left" Height="307" Margin="170,0,0,0" VerticalAlignment="Top" Width="239" IsExpanded="True">
                     <Grid Height="297" Margin="0,0,-2,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="46*"/>
@@ -536,11 +536,11 @@
                 <CheckBox x:Name="ibChapter8_cb" Content="Chapter 8" HorizontalAlignment="Left" Margin="107,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter8_cb_Checked" Unchecked="IbChapter8_cb_Checked"/>
                 <CheckBox x:Name="ibChapter9_cb" Content="Chapter 9" HorizontalAlignment="Left" Margin="107,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter9_cb_Checked" Unchecked="IbChapter9_cb_Checked"/>
                 <CheckBox x:Name="ibChapter10_cb" Content="Chapter 10" HorizontalAlignment="Left" Margin="107,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter10_cb_Checked" Unchecked="IbChapter10_cb_Checked"/>
-                <CheckBox x:Name="ibChapter11_cb" Content="Chapter 11" HorizontalAlignment="Left" Margin="190,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
-                <CheckBox x:Name="ibChapter12_cb" Content="Chapter 12" HorizontalAlignment="Left" Margin="190,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
-                <CheckBox x:Name="ibChapter13_cb" Content="Chapter 13" HorizontalAlignment="Left" Margin="190,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
-                <CheckBox x:Name="ibChapter14_cb" Content="Chapter 14" HorizontalAlignment="Left" Margin="190,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
-                <CheckBox x:Name="ibChapter15_cb" Content="Chapter 15" HorizontalAlignment="Left" Margin="190,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" IsEnabled="False"/>
+                <CheckBox x:Name="ibChapter11_cb" Content="Chapter 11" HorizontalAlignment="Left" Margin="190,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter11_cb_Checked" Unchecked="IbChapter11_cb_Checked"/>
+                <CheckBox x:Name="ibChapter12_cb" Content="Chapter 12" HorizontalAlignment="Left" Margin="190,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter12_cb_Checked" Unchecked="IbChapter12_cb_Checked"/>
+                <CheckBox x:Name="ibChapter13_cb" Content="Chapter 13" HorizontalAlignment="Left" Margin="190,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter13_cb_Checked" Unchecked="IbChapter13_cb_Checked"/>
+                <CheckBox x:Name="ibChapter14_cb" Content="Chapter 14" HorizontalAlignment="Left" Margin="190,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter14_cb_Checked" Unchecked="IbChapter14_cb_Checked"/>
+                <CheckBox x:Name="ibChapter15_cb" Content="Chapter 15" HorizontalAlignment="Left" Margin="190,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbChapter15_cb_Checked" Unchecked="IbChapter15_cb_Checked"/>
                 <Label x:Name="JournalsS2_lbl" Content="Rulupee's Travel Log" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="ibCheckAll_cb" Content="Check All" HorizontalAlignment="Left" Margin="30,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="IbCheckAll_cb_Checked" Unchecked="IbCheckAll_cb_Checked"/>
                 <CheckBox x:Name="rtChapter1_cb" Content="Chapter 1" HorizontalAlignment="Left" Margin="27,243,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.606,-1.533" Checked="RtChapter1_cb_Checked" Unchecked="RtChapter1_cb_Checked"/>
