@@ -85,6 +85,19 @@ namespace BDHelper
             CrysH1_btn.Visibility = Visibility.Hidden; CrysH2_btn.Visibility = Visibility.Hidden;
             CrysMW1_btn.Visibility = Visibility.Hidden; CrysMW2_btn.Visibility = Visibility.Hidden;
             CrysSW1_btn.Visibility = Visibility.Hidden; CrysSW2_btn.Visibility = Visibility.Hidden;
+            
+            MainStateLabels();
+            AbilitiesLabels();
+            OffenceStateLabels();
+            SurvivalStateLabels();
+            BonusStateLabels();
+            DefenceStateLabels();
+            ProffessionStateLabels();
+            AdditionalStateLabels();
+            OtherStateLabels();
+            ItemStateLabels();
+            ResistanceStateLabels();
+
         }
         private void FillCharacterState()
         {
@@ -101,7 +114,7 @@ namespace BDHelper
             cHP_n.Content = Convert.ToString(cs.cMaxHP);
             cMP_n.Content = Convert.ToString(cs.cMaxMP);
             cStamina_n.Content = Convert.ToString(cs.cMaxST);
-            Weight_n.Content = Convert.ToString(cs.cWeight);
+            cWeight_n.Content = Convert.ToString(cs.cWeight);
             cHDR_n.Content = Convert.ToString(cs.chdr);
             cHE_n.Content = Convert.ToString(cs.chev);
             cMvS_n.Content = Convert.ToString(cs.cmvs);
@@ -132,7 +145,7 @@ namespace BDHelper
             cSpecialAttackEvRate_n.Content = Convert.ToString(cs.cSpecialAttackEv) + "%";
             cCastSpeedRate_n.Content = cs.cCastSpeedRate.ToString() + "%";
             cAtkSpeedRate_n.Content = cs.cAtkSpeedRate.ToString() + "%";
-            cAlchCookTime_n.Content = cs.cAlchCookTime.ToString();
+            cAlchCookTime_n.Content = cs.cAlchCookTime.ToString() + " sec";
             cProcessingRate_n.Content = cs.cProccesingRate.ToString() + "%";
             cGathering_n.Content = cs.cGathering.ToString();
             cFishing_n.Content = cs.cFishing.ToString();
@@ -145,10 +158,10 @@ namespace BDHelper
             cEDtoCounter_n.Content = cs.cEDtoCounter.ToString() + "%";
             cEDtoDown_n.Content = cs.cEDtoDown.ToString() + "%";
             cIgnoreGrapleResistance_n.Content = cs.cGrapResistIgnore.ToString() + "%";
-            cIgnoreKBResistance_n.Content =cs.cKBResistIgnore.ToString() + "%";
+            cIgnoreKBResistance_n.Content = cs.cKBResistIgnore.ToString() + "%";
             cIgnoreKDResistance_n.Content = cs.cKDResistIgnore.ToString() + "%";
             cIgnoreStunResistance_n.Content = cs.cStunResistIgnore.ToString() + "%";
-            cVisionRange_n.Content = "+"+cs.cVisionRange+"m";
+            cVisionRange_n.Content = "+" + cs.cVisionRange + "m";
 
             cMagicDR_n.Content = cs.cMagicDR;
             cMelleDR_n.Content = cs.cMeleeDR;
@@ -161,87 +174,87 @@ namespace BDHelper
 
             cJump_n.Content = cs.cJump;
             cFallDamage_n.Content = cs.cFallDamage + "%";
-            cUnderwaterBreath_n.Content = "+"+ cs.cUnderwaterBreath + "sec";
+            cUnderwaterBreath_n.Content = "+" + cs.cUnderwaterBreath + "sec";
             cMaxEnergy_n.Content = cs.cMaxEnergy;
 
             cBonusAP_n.Content = cs.bcap;
             cBonusAAP_n.Content = cs.bcaap;
-            cBonusDR_n.Content = String.Format("{0:0}", cs.bcdr)  ;
+            cBonusDR_n.Content = String.Format("{0:0}", cs.bcdr);
         }
-
         private void ItemStatClear()
         {
-            iAP_n.Content = "0"; //AP
-            iDP_n.Content = "0"; //DP
-            iEvas_n.Content = "0"; //Evasion
-            iAcc_n.Content = "0"; //Accuracy
-            iRes_n.Content = "+0%"; //All Resists
-            iDR_n.Content = "0"; // Damage Reduction
-            iHP_n.Content = "0"; // Max HP
-            iWeight_n.Content = "0"; // Max Weight
-            iMP_n.Content = "0"; //Max MP
-            iST_n.Content = "0"; //Max stamina
-            iSSFR_n.Content = "+0%"; // SSF Resist
-            iKBR_n.Content = "+0%"; // KB Resist
-            iGrapR_n.Content = "+0%"; // Graple Resist
-            iKFR_n.Content = "+0%"; //KF Resist
-            iHEV_n.Content = "0"; //Hiden Evasion
-            iHDR_n.Content = "0"; //Hiden Damage Reduction
-            iAtkSpeed_n.Content = "0"; // Attack speed
-            iCastSpeed_n.Content = "0"; //Cast speed
-            iMVS_n.Content = "0"; // Movement speed
-            iCrit_n.Content = "0"; // Critical rate
-            iExtraDamKama_n.Content = "0"; //Extra Damage to Kamasylvians
-            iEDtA_n.Content = "0"; // Extra Damage to All Species
-            iEAPa_n.Content = "0"; // Extra AP against monters
-            iMPR_n.Content = "0"; // MP Recovery
-            iHPR_n.Content = "0"; // HP Recovery
-            iLuck_n.Content = "0"; // Luck
-            iEDH_n.Content = "0"; //Extra damage to Humans
-            iADtDemiH_n.Content = "0"; // Additional damage to Demihumans
-            iEDtAExcHumanAndDemi_n.Content = "0"; //Extra damage to All Species Except Humans and Demihumans
-            iSpiritRage_n.Content = "+0%"; // Black Spirit's Rage
-            iBidding_n.Content = "+0%"; //Marketplace Bidding Success Rate
-            iEDtoBack_n.Content = "+0%"; // Extra damage to back
-            iHPRecoveryChance_n.Content = "0";
-            iIgnoreResistance_n.Content = "+0%";
-            iSpecialAttackED_n.Content = "+0%";
-            iSpecialAttackEvRate_n.Content = "+0%";
-            iHAP_n.Content = "0";
-            iCastSpeedRate_n.Content = "0%";
-            iAtkSpeedRate_n.Content = "0%";
-            iAlchCookTime_n.Content = "0";
-            iProcessingRate_n.Content = "0%";
-            iGathering_n.Content = "0";
-            iFishing_n.Content = "0";
-            iGathDropRate_n.Content = "0%";
-            iCombatEXP_n.Content = "+0%";
-            iSkillEXP_n.Content = "+0%";
-            iCHDamage_n.Content = "+0%";
-            iAtkSpeedDmg_n.Content ="+0%";
-            iEDtoAir_n.Content ="+0%";
-            iEDtoCounter_n.Content = "+0%";
-            iEDtoDown_n.Content ="+0%";
-            iIgnoreGrapleResistance_n.Content = "+0%";
-            iIgnoreKBResistance_n.Content = "+0%";
-            iIgnoreKDResistance_n.Content = "+0%";
-            iIgnoreStunResistance_n.Content = "+0%";
-            iVisionRange_n.Content = "+0m";
+        cs.iAP = 0; 
+        cs.iAAP = 0; 
+        cs.iDP = 0; //DP
+        cs.iEvas = 0; //Evasion
+        cs.iAcc = 0; //Accuracy
+        cs.iRes = 0; //All Resists
+        cs.iDR = 0; // Damage Reduction
+        cs.iHP = 0; // Max HP
+        cs.iWeight = 0; // Max Weight
+        cs.iMP = 0; //Max MP
+        cs.iST = 0; //Max stamina
+        cs.iSSFR = 0; // SSF Resist
+        cs.iKBR = 0; // KB Resist
+        cs.iGrapR = 0; // Graple Resist
+        cs.iKFR = 0; //KF Resist
+        cs.iHEV = 0; //Hiden Evasion
+        cs.iHDR = 0; //Hiden Damage Reduction
+        cs.iAtkSpeed = 0; // Attack speed
+        cs.iCastSpeed = 0; //Cast speed
+        cs.iMVS = 0; // Movement speed
+        cs.iCrit = 0; // Critical rate
+        cs.iExtraDamKama = 0; //Extra Damage to Kamasylvians
+        cs.iEDtA = 0; // Extra Damage to All Species
+        cs.iEAPa = 0; // Extra AP against monters
+        cs.iMPR = 0; // MP Recovery
+        cs.iHPR = 0; // HP Recovery
+        cs.iLuck = 0; // Luck
+        cs.iEDH = 0; //Extra damage to Humans
+        cs.iADtDemiH = 0; // Additional damage to Demihumans
+        cs.iEDtAExcHumanAndDemi = 0; //Extra damage to All Species Except Humans and Demihumans
+        cs.iSpiritRage = 0; // Black Spirit's Rage
+        cs.iBidding = 0; //Marketplace Bidding Success Rate
+        cs.iEDtoBack = 0; // Extra damage to back
+        cs.iHPRecoveryChance = 0;
+        cs.iIgnoreResistance = 0;
+        cs.iSpecialAttackED = 0;
+        cs.iSpecialAttackEvRate = 0;
+        cs.iHAP = 0;
+        cs.iCastSpeedRate = 0;
+        cs.iAtkSpeedRate = 0;
+        cs.iAlchCookTime = 0;
+        cs.iProcessingRate = 0;
+        cs.iGathering = 0;
+        cs.iFishing = 0;
+        cs.iGathDropRate = 0;
+        cs.iCombatEXP = 0;
+        cs.iSkillEXP = 0;
+        cs.iCHDamage = 0;
+        cs.iAtkSpeedDmg = 0;
+        cs.iEDtoAir = 0;
+        cs.iEDtoCounter = 0;
+        cs.iEDtoDown = 0;
+        cs.iIgnoreGrapleResistance = 0;
+        cs.iIgnoreKBResistance = 0;
+        cs.iIgnoreKDResistance = 0;
+        cs.iIgnoreStunResistance = 0;
+        cs.iVisionRange = 0;
 
-            iMagicDR_n.Content = "0";
-            iMelleDR_n.Content = "0";
-            iRangeDR_n.Content = "0";
-            iSiegeWeaponEvRate_n.Content = "0%";
+        cs.iMagicDR = 0;
+        cs.iMelleDR = 0;
+        cs.iRangeDR = 0;
+        cs.iSiegeWeaponEvRate = 0;
 
-            iMagicAP_n.Content = "0";
-            iMelleAP_n.Content = "0";
-            iRangeAP_n.Content = "0";
+        cs.iMagicAP = 0;
+        cs.iMelleAP = 0;
+        cs.iRangeAP = 0;
 
-            iJump_n.Content = "0";
-            iFallDamage_n.Content = 0 + "%";
-            iUnderwaterBreath_n.Content = "0";
-            iMaxEnergy_n.Content = "0";
-        }
+        cs.iJump = 0;
+        cs.iFallDamage = 0;
+        cs.iUnderwaterBreath = 0;
+        cs.iMaxEnergy = 0;
+    }
 
         //Item load procedurs
         private void LoadBelts() //Belt
@@ -362,7 +375,7 @@ namespace BDHelper
             SelectGear_cb.SelectedIndex = cs.helId;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
-        } 
+        }
 
         private void LoadGloves() // Gloves
         {
@@ -470,7 +483,7 @@ namespace BDHelper
             LoadItemCaph_cb();
         }
 
-        private void LoadCrysMW2() 
+        private void LoadCrysMW2()
         {
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
@@ -480,7 +493,7 @@ namespace BDHelper
             SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             Item_Icon_Load(cs.wmc2Type + " Magic Crystal", cs.wmc2Id);
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
-            if(cs.wmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.wmc2Id + 26;
+            if (cs.wmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.wmc2Id + 26;
             else SelectGear_cb.SelectedIndex = cs.wmc2Id;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
@@ -516,7 +529,7 @@ namespace BDHelper
             else SelectGear_cb.SelectedIndex = cs.swmc2Id;
             LoadItemEnch_cb();
             LoadItemCaph_cb();
-            
+
         } // Sub-Weapon Magic Crystal 2
 
         private void LoadCrysH1() // Helmet Magic Crystal 1
@@ -906,6 +919,18 @@ namespace BDHelper
                 iSpiritRage_n.Content = Convert.ToString(cs.beltSpiritRage) + "%";
                 iEAPa_n.Content = cs.beltAPagaingst.ToString();
 
+                cs.iAP = cs.beltap;
+                cs.iDP = cs.beltdp;
+                cs.iEvas = cs.beltev;
+                cs.iAcc = cs.beltacc;
+                cs.iRes = cs.beltResis;
+                cs.iDR = cs.beltDR;
+                cs.iHP = cs.beltHP;
+                cs.iWeight = cs.beltWeight;
+                cs.iSpiritRage = cs.beltSpiritRage;
+                cs.iEAPa = cs.beltAPagaingst;
+
+
                 cs.beltId = SelectGear_cb.SelectedIndex;
             } //Belt
             if (cs.sgn == 2) //Neck
@@ -963,6 +988,23 @@ namespace BDHelper
                 iEAPa_n.Content = cs.neckAPagaingst.ToString();
                 iExtraDamKama_n.Content = cs.neckKamaDamage.ToString();
                 iEDtoBack_n.Content = cs.neckBackDamage.ToString() + "%";
+
+
+                cs.iAP = cs.neckap;
+                cs.iDP = cs.neckdp;
+                cs.iEvas = cs.neckev;
+                cs.iAcc = cs.neckacc;
+                cs.iRes = cs.neckAllRes;
+                cs.iDR = cs.neckDR;
+                cs.iSSFR = cs.neckSSF;
+                cs.iKBR = cs.neckKB;
+                cs.iGrapR = cs.neckG ;
+                cs.iKFR = cs.neckKF ;
+                cs.iHP = cs.neckHP;
+                cs.iSpiritRage = cs.neckSpiritRage;
+                cs.iEAPa = cs.neckAPagaingst;
+                cs.iExtraDamKama = cs.neckKamaDamage;
+                cs.iEDtoBack = cs.neckBackDamage ;
 
                 cs.neckId = SelectGear_cb.SelectedIndex;
             } //Necklace            
@@ -1026,6 +1068,24 @@ namespace BDHelper
                 iBidding_n.Content = Convert.ToString(cs.ring1Bidding) + "%";
                 iSpiritRage_n.Content = Convert.ToString(cs.ring1SpiritRage) + "%";
 
+
+                cs.iAP = cs.ring1ap;
+                cs.iDP = cs.ring1dp;
+                cs.iEvas = cs.ring1ev;
+                cs.iAcc = cs.ring1acc;
+                cs.iDR = cs.ring1DR;
+                cs.iHP = cs.ring1HP;
+                cs.iMP = cs.ring1MP;
+                cs.iST = cs.ring1ST;
+                cs.iHEV = cs.ring1HEv;
+                cs.iEAPa = cs.ring1APagaingst;
+                cs.iExtraDamKama = cs.ring1KamaDamage;
+                cs.iEDH = cs.ring1DamageHumans;
+                cs.iADtDemiH = cs.ring1DamageDemihumans;
+                cs.iEDtAExcHumanAndDemi =cs.ring1DamageAllExcept;
+                cs.iBidding =cs.ring1Bidding;
+                cs.iSpiritRage = cs.ring1SpiritRage;
+
                 cs.ring1Id = SelectGear_cb.SelectedIndex;
             } //Ring1
             if (cs.sgn == 4) //Ring 2
@@ -1088,6 +1148,23 @@ namespace BDHelper
                 iBidding_n.Content = Convert.ToString(cs.ring2Bidding) + "%";
                 iSpiritRage_n.Content = Convert.ToString(cs.ring2SpiritRage) + "%";
 
+                cs.iAP = cs.ring2ap;
+                cs.iDP = cs.ring2dp;
+                cs.iEvas = cs.ring2ev;
+                cs.iAcc = cs.ring2acc;
+                cs.iDR = cs.ring2DR;
+                cs.iHP = cs.ring2HP;
+                cs.iMP = cs.ring2MP;
+                cs.iST = cs.ring2ST;
+                cs.iHEV = cs.ring2HEv;
+                cs.iEAPa = cs.ring2APagaingst;
+                cs.iExtraDamKama = cs.ring2KamaDamage;
+                cs.iEDH = cs.ring2DamageHumans;
+                cs.iADtDemiH = cs.ring2DamageDemihumans;
+                cs.iEDtAExcHumanAndDemi = cs.ring2DamageAllExcept;
+                cs.iBidding = cs.ring2Bidding;
+                cs.iSpiritRage = cs.ring2SpiritRage;
+
                 cs.ring2Id = SelectGear_cb.SelectedIndex;
             }//Ring 2
             if (cs.sgn == 5) //Ear1
@@ -1139,6 +1216,18 @@ namespace BDHelper
                 iSpiritRage_n.Content = Convert.ToString(cs.ear1SpiritRage) + "%";
                 iEAPa_n.Content = cs.ear1APagaingst.ToString();
                 iExtraDamKama_n.Content = cs.ear1KamaDamage.ToString();
+
+                cs.iAP = cs.ear1ap;
+                cs.iDP = cs.ear1dp;
+                cs.iEvas = cs.ear1ev;
+                cs.iAcc = cs.ear1acc;
+                cs.iDR = cs.ear1DR;
+                cs.iHP = cs.ear1HP;
+                cs.iMP = cs.ear1MP;
+                cs.iST = cs.ear1ST;
+                cs.iSpiritRage = cs.ear1SpiritRage;
+                cs.iEAPa = cs.ear1APagaingst;
+                cs.iExtraDamKama = cs.ear1KamaDamage;
 
                 cs.ear1Id = SelectGear_cb.SelectedIndex;
             } //Earring 1
@@ -1192,6 +1281,18 @@ namespace BDHelper
                 iEAPa_n.Content = cs.ear2APagaingst.ToString();
                 iExtraDamKama_n.Content = cs.ear2KamaDamage.ToString();
 
+                cs.iAP = cs.ear2ap;
+                cs.iDP = cs.ear2dp;
+                cs.iEvas = cs.ear2ev;
+                cs.iAcc = cs.ear2acc;
+                cs.iDR = cs.ear2DR;
+                cs.iHP = cs.ear2HP;
+                cs.iMP = cs.ear2MP;
+                cs.iST = cs.ear2ST;
+                cs.iSpiritRage = cs.ear2SpiritRage;
+                cs.iEAPa = cs.ear2APagaingst;
+                cs.iExtraDamKama = cs.ear2KamaDamage;
+
                 cs.ear2Id = SelectGear_cb.SelectedIndex;
             } //Earring 2
             if (cs.sgn == 7)
@@ -1238,7 +1339,7 @@ namespace BDHelper
                 else if (cs.armGems == 1) { CrysA1_btn.Visibility = Visibility.Visible; CrysA2_btn.Visibility = Visibility.Hidden; }
                 else { CrysA1_btn.Visibility = Visibility.Hidden; CrysA2_btn.Visibility = Visibility.Hidden; }
 
-                if(cs.armId != SelectGear_cb.SelectedIndex)
+                if (cs.armId != SelectGear_cb.SelectedIndex)
                 {
                     CrysA1_btn.Background = null;
                     cs.CrysA1Clear();
@@ -1248,10 +1349,10 @@ namespace BDHelper
                     cs.CrysA2Clear();
                     cs.CrysA2();
                 }
-                
 
 
-        iDP_n.Content = cs.armdp.ToString();
+
+                iDP_n.Content = cs.armdp.ToString();
                 iEvas_n.Content = cs.armev.ToString();
                 iHEV_n.Content = cs.armhev.ToString();
                 iDR_n.Content = cs.armdr.ToString();
@@ -1263,6 +1364,20 @@ namespace BDHelper
                 iAcc_n.Content = cs.armAcc.ToString();
                 iHPR_n.Content = cs.armHPRecovery.ToString();
                 iMPR_n.Content = cs.armMPRecovery.ToString();
+
+
+                cs.iDP = cs.armdp;
+                cs.iEvas = cs.armev;
+                cs.iHEV = cs.armhev;
+                cs.iDR = cs.armdr;
+                cs.iHDR = cs.armhdr;
+                cs.iHP = cs.armHP;
+                cs.iMP = cs.armMP;
+                cs.iSSFR = cs.armSSFRes;
+                cs.iWeight = cs.armWeight;
+                cs.iAcc = cs.armAcc;
+                cs.iHPR = cs.armHPRecovery;
+                cs.iMPR = cs.armMPRecovery;
 
                 cs.armId = SelectGear_cb.SelectedIndex;
             } //Armor
@@ -1338,6 +1453,21 @@ namespace BDHelper
                 iHPR_n.Content = cs.helHPRecovery.ToString();
                 iLuck_n.Content = cs.helLuck.ToString();
 
+                cs.iDP = cs.heldp;
+                cs.iEvas = cs.helev;
+                cs.iHEV = cs.helhev;
+                cs.iDR = cs.heldr;
+                cs.iHDR = cs.helhdr;
+                cs.iHP = cs.helHP;
+                cs.iSSFR = cs.helSSFRes;
+                cs.iKBR = cs.helKBRes ;
+                cs.iGrapR = cs.helGrapleRes ;
+                cs.iKFR = cs.helKFRes;
+                cs.iST = cs.helST;
+                cs.iWeight = cs.helWeight;
+                cs.iHPR = cs.helHPRecovery;
+                cs.iLuck = cs.helLuck;
+
                 cs.helId = SelectGear_cb.SelectedIndex;
             } //Helmet
             if (cs.sgn == 9)
@@ -1408,7 +1538,20 @@ namespace BDHelper
                 iWeight_n.Content = cs.glovWeight.ToString();
                 iEDtA_n.Content = cs.glovDamage.ToString();
 
-                cs.glovId = SelectGear_cb.SelectedIndex;        
+                cs.iDP = cs.glovdp;
+                cs.iEvas = cs.glovev;
+                cs.iHEV = cs.glovhev;
+                cs.iDR = cs.glovdr;
+                cs.iHDR = cs.glovhdr;
+                cs.iAcc = cs.glovacc;
+                cs.iGrapR = cs.glovGrapleRes;
+                cs.iAtkSpeed = cs.glovAtkSpeed;
+                cs.iCastSpeed = cs.glovCastSpeed;
+                cs.iCrit = cs.glovCrit;
+                cs.iWeight = cs.glovWeight;
+                cs.iEDtA = cs.glovDamage;
+
+                cs.glovId = SelectGear_cb.SelectedIndex;
             } //Gloves
             if (cs.sgn == 10)
             {
@@ -1473,6 +1616,16 @@ namespace BDHelper
                 iST_n.Content = cs.shMaxST.ToString();
                 iWeight_n.Content = cs.shWeight.ToString();
 
+                cs.iDP = cs.shdp;
+                cs.iEvas = cs.shev;
+                cs.iHEV = cs.shhev;
+                cs.iDR = cs.shdr;
+                cs.iHDR = cs.shhdr;
+                cs.iKBR = cs.shKBRes;
+                cs.iMVS = cs.shMvs;
+                cs.iST = cs.shMaxST;
+                cs.iWeight = cs.shWeight;
+
                 cs.shId = SelectGear_cb.SelectedIndex;
             } //Shoes
             if (cs.sgn == 11)
@@ -1536,11 +1689,17 @@ namespace BDHelper
                 if (cs.awkEnch == true && SelectGear_cb.SelectedIndex != cs.awkId) { ItemEnch_cb.SelectedIndex = 0; cs.awkEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.awkEnch == false) { cs.awkEnchLvl = 0; }
 
-                iAP_n.Content = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
+                iAAP_n.Content = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
                 iAcc_n.Content = cs.awkAccuracy.ToString();
                 iEDH_n.Content = cs.awkDamageHumans.ToString();
                 iEDtA_n.Content = cs.awkDamageAll.ToString();
                 iEAPa_n.Content = cs.awkAPagainst.ToString();
+
+                cs.iAAP = (cs.awkAPlow + cs.awkAPhigh) /2;
+                cs.iAcc = cs.awkAccuracy;
+                cs.iEDH = cs.awkDamageHumans;
+                cs.iEDtA = cs.awkDamageAll;
+                cs.iEAPa = cs.awkAPagainst;
 
                 cs.awkId = SelectGear_cb.SelectedIndex;
                 LoadItemEnch_cb();
@@ -1614,6 +1773,19 @@ namespace BDHelper
                 iCrit_n.Content = cs.mwCrit.ToString();
                 iHPRecoveryChance_n.Content = cs.mwRecoveryChance.ToString();
                 iIgnoreResistance_n.Content = cs.mwIgnore.ToString();
+
+                cs.iAP = (cs.mwAPlow + cs.mwAPhigh)/2;
+                cs.iAcc = cs.mwAccuracy;
+                cs.iEDH = cs.mwDamageHumans;
+                cs.iEDtA = cs.mwDamageAll;
+                cs.iEAPa = cs.mwAPagainst;
+                cs.iADtDemiH = cs.mwDamDemi;
+                cs.iAtkSpeed = cs.mwAtkSpeed;
+                cs.iCastSpeed = cs.mwCastSpeed;
+                cs.iCrit = cs.mwCrit;
+                cs.iHPRecoveryChance = cs.mwRecoveryChance;
+                cs.iIgnoreResistance = cs.mwIgnore;
+
 
 
 
@@ -1692,10 +1864,26 @@ namespace BDHelper
                 iST_n.Content = cs.swMaxST.ToString();
                 iRes_n.Content = cs.swAllRes.ToString();
                 iST_n.Content = cs.swMaxST.ToString();
-                iST_n.Content = cs.swMaxST.ToString();
                 iHAP_n.Content = cs.swHidenAP.ToString();
                 iSpecialAttackED_n.Content = cs.swSpecialAttackDam.ToString();
                 iSpecialAttackEvRate_n.Content = cs.swSpecialAttackEv.ToString();
+
+                cs.iAP = (cs.swAPlow + cs.swAPhigh)/2;
+                cs.iAcc = cs.swAccuracy;
+                cs.iEAPa = cs.swAPagainst;
+                cs.iIgnoreResistance = cs.swIgnore;
+                cs.iDP = cs.swDP;
+                cs.iEvas = cs.swEvasion;
+                cs.iHEV = cs.swHEvasion;
+                cs.iDR = cs.swDR;
+                cs.iHP = cs.swMaxHP;
+                cs.iMP = cs.swMaxMP;
+                cs.iST = cs.swMaxST;
+                cs.iRes = cs.swAllRes;
+                cs.iST = cs.swMaxST;
+                cs.iHAP = cs.swHidenAP;
+                cs.iSpecialAttackED = cs.swSpecialAttackDam;
+                cs.iSpecialAttackEvRate = cs.swSpecialAttackEv;
 
 
                 cs.swId = SelectGear_cb.SelectedIndex;
@@ -1756,15 +1944,30 @@ namespace BDHelper
                 iFishing_n.Content = cs.asGathFish.ToString();
                 iGathDropRate_n.Content = cs.asGathDropRate.ToString() + "%";
 
-
+                cs.iAP = (cs.asAPlow +  cs.asAPhigh)/2;
+                cs.iAcc = cs.asAccuracy;
+                cs.iIgnoreResistance = cs.asIgnore;
+                cs.iEvas = cs.asEvasion;
+                cs.iDR = cs.asDR;
+                cs.iHP = cs.asMaxHP;
+                cs.iRes = cs.asAllRes ;
+                cs.iHAP = cs.asHidenAP;
+                cs.iWeight = cs.asWeightLimit;
+                cs.iCastSpeedRate = cs.asCastSpeed;
+                cs.iAtkSpeedRate = cs.asAtkSpeed;
+                cs.iAlchCookTime = cs.asAlchCookTime;
+                cs.iProcessingRate = cs.asProcRate;
+                cs.iGathering = cs.asGathFish;
+                cs.iFishing = cs.asGathFish;
+                cs.iGathDropRate = cs.asGathDropRate;
 
                 cs.asId = SelectGear_cb.SelectedIndex;
                 LoadItemEnch_cb();
 
             } //Alchemy Stones
             if (cs.sgn == 15)
-            {   
-                if(SelectGear_cb.SelectedIndex <=25)
+            {
+                if (SelectGear_cb.SelectedIndex <= 25)
                 {
                     cmd.CommandText = "select * from [Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                     cmd.ExecuteNonQuery();
@@ -1785,7 +1988,7 @@ namespace BDHelper
 
                         cs.wmcDefDmgToDemi = 0;
                         cs.wmcDefWeight = 0;
-                        cs.wmcDefAllRes =0;
+                        cs.wmcDefAllRes = 0;
                         cs.wmcDefMaxHP = 0;
                         cs.wmcDefMaxST = 0;
                         cs.wmcDefDR = 0;
@@ -1836,13 +2039,13 @@ namespace BDHelper
                 CrysMW1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysMW1();
 
-               
 
-                iAcc_n.Content = cs.wmcAccuracy.ToString(); 
-                iIgnoreResistance_n.Content = cs.wmcIgnoreAll.ToString(); 
-                iDR_n.Content = cs.wmcDR.ToString(); 
+
+                iAcc_n.Content = cs.wmcAccuracy.ToString();
+                iIgnoreResistance_n.Content = cs.wmcIgnoreAll.ToString();
+                iDR_n.Content = cs.wmcDR.ToString();
                 iHP_n.Content = cs.wmcMaxHP.ToString();
-                iRes_n.Content = cs.wmcAllRes.ToString() + "%"; 
+                iRes_n.Content = cs.wmcAllRes.ToString() + "%";
                 iHAP_n.Content = cs.wmcHidenAP.ToString();
                 iWeight_n.Content = cs.wmcWeight.ToString();
                 iCastSpeed_n.Content = cs.wmcCastSpeed.ToString();
@@ -1850,10 +2053,27 @@ namespace BDHelper
                 iADtDemiH_n.Content = cs.wmcDmgToDemi.ToString();
                 iST_n.Content = cs.wmcMaxST.ToString();
                 iLuck_n.Content = cs.wmcLuck.ToString();
-                iCombatEXP_n.Content =  "+" + cs.wmcCombatEXP.ToString() + "%";
+                iCombatEXP_n.Content = "+" + cs.wmcCombatEXP.ToString() + "%";
                 iSkillEXP_n.Content = "+" + cs.wmcSkillEXP.ToString() + "%";
                 iCrit_n.Content = cs.wmcCrit.ToString();
                 iEDH_n.Content = cs.wmcDmgToHumans.ToString();
+
+                cs.iAcc = cs.wmcAccuracy;
+                cs.iIgnoreResistance = cs.wmcIgnoreAll;
+                cs.iDR = cs.wmcDR;
+                cs.iHP = cs.wmcMaxHP;
+                cs.iRes = cs.wmcAllRes ;
+                cs.iHAP = cs.wmcHidenAP;
+                cs.iWeight = cs.wmcWeight;
+                cs.iCastSpeed = cs.wmcCastSpeed;
+                cs.iAtkSpeed = cs.wmcAtkSpeed;
+                cs.iADtDemiH = cs.wmcDmgToDemi;
+                cs.iST = cs.wmcMaxST;
+                cs.iLuck = cs.wmcLuck;
+                cs.iCombatEXP = cs.wmcCombatEXP ;
+                cs.iSkillEXP = cs.wmcSkillEXP;
+                cs.iCrit = cs.wmcCrit;
+                cs.iEDH = cs.wmcDmgToHumans;
 
 
 
@@ -1952,6 +2172,23 @@ namespace BDHelper
                 iSkillEXP_n.Content = "+" + cs.wmc2SkillEXP.ToString() + "%";
                 iCrit_n.Content = cs.wmc2Crit.ToString();
                 iEDH_n.Content = cs.wmc2DmgToHumans.ToString();
+
+                cs.iAcc = cs.wmc2Accuracy;
+                cs.iIgnoreResistance = cs.wmc2IgnoreAll;
+                cs.iDR = cs.wmc2DR;
+                cs.iHP = cs.wmc2MaxHP;
+                cs.iRes = cs.wmc2AllRes ;
+                cs.iHAP = cs.wmc2HidenAP;
+                cs.iWeight = cs.wmc2Weight;
+                cs.iCastSpeed = cs.wmc2CastSpeed;
+                cs.iAtkSpeed = cs.wmc2AtkSpeed;
+                cs.iADtDemiH = cs.wmc2DmgToDemi;
+                cs.iST = cs.wmc2MaxST;
+                cs.iLuck = cs.wmc2Luck;
+                cs.iCombatEXP =cs.wmc2CombatEXP;
+                cs.iSkillEXP = cs.wmc2SkillEXP ;
+                cs.iCrit = cs.wmc2Crit;
+                cs.iEDH = cs.wmc2DmgToHumans;
 
 
 
@@ -2066,16 +2303,42 @@ namespace BDHelper
                 iSkillEXP_n.Content = "+" + cs.swmcSkillEXP.ToString() + "%";
                 iEDH_n.Content = cs.swmcDmgToHumans.ToString();
 
-                iCHDamage_n.Content = "+"+cs.swmcCritDmg +"%";
-                iAtkSpeedDmg_n.Content = "+"+cs.swmcSpeedAtkDmg+"%";
-                iEDtoAir_n.Content = "+"+cs.swmcAirDmg+"%";
-                iEDtoCounter_n.Content = "+"+cs.swmcCounterDmg+"%";
-                iEDtoDown_n.Content = "+"+cs.swmcDownDmg+"%";
+                iCHDamage_n.Content = "+" + cs.swmcCritDmg + "%";
+                iAtkSpeedDmg_n.Content = "+" + cs.swmcSpeedAtkDmg + "%";
+                iEDtoAir_n.Content = "+" + cs.swmcAirDmg + "%";
+                iEDtoCounter_n.Content = "+" + cs.swmcCounterDmg + "%";
+                iEDtoDown_n.Content = "+" + cs.swmcDownDmg + "%";
                 iEDtoBack_n.Content = "+" + cs.swmcBackDmg + "%";
-                iIgnoreGrapleResistance_n.Content = "+"+cs.swmcGrapResIgnore+"%";
-                iIgnoreKBResistance_n.Content = "+"+cs.swmcKBResIgnore+"%";
-                iIgnoreKDResistance_n.Content = "+"+cs.swmcKDResIgnore+"%";
-                iIgnoreStunResistance_n.Content = "+"+ cs.swmcStunResIgnore+"%";
+                iIgnoreGrapleResistance_n.Content = "+" + cs.swmcGrapResIgnore + "%";
+                iIgnoreKBResistance_n.Content = "+" + cs.swmcKBResIgnore + "%";
+                iIgnoreKDResistance_n.Content = "+" + cs.swmcKDResIgnore + "%";
+                iIgnoreStunResistance_n.Content = "+" + cs.swmcStunResIgnore + "%";
+
+               cs.iAcc = cs.swmcAccuracy;
+                cs.iIgnoreResistance = cs.swmcIgnoreAll;
+                cs.iDR = cs.swmcDR;
+                cs.iHP = cs.swmcMaxHP;
+                cs.iRes = cs.swmcAllRes ;
+                cs.iHAP = cs.swmcHidenAP;
+                cs.iWeight = cs.swmcWeight;
+
+                cs.iADtDemiH = cs.swmcDmgToDemi;
+                cs.iST = cs.swmcMaxST;
+                cs.iLuck = cs.swmcLuck;
+                cs.iCombatEXP =  cs.swmcCombatEXP ;
+                cs.iSkillEXP =  cs.swmcSkillEXP ;
+                cs.iEDH = cs.swmcDmgToHumans;
+
+                cs.iCHDamage =  cs.swmcCritDmg ;
+                cs.iAtkSpeedDmg =  cs.swmcSpeedAtkDmg ;
+                cs.iEDtoAir =  cs.swmcAirDmg ;
+                cs.iEDtoCounter =  cs.swmcCounterDmg ;
+                cs.iEDtoDown =  cs.swmcDownDmg ;
+                cs.iEDtoBack =  cs.swmcBackDmg ;
+                cs.iIgnoreGrapleResistance =  cs.swmcGrapResIgnore ;
+                cs.iIgnoreKBResistance =  cs.swmcKBResIgnore ;
+                cs.iIgnoreKDResistance =  cs.swmcKDResIgnore ;
+                cs.iIgnoreStunResistance =  cs.swmcStunResIgnore ;
 
 
 
@@ -2201,6 +2464,32 @@ namespace BDHelper
                 iIgnoreStunResistance_n.Content = "+" + cs.swmc2StunResIgnore + "%";
 
 
+                cs.iAcc = cs.swmc2Accuracy;
+                cs.iIgnoreResistance = cs.swmc2IgnoreAll;
+                cs.iDR = cs.swmc2DR;
+                cs.iHP = cs.swmc2MaxHP;
+                cs.iRes = cs.swmc2AllRes ;
+                cs.iHAP = cs.swmc2HidenAP;
+                cs.iWeight = cs.swmc2Weight;
+
+                cs.iADtDemiH = cs.swmc2DmgToDemi;
+                cs.iST = cs.swmc2MaxST;
+                cs.iLuck = cs.swmc2Luck;
+                cs.iCombatEXP =  cs.swmc2CombatEXP ;
+                cs.iSkillEXP =  cs.swmc2SkillEXP ;
+                cs.iEDH = cs.swmc2DmgToHumans;
+
+                cs.iCHDamage =  cs.swmc2CritDmg ;
+                cs.iAtkSpeedDmg =  cs.swmc2SpeedAtkDmg ;
+                cs.iEDtoAir =  cs.swmc2AirDmg ;
+                cs.iEDtoCounter =  cs.swmc2CounterDmg ;
+                cs.iEDtoDown =  cs.swmc2DownDmg ;
+                cs.iEDtoBack =  cs.swmc2BackDmg ;
+                cs.iIgnoreGrapleResistance =  cs.swmc2GrapResIgnore ;
+                cs.iIgnoreKBResistance =  cs.swmc2KBResIgnore ;
+                cs.iIgnoreKDResistance =  cs.swmc2KDResIgnore ;
+                cs.iIgnoreStunResistance =  cs.swmc2StunResIgnore ;
+
 
                 LoadItemEnch_cb();
 
@@ -2222,7 +2511,7 @@ namespace BDHelper
                         cs.hmcDefDR = 0;
                         cs.hmcDefIgnoreAll = 0;
                         cs.hmcDefAccuracy = 0;
-                        cs.hmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]); 
+                        cs.hmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
                         cs.hmcDefDmgToDemi = 0;
                         cs.hmcDefWeight = 0;
                         cs.hmcDefAllRes = 0;
@@ -2273,7 +2562,7 @@ namespace BDHelper
                         cs.hmcDefEV = 0;
                         cs.hmcDefKBRes = 0;
                         cs.hmcDefSSFRes = 0;
-                        cs.hmcDefCastSpeed =0;
+                        cs.hmcDefCastSpeed = 0;
                         cs.hmcDefVisionRange = 0;
                     }
                 }
@@ -2303,11 +2592,33 @@ namespace BDHelper
                 iEDH_n.Content = cs.hmcDmgToHumans.ToString();
 
                 iHPR_n.Content = "+" + cs.hmcHPRecovery;
-                iEvas_n.Content = "+"+ cs.hmcEV;
-                iKBR_n.Content = "+" + cs.hmcKBRes +"%";
+                iEvas_n.Content = "+" + cs.hmcEV;
+                iKBR_n.Content = "+" + cs.hmcKBRes + "%";
                 iSSFR_n.Content = "+" + cs.hmcSSFRes + "%";
                 iCastSpeed_n.Content = "+" + cs.hmcCastSpeed;
                 iVisionRange_n.Content = "+" + cs.hmcVisionRange + "m";
+
+
+                cs.iAcc = cs.hmcAccuracy;
+                cs.iIgnoreResistance = cs.hmcIgnoreAll;
+                cs.iDR = cs.hmcDR;
+                cs.iHP = cs.hmcMaxHP;
+                cs.iRes = cs.hmcAllRes ;
+                cs.iWeight = cs.hmcWeight;
+
+                cs.iADtDemiH = cs.hmcDmgToDemi;
+                cs.iST = cs.hmcMaxST;
+                cs.iLuck = cs.hmcLuck;
+                cs.iCombatEXP =  cs.hmcCombatEXP ;
+                cs.iSkillEXP =  cs.hmcSkillEXP ;
+                cs.iEDH = cs.hmcDmgToHumans;
+
+                cs.iHPR =  cs.hmcHPRecovery;
+                cs.iEvas =  cs.hmcEV;
+                cs.iKBR =  cs.hmcKBRes ;
+                cs.iSSFR =  cs.hmcSSFRes ;
+                cs.iCastSpeed =  cs.hmcCastSpeed;
+                cs.iVisionRange =  cs.hmcVisionRange;
 
 
 
@@ -2419,6 +2730,28 @@ namespace BDHelper
                 iVisionRange_n.Content = "+" + cs.hmc2VisionRange + "m";
 
 
+                cs.iAcc = cs.hmc2Accuracy;
+                cs.iIgnoreResistance = cs.hmc2IgnoreAll;
+                cs.iDR = cs.hmc2DR;
+                cs.iHP = cs.hmc2MaxHP;
+                cs.iRes = cs.hmc2AllRes ;
+                cs.iWeight = cs.hmc2Weight;
+
+                cs.iADtDemiH = cs.hmc2DmgToDemi;
+                cs.iST = cs.hmc2MaxST;
+                cs.iLuck = cs.hmc2Luck;
+                cs.iCombatEXP =  cs.hmc2CombatEXP ;
+                cs.iSkillEXP =  cs.hmc2SkillEXP ;
+                cs.iEDH = cs.hmc2DmgToHumans;
+
+                cs.iHPR =  cs.hmc2HPRecovery;
+                cs.iEvas =  cs.hmc2EV;
+                cs.iKBR =  cs.hmc2KBRes ;
+                cs.iSSFR =  cs.hmc2SSFRes ;
+                cs.iCastSpeed =  cs.hmc2CastSpeed;
+                cs.iVisionRange =  cs.hmc2VisionRange;
+
+
 
                 LoadItemEnch_cb();
 
@@ -2496,7 +2829,7 @@ namespace BDHelper
                         cs.amcDefSSFRes = 0;
                         cs.amcDefMaxMP = 0;
                         cs.amcDefMPRecovery = 0;
-                        cs.amcDefSpecialAtkEvRate =0;
+                        cs.amcDefSpecialAtkEvRate = 0;
                         cs.amcDefMagicDR = 0;
                         cs.amcDefMelleDR = 0;
                         cs.amcDefRangeDR = 0;
@@ -2537,6 +2870,29 @@ namespace BDHelper
                 iMelleDR_n.Content = "+" + cs.amcMelleDR;
                 iRangeDR_n.Content = "+" + cs.amcRangeDR;
                 iSiegeWeaponEvRate_n.Content = "+" + cs.amcSiegeWeaponEvRate + "%";
+
+                cs.iAcc = cs.amcAccuracy;
+                cs.iIgnoreResistance = cs.amcIgnoreAll;
+                cs.iDR = cs.amcDR;
+                cs.iHP = cs.amcMaxHP;
+                cs.iRes = cs.amcAllRes ;
+                cs.iWeight = cs.amcWeight;
+
+                cs.iADtDemiH = cs.amcDmgToDemi;
+                cs.iST = cs.amcMaxST;
+                cs.iLuck = cs.amcLuck;
+                cs.iCombatEXP = cs.amcCombatEXP ;
+                cs.iSkillEXP = cs.amcSkillEXP ;
+                cs.iEDH = cs.amcDmgToHumans;
+
+                cs.iHPR = cs.amcHPRecovery;
+                cs.iSSFR = cs.amcSSFRes ;
+                cs.iMPR = cs.amcMPRecovery;
+                cs.iSpecialAttackEvRate = cs.amcSpecialAtkEvRate ;
+                cs.iMagicDR = cs.amcMagicDR;
+                cs.iMelleDR = cs.amcMelleDR;
+                cs.iRangeDR = cs.amcRangeDR;
+                cs.iSiegeWeaponEvRate = cs.amcSiegeWeaponEvRate ;
 
 
 
@@ -2659,6 +3015,30 @@ namespace BDHelper
                 iSiegeWeaponEvRate_n.Content = "+" + cs.amc2SiegeWeaponEvRate + "%";
 
 
+                cs.iAcc = cs.amc2Accuracy;
+                cs.iIgnoreResistance = cs.amc2IgnoreAll;
+                cs.iDR = cs.amc2DR;
+                cs.iHP = cs.amc2MaxHP;
+                cs.iRes = cs.amc2AllRes ;
+                cs.iWeight = cs.amc2Weight;
+
+                cs.iADtDemiH = cs.amc2DmgToDemi;
+                cs.iST = cs.amc2MaxST;
+                cs.iLuck = cs.amc2Luck;
+                cs.iCombatEXP = cs.amc2CombatEXP ;
+                cs.iSkillEXP = cs.amc2SkillEXP ;
+                cs.iEDH = cs.amc2DmgToHumans;
+
+                cs.iHPR = cs.amc2HPRecovery;
+                cs.iSSFR = cs.amc2SSFRes ;
+                cs.iMPR = cs.amc2MPRecovery;
+                cs.iSpecialAttackEvRate = cs.amc2SpecialAtkEvRate ;
+                cs.iMagicDR = cs.amc2MagicDR;
+                cs.iMelleDR = cs.amc2MelleDR;
+                cs.iRangeDR = cs.amc2RangeDR;
+                cs.iSiegeWeaponEvRate = cs.amc2SiegeWeaponEvRate ;
+
+
 
 
                 LoadItemEnch_cb();
@@ -2770,15 +3150,39 @@ namespace BDHelper
                 iSkillEXP_n.Content = "+" + cs.gmcSkillEXP.ToString() + "%";
                 iEDH_n.Content = cs.gmcDmgToHumans.ToString();
 
-                iAtkSpeed_n.Content = "+" +cs.gmcAtkSpeed;
-                iCastSpeed_n.Content = "+" + cs.gmcCastSpeed ;
+                iAtkSpeed_n.Content = "+" + cs.gmcAtkSpeed;
+                iCastSpeed_n.Content = "+" + cs.gmcCastSpeed;
                 iCrit_n.Content = "+" + cs.gmcCrit;
-                iGrapR_n.Content = "+" + cs.gmcGrapRes +"%" ;
+                iGrapR_n.Content = "+" + cs.gmcGrapRes + "%";
                 iKFR_n.Content = "+" + cs.gmcKFRes + "%";
                 iHAP_n.Content = "+" + cs.gmcHidenAP;
                 iMelleAP_n.Content = "+" + cs.gmcMelleAP;
                 iMagicAP_n.Content = "+" + cs.gmcMagicAP;
                 iRangeAP_n.Content = "+" + cs.gmcRangedAP;
+
+               cs.iAcc = cs.gmcAccuracy;
+                cs.iIgnoreResistance = cs.gmcIgnoreAll;
+                cs.iDR = cs.gmcDR;
+                cs.iHP = cs.gmcMaxHP;
+                cs.iRes = cs.gmcAllRes ;
+                cs.iWeight = cs.gmcWeight;
+
+                cs.iADtDemiH = cs.gmcDmgToDemi;
+                cs.iST = cs.gmcMaxST;
+                cs.iLuck = cs.gmcLuck;
+                cs.iCombatEXP = cs.gmcCombatEXP ;
+                cs.iSkillEXP = cs.gmcSkillEXP ;
+                cs.iEDH = cs.gmcDmgToHumans;
+
+                cs.iAtkSpeed = cs.gmcAtkSpeed;
+                cs.iCastSpeed = cs.gmcCastSpeed;
+                cs.iCrit = cs.gmcCrit;
+                cs.iGrapR = cs.gmcGrapRes ;
+                cs.iKFR = cs.gmcKFRes ;
+                cs.iHAP = cs.gmcHidenAP;
+                cs.iMelleAP = cs.gmcMelleAP;
+                cs.iMagicAP = cs.gmcMagicAP;
+                cs.iRangeAP = cs.gmcRangedAP;
 
 
 
@@ -2902,6 +3306,30 @@ namespace BDHelper
                 iMagicAP_n.Content = "+" + cs.gmc2MagicAP;
                 iRangeAP_n.Content = "+" + cs.gmc2RangedAP;
 
+                cs.iAcc = cs.gmc2Accuracy;
+                cs.iIgnoreResistance = cs.gmc2IgnoreAll;
+                cs.iDR = cs.gmc2DR;
+                cs.iHP = cs.gmc2MaxHP;
+                cs.iRes = cs.gmc2AllRes ;
+                cs.iWeight = cs.gmc2Weight;
+
+                cs.iADtDemiH = cs.gmc2DmgToDemi;
+                cs.iST = cs.gmc2MaxST;
+                cs.iLuck = cs.gmc2Luck;
+                cs.iCombatEXP = cs.gmc2CombatEXP ;
+                cs.iSkillEXP = cs.gmc2SkillEXP ;
+                cs.iEDH = cs.gmc2DmgToHumans;
+
+                cs.iAtkSpeed = cs.gmc2AtkSpeed;
+                cs.iCastSpeed = cs.gmc2CastSpeed;
+                cs.iCrit = cs.gmc2Crit;
+                cs.iGrapR = cs.gmc2GrapRes ;
+                cs.iKFR = cs.gmc2KFRes ;
+                cs.iHAP = cs.gmc2HidenAP;
+                cs.iMelleAP = cs.gmc2MelleAP;
+                cs.iMagicAP = cs.gmc2MagicAP;
+                cs.iRangeAP = cs.gmc2RangedAP;
+
 
 
 
@@ -2972,8 +3400,8 @@ namespace BDHelper
                         cs.CrysB1SB = Convert.ToInt32(dr["SetBonus"]);
 
                         cs.smcDefKFRes = 0;
-                        cs.smcDefKBRes =0;
-                        cs.smcDefSSFRes =0;
+                        cs.smcDefKBRes = 0;
+                        cs.smcDefSSFRes = 0;
                         cs.smcDefMVSpeed = 0;
                         cs.smcDefJump = 0;
                         cs.smcDefFallDamage = 0;
@@ -3013,6 +3441,31 @@ namespace BDHelper
                 iUnderwaterBreath_n.Content = "+" + cs.smcUnderWaterBreath + " sec";
                 iMaxEnergy_n.Content = "+" + cs.smcMaxEnergy;
                 iMVS_n.Content = "+" + cs.smcMVSpeed;
+
+                cs.iAcc = cs.smcAccuracy;
+                cs.iIgnoreResistance = cs.smcIgnoreAll;
+                cs.iDR = cs.smcDR;
+                cs.iHP = cs.smcMaxHP;
+                cs.iRes = cs.smcAllRes ;
+                cs.iWeight = cs.smcWeight;
+
+                cs.iADtDemiH = cs.smcDmgToDemi;
+                cs.iST = cs.smcMaxST;
+                cs.iLuck = cs.smcLuck;
+                cs.iCombatEXP = cs.smcCombatEXP ;
+                cs.iSkillEXP = cs.smcSkillEXP ;
+                cs.iEDH = cs.smcDmgToHumans;
+
+
+                cs.iKFR = cs.smcKFRes ;
+                cs.iKBR = cs.smcKBRes ;
+                cs.iSSFR = cs.smcSSFRes ;
+                cs.iJump = cs.smcJump ;
+                cs.iFallDamage = cs.smcFallDamage ;
+                cs.iUnderwaterBreath = cs.smcUnderWaterBreath;
+                cs.iMaxEnergy = cs.smcMaxEnergy;
+                cs.iMVS = cs.smcMVSpeed;
+
 
                 LoadItemEnch_cb();
 
@@ -3132,6 +3585,32 @@ namespace BDHelper
                 iFallDamage_n.Content = cs.smc2FallDamage + "%";
                 iUnderwaterBreath_n.Content = "+" + cs.smc2UnderWaterBreath + " sec";
                 iMaxEnergy_n.Content = "+" + cs.smc2MaxEnergy;
+                iMVS_n.Content = "+" + cs.smc2MVSpeed;
+
+
+                cs.iAcc = cs.smc2Accuracy;
+                cs.iIgnoreResistance = cs.smc2IgnoreAll;
+                cs.iDR = cs.smc2DR;
+                cs.iHP = cs.smc2MaxHP;
+                cs.iRes = cs.smc2AllRes;
+                cs.iWeight = cs.smc2Weight;
+
+                cs.iADtDemiH = cs.smc2DmgToDemi;
+                cs.iST = cs.smc2MaxST;
+                cs.iLuck = cs.smc2Luck;
+                cs.iCombatEXP = cs.smc2CombatEXP;
+                cs.iSkillEXP = cs.smc2SkillEXP;
+                cs.iEDH = cs.smc2DmgToHumans;
+
+
+                cs.iKFR = cs.smc2KFRes;
+                cs.iKBR = cs.smc2KBRes;
+                cs.iSSFR = cs.smc2SSFRes;
+                cs.iJump = cs.smc2Jump;
+                cs.iFallDamage = cs.smc2FallDamage;
+                cs.iUnderwaterBreath = cs.smc2UnderWaterBreath;
+                cs.iMaxEnergy = cs.smc2MaxEnergy;
+                cs.iMVS = cs.smc2MVSpeed;
 
 
 
@@ -3148,7 +3627,20 @@ namespace BDHelper
             cs.WeaponSetBonus();
             cs.CrysSetBonus();
             cs.GearScoreBonus();
-            FillCharacterState();          
+            MainStateLabels();
+            AbilitiesLabels();
+            OffenceStateLabels();
+            SurvivalStateLabels();
+            BonusStateLabels();
+            DefenceStateLabels();
+            ProffessionStateLabels();
+            AdditionalStateLabels();
+            OtherStateLabels();
+            ItemStateLabels();
+            ResistanceStateLabels();
+            FillCharacterState();
+
+
         }
 
         private void LoadItemEnch_cb()
@@ -3247,9 +3739,20 @@ namespace BDHelper
                 iSpiritRage_n.Content = Convert.ToString(cs.beltSpiritRage) + "%";
                 iEAPa_n.Content = cs.beltAPagaingst.ToString();
 
+                cs.iAP = cs.beltap;
+                cs.iDP = cs.beltdp;
+                cs.iEvas = cs.beltev;
+                cs.iAcc = cs.beltacc;
+                cs.iRes = cs.beltResis;
+                cs.iDR = cs.beltDR;
+                cs.iHP = cs.beltHP;
+                cs.iWeight = cs.beltWeight;
+                cs.iSpiritRage = cs.beltSpiritRage;
+                cs.iEAPa = cs.beltAPagaingst;
+
                 if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
                 else if (cs.beltEnch == false) Belt_btn.Content = "";
-                else  Belt_btn.Content = ItemEnch_cb.SelectedValue;
+                else Belt_btn.Content = ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
 
@@ -3275,6 +3778,22 @@ namespace BDHelper
                 iEAPa_n.Content = cs.neckAPagaingst.ToString();
                 iExtraDamKama_n.Content = cs.neckKamaDamage.ToString();
                 iEDtoBack_n.Content = cs.neckBackDamage.ToString() + "%";
+
+                cs.iAP = cs.neckap;
+                cs.iDP = cs.neckdp;
+                cs.iEvas = cs.neckev;
+                cs.iAcc = cs.neckacc;
+                cs.iRes = cs.neckAllRes;
+                cs.iDR = cs.neckDR;
+                cs.iSSFR = cs.neckSSF;
+                cs.iKBR = cs.neckKB;
+                cs.iGrapR = cs.neckG;
+                cs.iKFR = cs.neckKF;
+                cs.iHP = cs.neckHP;
+                cs.iSpiritRage = cs.neckSpiritRage;
+                cs.iEAPa = cs.neckAPagaingst;
+                cs.iExtraDamKama = cs.neckKamaDamage;
+                cs.iEDtoBack = cs.neckBackDamage;
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Content = ""; }
                 else { Necklace_btn.Content = ItemEnch_cb.SelectedValue; }
@@ -3303,6 +3822,23 @@ namespace BDHelper
                 iBidding_n.Content = Convert.ToString(cs.ring1Bidding) + "%";
                 iSpiritRage_n.Content = Convert.ToString(cs.ring1SpiritRage) + "%";
 
+                cs.iAP = cs.ring1ap;
+                cs.iDP = cs.ring1dp;
+                cs.iEvas = cs.ring1ev;
+                cs.iAcc = cs.ring1acc;
+                cs.iDR = cs.ring1DR;
+                cs.iHP = cs.ring1HP;
+                cs.iMP = cs.ring1MP;
+                cs.iST = cs.ring1ST;
+                cs.iHEV = cs.ring1HEv;
+                cs.iEAPa = cs.ring1APagaingst;
+                cs.iExtraDamKama = cs.ring1KamaDamage;
+                cs.iEDH = cs.ring1DamageHumans;
+                cs.iADtDemiH = cs.ring1DamageDemihumans;
+                cs.iEDtAExcHumanAndDemi = cs.ring1DamageAllExcept;
+                cs.iBidding = cs.ring1Bidding;
+                cs.iSpiritRage = cs.ring1SpiritRage;
+
                 if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Content = ""; }
                 else { Ring1_btn.Content = ItemEnch_cb.SelectedValue; }
 
@@ -3329,6 +3865,24 @@ namespace BDHelper
                 iBidding_n.Content = Convert.ToString(cs.ring2Bidding) + "%";
                 iSpiritRage_n.Content = Convert.ToString(cs.ring2SpiritRage) + "%";
 
+
+                cs.iAP = cs.ring2ap;
+                cs.iDP = cs.ring2dp;
+                cs.iEvas = cs.ring2ev;
+                cs.iAcc = cs.ring2acc;
+                cs.iDR = cs.ring2DR;
+                cs.iHP = cs.ring2HP;
+                cs.iMP = cs.ring2MP;
+                cs.iST = cs.ring2ST;
+                cs.iHEV = cs.ring2HEv;
+                cs.iEAPa = cs.ring2APagaingst;
+                cs.iExtraDamKama = cs.ring2KamaDamage;
+                cs.iEDH = cs.ring2DamageHumans;
+                cs.iADtDemiH = cs.ring2DamageDemihumans;
+                cs.iEDtAExcHumanAndDemi = cs.ring2DamageAllExcept;
+                cs.iBidding = cs.ring2Bidding;
+                cs.iSpiritRage = cs.ring2SpiritRage;
+
                 if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Content = ""; }
                 else { Ring2_btn.Content = ItemEnch_cb.SelectedValue; }
 
@@ -3352,6 +3906,18 @@ namespace BDHelper
                 iEAPa_n.Content = cs.ear1APagaingst.ToString();
                 iExtraDamKama_n.Content = cs.ear1KamaDamage.ToString();
 
+                cs.iAP = cs.ear1ap;
+                cs.iDP = cs.ear1dp;
+                cs.iEvas = cs.ear1ev;
+                cs.iAcc = cs.ear1acc;
+                cs.iDR = cs.ear1DR;
+                cs.iHP = cs.ear1HP;
+                cs.iMP = cs.ear1MP;
+                cs.iST = cs.ear1ST;
+                cs.iSpiritRage = cs.ear1SpiritRage;
+                cs.iEAPa = cs.ear1APagaingst;
+                cs.iExtraDamKama = cs.ear1KamaDamage;
+
                 if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Content = ""; }
                 else { Earring1_btn.Content = ItemEnch_cb.SelectedValue; }
 
@@ -3374,6 +3940,18 @@ namespace BDHelper
                 iSpiritRage_n.Content = Convert.ToString(cs.ear2SpiritRage) + "%";
                 iEAPa_n.Content = cs.ear2APagaingst.ToString();
                 iExtraDamKama_n.Content = cs.ear2KamaDamage.ToString();
+
+                cs.iAP = cs.ear2ap;
+                cs.iDP = cs.ear2dp;
+                cs.iEvas = cs.ear2ev;
+                cs.iAcc = cs.ear2acc;
+                cs.iDR = cs.ear2DR;
+                cs.iHP = cs.ear2HP;
+                cs.iMP = cs.ear2MP;
+                cs.iST = cs.ear2ST;
+                cs.iSpiritRage = cs.ear2SpiritRage;
+                cs.iEAPa = cs.ear2APagaingst;
+                cs.iExtraDamKama = cs.ear2KamaDamage;
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Content = ""; }
                 else { Earring2_btn.Content = ItemEnch_cb.SelectedValue; }
@@ -3403,6 +3981,19 @@ namespace BDHelper
                 iAcc_n.Content = cs.armAcc.ToString();
                 iHPR_n.Content = cs.armHPRecovery.ToString();
                 iMPR_n.Content = cs.armMPRecovery.ToString();
+
+                cs.iDP = cs.armdp;
+                cs.iEvas = cs.armev;
+                cs.iHEV = cs.armhev;
+                cs.iDR = cs.armdr;
+                cs.iHDR = cs.armhdr;
+                cs.iHP = cs.armHP;
+                cs.iMP = cs.armMP;
+                cs.iSSFR = cs.armSSFRes;
+                cs.iWeight = cs.armWeight;
+                cs.iAcc = cs.armAcc;
+                cs.iHPR = cs.armHPRecovery;
+                cs.iMPR = cs.armMPRecovery;
 
                 if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Content = ""; }
                 else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
@@ -3435,6 +4026,21 @@ namespace BDHelper
                 iHPR_n.Content = cs.helHPRecovery.ToString();
                 iLuck_n.Content = cs.helLuck.ToString();
 
+                cs.iDP = cs.heldp;
+                cs.iEvas = cs.helev;
+                cs.iHEV = cs.helhev;
+                cs.iDR = cs.heldr;
+                cs.iHDR = cs.helhdr;
+                cs.iHP = cs.helHP;
+                cs.iSSFR = cs.helSSFRes;
+                cs.iKBR = cs.helKBRes;
+                cs.iGrapR = cs.helGrapleRes;
+                cs.iKFR = cs.helKFRes;
+                cs.iST = cs.helST;
+                cs.iWeight = cs.helWeight;
+                cs.iHPR = cs.helHPRecovery;
+                cs.iLuck = cs.helLuck;
+
                 if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Content = ""; }
                 else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                 else Helmet_btn.Content = ItemEnch_cb.SelectedValue;
@@ -3464,6 +4070,19 @@ namespace BDHelper
                 iWeight_n.Content = cs.glovWeight.ToString();
                 iEDtA_n.Content = cs.glovDamage.ToString();
 
+                cs.iDP = cs.glovdp;
+                cs.iEvas = cs.glovev;
+                cs.iHEV = cs.glovhev;
+                cs.iDR = cs.glovdr;
+                cs.iHDR = cs.glovhdr;
+                cs.iAcc = cs.glovacc;
+                cs.iGrapR = cs.glovGrapleRes;
+                cs.iAtkSpeed = cs.glovAtkSpeed;
+                cs.iCastSpeed = cs.glovCastSpeed;
+                cs.iCrit = cs.glovCrit;
+                cs.iWeight = cs.glovWeight;
+                cs.iEDtA = cs.glovDamage;
+
                 if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Content = ""; }
                 else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                 else Gloves_btn.Content = ItemEnch_cb.SelectedValue;
@@ -3491,6 +4110,16 @@ namespace BDHelper
                 iST_n.Content = cs.shMaxST.ToString();
                 iWeight_n.Content = cs.shWeight.ToString();
 
+                cs.iDP = cs.shdp;
+                cs.iEvas = cs.shev;
+                cs.iHEV = cs.shhev;
+                cs.iDR = cs.shdr;
+                cs.iHDR = cs.shhdr;
+                cs.iKBR = cs.shKBRes;
+                cs.iMVS = cs.shMvs;
+                cs.iST = cs.shMaxST;
+                cs.iWeight = cs.shWeight;
+
                 if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Content = ""; }
                 else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                 else Boots_btn.Content = ItemEnch_cb.SelectedValue;
@@ -3508,11 +4137,17 @@ namespace BDHelper
                 cs.awkEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.AwakeningState(sclass);
 
-                iAP_n.Content = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
+                iAAP_n.Content = cs.awkAPlow.ToString() + '~' + cs.awkAPhigh.ToString();
                 iAcc_n.Content = cs.awkAccuracy.ToString();
                 iEDH_n.Content = cs.awkDamageHumans.ToString();
                 iEDtA_n.Content = cs.awkDamageAll.ToString();
                 iEAPa_n.Content = cs.awkAPagainst.ToString();
+
+                cs.iAAP = (cs.awkAPlow + cs.awkAPhigh) / 2;
+                cs.iAcc = cs.awkAccuracy;
+                cs.iEDH = cs.awkDamageHumans;
+                cs.iEDtA = cs.awkDamageAll;
+                cs.iEAPa = cs.awkAPagainst;
 
                 if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Content = ""; }
                 else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
@@ -3542,6 +4177,18 @@ namespace BDHelper
                 iCrit_n.Content = cs.mwCrit.ToString();
                 iHPRecoveryChance_n.Content = cs.mwRecoveryChance.ToString();
                 iIgnoreResistance_n.Content = cs.mwIgnore.ToString();
+
+                cs.iAP = (cs.mwAPlow + cs.mwAPhigh) / 2;
+                cs.iAcc = cs.mwAccuracy;
+                cs.iEDH = cs.mwDamageHumans;
+                cs.iEDtA = cs.mwDamageAll;
+                cs.iEAPa = cs.mwAPagainst;
+                cs.iADtDemiH = cs.mwDamDemi;
+                cs.iAtkSpeed = cs.mwAtkSpeed;
+                cs.iCastSpeed = cs.mwCastSpeed;
+                cs.iCrit = cs.mwCrit;
+                cs.iHPRecoveryChance = cs.mwRecoveryChance;
+                cs.iIgnoreResistance = cs.mwIgnore;
 
                 if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Content = ""; }
                 else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
@@ -3578,6 +4225,24 @@ namespace BDHelper
                 iSpecialAttackEvRate_n.Content = cs.swSpecialAttackEv.ToString();
 
 
+                cs.iAP = (cs.swAPlow + cs.swAPhigh) / 2;
+                cs.iAcc = cs.swAccuracy;
+                cs.iEAPa = cs.swAPagainst;
+                cs.iIgnoreResistance = cs.swIgnore;
+                cs.iDP = cs.swDP;
+                cs.iEvas = cs.swEvasion;
+                cs.iHEV = cs.swHEvasion;
+                cs.iDR = cs.swDR;
+                cs.iHP = cs.swMaxHP;
+                cs.iMP = cs.swMaxMP;
+                cs.iST = cs.swMaxST;
+                cs.iRes = cs.swAllRes;
+                cs.iST = cs.swMaxST;
+                cs.iHAP = cs.swHidenAP;
+                cs.iSpecialAttackED = cs.swSpecialAttackDam;
+                cs.iSpecialAttackEvRate = cs.swSpecialAttackEv;
+
+
                 if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Content = ""; }
                 else if (cs.swEnch == false) SW_btn.Content = "";
                 else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
@@ -3587,6 +4252,17 @@ namespace BDHelper
             } //Sub-Weapons
             LoadItemCaph_cb();
             cs.GearScoreBonus();
+            MainStateLabels();
+            AbilitiesLabels();
+            OffenceStateLabels();
+            SurvivalStateLabels();
+            BonusStateLabels();
+            DefenceStateLabels();
+            ProffessionStateLabels();
+            AdditionalStateLabels();
+            OtherStateLabels();
+            ItemStateLabels();
+            ResistanceStateLabels();
             FillCharacterState();
         }
         private void ItemCaph_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -3610,6 +4286,17 @@ namespace BDHelper
                 FillCharacterState();
             } // Weapons
             cs.GearScoreBonus();
+            MainStateLabels();
+            AbilitiesLabels();
+            OffenceStateLabels();
+            SurvivalStateLabels();
+            BonusStateLabels();
+            DefenceStateLabels();
+            ProffessionStateLabels();
+            AdditionalStateLabels();
+            OtherStateLabels();
+            ItemStateLabels();
+            ResistanceStateLabels();
             FillCharacterState();
         }
 
@@ -3646,25 +4333,25 @@ namespace BDHelper
 
         private void Breath_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0) |  Breath_tb.Text.Length > 2) e.Handled = true;
+            if (!Char.IsDigit(e.Text, 0) | Breath_tb.Text.Length > 2) e.Handled = true;
         }
 
         private void Strength_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
-               if (string.IsNullOrEmpty(Strength_tb.Text))
-               {
-                   Strength_tb.Text = "1";
-               }
-               if (Convert.ToInt32(Strength_tb.Text) > 50) { Strength_tb.Text = Convert.ToString(50); }
-               if (Convert.ToInt32(Strength_tb.Text) <= 0) { Strength_tb.Text = Convert.ToString(1); }
+            if (string.IsNullOrEmpty(Strength_tb.Text))
+            {
+                Strength_tb.Text = "1";
+            }
+            if (Convert.ToInt32(Strength_tb.Text) > 50) { Strength_tb.Text = Convert.ToString(50); }
+            if (Convert.ToInt32(Strength_tb.Text) <= 0) { Strength_tb.Text = Convert.ToString(1); }
 
-               if (Convert.ToInt32(Strength_tb.Text) <= 10) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 2; cs.cWeight += cs.tcss; }
-               if (Convert.ToInt32(Strength_tb.Text) > 10 & Convert.ToInt32(Strength_tb.Text) < 20) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 8; cs.cWeight += cs.tcss; }
-               if (Convert.ToInt32(Strength_tb.Text) == 20) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 11; cs.cWeight += cs.tcss; }
-               if (Convert.ToInt32(Strength_tb.Text) > 20 & Convert.ToInt32(Strength_tb.Text) <= 28) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 9; cs.cWeight += cs.tcss; }
-               if (Convert.ToInt32(Strength_tb.Text) > 28 & Convert.ToInt32(Strength_tb.Text) <= 30) { cs.cWeight -= cs.tcss; cs.tcss = 1.5 * Convert.ToInt32(Strength_tb.Text) - 5; cs.cWeight += cs.tcss; }
-               if (Convert.ToInt32(Strength_tb.Text) > 30) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 20; cs.cWeight += cs.tcss; }
-               FillCharacterState();
+            if (Convert.ToInt32(Strength_tb.Text) <= 10) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 2; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 10 & Convert.ToInt32(Strength_tb.Text) < 20) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 8; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) == 20) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 11; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 20 & Convert.ToInt32(Strength_tb.Text) <= 28) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 9; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 28 & Convert.ToInt32(Strength_tb.Text) <= 30) { cs.cWeight -= cs.tcss; cs.tcss = 1.5 * Convert.ToInt32(Strength_tb.Text) - 5; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 30) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 20; cs.cWeight += cs.tcss; }
+            FillCharacterState();
         }
         private void Strength_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -3672,21 +4359,21 @@ namespace BDHelper
         }
         private void Health_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
-               if (string.IsNullOrEmpty(Health_tb.Text))
-               {
-                   Health_tb.Text = "1";
-               }
-               if (Convert.ToInt32(Health_tb.Text) > 50) { Health_tb.Text = Convert.ToString(50); }
-               if (Convert.ToInt32(Health_tb.Text) <= 0) { Health_tb.Text = Convert.ToString(1); }
-               if (Convert.ToInt32(Health_tb.Text) <= 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-               if (Convert.ToInt32(Health_tb.Text) > 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; ; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 40; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-               if (Convert.ToInt32(Health_tb.Text) > 28 & Convert.ToInt32(Health_tb.Text) <= 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 100; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-               if (Convert.ToInt32(Health_tb.Text) > 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 50; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-               FillCharacterState();
+            if (string.IsNullOrEmpty(Health_tb.Text))
+            {
+                Health_tb.Text = "1";
+            }
+            if (Convert.ToInt32(Health_tb.Text) > 50) { Health_tb.Text = Convert.ToString(50); }
+            if (Convert.ToInt32(Health_tb.Text) <= 0) { Health_tb.Text = Convert.ToString(1); }
+            if (Convert.ToInt32(Health_tb.Text) <= 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            if (Convert.ToInt32(Health_tb.Text) > 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; ; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 40; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            if (Convert.ToInt32(Health_tb.Text) > 28 & Convert.ToInt32(Health_tb.Text) <= 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 100; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            if (Convert.ToInt32(Health_tb.Text) > 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 50; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            FillCharacterState();
         }
         private void Health_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsDigit(e.Text, 0) | Health_tb.Text.Length > 2) e.Handled = true;
+            if (!Char.IsDigit(e.Text, 0) | Health_tb.Text.Length > 2) e.Handled = true;
         }
 
         private void Underwear_cb_Checked(object sender, RoutedEventArgs e)
@@ -3695,7 +4382,7 @@ namespace BDHelper
             if (Underwear_cb.IsChecked == true) { cLuck_n.Content = Convert.ToString(cs.cluck + uwluck); }
             else { cLuck_n.Content = Convert.ToString(cs.cluck - uwluck); }
             cs.cluck = Convert.ToInt32(cLuck_n.Content);
-            
+
         }
 
         //IB journal
@@ -3796,5 +4483,1250 @@ namespace BDHelper
             FillCharacterState();
         }
 
+        private void MainStateLabels()
+        {
+            bool FirstPos = false;
+            Thickness FirstThk_lbl = new Thickness(10, 0, 131, 176);
+            Thickness FirstThk_n = new Thickness(115, 0, 34, 176);
+            bool SecondPos = false;
+            Thickness SecondThk_lbl = new Thickness(10, 26, 69, 150);
+            Thickness SecondThk_n = new Thickness(115, 26, 34, 150);
+            bool ThirdPos = false;
+            Thickness ThirdThk_lbl = new Thickness(10, 52, 130, 124);
+            Thickness ThirdThk_n = new Thickness(115, 52, 34, 124);
+            bool FourthPos = false;
+            Thickness FouthThk_lbl = new Thickness(10, 78, 101, 98);
+            Thickness FouthThk_n = new Thickness(115, 78, 34, 98);
+            bool FifthPos = false;
+            Thickness FifthThk_lbl = new Thickness(10, 104, 102, 72);
+            Thickness FifthThk_n = new Thickness(115, 104, 34, 72);
+            bool SixthPos = false;
+            Thickness SixthThk_lbl = new Thickness(10, 129, 77, 47);
+            Thickness SixthThk_n = new Thickness(115, 129, 34, 47);
+            bool SeventhPos = false;
+            Thickness SeventhThk_lbl = new Thickness(11, 155, 77, 21);
+            Thickness SeventhThk_n = new Thickness(115, 155, 34, 21);
+
+
+
+
+            cAP_lbl.Visibility = Visibility.Collapsed;
+            cAP_n.Visibility = Visibility.Collapsed;
+            cAAP_lbl.Visibility = Visibility.Collapsed;
+            cAAP_n.Visibility = Visibility.Collapsed;
+            cDP_lbl.Visibility = Visibility.Collapsed;
+            cDP_n.Visibility = Visibility.Collapsed;
+            cHP_lbl.Visibility = Visibility.Collapsed;
+            cHP_n.Visibility = Visibility.Collapsed;
+            cMP_lbl.Visibility = Visibility.Collapsed;
+            cMP_n.Visibility = Visibility.Collapsed;
+            cStamina_lbl.Visibility = Visibility.Collapsed;
+            cStamina_n.Visibility = Visibility.Collapsed;
+            cWeight_lbl.Visibility = Visibility.Collapsed;
+            cWeight_n.Visibility = Visibility.Collapsed;
+
+            if (cs.cap != 0)
+            {
+                cAP_lbl.Visibility = Visibility.Visible;
+                cAP_n.Visibility = Visibility.Visible;
+                FirstPos = true;
+            }
+
+            if (cs.caap != 0)
+            {
+                cAAP_lbl.Visibility = Visibility.Visible;
+                cAAP_n.Visibility = Visibility.Visible;
+                if (FirstPos == false)
+                {
+
+                    cAAP_n.Margin = FirstThk_n;
+                    cAAP_lbl.Margin = FirstThk_lbl;
+                    FirstPos = true;
+                }
+
+                else 
+                {
+                    SecondPos = true;
+                    cAAP_n.Margin = SecondThk_n;
+                    cAAP_lbl.Margin = SecondThk_lbl;
+                }
+            }
+
+            if (cs.cdp != 0)
+            {
+                cDP_lbl.Visibility = Visibility.Visible;
+                cDP_n.Visibility = Visibility.Visible;
+                if (FirstPos == false)
+                {
+                    cDP_n.Margin = FirstThk_n;
+                    cDP_lbl.Margin = FirstThk_lbl; ;
+                    FirstPos = true;
+                }
+
+                else if (SecondPos == false)
+                {
+                    cDP_n.Margin = SecondThk_n;
+                    cDP_lbl.Margin = SecondThk_lbl;
+                    SecondPos = true;
+                }
+                else
+                {
+                    ThirdPos = true;
+                    cDP_n.Margin = ThirdThk_n;
+                    cDP_lbl.Margin = ThirdThk_lbl;
+                }
+
+            }
+
+            if (cs.cMaxHP != 0)
+            {
+                cHP_lbl.Visibility = Visibility.Visible;
+                cHP_n.Visibility = Visibility.Visible;
+
+                if (FirstPos == false)
+                {
+                    cHP_n.Margin = FirstThk_n;
+                    cHP_lbl.Margin = FirstThk_lbl; ;
+                    FirstPos = true;
+                }
+
+                else if (SecondPos == false)
+                {
+                    cHP_n.Margin = SecondThk_n;
+                    cHP_lbl.Margin = SecondThk_lbl;
+                    SecondPos = true;
+                }
+
+                else if (ThirdPos == false)
+                {
+                    cHP_n.Margin = ThirdThk_n;
+                    cHP_lbl.Margin = ThirdThk_lbl;
+                    ThirdPos = true;
+                }
+                else
+                {
+                    cHP_n.Margin = FouthThk_n;
+                    cHP_lbl.Margin = FouthThk_lbl;
+                    FourthPos = true;
+                }
+
+            }
+
+            if (cs.cMaxMP != 0)
+            {
+                cMP_lbl.Visibility = Visibility.Visible;
+                cMP_n.Visibility = Visibility.Visible;
+
+                if (FirstPos == false)
+                {
+                    cMP_n.Margin = FirstThk_n;
+                    cMP_lbl.Margin = FirstThk_lbl; ;
+                    FirstPos = true;
+                }
+
+                else if (SecondPos == false)
+                {
+                    cMP_n.Margin = SecondThk_n;
+                    cMP_lbl.Margin = SecondThk_lbl;
+                    SecondPos = true;
+                }
+
+                else if (ThirdPos == false)
+                {
+                    cMP_n.Margin = ThirdThk_n;
+                    cMP_lbl.Margin = ThirdThk_lbl;
+                    ThirdPos = true;
+                }
+
+                else if (FourthPos == false)
+                {
+                    cMP_n.Margin = FouthThk_n;
+                    cMP_lbl.Margin = FouthThk_lbl;
+                    FourthPos = true;
+                }
+                else
+                {
+                    cMP_n.Margin = FifthThk_n;
+                    cMP_lbl.Margin = FifthThk_lbl;
+                    FifthPos = true;
+                }
+
+            }
+
+            if (cs.cMaxST != 0)
+            {
+                cStamina_lbl.Visibility = Visibility.Visible;
+                cStamina_n.Visibility = Visibility.Visible;
+
+                if (FirstPos == false)
+                {
+                    cStamina_n.Margin = FirstThk_n;
+                    cStamina_lbl.Margin = FirstThk_lbl; ;
+                    FirstPos = true;
+                }
+
+                else if (SecondPos == false)
+                {
+                    cStamina_n.Margin = SecondThk_n;
+                    cStamina_lbl.Margin = SecondThk_lbl;
+                    SecondPos = true;
+                }
+
+                else if (ThirdPos == false)
+                {
+                    cStamina_n.Margin = ThirdThk_n;
+                    cStamina_lbl.Margin = ThirdThk_lbl;
+                    ThirdPos = true;
+                }
+
+                else if (FourthPos == false)
+                {
+                    cStamina_n.Margin = FouthThk_n;
+                    cStamina_lbl.Margin = FouthThk_lbl;
+                    FourthPos = true;
+                }
+
+                else if (FifthPos == false)
+                {
+                    cStamina_n.Margin = FifthThk_n;
+                    cStamina_lbl.Margin = FifthThk_lbl;
+                    FifthPos = true;
+                }
+                else
+                {
+                    cStamina_n.Margin = SixthThk_n;
+                    cStamina_lbl.Margin = SixthThk_lbl;
+                    SixthPos = true;
+                }
+            }
+
+            if (cs.cWeight != 0)
+            {
+                cWeight_lbl.Visibility = Visibility.Visible;
+                cWeight_n.Visibility = Visibility.Visible;
+
+                if (FirstPos == false)
+                {
+                    cWeight_n.Margin = FirstThk_n;
+                    cWeight_lbl.Margin = FirstThk_lbl; ;
+                    FirstPos = true;
+                }
+
+                else if (SecondPos == false)
+                {
+                    cWeight_n.Margin = SecondThk_n;
+                    cWeight_lbl.Margin = SecondThk_lbl;
+                    SecondPos = true;
+                }
+
+                else if (ThirdPos == false)
+                {
+                    cWeight_n.Margin = ThirdThk_n;
+                    cWeight_lbl.Margin = ThirdThk_lbl;
+                    ThirdPos = true;
+                }
+
+                else if (FourthPos == false)
+                {
+                    cWeight_n.Margin = FouthThk_n;
+                    cWeight_lbl.Margin = FouthThk_lbl;
+                    FourthPos = true;
+                }
+
+                else if (FifthPos == false)
+                {
+                    cWeight_n.Margin = FifthThk_n;
+                    cWeight_lbl.Margin = FifthThk_lbl;
+                    FifthPos = true;
+                }
+
+                else if (SixthPos == false)
+                {
+                    cWeight_n.Margin = SixthThk_n;
+                    cWeight_lbl.Margin = SixthThk_lbl;
+                    SixthPos = true;
+                }
+                else
+                {
+                    cWeight_n.Margin = SeventhThk_n;
+                    cWeight_lbl.Margin = SeventhThk_lbl;
+                    SeventhPos = true;
+                }
+            }
+
+
+
+            if (SeventhPos == true)
+            {
+
+                MainStatsExp.Height = 203;
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 444);
+            }
+            else if (SixthPos == true)
+            {
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 471);
+                MainStatsExp.Height = 176;
+            }
+
+            else if (FifthPos == true)
+            {
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 497);
+                MainStatsExp.Height = 150;
+            }
+
+            else if (FourthPos == true)
+            {
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 521);
+                MainStatsExp.Height = 126;
+            }
+            else if (ThirdPos == true)
+            {
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 547);
+                MainStatsExp.Height = 100;
+            }
+            else if (SecondPos == true)
+            {
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 572);
+                MainStatsExp.Height = 75;
+            }
+            else if (FirstPos == true)
+            {
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 600);
+                MainStatsExp.Height = 47;
+            }
+
+            else
+            {
+                MainStatsExp.Margin = new Thickness(0, 0, 0, 623);
+                MainStatsExp.Height = 24;
+            }
+
+
+        }
+
+        private void AbilitiesLabels()
+        {
+            cAtkSpeed_lbl.Visibility = Visibility.Collapsed;
+            cAtkSpeed_n.Visibility = Visibility.Collapsed;
+            cCastSpeed_lbl.Visibility = Visibility.Collapsed;
+            cCastSpeed_n.Visibility = Visibility.Collapsed;
+            cMvS_lbl.Visibility = Visibility.Collapsed;
+            cCR_lbl.Visibility = Visibility.Collapsed;
+            cLuck_lbl.Visibility = Visibility.Collapsed;
+            cAtkSpeedRate_lbl.Visibility = Visibility.Collapsed;
+            cCastSpeedRate_lbl.Visibility = Visibility.Collapsed;
+            cMvS_n.Visibility = Visibility.Collapsed;
+            cCR_n.Visibility = Visibility.Collapsed;
+            cLuck_n.Visibility = Visibility.Collapsed;
+            cAtkSpeedRate_n.Visibility = Visibility.Collapsed;
+            cCastSpeedRate_n.Visibility = Visibility.Collapsed;
+
+
+
+            Label[] Abilities_lbl = new Label[7] { cAtkSpeed_lbl, cCastSpeed_lbl, cMvS_lbl, cCR_lbl, cLuck_lbl, cAtkSpeedRate_lbl, cCastSpeedRate_lbl };
+            Label[] Abilities_n = new Label[7] { cAtkSpeed_n, cCastSpeed_n, cMvS_n, cCR_n, cLuck_n, cAtkSpeedRate_n, cCastSpeedRate_n };
+            Thickness[] lbl_thk = new Thickness[7] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0), new Thickness(10, 78, 0, 0), new Thickness(10, 104, 0, 0), new Thickness(10, 130, 0, 0), new Thickness(10, 156, 0, 0) };
+            Thickness[] n_thk = new Thickness[7] { new Thickness(118, 0, 0, 0), new Thickness(118, 26, 0, 0), new Thickness(118, 52, 0, 0), new Thickness(118, 78, 0, 0), new Thickness(118, 104, 0, 0), new Thickness(118, 130, 0, 0), new Thickness(118, 156, 0, 0) };
+            int[] Abilities = new int[7] { cs.cAtkSpeed, cs.cCastSpeed, cs.cmvs, cs.ccr, cs.cluck, cs.cAtkSpeedRate, cs.cCastSpeedRate };
+            int PositionCheck = 0;
+
+
+
+
+            for (int i = 0; i < Abilities.Length; i++)
+            {
+                if (Abilities[i] != 0)
+                {
+                    Abilities_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Abilities_n[i].Margin = n_thk[PositionCheck];
+                    Abilities_lbl[i].Visibility = Visibility.Visible;
+                    Abilities_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+
+            
+            if (PositionCheck == 7)
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 232 +(203- MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 207;
+            }
+            else if (PositionCheck == 6)
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 261 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 178;
+            }
+            else if (PositionCheck == 5)
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 288 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 151;
+            }
+            else if (PositionCheck == 4)
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 309 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 130;
+            }
+            else if (PositionCheck == 3)
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 340 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 99;
+            }
+            else if (PositionCheck == 2)
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 365 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 74;
+            }
+            else if (PositionCheck == 1)
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 391 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 48;
+            }
+
+            else
+            {
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 416 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Height = 23;
+            }
+
+            
+
+
+        }
+        
+        private void OffenceStateLabels()
+        {
+            cHAP_lbl.Visibility = Visibility.Collapsed;
+            cMagicAP_lbl.Visibility = Visibility.Collapsed;
+            cMelleAP_lbl.Visibility = Visibility.Collapsed;
+            cRangeAP_lbl.Visibility = Visibility.Collapsed;
+            cAcc_lbl.Visibility = Visibility.Collapsed;
+            cIgnoreResistance_lbl.Visibility = Visibility.Collapsed;
+            cIgnoreGrapleResistance_lbl.Visibility = Visibility.Collapsed;
+            cIgnoreKDResistance_lbl.Visibility = Visibility.Collapsed;
+            cIgnoreKBResistance_lbl.Visibility = Visibility.Collapsed;
+            cIgnoreStunResistance_lbl.Visibility = Visibility.Collapsed;
+            cAtkSpeedDmg_lbl.Visibility = Visibility.Collapsed;
+
+            cHAP_n.Visibility = Visibility.Collapsed;
+            cMagicAP_n.Visibility = Visibility.Collapsed;
+            cMelleAP_n.Visibility = Visibility.Collapsed;
+            cRangeAP_n.Visibility = Visibility.Collapsed;
+            cAcc_n.Visibility = Visibility.Collapsed;
+            cIgnoreResistance_n.Visibility = Visibility.Collapsed;
+            cIgnoreGrapleResistance_n.Visibility = Visibility.Collapsed;
+            cIgnoreKDResistance_n.Visibility = Visibility.Collapsed;
+            cIgnoreKBResistance_n.Visibility = Visibility.Collapsed;
+            cIgnoreStunResistance_n.Visibility = Visibility.Collapsed;
+            cAtkSpeedDmg_n.Visibility = Visibility.Collapsed;
+
+
+
+
+            Label[] Offence_lbl = new Label[11] { cHAP_lbl, cMagicAP_lbl, cMelleAP_lbl, cRangeAP_lbl, cAcc_lbl, cIgnoreResistance_lbl, cIgnoreGrapleResistance_lbl, cIgnoreKDResistance_lbl, cIgnoreKBResistance_lbl, cIgnoreStunResistance_lbl, cAtkSpeedDmg_lbl };
+            Label[]  Offence_n = new Label[11] { cHAP_n, cMagicAP_n, cMelleAP_n, cRangeAP_n, cAcc_n, cIgnoreResistance_n, cIgnoreGrapleResistance_n, cIgnoreKDResistance_n, cIgnoreKBResistance_n, cIgnoreStunResistance_n, cAtkSpeedDmg_n };
+            Thickness[] lbl_thk = new Thickness[11] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0), new Thickness(10, 78, 0, 0), new Thickness(10, 104, 0, 0), new Thickness(10, 130, 0, 0), new Thickness(10, 156, 0, 0), new Thickness(10, 181, 0, 0), new Thickness(10,205,0,0), new Thickness(10,231, 0 , 0), new Thickness(10,257,0,0)};
+            Thickness[] n_thk = new Thickness[11] { new Thickness(152, 0, 0, 0), new Thickness(152, 26, 0, 0), new Thickness(152, 52, 0, 0), new Thickness(152, 78, 0, 0), new Thickness(152, 104, 0, 0), new Thickness(152, 130, 0, 0), new Thickness(152, 156, 0, 0), new Thickness(152, 181, 0, 0), new Thickness(152, 205, 0, 0), new Thickness(152, 231, 0, 0), new Thickness(152, 257, 0, 0) };
+            int[] Offence = new int[11] {cs.chap, cs.cMagicAP, cs.cMelleAP, cs.cRangeAP, cs.cacc, cs.cResistIgnore, cs.cGrapResistIgnore, cs.cKDResistIgnore, cs.cKBResistIgnore, cs.cStunResistIgnore, cs.cSpeedAtkDmg };
+            int PositionCheck = 0;
+
+            for (int i = 0; i < Offence.Length; i++)
+            {
+                if (Offence[i] != 0)
+                {
+                    Offence_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Offence_n[i].Margin = n_thk[PositionCheck];
+                    Offence_lbl[i].Visibility = Visibility.Visible;
+                    Offence_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+
+            if (PositionCheck == 11)
+            {
+                OffenceStatsExp.Height = 307;
+            }
+
+            else if (PositionCheck == 10)
+            {
+                OffenceStatsExp.Height = 282;
+            }
+            else if (PositionCheck == 9)
+            {
+                OffenceStatsExp.Height = 254;
+            }
+            else if (PositionCheck == 8)
+            {
+                OffenceStatsExp.Height = 230;
+            }
+            else if (PositionCheck == 7)
+            {
+                OffenceStatsExp.Height = 203;
+            }
+            else if (PositionCheck == 6)
+            {
+                OffenceStatsExp.Height = 180;
+            }
+            else if (PositionCheck == 5)
+            {
+                OffenceStatsExp.Height = 150;
+            }
+            else if (PositionCheck == 4)
+            {
+                OffenceStatsExp.Height = 128;
+            }
+            else if (PositionCheck == 3)
+            {
+                OffenceStatsExp.Height = 101;
+            }
+            else if (PositionCheck == 2)
+            {
+                OffenceStatsExp.Height = 76;
+            }
+            else if (PositionCheck == 1)
+            {
+                OffenceStatsExp.Height = 52;
+            }
+            else
+            {
+                OffenceStatsExp.Height = 24;
+            }
+           
+        }
+
+        private void SurvivalStateLabels()
+        {
+            cHPR_lbl.Visibility = Visibility.Collapsed;
+            cMPR_lbl.Visibility = Visibility.Collapsed;
+            cHPRecoveryChance_lbl.Visibility = Visibility.Collapsed;
+            cHPR_n.Visibility = Visibility.Collapsed;
+            cMPR_n.Visibility = Visibility.Collapsed;
+            cHPRecoveryChance_n.Visibility = Visibility.Collapsed;
+
+
+            Label[] Survival_lbl = new Label[3] { cHPR_lbl, cMPR_lbl, cHPRecoveryChance_lbl };
+            Label[] Survival_n = new Label[3] { cHPR_n, cMPR_n, cHPRecoveryChance_n };
+            Thickness[] lbl_thk = new Thickness[3] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0) };
+            Thickness[] n_thk = new Thickness[3] { new Thickness(218, 0, 0, 0), new Thickness(218, 26, 0, 0), new Thickness(218, 52, 0, 0) };
+            int[] Survival = new int[3] {cs.chpr, cs.cmpr, cs.cHPrecoveryChance };
+            int PositionCheck = 0;
+
+            for (int i = 0; i < Survival.Length; i++)
+            {
+                if (Survival[i] != 0)
+                {
+                    Survival_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Survival_n[i].Margin = n_thk[PositionCheck];
+                    Survival_lbl[i].Visibility = Visibility.Visible;
+                    Survival_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+
+                SurvivalStatesExp.Margin = new Thickness(170, OffenceStatsExp.Height + 5, 0, 232 + (307  - OffenceStatsExp.Height));
+
+        }
+
+        private void BonusStateLabels()
+        {
+            cSpiritRage_lbl.Visibility = Visibility.Collapsed;
+            cBonusAP_lbl.Visibility = Visibility.Collapsed;
+            cBonusAAP_lbl.Visibility = Visibility.Collapsed;
+            cBonusDR_lbl.Visibility = Visibility.Collapsed;
+            cCombatEXP_lbl.Visibility = Visibility.Collapsed;
+            cSkillEXP_lbl.Visibility = Visibility.Collapsed;
+
+            cSpiritRage_n.Visibility = Visibility.Collapsed;
+            cBonusAP_n.Visibility = Visibility.Collapsed;
+            cBonusAAP_n.Visibility = Visibility.Collapsed;
+            cBonusDR_n.Visibility = Visibility.Collapsed;
+            cCombatEXP_n.Visibility = Visibility.Collapsed;
+            cSkillEXP_n.Visibility = Visibility.Collapsed;
+
+
+            Label[] Bonus_lbl = new Label[6] { cSpiritRage_lbl, cBonusAP_lbl, cBonusAAP_lbl, cBonusDR_lbl, cCombatEXP_lbl, cSkillEXP_lbl };
+            Label[] Bonus_n = new Label[6] { cSpiritRage_n, cBonusAP_n, cBonusAAP_n, cBonusDR_n, cCombatEXP_n, cSkillEXP_n };
+            Thickness[] lbl_thk = new Thickness[6] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0), new Thickness(10, 78, 0, 0), new Thickness(10, 104, 0, 0), new Thickness(10, 130, 0, 0) };
+            Thickness[] n_thk = new Thickness[6] { new Thickness(116, 0, 0, 0), new Thickness(116, 26, 0, 0), new Thickness(116, 52, 0, 0), new Thickness(116, 78, 0, 0), new Thickness(116, 104, 0, 0), new Thickness(116, 130, 0, 0) };
+            int[] Bonus = new int[6] { cs.cSpiritRage, cs.bcap, cs.bcaap, Convert.ToInt32(cs.bcdr), cs.cCombatExp, cs.cSkillExp};
+            int PositionCheck = 0;
+
+            for (int i = 0; i < Bonus.Length; i++)
+            {
+                if (Bonus[i] != 0)
+                {
+                    Bonus_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Bonus_n[i].Margin = n_thk[PositionCheck];
+                    Bonus_lbl[i].Visibility = Visibility.Visible;
+                    Bonus_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+
+            BonusStatesExp.Margin = new Thickness(0,  MainStatsExp.Height + AbilitiesStatsExp.Height+ 5, 0, 232 + (207 - AbilitiesStatsExp.Height));
+
+        }
+
+        private void DefenceStateLabels()
+        {
+            cDR_lbl.Visibility = Visibility.Collapsed;
+            cHDR_lbl.Visibility = Visibility.Collapsed;
+            cEvas_lbl.Visibility = Visibility.Collapsed;
+            cHE_lbl.Visibility = Visibility.Collapsed;
+            cMagicDR_lbl.Visibility = Visibility.Collapsed;
+            cMelleDR_lbl.Visibility = Visibility.Collapsed;
+            cRangeDR_lbl.Visibility = Visibility.Collapsed;
+            cDFM_lbl.Visibility = Visibility.Collapsed;
+            cSpecialAttackEvRate_lbl.Visibility = Visibility.Collapsed;
+            cSiegeWeaponEvRate_lbl.Visibility = Visibility.Collapsed;
+
+            cDR_n.Visibility = Visibility.Collapsed;
+            cHDR_n.Visibility = Visibility.Collapsed;
+            cEvas_n.Visibility = Visibility.Collapsed;
+            cHE_n.Visibility = Visibility.Collapsed;
+            cMagicDR_n.Visibility = Visibility.Collapsed;
+            cMelleDR_n.Visibility = Visibility.Collapsed;
+            cRangeDR_n.Visibility = Visibility.Collapsed;
+            cDFM_n.Visibility = Visibility.Collapsed;
+            cSpecialAttackEvRate_n.Visibility = Visibility.Collapsed;
+            cSiegeWeaponEvRate_n.Visibility = Visibility.Collapsed;
+
+
+            Label[] Defence_lbl = new Label[10] { cDR_lbl, cHDR_lbl, cEvas_lbl, cHE_lbl, cMagicDR_lbl, cMelleDR_lbl, cRangeDR_lbl, cDFM_lbl, cSiegeWeaponEvRate_lbl, cSpecialAttackEvRate_lbl };
+            Label[] Defence_n = new Label[10] { cDR_n, cHDR_n, cEvas_n, cHE_n, cMagicDR_n, cMelleDR_n, cRangeDR_n, cDFM_n, cSiegeWeaponEvRate_n, cSpecialAttackEvRate_n };
+            Thickness[] lbl_thk = new Thickness[10] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0), new Thickness(10, 78, 0, 0), new Thickness(10, 104, 0, 0), new Thickness(10, 130, 0, 0) , new Thickness (6, 155, 0, 0), new Thickness(6, 181, 0, 0), new Thickness(6, 207, 0, 0), new Thickness(6, 233, 0, 0) };
+            Thickness[] n_thk = new Thickness[10] { new Thickness(165, 0, 0, 0), new Thickness(165, 26, 0, 0), new Thickness(165, 52, 0, 0), new Thickness(165, 78, 0, 0), new Thickness(165, 104, 0, 0), new Thickness(165, 130, 0, 0), new Thickness(165, 155, 0, 0), new Thickness(165, 181, 0, 0), new Thickness(165, 207, 0, 0), new Thickness(165, 233, 0, 0) };
+            int[] Defence = new int[10] { cs.cDR, cs.chdr, cs.cev, cs.chev, cs.cMagicDR, cs.cMeleeDR, cs.cRangeDR, cs.cdfm, cs.cSiegeWeaponEvRate, cs.cSpecialAttackEv };
+            int PositionCheck = 0;
+
+            for (int i = 0; i < Defence.Length; i++)
+            {
+                if (Defence[i] != 0)
+                {
+                    Defence_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Defence_n[i].Margin = n_thk[PositionCheck];
+                    Defence_lbl[i].Visibility = Visibility.Visible;
+                    Defence_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+
+
+            if (PositionCheck == 10)
+            {
+                DefenceStateExp.Height = 282;
+            }
+            else if (PositionCheck == 9)
+            {
+                DefenceStateExp.Height = 254;
+            }
+            else if (PositionCheck == 8)
+            {
+                DefenceStateExp.Height = 230;
+            }
+            else if (PositionCheck == 7)
+            {
+                DefenceStateExp.Height = 203;
+            }
+            else if (PositionCheck == 6)
+            {
+                DefenceStateExp.Height = 180;
+            }
+            else if (PositionCheck == 5)
+            {
+                DefenceStateExp.Height = 150;
+            }
+            else if (PositionCheck == 4)
+            {
+                DefenceStateExp.Height = 128;
+            }
+            else if (PositionCheck == 3)
+            {
+                DefenceStateExp.Height = 101;
+            }
+            else if (PositionCheck == 2)
+            {
+                DefenceStateExp.Height = 76;
+            }
+            else if (PositionCheck == 1)
+            {
+                DefenceStateExp.Height = 52;
+            }
+            else
+            {
+                DefenceStateExp.Height = 24;
+            }
+
+        }
+
+        private void ProffessionStateLabels()
+        {
+            cProcessingRate_lbl.Visibility = Visibility.Collapsed;
+            cGathDropRate_lbl.Visibility = Visibility.Collapsed;
+            cGathering_lbl.Visibility = Visibility.Collapsed;
+            cFishing_lbl.Visibility = Visibility.Collapsed;
+            cAlchCookTime_lbl.Visibility = Visibility.Collapsed;
+
+            cProcessingRate_n.Visibility = Visibility.Collapsed;
+            cGathDropRate_n.Visibility = Visibility.Collapsed;
+            cGathering_n.Visibility = Visibility.Collapsed;
+            cFishing_n.Visibility = Visibility.Collapsed;
+            cAlchCookTime_n.Visibility = Visibility.Collapsed;
+
+
+            Label[] Proffession_lbl = new Label[5] { cProcessingRate_lbl, cGathDropRate_lbl, cGathering_lbl, cFishing_lbl, cAlchCookTime_lbl};
+            Label[] Proffession_n = new Label[5] { cProcessingRate_n, cGathDropRate_n, cGathering_n, cFishing_n, cAlchCookTime_n };
+            Thickness[] lbl_thk = new Thickness[5] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0), new Thickness(10, 78, 0, 0), new Thickness(10, 104, 0, 0)};
+            Thickness[] n_thk = new Thickness[5] { new Thickness(159, 0, 0, 0), new Thickness(159, 26, 0, 0), new Thickness(159, 52, 0, 0), new Thickness(159, 78, 0, 0), new Thickness(159, 104, 0, 0)};
+            int[] Proffession = new int[5] { cs.cProccesingRate, cs.cGathDropRate, cs.cGathering, cs.cFishing, Convert.ToInt32(cs.cAlchCookTime) };
+            int PositionCheck = 0;
+
+            for (int i = 0; i < Proffession.Length; i++)
+            {
+                if (Proffession[i] != 0)
+                {
+                    Proffession_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Proffession_n[i].Margin = n_thk[PositionCheck];
+                    Proffession_lbl[i].Visibility = Visibility.Visible;
+                    Proffession_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+
+            ProffessionStatesExp.Margin = new Thickness(409, DefenceStateExp.Height + 5, 0, 150 + (282 - DefenceStateExp.Height));
+
+        }
+
+        private void AdditionalStateLabels()
+        {
+            cCHDamage_lbl.Visibility = Visibility.Collapsed;
+            cEDA_lbl.Visibility = Visibility.Collapsed;
+            cEDH_lbl.Visibility = Visibility.Collapsed;
+            cEAPa_lbl.Visibility = Visibility.Collapsed;
+            cExtraDamKama_lbl.Visibility = Visibility.Collapsed;
+            cADtDemiH_lbl.Visibility = Visibility.Collapsed;
+            cEDtAExcHumanAndDemi_lbl.Visibility = Visibility.Collapsed;
+            cEDtoAir_lbl.Visibility = Visibility.Collapsed;
+            cEDtoCounter_lbl.Visibility = Visibility.Collapsed;
+            cEDtoDown_lbl.Visibility = Visibility.Collapsed;
+            cEDtoBack_lbl.Visibility = Visibility.Collapsed;
+            cSpecialAttackED_lbl.Visibility = Visibility.Collapsed;
+
+            cCHDamage_n.Visibility = Visibility.Collapsed;
+            cEDA_n.Visibility = Visibility.Collapsed;
+            cEDH_n.Visibility = Visibility.Collapsed;
+            cEAPa_n.Visibility = Visibility.Collapsed;
+            cExtraDamKama_n.Visibility = Visibility.Collapsed;
+            cADtDemiH_n.Visibility = Visibility.Collapsed;
+            cEDtAExcHumanAndDemi_n.Visibility = Visibility.Collapsed;
+            cEDtoAir_n.Visibility = Visibility.Collapsed;
+            cEDtoCounter_n.Visibility = Visibility.Collapsed;
+            cEDtoDown_n.Visibility = Visibility.Collapsed;
+            cEDtoBack_n.Visibility = Visibility.Collapsed;
+            cSpecialAttackED_n.Visibility = Visibility.Collapsed;
+
+
+
+
+            Label[] Additional_lbl = new Label[12] { cCHDamage_lbl, cEDA_lbl, cEDH_lbl, cEAPa_lbl, cExtraDamKama_lbl, cADtDemiH_lbl, cEDtAExcHumanAndDemi_lbl, cEDtoAir_lbl, cEDtoCounter_lbl, cEDtoDown_lbl, cEDtoBack_lbl, cSpecialAttackED_lbl };
+            Label[] Additional_n = new Label[12] { cCHDamage_n, cEDA_n, cEDH_n, cEAPa_n, cExtraDamKama_n, cADtDemiH_n, cEDtAExcHumanAndDemi_n, cEDtoAir_n, cEDtoCounter_n, cEDtoDown_n, cEDtoBack_n, cSpecialAttackED_n };
+            Thickness[] lbl_thk = new Thickness[12] { new Thickness(5, 0, 0, 0), new Thickness(5, 26, 0, 0), new Thickness(5, 52, 0, 0), new Thickness(5, 78, 0, 0), new Thickness(5, 104, 0, 0), new Thickness(5, 130, 0, 0), new Thickness(5, 156, 0, 0), new Thickness(5, 181, 0, 0), new Thickness(5, 205, 0, 0), new Thickness(5, 231, 0, 0), new Thickness(5, 257, 0, 0), new Thickness(5, 287, 0, 0) };
+            Thickness[] n_thk = new Thickness[12] { new Thickness(287, 0, 0, 0), new Thickness(287, 26, 0, 0), new Thickness(287, 52, 0, 0), new Thickness(287, 78, 0, 0), new Thickness(287, 104, 0, 0), new Thickness(287, 130, 0, 0), new Thickness(287, 156, 0, 0), new Thickness(287, 181, 0, 0), new Thickness(287, 205, 0, 0), new Thickness(287, 231, 0, 0), new Thickness(287, 257, 0, 0), new Thickness(287, 287, 0, 0) };
+            int[] Additional = new int[12] { cs.cCritHitDmg, cs.ceda, cs.cedh, cs.ceapa, cs.cedKama, cs.cADtDemiH, cs.cADtoAllWithExcept, cs.cEDtoAir, cs.cEDtoCounter, cs.cEDtoDown, cs.cEDtoBack, cs.cSpecialAttackDam };
+            int PositionCheck = 0;
+
+            for (int i = 0; i < Additional.Length; i++)
+            {
+                if (Additional[i] != 0)
+                {
+                    Additional_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Additional_n[i].Margin = n_thk[PositionCheck];
+                    Additional_lbl[i].Visibility = Visibility.Visible;
+                    Additional_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+
+            if(PositionCheck == 12)
+            {
+                AdditionalStateExp.Height = 343;
+
+            }
+
+            else if (PositionCheck == 11)
+            {
+                AdditionalStateExp.Height = 307;
+            }
+
+            else if (PositionCheck == 10)
+            {
+                AdditionalStateExp.Height = 282;
+            }
+            else if (PositionCheck == 9)
+            {
+                AdditionalStateExp.Height = 254;
+            }
+            else if (PositionCheck == 8)
+            {
+                AdditionalStateExp.Height = 230;
+            }
+            else if (PositionCheck == 7)
+            {
+                AdditionalStateExp.Height = 203;
+            }
+            else if (PositionCheck == 6)
+            {
+                AdditionalStateExp.Height = 180;
+            }
+            else if (PositionCheck == 5)
+            {
+                AdditionalStateExp.Height = 150;
+            }
+            else if (PositionCheck == 4)
+            {
+                AdditionalStateExp.Height = 128;
+            }
+            else if (PositionCheck == 3)
+            {
+                AdditionalStateExp.Height = 101;
+            }
+            else if (PositionCheck == 2)
+            {
+                AdditionalStateExp.Height = 76;
+            }
+            else if (PositionCheck == 1)
+            {
+                AdditionalStateExp.Height = 52;
+            }
+            else
+            {
+                AdditionalStateExp.Height = 24;
+            }
+
+        }
+
+        private void OtherStateLabels()
+        {
+            cFallDamage_lbl.Visibility = Visibility.Collapsed;
+            cJump_lbl.Visibility = Visibility.Collapsed;
+            cUnderwaterBreath_lbl.Visibility = Visibility.Collapsed;
+            cMaxEnergy_lbl.Visibility = Visibility.Collapsed;
+            cVisionRange_lbl.Visibility = Visibility.Collapsed;
+            cBidding_lbl.Visibility = Visibility.Collapsed;
+            cMistyHev_lbl.Visibility = Visibility.Collapsed;
+            cMistyHdp_lbl.Visibility = Visibility.Collapsed;
+            cDelusLmvs_lbl.Visibility = Visibility.Collapsed;
+            cSunMoon_lbl.Visibility = Visibility.Collapsed;
+
+            cFallDamage_n.Visibility = Visibility.Collapsed;
+            cJump_n.Visibility = Visibility.Collapsed;
+            cUnderwaterBreath_n.Visibility = Visibility.Collapsed;
+            cMaxEnergy_n.Visibility = Visibility.Collapsed;
+            cVisionRange_n.Visibility = Visibility.Collapsed;
+            cBidding_n.Visibility = Visibility.Collapsed;
+            cMistyHev_n.Visibility = Visibility.Collapsed;
+            cMistyHdp_n.Visibility = Visibility.Collapsed;
+            cDelusLmvs_n.Visibility = Visibility.Collapsed;
+            cSunMoon_n.Visibility = Visibility.Collapsed;
+
+
+
+            Label[] Other_lbl = new Label[10] { cFallDamage_lbl, cJump_lbl, cUnderwaterBreath_lbl, cMaxEnergy_lbl, cVisionRange_lbl, cBidding_lbl, cMistyHev_lbl, cMistyHdp_lbl, cDelusLmvs_lbl, cSunMoon_lbl};
+            Label[] Other_n = new Label[10] { cFallDamage_n, cJump_n, cUnderwaterBreath_n, cMaxEnergy_n, cVisionRange_n, cBidding_n, cMistyHev_n, cMistyHdp_n, cDelusLmvs_n, cSunMoon_n };
+            Thickness[] lbl_thk = new Thickness[10] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0), new Thickness(10, 78, 0, 0), new Thickness(10, 104, 0, 0), new Thickness(10, 130, 0, 0), new Thickness(10, 156, 0, 0), new Thickness(10, 181, 0, 0), new Thickness(10, 205, 0, 0), new Thickness(10, 231, 0, 0)};
+            Thickness[] n_thk = new Thickness[10] { new Thickness(252, 0, 0, 0), new Thickness(252, 26, 0, 0), new Thickness(252, 52, 0, 0), new Thickness(252, 78, 0, 0), new Thickness(252, 104, 0, 0), new Thickness(252, 130, 0, 0), new Thickness(252, 156, 0, 0), new Thickness(252, 181, 0, 0), new Thickness(252, 205, 0, 0), new Thickness(252, 231, 0, 0)};
+            int[] Other = new int[10] { cs.cFallDamage, cs.cJump, cs.cUnderwaterBreath, cs.cMaxEnergy, cs.cVisionRange, cs.cBidding, cs.shaiEv, cs.shaiDP, cs.shaiMvs, cs.shaiSpeed};
+            int PositionCheck = 0;
+
+            for (int i = 0; i < Other.Length; i++)
+            {
+                if (Other[i] != 0)
+                {
+                    Other_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Other_n[i].Margin = n_thk[PositionCheck];
+                    Other_lbl[i].Visibility = Visibility.Visible;
+                    Other_n[i].Visibility = Visibility.Visible;
+                    PositionCheck++;
+                }
+            }
+        }
+
+        private void ItemStateLabels()
+        {
+            iAP_n.Visibility = Visibility.Collapsed;
+            iAAP_n.Visibility = Visibility.Collapsed;
+            iDP_n.Visibility = Visibility.Collapsed;
+            iEvas_n.Visibility = Visibility.Collapsed;
+            iAcc_n.Visibility = Visibility.Collapsed;
+            iRes_n .Visibility = Visibility.Collapsed;
+            iDR_n.Visibility = Visibility.Collapsed; 
+            iHP_n.Visibility = Visibility.Collapsed;
+            iWeight_n.Visibility = Visibility.Collapsed;
+            iMP_n.Visibility = Visibility.Collapsed; 
+            iST_n.Visibility = Visibility.Collapsed; 
+            iSSFR_n .Visibility = Visibility.Collapsed;
+            iKBR_n .Visibility = Visibility.Collapsed; 
+            iGrapR_n .Visibility = Visibility.Collapsed;
+            iKFR_n .Visibility = Visibility.Collapsed; 
+            iHEV_n.Visibility = Visibility.Collapsed; 
+            iHDR_n.Visibility = Visibility.Collapsed; 
+            iAtkSpeed_n.Visibility = Visibility.Collapsed; 
+            iCastSpeed_n.Visibility = Visibility.Collapsed; 
+            iMVS_n.Visibility = Visibility.Collapsed; 
+            iCrit_n.Visibility = Visibility.Collapsed;
+            iExtraDamKama_n.Visibility = Visibility.Collapsed; 
+            iEDtA_n.Visibility = Visibility.Collapsed; 
+            iEAPa_n.Visibility = Visibility.Collapsed; 
+            iMPR_n.Visibility = Visibility.Collapsed; 
+            iHPR_n.Visibility = Visibility.Collapsed; 
+            iLuck_n.Visibility = Visibility.Collapsed; 
+            iEDH_n.Visibility = Visibility.Collapsed;
+            iADtDemiH_n.Visibility = Visibility.Collapsed; 
+            iEDtAExcHumanAndDemi_n.Visibility = Visibility.Collapsed; 
+            iSpiritRage_n .Visibility = Visibility.Collapsed;
+            iBidding_n .Visibility = Visibility.Collapsed; 
+            iEDtoBack_n .Visibility = Visibility.Collapsed; 
+            iHPRecoveryChance_n.Visibility = Visibility.Collapsed;
+            iIgnoreResistance_n .Visibility = Visibility.Collapsed;
+            iSpecialAttackED_n .Visibility = Visibility.Collapsed;
+            iSpecialAttackEvRate_n .Visibility = Visibility.Collapsed;
+            iHAP_n.Visibility = Visibility.Collapsed;
+            iCastSpeedRate_n .Visibility = Visibility.Collapsed;
+            iAtkSpeedRate_n .Visibility = Visibility.Collapsed;
+            iAlchCookTime_n.Visibility = Visibility.Collapsed;
+            iProcessingRate_n .Visibility = Visibility.Collapsed;
+            iGathering_n.Visibility = Visibility.Collapsed;
+            iFishing_n.Visibility = Visibility.Collapsed;
+            iGathDropRate_n .Visibility = Visibility.Collapsed;
+            iCombatEXP_n .Visibility = Visibility.Collapsed;
+            iSkillEXP_n .Visibility = Visibility.Collapsed;
+            iCHDamage_n .Visibility = Visibility.Collapsed;
+            iAtkSpeedDmg_n .Visibility = Visibility.Collapsed;
+            iEDtoAir_n .Visibility = Visibility.Collapsed;
+            iEDtoCounter_n .Visibility = Visibility.Collapsed;
+            iEDtoDown_n .Visibility = Visibility.Collapsed;
+            iIgnoreGrapleResistance_n .Visibility = Visibility.Collapsed;
+            iIgnoreKBResistance_n .Visibility = Visibility.Collapsed;
+            iIgnoreKDResistance_n .Visibility = Visibility.Collapsed;
+            iIgnoreStunResistance_n .Visibility = Visibility.Collapsed;
+            iVisionRange_n.Visibility = Visibility.Collapsed;
+            iMagicDR_n.Visibility = Visibility.Collapsed;
+            iMelleDR_n.Visibility = Visibility.Collapsed;
+            iRangeDR_n.Visibility = Visibility.Collapsed;
+            iSiegeWeaponEvRate_n .Visibility = Visibility.Collapsed;
+            iMagicAP_n.Visibility = Visibility.Collapsed;
+            iMelleAP_n.Visibility = Visibility.Collapsed;
+            iRangeAP_n.Visibility = Visibility.Collapsed;
+            iJump_n.Visibility = Visibility.Collapsed;
+            iFallDamage_n.Visibility = Visibility.Collapsed;
+            iUnderwaterBreath_n.Visibility = Visibility.Collapsed;
+            iMaxEnergy_n.Visibility = Visibility.Collapsed;
+
+            iAP_lbl.Visibility = Visibility.Collapsed;
+            iAAP_lbl.Visibility = Visibility.Collapsed;
+            iDP_lbl.Visibility = Visibility.Collapsed;
+            iEvas_lbl.Visibility = Visibility.Collapsed;
+            iAcc_lbl.Visibility = Visibility.Collapsed;
+            iRes_lbl.Visibility = Visibility.Collapsed;
+            iDR_lbl.Visibility = Visibility.Collapsed;
+            iHP_lbl.Visibility = Visibility.Collapsed;
+            iWeight_lbl.Visibility = Visibility.Collapsed;
+            iMP_lbl.Visibility = Visibility.Collapsed;
+            iST_lbl.Visibility = Visibility.Collapsed;
+            iSSFR_lbl.Visibility = Visibility.Collapsed;
+            iKBR_lbl.Visibility = Visibility.Collapsed;
+            iGrapR_lbl.Visibility = Visibility.Collapsed;
+            iKFR_lbl.Visibility = Visibility.Collapsed;
+            iHEV_lbl.Visibility = Visibility.Collapsed;
+            iHDR_lbl.Visibility = Visibility.Collapsed;
+            iAtkSpeed_lbl.Visibility = Visibility.Collapsed;
+            iCastSpeed_lbl.Visibility = Visibility.Collapsed;
+            iMVS_lbl.Visibility = Visibility.Collapsed;
+            iCrit_lbl.Visibility = Visibility.Collapsed;
+            iExtraDamKama_lbl.Visibility = Visibility.Collapsed;
+            iEDtA_lbl.Visibility = Visibility.Collapsed;
+            iEAPa_lbl.Visibility = Visibility.Collapsed;
+            iMPR_lbl.Visibility = Visibility.Collapsed;
+            iHPR_lbl.Visibility = Visibility.Collapsed;
+            iLuck_lbl.Visibility = Visibility.Collapsed;
+            iEDH_lbl.Visibility = Visibility.Collapsed;
+            iADtDemiH_lbl.Visibility = Visibility.Collapsed;
+            iEDtAExcHumanAndDemi_lbl.Visibility = Visibility.Collapsed;
+            iSpiritRage_lbl.Visibility = Visibility.Collapsed;
+            iBidding_lbl.Visibility = Visibility.Collapsed;
+            iEDtoBack_lbl.Visibility = Visibility.Collapsed;
+            iHPRecoveryChance_lbl.Visibility = Visibility.Collapsed;
+            iIgnoreResistance_lbl.Visibility = Visibility.Collapsed;
+            iSpecialAttackED_lbl.Visibility = Visibility.Collapsed;
+            iSpecialAttackEvRate_lbl.Visibility = Visibility.Collapsed;
+            iHAP_lbl.Visibility = Visibility.Collapsed;
+            iCastSpeedRate_lbl.Visibility = Visibility.Collapsed;
+            iAtkSpeedRate_lbl.Visibility = Visibility.Collapsed;
+            iAlchCookTime_lbl.Visibility = Visibility.Collapsed;
+            iProcessingRate_lbl.Visibility = Visibility.Collapsed;
+            iGathering_lbl.Visibility = Visibility.Collapsed;
+            iFishing_lbl.Visibility = Visibility.Collapsed;
+            iGathDropRate_lbl.Visibility = Visibility.Collapsed;
+            iCombatEXP_lbl.Visibility = Visibility.Collapsed;
+            iSkillEXP_lbl.Visibility = Visibility.Collapsed;
+            iCHDamage_lbl.Visibility = Visibility.Collapsed;
+            iAtkSpeedDmg_lbl.Visibility = Visibility.Collapsed;
+            iEDtoAir_lbl.Visibility = Visibility.Collapsed;
+            iEDtoCounter_lbl.Visibility = Visibility.Collapsed;
+            iEDtoDown_lbl.Visibility = Visibility.Collapsed;
+            iIgnoreGrapleResistance_lbl.Visibility = Visibility.Collapsed;
+            iIgnoreKBResistance_lbl.Visibility = Visibility.Collapsed;
+            iIgnoreKDResistance_lbl.Visibility = Visibility.Collapsed;
+            iIgnoreStunResistance_lbl.Visibility = Visibility.Collapsed;
+            iVisionRange_lbl.Visibility = Visibility.Collapsed;
+            iMagicDR_lbl.Visibility = Visibility.Collapsed;
+            iMelleDR_lbl.Visibility = Visibility.Collapsed;
+            iRangeDR_lbl.Visibility = Visibility.Collapsed;
+            iSiegeWeaponEvRate_lbl.Visibility = Visibility.Collapsed;
+            iMagicAP_lbl.Visibility = Visibility.Collapsed;
+            iMelleAP_lbl.Visibility = Visibility.Collapsed;
+            iRangeAP_lbl.Visibility = Visibility.Collapsed;
+            iJump_lbl.Visibility = Visibility.Collapsed;
+            iFallDamage_lbl.Visibility = Visibility.Collapsed;
+            iUnderwaterBreath_lbl.Visibility = Visibility.Collapsed;
+            iMaxEnergy_lbl.Visibility = Visibility.Collapsed;
+
+
+            Label[] Items_n = new Label[]
+            {
+            iAP_n,
+            iAAP_n,
+            iDP_n,
+            iEvas_n,
+            iAcc_n,
+            iRes_n,
+            iDR_n,
+            iHP_n,
+            iWeight_n,
+            iMP_n,
+            iST_n,
+            iSSFR_n,
+            iKBR_n,
+            iGrapR_n,
+            iKFR_n,
+            iHEV_n,
+            iHDR_n,
+            iAtkSpeed_n,
+            iCastSpeed_n,
+            iMVS_n,
+            iCrit_n,
+            iExtraDamKama_n,
+            iEDtA_n,
+            iEAPa_n,
+            iMPR_n,
+            iHPR_n,
+            iLuck_n,
+            iEDH_n,
+            iADtDemiH_n,
+            iEDtAExcHumanAndDemi_n,
+            iSpiritRage_n,
+            iBidding_n,
+            iEDtoBack_n,
+            iHPRecoveryChance_n,
+            iIgnoreResistance_n,
+            iSpecialAttackED_n,
+            iSpecialAttackEvRate_n,
+            iHAP_n,
+            iCastSpeedRate_n,
+            iAtkSpeedRate_n,
+            iAlchCookTime_n,
+            iProcessingRate_n,
+            iGathering_n,
+            iFishing_n,
+            iGathDropRate_n,
+            iCombatEXP_n,
+            iSkillEXP_n,
+            iCHDamage_n,
+            iAtkSpeedDmg_n,
+            iEDtoAir_n,
+            iEDtoCounter_n,
+            iEDtoDown_n,
+            iIgnoreGrapleResistance_n,
+            iIgnoreKBResistance_n,
+            iIgnoreKDResistance_n,
+            iIgnoreStunResistance_n,
+            iVisionRange_n,
+            iMagicDR_n,
+            iMelleDR_n,
+            iRangeDR_n,
+            iSiegeWeaponEvRate_n,
+            iMagicAP_n,
+            iMelleAP_n,
+            iRangeAP_n,
+            iJump_n,
+            iFallDamage_n,
+            iUnderwaterBreath_n,
+            iMaxEnergy_n
+        };
+            Label[] Items_lbl = new Label[] 
+            {
+                iAP_lbl,
+            iAAP_lbl,
+            iDP_lbl,
+            iEvas_lbl,
+            iAcc_lbl,
+            iRes_lbl,
+            iDR_lbl,
+            iHP_lbl,
+            iWeight_lbl,
+            iMP_lbl,
+            iST_lbl,
+            iSSFR_lbl,
+            iKBR_lbl,
+            iGrapR_lbl,
+            iKFR_lbl,
+            iHEV_lbl,
+            iHDR_lbl,
+            iAtkSpeed_lbl,
+            iCastSpeed_lbl,
+            iMVS_lbl,
+            iCrit_lbl,
+            iExtraDamKama_lbl,
+            iEDtA_lbl,
+            iEAPa_lbl,
+            iMPR_lbl,
+            iHPR_lbl,
+            iLuck_lbl,
+            iEDH_lbl,
+            iADtDemiH_lbl,
+            iEDtAExcHumanAndDemi_lbl,
+            iSpiritRage_lbl,
+            iBidding_lbl,
+            iEDtoBack_lbl,
+            iHPRecoveryChance_lbl,
+            iIgnoreResistance_lbl,
+            iSpecialAttackED_lbl,
+            iSpecialAttackEvRate_lbl,
+            iHAP_lbl,
+            iCastSpeedRate_lbl,
+            iAtkSpeedRate_lbl,
+            iAlchCookTime_lbl,
+            iProcessingRate_lbl,
+            iGathering_lbl,
+            iFishing_lbl,
+            iGathDropRate_lbl,
+            iCombatEXP_lbl,
+            iSkillEXP_lbl,
+            iCHDamage_lbl,
+            iAtkSpeedDmg_lbl,
+            iEDtoAir_lbl,
+            iEDtoCounter_lbl,
+            iEDtoDown_lbl,
+            iIgnoreGrapleResistance_lbl,
+            iIgnoreKBResistance_lbl,
+            iIgnoreKDResistance_lbl,
+            iIgnoreStunResistance_lbl,
+            iVisionRange_lbl,
+            iMagicDR_lbl,
+            iMelleDR_lbl,
+            iRangeDR_lbl,
+            iSiegeWeaponEvRate_lbl,
+            iMagicAP_lbl,
+            iMelleAP_lbl,
+            iRangeAP_lbl,
+            iJump_lbl,
+            iFallDamage_lbl,
+            iUnderwaterBreath_lbl,
+            iMaxEnergy_lbl
+            };
+            Thickness[] lbl_thk = new Thickness[12] { new Thickness(5, 0, 0, 0), new Thickness(5, 26, 0, 0), new Thickness(5, 52, 0, 0), new Thickness(5, 78, 0, 0), new Thickness(5, 104, 0, 0), new Thickness(5, 130, 0, 0), new Thickness(5, 156, 0, 0), new Thickness(5, 181, 0, 0), new Thickness(5, 205, 0, 0), new Thickness(5, 231, 0, 0), new Thickness(5, 257, 0, 0), new Thickness(5, 283, 0, 0) };
+            Thickness[] n_thk = new Thickness[12] { new Thickness(279, 0, 0, 0), new Thickness(279, 26, 0, 0), new Thickness(279, 52, 0, 0), new Thickness(279, 78, 0, 0), new Thickness(279, 104, 0, 0), new Thickness(279, 130, 0, 0), new Thickness(279, 156, 0, 0), new Thickness(279, 181, 0, 0), new Thickness(279, 205, 0, 0), new Thickness(279, 231, 0, 0), new Thickness(279, 257, 0, 0), new Thickness(279, 283, 0, 0) };
+            int[] Items = new int[] 
+            {
+            cs.iAP,
+            cs.iAAP,
+            cs.iDP,
+            cs.iEvas,
+            cs.iAcc,
+            cs.iRes ,
+            cs.iDR,
+            cs.iHP,
+            cs.iWeight,
+            cs.iMP,
+            cs.iST,
+            cs.iSSFR ,
+            cs.iKBR ,
+            cs.iGrapR ,
+            cs.iKFR ,
+            cs.iHEV,
+            cs.iHDR,
+            cs.iAtkSpeed,
+            cs.iCastSpeed,
+            cs.iMVS,
+            cs.iCrit,
+            cs.iExtraDamKama,
+            cs.iEDtA,
+            cs.iEAPa,
+            cs.iMPR,
+            cs.iHPR,
+            cs.iLuck,
+            cs.iEDH,
+            cs.iADtDemiH,
+            cs.iEDtAExcHumanAndDemi,
+            cs.iSpiritRage ,
+            cs.iBidding ,
+            cs.iEDtoBack ,
+            cs.iHPRecoveryChance,
+            cs.iIgnoreResistance ,
+            cs.iSpecialAttackED ,
+            cs.iSpecialAttackEvRate ,
+            cs.iHAP,
+            cs.iCastSpeedRate ,
+            cs.iAtkSpeedRate ,
+            Convert.ToInt32(cs.iAlchCookTime),
+            cs.iProcessingRate ,
+            cs.iGathering,
+            cs.iFishing,
+            cs.iGathDropRate ,
+            cs.iCombatEXP ,
+            cs.iSkillEXP ,
+            cs.iCHDamage ,
+            cs.iAtkSpeedDmg ,
+            cs.iEDtoAir ,
+            cs.iEDtoCounter ,
+            cs.iEDtoDown ,
+            cs.iIgnoreGrapleResistance ,
+            cs.iIgnoreKBResistance ,
+            cs.iIgnoreKDResistance ,
+            cs.iIgnoreStunResistance ,
+            cs.iVisionRange,
+            cs.iMagicDR,
+            cs.iMelleDR,
+            cs.iRangeDR,
+            cs.iSiegeWeaponEvRate ,
+            cs.iMagicAP,
+            cs.iMelleAP,
+            cs.iRangeAP,
+            cs.iJump,
+            cs.iFallDamage,
+            cs.iUnderwaterBreath,
+            cs.iMaxEnergy
+            };
+            int PositionCheck = 0;
+
+
+            for (int i = 0; i < Items.Length; i++)
+            {
+                if (Items[i] != 0)
+                {
+                    Items_lbl[i].Margin = lbl_thk[PositionCheck];
+                    Items_n[i].Margin = n_thk[PositionCheck];
+                    Items_lbl[i].Visibility = Visibility.Visible;
+                    Items_n[i].Visibility = Visibility.Visible;
+
+                    if(PositionCheck <= 11) PositionCheck++;
+                }
+            }
+        }
+
+        private void ResistanceStateLabels()
+        {
+            ResistanceStatsExp.Margin = new Thickness(610, AdditionalStateExp.Height + 5, 0, 141 + (343 - AdditionalStateExp.Height));
+
+        }
     }
 }

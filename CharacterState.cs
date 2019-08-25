@@ -95,6 +95,80 @@ namespace BDHelper
         public int bcap; //GS bonus AP
         public int bcaap; //GS bonus AAP
         public double bcdr; //GS bonus DR (%)
+
+        //Temp Item Stats
+        public int iAP =   0; //AP
+        public int iAAP = 0; // AAP
+        public int iDP = 0; //DP
+        public int iEvas = 0; //Evasion
+        public int iAcc = 0; //Accuracy
+        public int iRes = 0; //All Resists
+        public int iDR = 0; // Damage Reduction
+        public int iHP = 0; // Max HP
+        public int iWeight = 0; // Max Weight
+        public int iMP = 0; //Max MP
+        public int iST = 0; //Max stamina
+        public int iSSFR = 0; // SSF Resist
+        public int iKBR = 0; // KB Resist
+        public int iGrapR = 0; // Graple Resist
+        public int iKFR = 0; //KF Resist
+        public int iHEV = 0; //Hiden Evasion
+        public int iHDR = 0; //Hiden Damage Reduction
+        public int iAtkSpeed = 0; // Attack speed
+        public int iCastSpeed = 0; //Cast speed
+        public int iMVS = 0; // Movement speed
+        public int iCrit = 0; // Critical rate
+        public int iExtraDamKama = 0; //Extra Damage to Kamasylvians
+        public int iEDtA = 0; // Extra Damage to All Species
+        public int iEAPa = 0; // Extra AP against monters
+        public int iMPR = 0; // MP Recovery
+        public int iHPR = 0; // HP Recovery
+        public int iLuck = 0; // Luck
+        public int iEDH = 0; //Extra damage to Humans
+        public int iADtDemiH = 0; // Additional damage to Demihumans
+        public int iEDtAExcHumanAndDemi = 0; //Extra damage to All Species Except Humans and Demihumans
+        public int iSpiritRage = 0; // Black Spirit's Rage
+        public int iBidding = 0; //Marketplace Bidding Success Rate
+        public int iEDtoBack = 0; // Extra damage to back
+        public int iHPRecoveryChance = 0;
+        public int iIgnoreResistance = 0;
+        public int iSpecialAttackED = 0;
+        public int iSpecialAttackEvRate = 0;
+        public int iHAP = 0;
+        public int iCastSpeedRate = 0;
+        public int iAtkSpeedRate = 0;
+        public double iAlchCookTime = 0;
+        public int iProcessingRate = 0;
+        public int iGathering = 0;
+        public int iFishing = 0;
+        public int iGathDropRate = 0;
+        public int iCombatEXP = 0;
+        public int iSkillEXP = 0;
+        public int iCHDamage = 0;
+        public int iAtkSpeedDmg = 0;
+        public int iEDtoAir = 0;
+        public int iEDtoCounter = 0;
+        public int iEDtoDown = 0;
+        public int iIgnoreGrapleResistance = 0;
+        public int iIgnoreKBResistance = 0;
+        public int iIgnoreKDResistance = 0;
+        public int iIgnoreStunResistance = 0;
+        public int iVisionRange = 0;
+        
+           public int iMagicDR = 0;
+        public int iMelleDR = 0;
+        public int iRangeDR = 0;
+        public int iSiegeWeaponEvRate = 0;
+
+        public int iMagicAP = 0;
+        public int iMelleAP = 0;
+        public int iRangeAP = 0;
+
+        public int iJump = 0;
+        public int iFallDamage = 0 ;
+        public int iUnderwaterBreath = 0;
+        public int iMaxEnergy = 0;
+
         
 
         //Training
