@@ -91,17 +91,7 @@ namespace BDHelper
             CrysMW1_btn.Visibility = Visibility.Hidden; CrysMW2_btn.Visibility = Visibility.Hidden;
             CrysSW1_btn.Visibility = Visibility.Hidden; CrysSW2_btn.Visibility = Visibility.Hidden;
 
-            MainStateLabels();
-            AbilitiesLabels();
-            OffenceStateLabels();
-            SurvivalStateLabels();
-            BonusStateLabels();
-            DefenceStateLabels();
-            ProffessionStateLabels();
-            AdditionalStateLabels();
-            OtherStateLabels();
-            ItemStateLabels();
-            ResistanceStateLabels();
+            LabelsReMargin();
         }
         private void FillCharacterState()
         {
@@ -271,7 +261,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }
-            Item_Icon_Load("Belts", cs.beltId);
+            if (cs.beltId >= 0) Item_Icon_Load("Belts", cs.beltId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.beltId;
             LoadItemEnch_cb();
@@ -288,7 +279,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }
-            Item_Icon_Load("Neck", cs.neckId);
+            if (cs.neckId >= 0) Item_Icon_Load("Neck", cs.neckId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.neckId;
             LoadItemEnch_cb();
@@ -304,8 +296,9 @@ namespace BDHelper
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            }           
-            Item_Icon_Load("Rings", cs.ring1Id);
+            }
+            if (cs.ring1Id >= 0) Item_Icon_Load("Rings", cs.ring1Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring1Id;
             LoadItemEnch_cb();
@@ -321,8 +314,9 @@ namespace BDHelper
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            }           
-            Item_Icon_Load("Rings", cs.ring2Id);
+            }
+            if (cs.ring2Id >= 0) Item_Icon_Load("Rings", cs.ring2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ring2Id;
             LoadItemEnch_cb();
@@ -338,8 +332,9 @@ namespace BDHelper
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
-            }            
-            Item_Icon_Load("Earrings", cs.ear1Id);
+            }
+            if (cs.ear1Id >= 0) Item_Icon_Load("Earrings", cs.ear1Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear1Id;
             LoadItemEnch_cb();
@@ -356,7 +351,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }
-            Item_Icon_Load("Earrings", cs.ear2Id);
+            if (cs.ear2Id >= 0) Item_Icon_Load("Earrings", cs.ear2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.ear2Id;
             LoadItemEnch_cb();
@@ -373,7 +369,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }           
-            Item_Icon_Load("Armors", cs.armId);
+            if (cs.armId >= 0) Item_Icon_Load("Armors", cs.armId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.armId;
             LoadItemEnch_cb();
@@ -390,7 +387,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }           
-            Item_Icon_Load("Helmets", cs.helId);
+            if (cs.helId >= 0) Item_Icon_Load("Helmets", cs.helId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.helId;
             LoadItemEnch_cb();
@@ -407,7 +405,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }
-            Item_Icon_Load("Gloves", cs.glovId);
+            if (cs.glovId >= 0) Item_Icon_Load("Gloves", cs.glovId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.glovId;
             LoadItemEnch_cb();
@@ -424,7 +423,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }          
-            Item_Icon_Load("Shoes", cs.shId);
+            if (cs.shId >= 0) Item_Icon_Load("Shoes", cs.shId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.shId;
             LoadItemEnch_cb();
@@ -441,7 +441,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }          
-            Item_Icon_Load(sclass.ToString() + " Awakening Weapons", cs.awkId);
+            if (cs.awkId >= 0) Item_Icon_Load(sclass.ToString() + " Awakening Weapons", cs.awkId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.awkId;
 
@@ -458,7 +459,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }            
-            Item_Icon_Load(chWeapon.ToString() + " Main Weapon", cs.mwId);
+            if (cs.mwId >= 0) Item_Icon_Load(chWeapon.ToString() + " Main Weapon", cs.mwId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.mwId;
 
@@ -475,7 +477,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }            
-            Item_Icon_Load(chSubWeapon.ToString() + " Sub-Weapons", cs.swId);
+            if (cs.swId >= 0) Item_Icon_Load(chSubWeapon.ToString() + " Sub-Weapons", cs.swId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.swId;
             LoadItemEnch_cb();
@@ -492,7 +495,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }           
-            Item_Icon_Load("Alchemy Stones", cs.asId);
+            if (cs.asId >= 0) Item_Icon_Load("Alchemy Stones", cs.asId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             SelectGear_cb.SelectedIndex = cs.asId;
             LoadItemEnch_cb();
@@ -509,7 +513,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }            
-            Item_Icon_Load(cs.wmcType + " Magic Crystal", cs.wmcId);
+            if (cs.wmcId >= 0) Item_Icon_Load(cs.wmcType + " Magic Crystal", cs.wmcId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.wmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.wmcId + 26;
             else SelectGear_cb.SelectedIndex = cs.wmcId;
@@ -527,7 +532,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }
-            Item_Icon_Load(cs.wmc2Type + " Magic Crystal", cs.wmc2Id);
+            if (cs.wmc2Id >= 0) Item_Icon_Load(cs.wmc2Type + " Magic Crystal", cs.wmc2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.wmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.wmc2Id + 26;
             else SelectGear_cb.SelectedIndex = cs.wmc2Id;
@@ -545,7 +551,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }           
-            Item_Icon_Load(cs.swmcType + " Magic Crystal", cs.swmcId);
+            if (cs.swmcId >= 0) Item_Icon_Load(cs.swmcType + " Magic Crystal", cs.swmcId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.swmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.swmcId + 15;
             else SelectGear_cb.SelectedIndex = cs.swmcId;
@@ -563,7 +570,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }           
-            Item_Icon_Load(cs.swmc2Type + " Magic Crystal", cs.swmc2Id);
+            if (cs.swmc2Id >= 0) Item_Icon_Load(cs.swmc2Type + " Magic Crystal", cs.swmc2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.swmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.swmc2Id + 15;
             else SelectGear_cb.SelectedIndex = cs.swmc2Id;
@@ -582,7 +590,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }            
-            Item_Icon_Load(cs.hmcType + " Magic Crystal", cs.hmcId);
+            if (cs.hmcId >= 0) Item_Icon_Load(cs.hmcType + " Magic Crystal", cs.hmcId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.hmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.hmcId + 21;
             else SelectGear_cb.SelectedIndex = cs.hmcId;
@@ -600,7 +609,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }          
-            Item_Icon_Load(cs.hmc2Type + " Magic Crystal", cs.hmc2Id);
+            if (cs.hmc2Id >= 0) Item_Icon_Load(cs.hmc2Type + " Magic Crystal", cs.hmc2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.hmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.hmc2Id + 21;
             else SelectGear_cb.SelectedIndex = cs.hmc2Id;
@@ -619,7 +629,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }            
-            Item_Icon_Load(cs.amcType + " Magic Crystal", cs.amcId);
+            if (cs.amcId >= 0) Item_Icon_Load(cs.amcType + " Magic Crystal", cs.amcId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.amcType == "Versatile") SelectGear_cb.SelectedIndex = cs.amcId + 28;
             else SelectGear_cb.SelectedIndex = cs.amcId;
@@ -637,7 +648,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }           
-            Item_Icon_Load(cs.amc2Type + " Magic Crystal", cs.amc2Id);
+            if (cs.amc2Id >= 0) Item_Icon_Load(cs.amc2Type + " Magic Crystal", cs.amc2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.amc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.amc2Id + 28;
             else SelectGear_cb.SelectedIndex = cs.amc2Id;
@@ -656,7 +668,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }            
-            Item_Icon_Load(cs.gmcType + " Magic Crystal", cs.gmcId);
+            if (cs.gmcId >= 0) Item_Icon_Load(cs.gmcType + " Magic Crystal", cs.gmcId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.gmcType == "Versatile") SelectGear_cb.SelectedIndex = cs.gmcId + 24;
             else SelectGear_cb.SelectedIndex = cs.gmcId;
@@ -674,7 +687,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }
-            Item_Icon_Load(cs.gmc2Type + " Magic Crystal", cs.gmc2Id);
+            if (cs.gmc2Id >= 0) Item_Icon_Load(cs.gmc2Type + " Magic Crystal", cs.gmc2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.gmc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.gmc2Id + 24;
             else SelectGear_cb.SelectedIndex = cs.gmc2Id;
@@ -693,7 +707,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }           
-            Item_Icon_Load(cs.smcType + " Magic Crystal", cs.smcId);
+            if (cs.smcId >= 0) Item_Icon_Load(cs.smcType + " Magic Crystal", cs.smcId);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.smcType == "Versatile") SelectGear_cb.SelectedIndex = cs.smcId + 25;
             else SelectGear_cb.SelectedIndex = cs.smcId;
@@ -711,7 +726,8 @@ namespace BDHelper
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
             }            
-            Item_Icon_Load(cs.smc2Type + " Magic Crystal", cs.smc2Id);
+            if (cs.smc2Id >= 0) Item_Icon_Load(cs.smc2Type + " Magic Crystal", cs.smc2Id);
+            else Item_img.Source = null;
             SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
             if (cs.smc2Type == "Versatile") SelectGear_cb.SelectedIndex = cs.smc2Id + 25;
             else SelectGear_cb.SelectedIndex = cs.smc2Id;
@@ -719,6 +735,24 @@ namespace BDHelper
             LoadItemCaph_cb();
 
         } // Shoes Magic Crystal 2
+
+        private void LoadShopCrystal()
+        {
+            SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
+            var sql = @"select * from ShopCrys";
+            using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
+            {
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+            }
+            if (cs.shopcrId >= 0) Item_Icon_Load("ShopCrys", cs.shopcrId);
+            else Item_img.Source = null;
+            SelectGear_cb.SelectionChanged += SelectGear_cb_SelectionChanged;
+            SelectGear_cb.SelectedIndex = cs.shopcrId;
+            LoadItemEnch_cb();
+            LoadItemCaph_cb();
+        }
 
         //Lvl Bonus
         private void DpLvl_cb_Checked(object sender, RoutedEventArgs e)
@@ -733,7 +767,7 @@ namespace BDHelper
                 cDP_n.Content = Convert.ToString(cs.cdp - lvlDP);
             }
             cs.cdp = Convert.ToInt32(cDP_n.Content);
-            MainStateLabels();
+            LabelsReMargin();
         }
 
         private void ApLvl_cb_Checked(object sender, RoutedEventArgs e)
@@ -752,7 +786,7 @@ namespace BDHelper
             }
             cs.cap = Convert.ToInt32(cAP_n.Content);
             cs.caap = Convert.ToInt32(cAAP_n.Content);
-            MainStateLabels();
+            LabelsReMargin();
         }
 
         //Item buttons
@@ -846,7 +880,7 @@ namespace BDHelper
         {
             ItemStatClear();
             cs.sgn = 15;
-            LoadCrysMW1();
+             LoadCrysMW1();
         }
 
         private void CrysMW2_btn_Click(object sender, RoutedEventArgs e)
@@ -926,6 +960,13 @@ namespace BDHelper
             LoadCrysS2();
         }
 
+        private void ShopCrystal_btn_Click(object sender, RoutedEventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 27;
+            LoadShopCrystal();
+        }
+
         private void SelectGear_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ItemStatClear();
@@ -933,33 +974,66 @@ namespace BDHelper
             cmd.CommandType = CommandType.Text;
             if (cs.sgn == 1) //Belt
             {
-                cmd.CommandText = "select * from Belts where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
+                    cs.beltDefap = 0;
+                    cs.beltDefdp = 0;
+                    cs.beltDefev = 0;
+                    cs.beltDefacc = 0;
+                    cs.beltDefResis = 0;
+                    cs.beltDefDR = 0;
+                    cs.beltDefHP = 0;
+                    cs.beltDefWeight = 0;
+                    cs.beltEnch = false;
+                    cs.beltDefSpiritRage = 0;
+                    cs.beltDefAPagainst = 0;
+                    cs.beltSB = 0;
+
                 }
-                foreach (DataRow dr in dt.Rows)
+
+                else
                 {
-                    cs.beltDefap = Convert.ToInt32(dr["AP"]);
-                    cs.beltDefdp = Convert.ToInt32(dr["DP"]);
-                    cs.beltDefev = Convert.ToInt32(dr["Evasion"]);
-                    cs.beltDefacc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.beltDefResis = Convert.ToInt32(dr["AllResist"]);
-                    cs.beltDefDR = Convert.ToInt32(dr["DR"]);
-                    cs.beltDefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.beltDefWeight = Convert.ToInt32(dr["Weight"]);
-                    cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.beltDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    cs.beltDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.beltSB = Convert.ToInt32(dr["SetBonus"]);
+                    cmd.CommandText = "select * from Belts where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.beltDefap = Convert.ToInt32(dr["AP"]);
+                        cs.beltDefdp = Convert.ToInt32(dr["DP"]);
+                        cs.beltDefev = Convert.ToInt32(dr["Evasion"]);
+                        cs.beltDefacc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.beltDefResis = Convert.ToInt32(dr["AllResist"]);
+                        cs.beltDefDR = Convert.ToInt32(dr["DR"]);
+                        cs.beltDefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.beltDefWeight = Convert.ToInt32(dr["Weight"]);
+                        cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.beltDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                        cs.beltDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.beltSB = Convert.ToInt32(dr["SetBonus"]);
+                    }
+
                 }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
                 cs.Type = "Belts";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Belt_btn.Background = new ImageBrush(Item_img.Source);
+
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Belt_btn.Background = new ImageBrush(Item_img.Source);
+
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Belt.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Belt_btn.Background = new ImageBrush(imgc);
+                }
                 cs.BeltState();
                 if (cs.beltEnch == false) Belt_btn.Content = "";
 
@@ -994,39 +1068,75 @@ namespace BDHelper
             } //Belt
             if (cs.sgn == 2) //Neck
             {
-
-                cmd.CommandText = "select * from Neck where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
+                    cs.neckDefap = 0;
+                    cs.neckDefdp = 0;
+                    cs.neckDefev = 0;
+                    cs.neckDefacc = 0;
+                    cs.neckDefAllRes = 0;
+                    cs.neckDefDR =0;
+                    cs.neckDefSSF = 0;
+                    cs.neckDefKB = 0;
+                    cs.neckDefG = 0;
+                    cs.neckDefKF = 0;
+                    cs.neckDefHP = 0;
+                    cs.neckEnch = false;
+                    cs.neckDefSpiritRage = 0;
+                    cs.neckDefAPagainst = 0;
+                    cs.neckDefKamaDamage = 0;
+                    cs.neckDefBackDamage = 0;
+                    cs.neckSB = 0;
                 }
-                foreach (DataRow dr in dt.Rows)
+
+                else
                 {
-                    cs.neckDefap = Convert.ToInt32(dr["AP"]);
-                    cs.neckDefdp = Convert.ToInt32(dr["DP"]);
-                    cs.neckDefev = Convert.ToInt32(dr["Evasion"]);
-                    cs.neckDefacc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.neckDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                    cs.neckDefDR = Convert.ToInt32(dr["DR"]);
-                    cs.neckDefSSF = Convert.ToInt32(dr["SSFRes"]);
-                    cs.neckDefKB = Convert.ToInt32(dr["KBRes"]);
-                    cs.neckDefG = Convert.ToInt32(dr["GrapRes"]);
-                    cs.neckDefKF = Convert.ToInt32(dr["KFRes"]);
-                    cs.neckDefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.neckEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.neckDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    cs.neckDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.neckDefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
-                    cs.neckDefBackDamage = Convert.ToInt32(dr["BackDamage"]);
-                    cs.neckSB = Convert.ToInt32(dr["SetBonus"]);
+                    cmd.CommandText = "select * from Neck where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.neckDefap = Convert.ToInt32(dr["AP"]);
+                        cs.neckDefdp = Convert.ToInt32(dr["DP"]);
+                        cs.neckDefev = Convert.ToInt32(dr["Evasion"]);
+                        cs.neckDefacc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.neckDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                        cs.neckDefDR = Convert.ToInt32(dr["DR"]);
+                        cs.neckDefSSF = Convert.ToInt32(dr["SSFRes"]);
+                        cs.neckDefKB = Convert.ToInt32(dr["KBRes"]);
+                        cs.neckDefG = Convert.ToInt32(dr["GrapRes"]);
+                        cs.neckDefKF = Convert.ToInt32(dr["KFRes"]);
+                        cs.neckDefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.neckEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.neckDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                        cs.neckDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.neckDefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                        cs.neckDefBackDamage = Convert.ToInt32(dr["BackDamage"]);
+                        cs.neckSB = Convert.ToInt32(dr["SetBonus"]);
+                    }
                 }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
                 cs.Type = "Neck";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Necklace_btn.Background = new ImageBrush(Item_img.Source);
+                
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Necklace_btn.Background = new ImageBrush(Item_img.Source);
+
+
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Necklace.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Necklace_btn.Background = new ImageBrush(imgc);
+                }
                 cs.NeckState();
                 if (cs.neckEnch == false) Necklace_btn.Content = "";
 
@@ -1071,41 +1181,79 @@ namespace BDHelper
             } //Necklace            
             if (cs.sgn == 3) //Ring 1
             {
-                cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
+                    cs.ring1Defap = 0;
+                    cs.ring1Defdp = 0;
+                    cs.ring1Defev = 0;
+                    cs.ring1Defacc = 0;
+                    cs.ring1DefDR = 0;
+                    cs.ring1DefHP = 0;
+                    cs.ring1DefMP = 0;
+                    cs.ring1DefST = 0;
+                    cs.ring1Ench = false;
+                    cs.ring1DefHEv = 0;
+                    cs.ring1DefAPagainst = 0;
+                    cs.ring1DefKamaDamage = 0;
+                    cs.ring1DefDamageHumans = 0;
+                    cs.ring1DefDamageDemihumans = 0;
+                    cs.ring1DefDamageAllExcept = 0;
+                    cs.ring1DefBidding = 0;
+                    cs.ring1DefSpiritRage = 0;
+                    cs.ring1SB = 0;
                 }
-                foreach (DataRow dr in dt.Rows)
+
+                else
                 {
-                    cs.ring1Defap = Convert.ToInt32(dr["AP"]);
-                    cs.ring1Defdp = Convert.ToInt32(dr["DP"]);
-                    cs.ring1Defev = Convert.ToInt32(dr["Evasion"]);
-                    cs.ring1Defacc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.ring1DefDR = Convert.ToInt32(dr["DR"]);
-                    cs.ring1DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ring1DefMP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ring1DefST = Convert.ToInt32(dr["MaxST"]);
-                    cs.ring1Ench = Convert.ToBoolean(dr["Ench"]);
-                    cs.ring1DefHEv = Convert.ToInt32(dr["HEv"]);
-                    cs.ring1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.ring1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
-                    cs.ring1DefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
-                    cs.ring1DefDamageDemihumans = Convert.ToInt32(dr["DemiHumanDamage"]);
-                    cs.ring1DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
-                    cs.ring1DefBidding = Convert.ToInt32(dr["MarketBidding"]);
-                    cs.ring1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    cs.ring1SB = Convert.ToInt32(dr["SetBonus"]);
+                    cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.ring1Defap = Convert.ToInt32(dr["AP"]);
+                        cs.ring1Defdp = Convert.ToInt32(dr["DP"]);
+                        cs.ring1Defev = Convert.ToInt32(dr["Evasion"]);
+                        cs.ring1Defacc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.ring1DefDR = Convert.ToInt32(dr["DR"]);
+                        cs.ring1DefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.ring1DefMP = Convert.ToInt32(dr["MaxMP"]);
+                        cs.ring1DefST = Convert.ToInt32(dr["MaxST"]);
+                        cs.ring1Ench = Convert.ToBoolean(dr["Ench"]);
+                        cs.ring1DefHEv = Convert.ToInt32(dr["HEv"]);
+                        cs.ring1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.ring1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                        cs.ring1DefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
+                        cs.ring1DefDamageDemihumans = Convert.ToInt32(dr["DemiHumanDamage"]);
+                        cs.ring1DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
+                        cs.ring1DefBidding = Convert.ToInt32(dr["MarketBidding"]);
+                        cs.ring1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                        cs.ring1SB = Convert.ToInt32(dr["SetBonus"]);
+                    }
                 }
 
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Rings";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Ring1_btn.Background = new ImageBrush(Item_img.Source);
+               
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Ring1_btn.Background = new ImageBrush(Item_img.Source);
+
+
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Ring.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Ring1_btn.Background = new ImageBrush(imgc);
+                }
                 cs.Ring1State();
                 if (cs.ring1Ench == false) Ring1_btn.Content = "";
 
@@ -1153,41 +1301,77 @@ namespace BDHelper
             } //Ring1
             if (cs.sgn == 4) //Ring 2
             {
-                cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.ring2Defap = Convert.ToInt32(dr["AP"]);
-                    cs.ring2Defdp = Convert.ToInt32(dr["DP"]);
-                    cs.ring2Defev = Convert.ToInt32(dr["Evasion"]);
-                    cs.ring2Defacc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.ring2DefDR = Convert.ToInt32(dr["DR"]);
-                    cs.ring2DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ring2DefMP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ring2DefST = Convert.ToInt32(dr["MaxST"]);
-                    cs.ring2Ench = Convert.ToBoolean(dr["Ench"]);
-                    cs.ring2DefHEv = Convert.ToInt32(dr["HEv"]);
-                    cs.ring2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.ring2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
-                    cs.ring2DefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
-                    cs.ring2DefDamageDemihumans = Convert.ToInt32(dr["DemiHumanDamage"]);
-                    cs.ring2DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
-                    cs.ring2DefBidding = Convert.ToInt32(dr["MarketBidding"]);
-                    cs.ring2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    cs.ring2SB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.ring2Defap = 0;
+                    cs.ring2Defdp = 0;
+                    cs.ring2Defev = 0;
+                    cs.ring2Defacc = 0;
+                    cs.ring2DefDR = 0;
+                    cs.ring2DefHP = 0;
+                    cs.ring2DefMP = 0;
+                    cs.ring2DefST = 0;
+                    cs.ring2Ench = false;
+                    cs.ring2DefHEv = 0;
+                    cs.ring2DefAPagainst = 0;
+                    cs.ring2DefKamaDamage = 0;
+                    cs.ring2DefDamageHumans = 0;
+                    cs.ring2DefDamageDemihumans = 0;
+                    cs.ring2DefDamageAllExcept = 0;
+                    cs.ring2DefBidding = 0;
+                    cs.ring2DefSpiritRage = 0;
+                    cs.ring2SB = 0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.ring2Defap = Convert.ToInt32(dr["AP"]);
+                        cs.ring2Defdp = Convert.ToInt32(dr["DP"]);
+                        cs.ring2Defev = Convert.ToInt32(dr["Evasion"]);
+                        cs.ring2Defacc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.ring2DefDR = Convert.ToInt32(dr["DR"]);
+                        cs.ring2DefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.ring2DefMP = Convert.ToInt32(dr["MaxMP"]);
+                        cs.ring2DefST = Convert.ToInt32(dr["MaxST"]);
+                        cs.ring2Ench = Convert.ToBoolean(dr["Ench"]);
+                        cs.ring2DefHEv = Convert.ToInt32(dr["HEv"]);
+                        cs.ring2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.ring2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                        cs.ring2DefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
+                        cs.ring2DefDamageDemihumans = Convert.ToInt32(dr["DemiHumanDamage"]);
+                        cs.ring2DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
+                        cs.ring2DefBidding = Convert.ToInt32(dr["MarketBidding"]);
+                        cs.ring2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                        cs.ring2SB = Convert.ToInt32(dr["SetBonus"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Rings";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Ring2_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Ring2_btn.Background = new ImageBrush(Item_img.Source);
+
+
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Ring.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Ring2_btn.Background = new ImageBrush(imgc);
+                }
                 cs.Ring2State();
                 if (cs.ring2Ench == false) Ring2_btn.Content = "";
 
@@ -1234,36 +1418,69 @@ namespace BDHelper
             }//Ring 2
             if (cs.sgn == 5) //Ear1
             {
-                cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.ear1Defap = Convert.ToInt32(dr["AP"]);
-                    cs.ear1Defdp = Convert.ToInt32(dr["DP"]);
-                    cs.ear1Defev = Convert.ToInt32(dr["Evasion"]);
-                    cs.ear1Defacc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.ear1DefDR = Convert.ToInt32(dr["DR"]);
-                    cs.ear1DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ear1DefMP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ear1DefST = Convert.ToInt32(dr["MaxST"]);
-                    cs.ear1Ench = Convert.ToBoolean(dr["Ench"]);
-                    cs.ear1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    cs.ear1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.ear1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
-                    cs.ear1SB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.ear1Defap = 0;
+                    cs.ear1Defdp = 0;
+                    cs.ear1Defev = 0;
+                    cs.ear1Defacc = 0;
+                    cs.ear1DefDR = 0;
+                    cs.ear1DefHP = 0;
+                    cs.ear1DefMP = 0;
+                    cs.ear1DefST = 0;
+                    cs.ear1Ench = false;
+                    cs.ear1DefSpiritRage =0;
+                    cs.ear1DefAPagainst = 0;
+                    cs.ear1DefKamaDamage = 0;
+                    cs.ear1SB = 0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.ear1Defap = Convert.ToInt32(dr["AP"]);
+                        cs.ear1Defdp = Convert.ToInt32(dr["DP"]);
+                        cs.ear1Defev = Convert.ToInt32(dr["Evasion"]);
+                        cs.ear1Defacc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.ear1DefDR = Convert.ToInt32(dr["DR"]);
+                        cs.ear1DefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.ear1DefMP = Convert.ToInt32(dr["MaxMP"]);
+                        cs.ear1DefST = Convert.ToInt32(dr["MaxST"]);
+                        cs.ear1Ench = Convert.ToBoolean(dr["Ench"]);
+                        cs.ear1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                        cs.ear1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.ear1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                        cs.ear1SB = Convert.ToInt32(dr["SetBonus"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Earrings";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Earring1_btn.Background = new ImageBrush(Item_img.Source);
+                
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Earring1_btn.Background = new ImageBrush(Item_img.Source);
+
+
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Earring.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Earring1_btn.Background = new ImageBrush(imgc);
+                }
+
                 cs.Earring1State();
                 if (cs.ear1Ench == false) Earring1_btn.Content = "";
 
@@ -1300,36 +1517,68 @@ namespace BDHelper
             } //Earring 1
             if (cs.sgn == 6) //Ear2
             {
-                cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.ear2Defap = Convert.ToInt32(dr["AP"]);
-                    cs.ear2Defdp = Convert.ToInt32(dr["DP"]);
-                    cs.ear2Defev = Convert.ToInt32(dr["Evasion"]);
-                    cs.ear2Defacc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.ear2DefDR = Convert.ToInt32(dr["DR"]);
-                    cs.ear2DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ear2DefMP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ear2DefST = Convert.ToInt32(dr["MaxST"]);
-                    cs.ear2Ench = Convert.ToBoolean(dr["Ench"]);
-                    cs.ear2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    cs.ear2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.ear2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
-                    cs.ear2SB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.ear2Defap = 0;
+                    cs.ear2Defdp = 0;
+                    cs.ear2Defev = 0;
+                    cs.ear2Defacc = 0;
+                    cs.ear2DefDR = 0;
+                    cs.ear2DefHP = 0;
+                    cs.ear2DefMP = 0;
+                    cs.ear2DefST = 0;
+                    cs.ear2Ench = false;
+                    cs.ear2DefSpiritRage = 0;
+                    cs.ear2DefAPagainst = 0;
+                    cs.ear2DefKamaDamage = 0;
+                    cs.ear2SB = 0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.ear2Defap = Convert.ToInt32(dr["AP"]);
+                        cs.ear2Defdp = Convert.ToInt32(dr["DP"]);
+                        cs.ear2Defev = Convert.ToInt32(dr["Evasion"]);
+                        cs.ear2Defacc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.ear2DefDR = Convert.ToInt32(dr["DR"]);
+                        cs.ear2DefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.ear2DefMP = Convert.ToInt32(dr["MaxMP"]);
+                        cs.ear2DefST = Convert.ToInt32(dr["MaxST"]);
+                        cs.ear2Ench = Convert.ToBoolean(dr["Ench"]);
+                        cs.ear2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                        cs.ear2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.ear2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                        cs.ear2SB = Convert.ToInt32(dr["SetBonus"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Earrings";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Earring2_btn.Background = new ImageBrush(Item_img.Source);
+
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Earring2_btn.Background = new ImageBrush(Item_img.Source);
+
+
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Earring.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Earring2_btn.Background = new ImageBrush(imgc);
+                }
                 cs.Earring2State();
                 if (cs.ear2Ench == false) Earring2_btn.Content = "";
 
@@ -1366,39 +1615,71 @@ namespace BDHelper
             } //Earring 2
             if (cs.sgn == 7)
             {
-                cmd.CommandText = "select * from Armors where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.armGems = Convert.ToInt32(dr["Gems"]);
-                    cs.armDefdp = Convert.ToInt32(dr["DP"]);
-                    cs.armDefev = Convert.ToInt32(dr["Evasion"]);
-                    cs.armDefhev = Convert.ToInt32(dr["HEvasion"]);
-                    cs.armDefdr = Convert.ToInt32(dr["DR"]);
-                    cs.armDefhdr = Convert.ToInt32(dr["HDR"]);
-                    cs.armDefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.armDefMP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.armEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.armIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
-                    cs.armDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                    cs.armDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                    cs.armDefAcc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.armSB = Convert.ToInt32(dr["SetBonus"]);
-                    cs.armDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
-                    cs.armDefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
+                    cs.armGems = 0;
+                    cs.armDefdp = 0;
+                    cs.armDefev = 0;
+                    cs.armDefhev = 0;
+                    cs.armDefdr = 0;
+                    cs.armDefhdr = 0;
+                    cs.armDefHP = 0;
+                    cs.armDefMP = 0;
+                    cs.armEnch = false;
+                    cs.armIsBoss = false;
+                    cs.armDefSSFRes = 0;
+                    cs.armDefWeight = 0;
+                    cs.armDefAcc =0;
+                    cs.armSB = 0;
+                    cs.armDefHPRecovery =0;
+                    cs.armDefMPRecovery = 0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from Armors where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.armGems = Convert.ToInt32(dr["Gems"]);
+                        cs.armDefdp = Convert.ToInt32(dr["DP"]);
+                        cs.armDefev = Convert.ToInt32(dr["Evasion"]);
+                        cs.armDefhev = Convert.ToInt32(dr["HEvasion"]);
+                        cs.armDefdr = Convert.ToInt32(dr["DR"]);
+                        cs.armDefhdr = Convert.ToInt32(dr["HDR"]);
+                        cs.armDefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.armDefMP = Convert.ToInt32(dr["MaxMP"]);
+                        cs.armEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.armIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                        cs.armDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                        cs.armDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                        cs.armDefAcc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.armSB = Convert.ToInt32(dr["SetBonus"]);
+                        cs.armDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
+                        cs.armDefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Armors";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Armour_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Armour_btn.Background = new ImageBrush(Item_img.Source);
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Armour.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Armour_btn.Background = new ImageBrush(imgc);
+                }
                 cs.ArmorState();
                 if (cs.armEnch == false) Armour_btn.Content = "";
 
@@ -1454,41 +1735,75 @@ namespace BDHelper
             } //Armor
             if (cs.sgn == 8)
             {
-                cmd.CommandText = "select * from Helmets where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.helGems = Convert.ToInt32(dr["Gems"]);
-                    cs.helDefdp = Convert.ToInt32(dr["DP"]);
-                    cs.helDefev = Convert.ToInt32(dr["Evasion"]);
-                    cs.helDefhev = Convert.ToInt32(dr["HEvasion"]);
-                    cs.helDefdr = Convert.ToInt32(dr["DR"]);
-                    cs.helDefhdr = Convert.ToInt32(dr["HDR"]);
-                    cs.helDefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.helSSFDefRes = Convert.ToInt32(dr["SSFREs"]);
-                    cs.helKFDefRes = Convert.ToInt32(dr["KFRes"]);
-                    cs.helGrapleDefRes = Convert.ToInt32(dr["KBREs"]);
-                    cs.helKBDefRes = Convert.ToInt32(dr["GrapleRes"]);
-                    cs.helDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                    cs.helEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.helIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
-                    cs.helSB = Convert.ToInt32(dr["SetBonus"]);
-                    cs.helDefST = Convert.ToInt32(dr["MaxStamina"]);
-                    cs.helDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
-                    cs.helDefLuck = Convert.ToInt32(dr["Luck"]);
+                    cs.helGems = 0;
+                    cs.helDefdp = 0;
+                    cs.helDefev = 0;
+                    cs.helDefhev = 0;
+                    cs.helDefdr = 0;
+                    cs.helDefhdr = 0;
+                    cs.helDefHP = 0;
+                    cs.helSSFDefRes = 0;
+                    cs.helKFDefRes = 0;
+                    cs.helGrapleDefRes = 0;
+                    cs.helKBDefRes = 0;
+                    cs.helDefWeight = 0;
+                    cs.helEnch = false;
+                    cs.helIsBoss = false;
+                    cs.helSB =0;
+                    cs.helDefST = 0;
+                    cs.helDefHPRecovery = 0;
+                    cs.helDefLuck =0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from Helmets where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.helGems = Convert.ToInt32(dr["Gems"]);
+                        cs.helDefdp = Convert.ToInt32(dr["DP"]);
+                        cs.helDefev = Convert.ToInt32(dr["Evasion"]);
+                        cs.helDefhev = Convert.ToInt32(dr["HEvasion"]);
+                        cs.helDefdr = Convert.ToInt32(dr["DR"]);
+                        cs.helDefhdr = Convert.ToInt32(dr["HDR"]);
+                        cs.helDefHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.helSSFDefRes = Convert.ToInt32(dr["SSFREs"]);
+                        cs.helKFDefRes = Convert.ToInt32(dr["KFRes"]);
+                        cs.helGrapleDefRes = Convert.ToInt32(dr["KBREs"]);
+                        cs.helKBDefRes = Convert.ToInt32(dr["GrapleRes"]);
+                        cs.helDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                        cs.helEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.helIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                        cs.helSB = Convert.ToInt32(dr["SetBonus"]);
+                        cs.helDefST = Convert.ToInt32(dr["MaxStamina"]);
+                        cs.helDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
+                        cs.helDefLuck = Convert.ToInt32(dr["Luck"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Helmets";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Helmet_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Helmet_btn.Background = new ImageBrush(Item_img.Source);
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Helmet.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Helmet_btn.Background = new ImageBrush(imgc);
+                }
                 cs.HelmetState();
                 if (cs.helEnch == false) Helmet_btn.Content = "";
 
@@ -1545,39 +1860,71 @@ namespace BDHelper
             } //Helmet
             if (cs.sgn == 9)
             {
-                cmd.CommandText = "select * from Gloves where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.glovGems = Convert.ToInt32(dr["Gems"]);
-                    cs.glovDefdp = Convert.ToInt32(dr["DP"]);
-                    cs.glovDefacc = Convert.ToInt32(dr["Accuracy"]);
-                    cs.glovDefev = Convert.ToInt32(dr["Evasion"]);
-                    cs.glovDefhev = Convert.ToInt32(dr["HEvasion"]);
-                    cs.glovDefdr = Convert.ToInt32(dr["DR"]);
-                    cs.glovDefhdr = Convert.ToInt32(dr["HDR"]);
-                    cs.glovEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.glovIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
-                    cs.glovSB = Convert.ToInt32(dr["SetBonus"]);
-                    cs.glovDefAtkSpeed = Convert.ToInt32(dr["AttackSpeed"]);
-                    cs.glovDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                    cs.glovDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                    cs.glovDefCrit = Convert.ToInt32(dr["CriticalHit"]);
-                    cs.glovDefGrapleRes = Convert.ToInt32(dr["GrapleRes"]);
-                    cs.glovDefDamage = Convert.ToInt32(dr["DamageToAll"]);
+                    cs.glovGems = 0;
+                    cs.glovDefdp = 0;
+                    cs.glovDefacc = 0;
+                    cs.glovDefev = 0;
+                    cs.glovDefhev =0;
+                    cs.glovDefdr = 0;
+                    cs.glovDefhdr = 0;
+                    cs.glovEnch = false;
+                    cs.glovIsBoss = false;
+                    cs.glovSB = 0;
+                    cs.glovDefAtkSpeed = 0;
+                    cs.glovDefCastSpeed =0;
+                    cs.glovDefWeight = 0;
+                    cs.glovDefCrit = 0;
+                    cs.glovDefGrapleRes = 0;
+                    cs.glovDefDamage = 0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from Gloves where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.glovGems = Convert.ToInt32(dr["Gems"]);
+                        cs.glovDefdp = Convert.ToInt32(dr["DP"]);
+                        cs.glovDefacc = Convert.ToInt32(dr["Accuracy"]);
+                        cs.glovDefev = Convert.ToInt32(dr["Evasion"]);
+                        cs.glovDefhev = Convert.ToInt32(dr["HEvasion"]);
+                        cs.glovDefdr = Convert.ToInt32(dr["DR"]);
+                        cs.glovDefhdr = Convert.ToInt32(dr["HDR"]);
+                        cs.glovEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.glovIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                        cs.glovSB = Convert.ToInt32(dr["SetBonus"]);
+                        cs.glovDefAtkSpeed = Convert.ToInt32(dr["AttackSpeed"]);
+                        cs.glovDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                        cs.glovDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                        cs.glovDefCrit = Convert.ToInt32(dr["CriticalHit"]);
+                        cs.glovDefGrapleRes = Convert.ToInt32(dr["GrapleRes"]);
+                        cs.glovDefDamage = Convert.ToInt32(dr["DamageToAll"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Gloves";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Gloves_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Gloves_btn.Background = new ImageBrush(Item_img.Source);
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Gloves.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Gloves_btn.Background = new ImageBrush(imgc);
+                }
                 cs.GlovesState();
                 if (cs.glovEnch == false) Gloves_btn.Content = "";
 
@@ -1630,38 +1977,67 @@ namespace BDHelper
             } //Gloves
             if (cs.sgn == 10)
             {
-                cmd.CommandText = "select * from Shoes where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.shGems = Convert.ToInt32(dr["Gems"]);
-                    cs.shDefdp = Convert.ToInt32(dr["DP"]);
-                    cs.shDefev = Convert.ToInt32(dr["Evasion"]);
-                    cs.shDefhev = Convert.ToInt32(dr["HEvasion"]);
-                    cs.shDefdr = Convert.ToInt32(dr["DR"]);
-                    cs.shDefhdr = Convert.ToInt32(dr["HDR"]);
-                    cs.shEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.shIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
-                    cs.shSB = Convert.ToInt32(dr["SetBonus"]);
-                    cs.shDefMvs = Convert.ToInt32(dr["MovmmentSp"]);
-                    cs.shDefKBRes = Convert.ToInt32(dr["KBRes"]);
-                    cs.shDefMaxST = Convert.ToInt32(dr["MaxStamina"]);
-                    cs.shDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-
-
+                    cs.shGems = 0;
+                    cs.shDefdp = 0;
+                    cs.shDefev = 0;
+                    cs.shDefhev = 0;
+                    cs.shDefdr = 0;
+                    cs.shDefhdr = 0;
+                    cs.shEnch = false;
+                    cs.shIsBoss = false;
+                    cs.shSB = 0;
+                    cs.shDefMvs = 0;
+                    cs.shDefKBRes = 0;
+                    cs.shDefMaxST = 0;
+                    cs.shDefWeight = 0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from Shoes where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.shGems = Convert.ToInt32(dr["Gems"]);
+                        cs.shDefdp = Convert.ToInt32(dr["DP"]);
+                        cs.shDefev = Convert.ToInt32(dr["Evasion"]);
+                        cs.shDefhev = Convert.ToInt32(dr["HEvasion"]);
+                        cs.shDefdr = Convert.ToInt32(dr["DR"]);
+                        cs.shDefhdr = Convert.ToInt32(dr["HDR"]);
+                        cs.shEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.shIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                        cs.shSB = Convert.ToInt32(dr["SetBonus"]);
+                        cs.shDefMvs = Convert.ToInt32(dr["MovmmentSp"]);
+                        cs.shDefKBRes = Convert.ToInt32(dr["KBRes"]);
+                        cs.shDefMaxST = Convert.ToInt32(dr["MaxStamina"]);
+                        cs.shDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+
+
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Shoes";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                Boots_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    Boots_btn.Background = new ImageBrush(Item_img.Source);
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/Boots.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    Boots_btn.Background = new ImageBrush(imgc);
+                }
                 cs.ShoesState();
                 if (cs.shEnch == false) Boots_btn.Content = "";
                 if (cs.shEnch == true && SelectGear_cb.SelectedIndex == cs.shId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.shEnchLvl = TempEnchLvl; }
@@ -1707,60 +2083,93 @@ namespace BDHelper
             } //Shoes
             if (cs.sgn == 11)
             {
-                cmd.CommandText = "select * from [" + sclass + " Awakening Weapons] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                if (sclass == "Shai")
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.awkDefAPhigh = Convert.ToInt32(dr["APhigh"]);
-                        cs.awkDefAPlow = Convert.ToInt32(dr["APlow"]);
-                        cs.awkDefAccuracy = 0;
-                        cs.awkDefDamageHumans = 0;
-                        cs.awkCheckHd = false;
-                        cs.awkDefDamageAll = 0;
-                        cs.awkCheckAd = false;
-                        cs.awkDefAPagainst = 0;
-                        cs.awkCheckAg = false;
-                        cs.awkEnch = Convert.ToBoolean(dr["Ench"]);
-                        cs.awkDefAllEvasion = Convert.ToInt32(dr["AllEvasion"]);
-                        cs.awkDefDPReduction = Convert.ToInt32(dr["DPReduction"]);
-                        cs.awkDefMvsSpeedRed = Convert.ToInt32(dr["MvsSpeedRed"]);
-                        cs.awkDefSpeedIncrease = Convert.ToInt32(dr["SpeedIncrease"]);
-                    }
+                    cs.awkDefAPhigh =0;
+                    cs.awkDefAPlow = 0;
+                    cs.awkDefAccuracy = 0;
+                    cs.awkDefDamageHumans = 0;
+                    cs.awkCheckHd = false;
+                    cs.awkDefDamageAll =0;
+                    cs.awkCheckAd = false;
+                    cs.awkDefAPagainst = 0;
+                    cs.awkCheckAg = false;
+                    cs.awkEnch = false;
+                    cs.awkDefAllEvasion = 0;
+                    cs.awkDefDPReduction = 0;
+                    cs.awkDefMvsSpeedRed = 0;
+                    cs.awkDefSpeedIncrease = 0;
                 }
 
                 else
                 {
-                    foreach (DataRow dr in dt.Rows)
+                    cmd.CommandText = "select * from [" + sclass + " Awakening Weapons] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        cs.awkDefAPhigh = Convert.ToInt32(dr["APhigh"]);
-                        cs.awkDefAPlow = Convert.ToInt32(dr["APlow"]);
-                        cs.awkDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.awkDefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
-                        cs.awkCheckHd = Convert.ToBoolean(dr["CheckHd"]);
-                        cs.awkDefDamageAll = Convert.ToInt32(dr["DamageAllSpecies"]);
-                        cs.awkCheckAd = Convert.ToBoolean(dr["CheckAd"]);
-                        cs.awkDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                        cs.awkCheckAg = Convert.ToBoolean(dr["CheckAg"]);
-                        cs.awkEnch = Convert.ToBoolean(dr["Ench"]);
-                        cs.awkDefAllEvasion = 0;
-                        cs.awkDefDPReduction = 0;
-                        cs.awkDefMvsSpeedRed = 0;
-                        cs.awkDefSpeedIncrease = 0;
+                        da.Fill(dt);
+                    }
+                    if (sclass == "Shai")
+                    {
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.awkDefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                            cs.awkDefAPlow = Convert.ToInt32(dr["APlow"]);
+                            cs.awkDefAccuracy = 0;
+                            cs.awkDefDamageHumans = 0;
+                            cs.awkCheckHd = false;
+                            cs.awkDefDamageAll = 0;
+                            cs.awkCheckAd = false;
+                            cs.awkDefAPagainst = 0;
+                            cs.awkCheckAg = false;
+                            cs.awkEnch = Convert.ToBoolean(dr["Ench"]);
+                            cs.awkDefAllEvasion = Convert.ToInt32(dr["AllEvasion"]);
+                            cs.awkDefDPReduction = Convert.ToInt32(dr["DPReduction"]);
+                            cs.awkDefMvsSpeedRed = Convert.ToInt32(dr["MvsSpeedRed"]);
+                            cs.awkDefSpeedIncrease = Convert.ToInt32(dr["SpeedIncrease"]);
+                        }
+                    }
+
+                    else
+                    {
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.awkDefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                            cs.awkDefAPlow = Convert.ToInt32(dr["APlow"]);
+                            cs.awkDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.awkDefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
+                            cs.awkCheckHd = Convert.ToBoolean(dr["CheckHd"]);
+                            cs.awkDefDamageAll = Convert.ToInt32(dr["DamageAllSpecies"]);
+                            cs.awkCheckAd = Convert.ToBoolean(dr["CheckAd"]);
+                            cs.awkDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                            cs.awkCheckAg = Convert.ToBoolean(dr["CheckAg"]);
+                            cs.awkEnch = Convert.ToBoolean(dr["Ench"]);
+                            cs.awkDefAllEvasion = 0;
+                            cs.awkDefDPReduction = 0;
+                            cs.awkDefMvsSpeedRed = 0;
+                            cs.awkDefSpeedIncrease = 0;
+                        }
                     }
                 }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "" + sclass + " Awakening Weapons";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                AW_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    AW_btn.Background = new ImageBrush(Item_img.Source);
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/AwakeningWeapon.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    AW_btn.Background = new ImageBrush(imgc);
+                }
+
+
                 cs.AwakeningState(sclass);
                 if (cs.awkEnch == false) AW_btn.Content = "";
 
@@ -1786,41 +2195,73 @@ namespace BDHelper
             } //Awakening Weapon 
             if (cs.sgn == 12)
             {
-                cmd.CommandText = "select * from [" + chWeapon + " Main Weapon] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
+                    cs.mwGems = 0;
+                    cs.mwDefAPhigh = 0;
+                    cs.mwDefAPlow = 0;
+                    cs.mwDefAccuracy = 0;
+                    cs.mwDefDamageHumans = 0;
+                    cs.mwDefDamageAll = 0;
+                    cs.mwDefAPagainst = 0;
+                    cs.mwDefDamDemi = 0;
+                    cs.mwDefAtkSpeed = 0;
+                    cs.mwDefCastSpeed = 0;
+                    cs.mwDefCrit = 0;
+                    cs.mwDefHidenAP = 0;
+                    cs.mwDefIgnore = 0;
+                    cs.mwDefRecoveryChance = 0;
+                    cs.mwEnch = false;
+                    cs.mwSB = 0;
                 }
 
-
-                foreach (DataRow dr in dt.Rows)
+                else
                 {
-                    cs.mwGems = Convert.ToInt32(dr["Gems"]);
-                    cs.mwDefAPhigh = Convert.ToInt32(dr["APhigh"]);
-                    cs.mwDefAPlow = Convert.ToInt32(dr["APlow"]);
-                    cs.mwDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                    cs.mwDefDamageHumans = Convert.ToInt32(dr["DamHum"]);
-                    cs.mwDefDamageAll = Convert.ToInt32(dr["DamAll"]);
-                    cs.mwDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.mwDefDamDemi = Convert.ToInt32(dr["DamDemi"]);
-                    cs.mwDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
-                    cs.mwDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                    cs.mwDefCrit = Convert.ToInt32(dr["Crit"]);
-                    cs.mwDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                    cs.mwDefIgnore = Convert.ToInt32(dr["IgnoreRes"]);
-                    cs.mwDefRecoveryChance = Convert.ToInt32(dr["ChanceRecovery"]);
-                    cs.mwEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.mwSB = Convert.ToInt32(dr["SetBonus"]);
-                }
+                    cmd.CommandText = "select * from [" + chWeapon + " Main Weapon] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
 
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.mwGems = Convert.ToInt32(dr["Gems"]);
+                        cs.mwDefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                        cs.mwDefAPlow = Convert.ToInt32(dr["APlow"]);
+                        cs.mwDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                        cs.mwDefDamageHumans = Convert.ToInt32(dr["DamHum"]);
+                        cs.mwDefDamageAll = Convert.ToInt32(dr["DamAll"]);
+                        cs.mwDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.mwDefDamDemi = Convert.ToInt32(dr["DamDemi"]);
+                        cs.mwDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
+                        cs.mwDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                        cs.mwDefCrit = Convert.ToInt32(dr["Crit"]);
+                        cs.mwDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                        cs.mwDefIgnore = Convert.ToInt32(dr["IgnoreRes"]);
+                        cs.mwDefRecoveryChance = Convert.ToInt32(dr["ChanceRecovery"]);
+                        cs.mwEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.mwSB = Convert.ToInt32(dr["SetBonus"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "" + chWeapon + " Main Weapon";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                MW_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    MW_btn.Background = new ImageBrush(Item_img.Source);
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/MainWeapon.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    MW_btn.Background = new ImageBrush(imgc);
+                }
                 cs.MainWeaponState(chWeapon);
                 if (cs.mwEnch == false) MW_btn.Content = "";
 
@@ -1876,42 +2317,77 @@ namespace BDHelper
             } //Main Weapon 
             if (cs.sgn == 13)
             {
-                cmd.CommandText = "select * from [" + chSubWeapon + " Sub-Weapons] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.swGems = Convert.ToInt32(dr["Gems"]);
-                    cs.swDefAPhigh = Convert.ToInt32(dr["APhigh"]);
-                    cs.swDefAPlow = Convert.ToInt32(dr["APlow"]);
-                    cs.swDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                    cs.swDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.swDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                    cs.swDefIgnore = Convert.ToInt32(dr["IgnoreRes"]);
-                    cs.swDefDP = Convert.ToInt32(dr["DP"]);
-                    cs.swDefDR = Convert.ToInt32(dr["DR"]);
-                    cs.swDefEvasion = Convert.ToInt32(dr["Evasion"]);
-                    cs.swDefHEvasion = Convert.ToInt32(dr["HEvasion"]);
-                    cs.swDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.swDefMaxMP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.swDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                    cs.swDefSpecialAttackEv = Convert.ToInt32(dr["SpecialAttackEv"]);
-                    cs.swDefSpecialAttackDam = Convert.ToInt32(dr["SpecialAttackDam"]);
-                    cs.swDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                    cs.swEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.swSB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.swGems = 0;
+                    cs.swDefAPhigh = 0;
+                    cs.swDefAPlow = 0;
+                    cs.swDefAccuracy = 0;
+                    cs.swDefAPagainst = 0;
+                    cs.swDefHidenAP = 0;
+                    cs.swDefIgnore = 0;
+                    cs.swDefDP = 0;
+                    cs.swDefDR = 0;
+                    cs.swDefEvasion = 0;
+                    cs.swDefHEvasion = 0;
+                    cs.swDefMaxHP = 0;
+                    cs.swDefMaxMP = 0;
+                    cs.swDefMaxST = 0;
+                    cs.swDefSpecialAttackEv = 0;
+                    cs.swDefSpecialAttackDam = 0;
+                    cs.swDefAllRes = 0;
+                    cs.swEnch = false;
+                    cs.swSB = 0;
                 }
 
+                else
+                {
+                    cmd.CommandText = "select * from [" + chSubWeapon + " Sub-Weapons] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.swGems = Convert.ToInt32(dr["Gems"]);
+                        cs.swDefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                        cs.swDefAPlow = Convert.ToInt32(dr["APlow"]);
+                        cs.swDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                        cs.swDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.swDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                        cs.swDefIgnore = Convert.ToInt32(dr["IgnoreRes"]);
+                        cs.swDefDP = Convert.ToInt32(dr["DP"]);
+                        cs.swDefDR = Convert.ToInt32(dr["DR"]);
+                        cs.swDefEvasion = Convert.ToInt32(dr["Evasion"]);
+                        cs.swDefHEvasion = Convert.ToInt32(dr["HEvasion"]);
+                        cs.swDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.swDefMaxMP = Convert.ToInt32(dr["MaxMP"]);
+                        cs.swDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                        cs.swDefSpecialAttackEv = Convert.ToInt32(dr["SpecialAttackEv"]);
+                        cs.swDefSpecialAttackDam = Convert.ToInt32(dr["SpecialAttackDam"]);
+                        cs.swDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                        cs.swEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.swSB = Convert.ToInt32(dr["SetBonus"]);
+                    }
+                }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "" + chSubWeapon + " Sub-Weapons";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                SW_btn.Background = new ImageBrush(Item_img.Source);
+                if (SelectGear_cb.SelectedIndex >= 0)
+                {
+                    Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                    SW_btn.Background = new ImageBrush(Item_img.Source);
+                }
+                else
+                {
+                    var uri = new Uri("pack://application:,,,/Resources/SubWeapon.png");
+                    var imgc = new BitmapImage(uri);
+                    Item_img.Source = null;
+                    SW_btn.Background = new ImageBrush(imgc);
+                }
                 cs.SubWeaponState(chSubWeapon);
                 if (cs.swEnch == false) SW_btn.Content = "";
 
@@ -1975,39 +2451,63 @@ namespace BDHelper
             } //Sub-Weapons 
             if (cs.sgn == 14)
             {
-                cmd.CommandText = "select * from [Alchemy Stones] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    da.Fill(dt);
+                    cs.asDefAPhigh =0;
+                    cs.asDefAPlow = 0;
+                    cs.asDefAccuracy =0;
+                    cs.asDefHidenAP = 0;
+                    cs.asDefIgnore = 0;
+                    cs.asDefDR = 0;
+                    cs.asDefEvasion = 0;
+                    cs.asDefMaxHP = 0;
+                    cs.asDefAllRes = 0;
+                    cs.asEnch = false;
+                    cs.asDefAtkSpeed = 0;
+                    cs.asDefCastSpeed = 0;
+                    cs.asDefWeightLimit = 0;
+                    cs.asDefGathFish = 0;
+                    cs.asDefGathDropRate = 0;
+                    cs.asDefAlchCookTime = 0;
                 }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    cs.asDefAPhigh = Convert.ToInt32(dr["APhigh"]);
-                    cs.asDefAPlow = Convert.ToInt32(dr["APlow"]);
-                    cs.asDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                    cs.asDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                    cs.asDefIgnore = Convert.ToInt32(dr["IgnoreRes"]);
-                    cs.asDefDR = Convert.ToInt32(dr["DR"]);
-                    cs.asDefEvasion = Convert.ToInt32(dr["Evasion"]);
-                    cs.asDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.asDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                    cs.asEnch = Convert.ToBoolean(dr["Ench"]);
-                    cs.asDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
-                    cs.asDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                    cs.asDefWeightLimit = Convert.ToInt32(dr["WeightLimit"]);
-                    cs.asDefGathFish = Convert.ToInt32(dr["GathFish"]);
-                    cs.asDefGathDropRate = Convert.ToInt32(dr["GathDrop"]);
-                    cs.asDefAlchCookTime = Convert.ToDouble(dr["AlchCockTime"]);
 
+                else
+                {
+                    cmd.CommandText = "select * from [Alchemy Stones] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.asDefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                        cs.asDefAPlow = Convert.ToInt32(dr["APlow"]);
+                        cs.asDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                        cs.asDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                        cs.asDefIgnore = Convert.ToInt32(dr["IgnoreRes"]);
+                        cs.asDefDR = Convert.ToInt32(dr["DR"]);
+                        cs.asDefEvasion = Convert.ToInt32(dr["Evasion"]);
+                        cs.asDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                        cs.asDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                        cs.asEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.asDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
+                        cs.asDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                        cs.asDefWeightLimit = Convert.ToInt32(dr["WeightLimit"]);
+                        cs.asDefGathFish = Convert.ToInt32(dr["GathFish"]);
+                        cs.asDefGathDropRate = Convert.ToInt32(dr["GathDrop"]);
+                        cs.asDefAlchCookTime = Convert.ToDouble(dr["AlchCockTime"]);
+
+                    }
                 }
 
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = "Alchemy Stones";
-                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                else Item_img.Source = null;
                 AS_btn.Background = new ImageBrush(Item_img.Source);
                 cs.AlchemyStoneState();
                 if (cs.asEnch == false) AS_btn.Content = "";
@@ -2052,79 +2552,106 @@ namespace BDHelper
             } //Alchemy Stones
             if (cs.sgn == 15)
             {
-                if (SelectGear_cb.SelectedIndex <= 25)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.wmcId = Convert.ToInt32(dr["Id"]);
-                        cs.wmcType = Convert.ToString(dr["Type"]);
-                        cs.wmcDefCrit = Convert.ToInt32(dr["Crit"]);
-                        cs.wmcDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                        cs.wmcDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
-                        cs.wmcDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                        cs.wmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.wmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.wmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                    cs.wmcId = -1;
+                    cs.wmcType = "Weapon";
+                    cs.wmcDefCrit = 0;
+                    cs.wmcDefCastSpeed = 0;
+                    cs.wmcDefAtkSpeed = 0;
+                    cs.wmcDefHidenAP = 0;
+                    cs.wmcDefIgnoreAll = 0;
+                    cs.wmcDefAccuracy = 0;
+                    cs.wmcDefDmgToHumans = 0;
+                    cs.CrysMW1SB = 0;
 
-                        cs.wmcDefDmgToDemi = 0;
-                        cs.wmcDefWeight = 0;
-                        cs.wmcDefAllRes = 0;
-                        cs.wmcDefMaxHP = 0;
-                        cs.wmcDefMaxST = 0;
-                        cs.wmcDefDR = 0;
-                        cs.wmcDefLuck = 0;
-                        cs.wmcDefCombatEXP = 0;
-                        cs.wmcDefSkillEXP = 0;
-                    }
+                    cs.wmcDefDmgToDemi = 0;
+                    cs.wmcDefWeight = 0;
+                    cs.wmcDefAllRes = 0;
+                    cs.wmcDefMaxHP = 0;
+                    cs.wmcDefMaxST = 0;
+                    cs.wmcDefDR = 0;
+                    cs.wmcDefLuck = 0;
+                    cs.wmcDefCombatEXP = 0;
+                    cs.wmcDefSkillEXP = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 26).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 25)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.wmcId = Convert.ToInt32(dr["Id"]);
+                            cs.wmcType = Convert.ToString(dr["Type"]);
+                            cs.wmcDefCrit = Convert.ToInt32(dr["Crit"]);
+                            cs.wmcDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                            cs.wmcDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
+                            cs.wmcDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                            cs.wmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.wmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.wmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+
+                            cs.wmcDefDmgToDemi = 0;
+                            cs.wmcDefWeight = 0;
+                            cs.wmcDefAllRes = 0;
+                            cs.wmcDefMaxHP = 0;
+                            cs.wmcDefMaxST = 0;
+                            cs.wmcDefDR = 0;
+                            cs.wmcDefLuck = 0;
+                            cs.wmcDefCombatEXP = 0;
+                            cs.wmcDefSkillEXP = 0;
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.wmcId = Convert.ToInt32(dr["Id"]);
-                        cs.wmcType = Convert.ToString(dr["Type"]);
-                        cs.wmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.wmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.wmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.wmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.wmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.wmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.wmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.wmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.wmcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.wmcDefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.wmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.wmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysMW1SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 26).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.wmcId = Convert.ToInt32(dr["Id"]);
+                            cs.wmcType = Convert.ToString(dr["Type"]);
+                            cs.wmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.wmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.wmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.wmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.wmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.wmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.wmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.wmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.wmcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.wmcDefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.wmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.wmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysMW1SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.wmcDefCrit = 0;
-                        cs.wmcDefCastSpeed = 0;
-                        cs.wmcDefAtkSpeed = 0;
-                        cs.wmcDefHidenAP = 0;
+                            cs.wmcDefCrit = 0;
+                            cs.wmcDefCastSpeed = 0;
+                            cs.wmcDefAtkSpeed = 0;
+                            cs.wmcDefHidenAP = 0;
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.wmcType + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.wmcId);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.wmcId);
+                else Item_img.Source = null;
                 CrysMW1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysMW1();
 
@@ -2171,79 +2698,106 @@ namespace BDHelper
             } //Weapon Magic Crystal - 1
             if (cs.sgn == 16)
             {
-                if (SelectGear_cb.SelectedIndex <= 25)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.wmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.wmc2Type = Convert.ToString(dr["Type"]);
-                        cs.wmc2DefCrit = Convert.ToInt32(dr["Crit"]);
-                        cs.wmc2DefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                        cs.wmc2DefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
-                        cs.wmc2DefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                        cs.wmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.wmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.wmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                    cs.wmc2Id = -1;
+                    cs.wmc2Type = "Weapon";
+                    cs.wmc2DefCrit = 0;
+                    cs.wmc2DefCastSpeed = 0;
+                    cs.wmc2DefAtkSpeed = 0;
+                    cs.wmc2DefHidenAP = 0;
+                    cs.wmc2DefIgnoreAll = 0;
+                    cs.wmc2DefAccuracy = 0;
+                    cs.wmc2DefDmgToHumans = 0;
+                    cs.CrysMW2SB = 0;
 
-                        cs.wmc2DefDmgToDemi = 0;
-                        cs.wmc2DefWeight = 0;
-                        cs.wmc2DefAllRes = 0;
-                        cs.wmc2DefMaxHP = 0;
-                        cs.wmc2DefMaxST = 0;
-                        cs.wmc2DefDR = 0;
-                        cs.wmc2DefLuck = 0;
-                        cs.wmc2DefCombatEXP = 0;
-                        cs.wmc2DefSkillEXP = 0;
-                    }
+                    cs.wmc2DefDmgToDemi = 0;
+                    cs.wmc2DefWeight = 0;
+                    cs.wmc2DefAllRes = 0;
+                    cs.wmc2DefMaxHP = 0;
+                    cs.wmc2DefMaxST = 0;
+                    cs.wmc2DefDR = 0;
+                    cs.wmc2DefLuck = 0;
+                    cs.wmc2DefCombatEXP = 0;
+                    cs.wmc2DefSkillEXP = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 26).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 25)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.wmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.wmc2Type = Convert.ToString(dr["Type"]);
+                            cs.wmc2DefCrit = Convert.ToInt32(dr["Crit"]);
+                            cs.wmc2DefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                            cs.wmc2DefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
+                            cs.wmc2DefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                            cs.wmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.wmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.wmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+
+                            cs.wmc2DefDmgToDemi = 0;
+                            cs.wmc2DefWeight = 0;
+                            cs.wmc2DefAllRes = 0;
+                            cs.wmc2DefMaxHP = 0;
+                            cs.wmc2DefMaxST = 0;
+                            cs.wmc2DefDR = 0;
+                            cs.wmc2DefLuck = 0;
+                            cs.wmc2DefCombatEXP = 0;
+                            cs.wmc2DefSkillEXP = 0;
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.wmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.wmc2Type = Convert.ToString(dr["Type"]);
-                        cs.wmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.wmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.wmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.wmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.wmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.wmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.wmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.wmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.wmc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.wmc2DefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.wmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.wmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysMW2SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 26).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.wmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.wmc2Type = Convert.ToString(dr["Type"]);
+                            cs.wmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.wmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.wmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.wmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.wmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.wmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.wmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.wmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.wmc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.wmc2DefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.wmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.wmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysMW2SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.wmc2DefCrit = 0;
-                        cs.wmc2DefCastSpeed = 0;
-                        cs.wmc2DefAtkSpeed = 0;
-                        cs.wmc2DefHidenAP = 0;
+                            cs.wmc2DefCrit = 0;
+                            cs.wmc2DefCastSpeed = 0;
+                            cs.wmc2DefAtkSpeed = 0;
+                            cs.wmc2DefHidenAP = 0;
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.wmc2Type + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.wmc2Id);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.wmc2Id);
+                else Item_img.Source = null;
                 CrysMW2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysMW2();
 
@@ -2290,96 +2844,129 @@ namespace BDHelper
             } //Weapon Magic Crystal - 2
             if (cs.sgn == 17)
             {
-                if (SelectGear_cb.SelectedIndex <= 14)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Sub-Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.swmcId = Convert.ToInt32(dr["Id"]);
-                        cs.swmcType = Convert.ToString(dr["Type"]);
-                        cs.swmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.swmcDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                        cs.swmcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.swmcDefIgnoreAll = 0;
-                        cs.swmcDefAccuracy = 0;
-                        cs.swmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]); ;
-                        cs.swmcDefDmgToDemi = 0;
-                        cs.swmcDefWeight = 0;
-                        cs.swmcDefAllRes = 0;
-                        cs.swmcDefMaxST = 0;
-                        cs.swmcDefLuck = 0;
-                        cs.swmcDefCombatEXP = 0;
-                        cs.swmcDefSkillEXP = 0;
+                    cs.swmcId = -1;
+                    cs.swmcDefIgnoreAll = 0;
+                    cs.swmcDefAccuracy = 0;
+                    cs.swmcDefDmgToHumans = 0;
+                    cs.swmcDefDmgToDemi = 0;
+                    cs.swmcDefWeight = 0;
+                    cs.swmcDefAllRes = 0;
+                    cs.swmcDefMaxHP = 0;
+                    cs.swmcDefMaxST = 0;
+                    cs.swmcDefDR = 0;
+                    cs.swmcDefLuck = 0;
+                    cs.swmcDefCombatEXP = 0;
+                    cs.swmcDefSkillEXP = 0;
+                    cs.CrysSW1SB =0;
 
-                        cs.swmcDefCritDmg = Convert.ToInt32(dr["CritChance"]);
-                        cs.swmcDefAirDmg = Convert.ToInt32(dr["AirAttackDmg"]);
-                        cs.swmcDefBackDmg = Convert.ToInt32(dr["BackAttackDmg"]);
-                        cs.swmcDefDownDmg = Convert.ToInt32(dr["DownAttackDmg"]);
-                        cs.swmcDefCounterDmg = Convert.ToInt32(dr["CounterAttackDmg"]);
-                        cs.swmcDefSpeedAtkDmg = Convert.ToInt32(dr["SpeedAttackDmg"]);
-                        cs.swmcDefGrapResIgnore = Convert.ToInt32(dr["IgnoreGrapRes"]);
-                        cs.swmcDefKBResIgnore = Convert.ToInt32(dr["IgnoreKBRes"]);
-                        cs.swmcDefKDResIgnore = Convert.ToInt32(dr["IgnoreKDRes"]);
-                        cs.swmcDefStunResIgnore = Convert.ToInt32(dr["IgnoreStunRes"]);
-
-                    }
+                    cs.swmcDefCritDmg = 0;
+                    cs.swmcDefAirDmg = 0;
+                    cs.swmcDefBackDmg = 0;
+                    cs.swmcDefDownDmg = 0;
+                    cs.swmcDefCounterDmg = 0;
+                    cs.swmcDefSpeedAtkDmg = 0;
+                    cs.swmcDefGrapResIgnore = 0;
+                    cs.swmcDefKBResIgnore = 0;
+                    cs.swmcDefKDResIgnore = 0;
+                    cs.swmcDefStunResIgnore = 0;
+                    cs.swmc2DefHidenAP = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 15).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 14)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Sub-Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.swmcId = Convert.ToInt32(dr["Id"]);
+                            cs.swmcType = Convert.ToString(dr["Type"]);
+                            cs.swmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.swmcDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                            cs.swmcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.swmcDefIgnoreAll = 0;
+                            cs.swmcDefAccuracy = 0;
+                            cs.swmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]); ;
+                            cs.swmcDefDmgToDemi = 0;
+                            cs.swmcDefWeight = 0;
+                            cs.swmcDefAllRes = 0;
+                            cs.swmcDefMaxST = 0;
+                            cs.swmcDefLuck = 0;
+                            cs.swmcDefCombatEXP = 0;
+                            cs.swmcDefSkillEXP = 0;
+
+                            cs.swmcDefCritDmg = Convert.ToInt32(dr["CritChance"]);
+                            cs.swmcDefAirDmg = Convert.ToInt32(dr["AirAttackDmg"]);
+                            cs.swmcDefBackDmg = Convert.ToInt32(dr["BackAttackDmg"]);
+                            cs.swmcDefDownDmg = Convert.ToInt32(dr["DownAttackDmg"]);
+                            cs.swmcDefCounterDmg = Convert.ToInt32(dr["CounterAttackDmg"]);
+                            cs.swmcDefSpeedAtkDmg = Convert.ToInt32(dr["SpeedAttackDmg"]);
+                            cs.swmcDefGrapResIgnore = Convert.ToInt32(dr["IgnoreGrapRes"]);
+                            cs.swmcDefKBResIgnore = Convert.ToInt32(dr["IgnoreKBRes"]);
+                            cs.swmcDefKDResIgnore = Convert.ToInt32(dr["IgnoreKDRes"]);
+                            cs.swmcDefStunResIgnore = Convert.ToInt32(dr["IgnoreStunRes"]);
+
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.swmcId = Convert.ToInt32(dr["Id"]);
-                        cs.swmcType = Convert.ToString(dr["Type"]);
-                        cs.swmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.swmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.swmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.swmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.swmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.swmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.swmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.swmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.swmcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.swmcDefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.swmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.swmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysSW1SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 15).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.swmcId = Convert.ToInt32(dr["Id"]);
+                            cs.swmcType = Convert.ToString(dr["Type"]);
+                            cs.swmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.swmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.swmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.swmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.swmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.swmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.swmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.swmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.swmcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.swmcDefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.swmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.swmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysSW1SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.swmcDefCritDmg = 0;
-                        cs.swmcDefAirDmg = 0;
-                        cs.swmcDefBackDmg = 0;
-                        cs.swmcDefDownDmg = 0;
-                        cs.swmcDefCounterDmg = 0;
-                        cs.swmcDefSpeedAtkDmg = 0;
-                        cs.swmcDefGrapResIgnore = 0;
-                        cs.swmcDefKBResIgnore = 0;
-                        cs.swmcDefKDResIgnore = 0;
-                        cs.swmcDefStunResIgnore = 0;
-                        cs.swmc2DefHidenAP = 0;
+                            cs.swmcDefCritDmg = 0;
+                            cs.swmcDefAirDmg = 0;
+                            cs.swmcDefBackDmg = 0;
+                            cs.swmcDefDownDmg = 0;
+                            cs.swmcDefCounterDmg = 0;
+                            cs.swmcDefSpeedAtkDmg = 0;
+                            cs.swmcDefGrapResIgnore = 0;
+                            cs.swmcDefKBResIgnore = 0;
+                            cs.swmcDefKDResIgnore = 0;
+                            cs.swmcDefStunResIgnore = 0;
+                            cs.swmcDefHidenAP = 0;
 
 
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.swmcType + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.swmcId);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.swmcId);
+                else Item_img.Source = null;
                 CrysSW1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysSW1();
 
@@ -2444,95 +3031,128 @@ namespace BDHelper
             } //Sub-Weapon Magic Crystal - 1
             if (cs.sgn == 18)
             {
-                if (SelectGear_cb.SelectedIndex <= 14)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Sub-Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.swmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.swmc2Type = Convert.ToString(dr["Type"]);
-                        cs.swmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.swmc2DefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                        cs.swmc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.swmc2DefIgnoreAll = 0;
-                        cs.swmc2DefAccuracy = 0;
-                        cs.swmc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]); ;
-                        cs.swmc2DefDmgToDemi = 0;
-                        cs.swmc2DefWeight = 0;
-                        cs.swmc2DefAllRes = 0;
-                        cs.swmc2DefMaxST = 0;
-                        cs.swmc2DefLuck = 0;
-                        cs.swmc2DefCombatEXP = 0;
-                        cs.swmc2DefSkillEXP = 0;
+                    cs.swmc2Id = -1;
+                    cs.swmc2DefIgnoreAll = 0;
+                    cs.swmc2DefAccuracy = 0;
+                    cs.swmc2DefDmgToHumans = 0;
+                    cs.swmc2DefDmgToDemi = 0;
+                    cs.swmc2DefWeight = 0;
+                    cs.swmc2DefAllRes = 0;
+                    cs.swmc2DefMaxHP = 0;
+                    cs.swmc2DefMaxST = 0;
+                    cs.swmc2DefDR = 0;
+                    cs.swmc2DefLuck = 0;
+                    cs.swmc2DefCombatEXP = 0;
+                    cs.swmc2DefSkillEXP = 0;
+                    cs.CrysSW2SB = 0;
 
-                        cs.swmc2DefCritDmg = Convert.ToInt32(dr["CritChance"]);
-                        cs.swmc2DefAirDmg = Convert.ToInt32(dr["AirAttackDmg"]);
-                        cs.swmc2DefBackDmg = Convert.ToInt32(dr["BackAttackDmg"]);
-                        cs.swmc2DefDownDmg = Convert.ToInt32(dr["DownAttackDmg"]);
-                        cs.swmc2DefCounterDmg = Convert.ToInt32(dr["CounterAttackDmg"]);
-                        cs.swmc2DefSpeedAtkDmg = Convert.ToInt32(dr["SpeedAttackDmg"]);
-                        cs.swmc2DefGrapResIgnore = Convert.ToInt32(dr["IgnoreGrapRes"]);
-                        cs.swmc2DefKBResIgnore = Convert.ToInt32(dr["IgnoreKBRes"]);
-                        cs.swmc2DefKDResIgnore = Convert.ToInt32(dr["IgnoreKDRes"]);
-                        cs.swmc2DefStunResIgnore = Convert.ToInt32(dr["IgnoreStunRes"]);
-
-                    }
+                    cs.swmc2DefCritDmg = 0;
+                    cs.swmc2DefAirDmg = 0;
+                    cs.swmc2DefBackDmg = 0;
+                    cs.swmc2DefDownDmg = 0;
+                    cs.swmc2DefCounterDmg = 0;
+                    cs.swmc2DefSpeedAtkDmg = 0;
+                    cs.swmc2DefGrapResIgnore = 0;
+                    cs.swmc2DefKBResIgnore = 0;
+                    cs.swmc2DefKDResIgnore = 0;
+                    cs.swmc2DefStunResIgnore = 0;
+                    cs.swmc2DefHidenAP = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 15).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 14)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Sub-Weapon Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.swmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.swmc2Type = Convert.ToString(dr["Type"]);
+                            cs.swmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.swmc2DefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                            cs.swmc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.swmc2DefIgnoreAll = 0;
+                            cs.swmc2DefAccuracy = 0;
+                            cs.swmc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]); ;
+                            cs.swmc2DefDmgToDemi = 0;
+                            cs.swmc2DefWeight = 0;
+                            cs.swmc2DefAllRes = 0;
+                            cs.swmc2DefMaxST = 0;
+                            cs.swmc2DefLuck = 0;
+                            cs.swmc2DefCombatEXP = 0;
+                            cs.swmc2DefSkillEXP = 0;
+
+                            cs.swmc2DefCritDmg = Convert.ToInt32(dr["CritChance"]);
+                            cs.swmc2DefAirDmg = Convert.ToInt32(dr["AirAttackDmg"]);
+                            cs.swmc2DefBackDmg = Convert.ToInt32(dr["BackAttackDmg"]);
+                            cs.swmc2DefDownDmg = Convert.ToInt32(dr["DownAttackDmg"]);
+                            cs.swmc2DefCounterDmg = Convert.ToInt32(dr["CounterAttackDmg"]);
+                            cs.swmc2DefSpeedAtkDmg = Convert.ToInt32(dr["SpeedAttackDmg"]);
+                            cs.swmc2DefGrapResIgnore = Convert.ToInt32(dr["IgnoreGrapRes"]);
+                            cs.swmc2DefKBResIgnore = Convert.ToInt32(dr["IgnoreKBRes"]);
+                            cs.swmc2DefKDResIgnore = Convert.ToInt32(dr["IgnoreKDRes"]);
+                            cs.swmc2DefStunResIgnore = Convert.ToInt32(dr["IgnoreStunRes"]);
+
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.swmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.swmc2Type = Convert.ToString(dr["Type"]);
-                        cs.swmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.swmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.swmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.swmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.swmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.swmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.swmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.swmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.swmc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.swmc2DefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.swmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.swmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysSW2SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 15).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.swmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.swmc2Type = Convert.ToString(dr["Type"]);
+                            cs.swmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.swmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.swmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.swmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.swmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.swmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.swmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.swmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.swmc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.swmc2DefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.swmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.swmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysSW2SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.swmc2DefCritDmg = 0;
-                        cs.swmc2DefAirDmg = 0;
-                        cs.swmc2DefBackDmg = 0;
-                        cs.swmc2DefDownDmg = 0;
-                        cs.swmc2DefCounterDmg = 0;
-                        cs.swmc2DefSpeedAtkDmg = 0;
-                        cs.swmc2DefGrapResIgnore = 0;
-                        cs.swmc2DefKBResIgnore = 0;
-                        cs.swmc2DefKDResIgnore = 0;
-                        cs.swmc2DefStunResIgnore = 0;
-                        cs.swmc2DefHidenAP = 0;
+                            cs.swmc2DefCritDmg = 0;
+                            cs.swmc2DefAirDmg = 0;
+                            cs.swmc2DefBackDmg = 0;
+                            cs.swmc2DefDownDmg = 0;
+                            cs.swmc2DefCounterDmg = 0;
+                            cs.swmc2DefSpeedAtkDmg = 0;
+                            cs.swmc2DefGrapResIgnore = 0;
+                            cs.swmc2DefKBResIgnore = 0;
+                            cs.swmc2DefKDResIgnore = 0;
+                            cs.swmc2DefStunResIgnore = 0;
+                            cs.swmc2DefHidenAP = 0;
 
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.swmc2Type + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.swmc2Id);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.swmc2Id);
+                else Item_img.Source = null;
                 CrysSW2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysSW2();
 
@@ -2597,86 +3217,114 @@ namespace BDHelper
             } //Sub-Weapon Magic Crystal - 2
             if (cs.sgn == 19)
             {
-                if (SelectGear_cb.SelectedIndex <= 20)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Helmet Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.hmcId = Convert.ToInt32(dr["Id"]);
-                        cs.hmcType = Convert.ToString(dr["Type"]);
-                        cs.hmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.hmcDefDR = 0;
-                        cs.hmcDefIgnoreAll = 0;
-                        cs.hmcDefAccuracy = 0;
-                        cs.hmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
-                        cs.hmcDefDmgToDemi = 0;
-                        cs.hmcDefWeight = 0;
-                        cs.hmcDefAllRes = 0;
-                        cs.hmcDefMaxST = 0;
-                        cs.hmcDefLuck = 0;
-                        cs.hmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.hmcDefSkillEXP = 0;
+                    cs.hmcId =-1;
+                    cs.hmcDefMaxHP = 0;
+                    cs.hmcDefDR = 0;
+                    cs.hmcDefIgnoreAll = 0;
+                    cs.hmcDefAccuracy = 0;
+                    cs.hmcDefDmgToHumans = 0;
+                    cs.hmcDefDmgToDemi = 0;
+                    cs.hmcDefWeight = 0;
+                    cs.hmcDefAllRes = 0;
+                    cs.hmcDefMaxST = 0;
+                    cs.hmcDefLuck = 0;
+                    cs.hmcDefCombatEXP = 0;
+                    cs.hmcDefSkillEXP = 0;
+                    cs.CrysH1SB = 0;
 
-                        cs.hmcDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
-                        cs.hmcDefEV = Convert.ToInt32(dr["Evasion"]);
-                        cs.hmcDefKBRes = Convert.ToInt32(dr["KBRes"]);
-                        cs.hmcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                        cs.hmcDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                        cs.hmcDefVisionRange = Convert.ToInt32(dr["VisionRange"]);
-
-
-
-                    }
+                    cs.hmcDefHPRecovery = 0;
+                    cs.hmcDefEV = 0;
+                    cs.hmcDefKBRes = 0;
+                    cs.hmcDefSSFRes = 0;
+                    cs.hmcDefCastSpeed = 0;
+                    cs.hmcDefVisionRange = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 21).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 20)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Helmet Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.hmcId = Convert.ToInt32(dr["Id"]);
+                            cs.hmcType = Convert.ToString(dr["Type"]);
+                            cs.hmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.hmcDefDR = 0;
+                            cs.hmcDefIgnoreAll = 0;
+                            cs.hmcDefAccuracy = 0;
+                            cs.hmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
+                            cs.hmcDefDmgToDemi = 0;
+                            cs.hmcDefWeight = 0;
+                            cs.hmcDefAllRes = 0;
+                            cs.hmcDefMaxST = 0;
+                            cs.hmcDefLuck = 0;
+                            cs.hmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.hmcDefSkillEXP = 0;
+
+                            cs.hmcDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
+                            cs.hmcDefEV = Convert.ToInt32(dr["Evasion"]);
+                            cs.hmcDefKBRes = Convert.ToInt32(dr["KBRes"]);
+                            cs.hmcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                            cs.hmcDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                            cs.hmcDefVisionRange = Convert.ToInt32(dr["VisionRange"]);
+
+
+
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.hmcId = Convert.ToInt32(dr["Id"]);
-                        cs.hmcType = Convert.ToString(dr["Type"]);
-                        cs.hmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.hmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.hmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.hmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.hmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.hmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.hmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.hmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.hmcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.hmcDefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.hmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.hmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysH1SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 21).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.hmcId = Convert.ToInt32(dr["Id"]);
+                            cs.hmcType = Convert.ToString(dr["Type"]);
+                            cs.hmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.hmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.hmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.hmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.hmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.hmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.hmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.hmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.hmcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.hmcDefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.hmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.hmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysH1SB = Convert.ToInt32(dr["SetBonus"]);
 
 
-                        cs.hmcDefHPRecovery = 0;
-                        cs.hmcDefEV = 0;
-                        cs.hmcDefKBRes = 0;
-                        cs.hmcDefSSFRes = 0;
-                        cs.hmcDefCastSpeed = 0;
-                        cs.hmcDefVisionRange = 0;
+                            cs.hmcDefHPRecovery = 0;
+                            cs.hmcDefEV = 0;
+                            cs.hmcDefKBRes = 0;
+                            cs.hmcDefSSFRes = 0;
+                            cs.hmcDefCastSpeed = 0;
+                            cs.hmcDefVisionRange = 0;
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.hmcType + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.hmcId);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.hmcId);
+                else Item_img.Source = null;
                 CrysH1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysH1();
 
@@ -2732,86 +3380,114 @@ namespace BDHelper
             } //Helmet Magic Crystal - 1
             if (cs.sgn == 20)
             {
-                if (SelectGear_cb.SelectedIndex <= 20)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Helmet Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.hmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.hmc2Type = Convert.ToString(dr["Type"]);
-                        cs.hmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.hmc2DefDR = 0;
-                        cs.hmc2DefIgnoreAll = 0;
-                        cs.hmc2DefAccuracy = 0;
-                        cs.hmc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
-                        cs.hmc2DefDmgToDemi = 0;
-                        cs.hmc2DefWeight = 0;
-                        cs.hmc2DefAllRes = 0;
-                        cs.hmc2DefMaxST = 0;
-                        cs.hmc2DefLuck = 0;
-                        cs.hmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.hmc2DefSkillEXP = 0;
+                    cs.hmc2Id = -1;
+                    cs.hmc2DefMaxHP = 0;
+                    cs.hmc2DefDR = 0;
+                    cs.hmc2DefIgnoreAll = 0;
+                    cs.hmc2DefAccuracy = 0;
+                    cs.hmc2DefDmgToHumans = 0;
+                    cs.hmc2DefDmgToDemi = 0;
+                    cs.hmc2DefWeight = 0;
+                    cs.hmc2DefAllRes = 0;
+                    cs.hmc2DefMaxST = 0;
+                    cs.hmc2DefLuck = 0;
+                    cs.hmc2DefCombatEXP = 0;
+                    cs.hmc2DefSkillEXP = 0;
+                    cs.CrysH2SB = 0;
 
-                        cs.hmc2DefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
-                        cs.hmc2DefEV = Convert.ToInt32(dr["Evasion"]);
-                        cs.hmc2DefKBRes = Convert.ToInt32(dr["KBRes"]);
-                        cs.hmc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                        cs.hmc2DefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                        cs.hmc2DefVisionRange = Convert.ToInt32(dr["VisionRange"]);
-
-
-
-                    }
+                    cs.hmc2DefHPRecovery = 0;
+                    cs.hmc2DefEV = 0;
+                    cs.hmc2DefKBRes = 0;
+                    cs.hmc2DefSSFRes = 0;
+                    cs.hmc2DefCastSpeed = 0;
+                    cs.hmc2DefVisionRange = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 21).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 20)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Helmet Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.hmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.hmc2Type = Convert.ToString(dr["Type"]);
+                            cs.hmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.hmc2DefDR = 0;
+                            cs.hmc2DefIgnoreAll = 0;
+                            cs.hmc2DefAccuracy = 0;
+                            cs.hmc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
+                            cs.hmc2DefDmgToDemi = 0;
+                            cs.hmc2DefWeight = 0;
+                            cs.hmc2DefAllRes = 0;
+                            cs.hmc2DefMaxST = 0;
+                            cs.hmc2DefLuck = 0;
+                            cs.hmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.hmc2DefSkillEXP = 0;
+
+                            cs.hmc2DefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
+                            cs.hmc2DefEV = Convert.ToInt32(dr["Evasion"]);
+                            cs.hmc2DefKBRes = Convert.ToInt32(dr["KBRes"]);
+                            cs.hmc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                            cs.hmc2DefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                            cs.hmc2DefVisionRange = Convert.ToInt32(dr["VisionRange"]);
+
+
+
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.hmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.hmc2Type = Convert.ToString(dr["Type"]);
-                        cs.hmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.hmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.hmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.hmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.hmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.hmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.hmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.hmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.hmc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.hmc2DefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.hmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.hmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysH2SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 21).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.hmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.hmc2Type = Convert.ToString(dr["Type"]);
+                            cs.hmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.hmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.hmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.hmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.hmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.hmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.hmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.hmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.hmc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.hmc2DefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.hmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.hmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysH2SB = Convert.ToInt32(dr["SetBonus"]);
 
 
-                        cs.hmc2DefHPRecovery = 0;
-                        cs.hmc2DefEV = 0;
-                        cs.hmc2DefKBRes = 0;
-                        cs.hmc2DefSSFRes = 0;
-                        cs.hmc2DefCastSpeed = 0;
-                        cs.hmc2DefVisionRange = 0;
+                            cs.hmc2DefHPRecovery = 0;
+                            cs.hmc2DefEV = 0;
+                            cs.hmc2DefKBRes = 0;
+                            cs.hmc2DefSSFRes = 0;
+                            cs.hmc2DefCastSpeed = 0;
+                            cs.hmc2DefVisionRange = 0;
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.hmc2Type + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.hmc2Id);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.hmc2Id);
+                else Item_img.Source = null;
                 CrysH2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysH2();
 
@@ -2867,95 +3543,127 @@ namespace BDHelper
             } //Helmet Magic Crystal - 2
             if (cs.sgn == 21)
             {
-                if (SelectGear_cb.SelectedIndex <= 27)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Armor Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.amcId = Convert.ToInt32(dr["Id"]);
-                        cs.amcType = Convert.ToString(dr["Type"]);
-                        cs.amcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.amcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.amcDefIgnoreAll = 0;
-                        cs.amcDefAccuracy = 0;
-                        cs.amcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
-                        cs.amcDefDmgToDemi = 0;
-                        cs.amcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.amcDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.amcDefMaxST = 0;
-                        cs.amcDefLuck = 0;
-                        cs.amcDefCombatEXP = 0;
-                        cs.amcDefSkillEXP = 0;
-
-                        cs.amcDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
-                        cs.amcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                        cs.amcDefMaxMP = Convert.ToInt32(dr["MaxMP"]);
-                        cs.amcDefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
-                        cs.amcDefSpecialAtkEvRate = Convert.ToInt32(dr["SpecialAtkEvRate"]);
-                        cs.amcDefMagicDR = Convert.ToInt32(dr["MagicDR"]);
-                        cs.amcDefMelleDR = Convert.ToInt32(dr["MelleDR"]);
-                        cs.amcDefRangeDR = Convert.ToInt32(dr["RangeDR"]);
-                        cs.amcDefSiegeWeaponEvRate = Convert.ToInt32(dr["SiegeWeaponEvRate"]);
+                    cs.amcId = -1;
+                    cs.amcDefIgnoreAll = 0;
+                    cs.amcDefAccuracy = 0;
+                    cs.amcDefDmgToHumans = 0;
+                    cs.amcDefDmgToDemi = 0;
+                    cs.amcDefWeight = 0;
+                    cs.amcDefAllRes = 0;
+                    cs.amcDefMaxHP = 0;
+                    cs.amcDefMaxST = 0;
+                    cs.amcDefDR = 0;
+                    cs.amcDefLuck = 0;
+                    cs.amcDefCombatEXP = 0;
+                    cs.amcDefSkillEXP = 0;
+                    cs.CrysA1SB = 0;
 
 
-
-
-
-                    }
+                    cs.amcDefHPRecovery = 0;
+                    cs.amcDefSSFRes = 0;
+                    cs.amcDefMaxMP = 0;
+                    cs.amcDefMPRecovery = 0;
+                    cs.amcDefSpecialAtkEvRate = 0;
+                    cs.amcDefMagicDR = 0;
+                    cs.amcDefMelleDR = 0;
+                    cs.amcDefRangeDR = 0;
+                    cs.amcDefSiegeWeaponEvRate = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 28).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 27)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Armor Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.amcId = Convert.ToInt32(dr["Id"]);
+                            cs.amcType = Convert.ToString(dr["Type"]);
+                            cs.amcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.amcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.amcDefIgnoreAll = 0;
+                            cs.amcDefAccuracy = 0;
+                            cs.amcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
+                            cs.amcDefDmgToDemi = 0;
+                            cs.amcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.amcDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.amcDefMaxST = 0;
+                            cs.amcDefLuck = 0;
+                            cs.amcDefCombatEXP = 0;
+                            cs.amcDefSkillEXP = 0;
+
+                            cs.amcDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
+                            cs.amcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                            cs.amcDefMaxMP = Convert.ToInt32(dr["MaxMP"]);
+                            cs.amcDefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
+                            cs.amcDefSpecialAtkEvRate = Convert.ToInt32(dr["SpecialAtkEvRate"]);
+                            cs.amcDefMagicDR = Convert.ToInt32(dr["MagicDR"]);
+                            cs.amcDefMelleDR = Convert.ToInt32(dr["MelleDR"]);
+                            cs.amcDefRangeDR = Convert.ToInt32(dr["RangeDR"]);
+                            cs.amcDefSiegeWeaponEvRate = Convert.ToInt32(dr["SiegeWeaponEvRate"]);
+
+
+
+
+
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.amcId = Convert.ToInt32(dr["Id"]);
-                        cs.amcType = Convert.ToString(dr["Type"]);
-                        cs.amcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.amcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.amcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.amcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.amcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.amcDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.amcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.amcDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.amcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.amcDefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.amcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.amcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysA1SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 28).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.amcId = Convert.ToInt32(dr["Id"]);
+                            cs.amcType = Convert.ToString(dr["Type"]);
+                            cs.amcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.amcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.amcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.amcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.amcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.amcDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.amcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.amcDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.amcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.amcDefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.amcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.amcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysA1SB = Convert.ToInt32(dr["SetBonus"]);
 
 
-                        cs.amcDefHPRecovery = 0;
-                        cs.amcDefSSFRes = 0;
-                        cs.amcDefMaxMP = 0;
-                        cs.amcDefMPRecovery = 0;
-                        cs.amcDefSpecialAtkEvRate = 0;
-                        cs.amcDefMagicDR = 0;
-                        cs.amcDefMelleDR = 0;
-                        cs.amcDefRangeDR = 0;
-                        cs.amcDefSiegeWeaponEvRate = 0;
+                            cs.amcDefHPRecovery = 0;
+                            cs.amcDefSSFRes = 0;
+                            cs.amcDefMaxMP = 0;
+                            cs.amcDefMPRecovery = 0;
+                            cs.amcDefSpecialAtkEvRate = 0;
+                            cs.amcDefMagicDR = 0;
+                            cs.amcDefMelleDR = 0;
+                            cs.amcDefRangeDR = 0;
+                            cs.amcDefSiegeWeaponEvRate = 0;
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.amcType + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.amcId);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.amcId);
+                else Item_img.Source = null;
                 CrysA1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysA1();
 
@@ -3015,94 +3723,126 @@ namespace BDHelper
             } //Armor Magic Crystal - 1
             if (cs.sgn == 22)
             {
-                if (SelectGear_cb.SelectedIndex <= 27)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Armor Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.amc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.amc2Type = Convert.ToString(dr["Type"]);
-                        cs.amc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.amc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.amc2DefIgnoreAll = 0;
-                        cs.amc2DefAccuracy = 0;
-                        cs.amc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
-                        cs.amc2DefDmgToDemi = 0;
-                        cs.amc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.amc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.amc2DefMaxST = 0;
-                        cs.amc2DefLuck = 0;
-                        cs.amc2DefCombatEXP = 0;
-                        cs.amc2DefSkillEXP = 0;
-
-                        cs.amc2DefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
-                        cs.amc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                        cs.amc2DefMaxMP = Convert.ToInt32(dr["MaxMP"]);
-                        cs.amc2DefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
-                        cs.amc2DefSpecialAtkEvRate = Convert.ToInt32(dr["SpecialAtkEvRate"]);
-                        cs.amc2DefMagicDR = Convert.ToInt32(dr["MagicDR"]);
-                        cs.amc2DefMelleDR = Convert.ToInt32(dr["MelleDR"]);
-                        cs.amc2DefRangeDR = Convert.ToInt32(dr["RangeDR"]);
-                        cs.amc2DefSiegeWeaponEvRate = Convert.ToInt32(dr["SiegeWeaponEvRate"]);
+                    cs.amc2Id = -1;
+                    cs.amc2DefIgnoreAll = 0;
+                    cs.amc2DefAccuracy = 0;
+                    cs.amc2DefDmgToHumans = 0;
+                    cs.amc2DefDmgToDemi = 0;
+                    cs.amc2DefWeight = 0;
+                    cs.amc2DefAllRes = 0;
+                    cs.amc2DefMaxHP = 0;
+                    cs.amc2DefMaxST = 0;
+                    cs.amc2DefDR = 0;
+                    cs.amc2DefLuck = 0;
+                    cs.amc2DefCombatEXP = 0;
+                    cs.amc2DefSkillEXP = 0;
+                    cs.CrysA2SB = 0;
 
 
-
-
-
-                    }
+                    cs.amc2DefHPRecovery = 0;
+                    cs.amc2DefSSFRes = 0;
+                    cs.amc2DefMaxMP = 0;
+                    cs.amc2DefMPRecovery = 0;
+                    cs.amc2DefSpecialAtkEvRate = 0;
+                    cs.amc2DefMagicDR = 0;
+                    cs.amc2DefMelleDR = 0;
+                    cs.amc2DefRangeDR = 0;
+                    cs.amc2DefSiegeWeaponEvRate = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 28).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 27)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Armor Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.amc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.amc2Type = Convert.ToString(dr["Type"]);
+                            cs.amc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.amc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.amc2DefIgnoreAll = 0;
+                            cs.amc2DefAccuracy = 0;
+                            cs.amc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
+                            cs.amc2DefDmgToDemi = 0;
+                            cs.amc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.amc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.amc2DefMaxST = 0;
+                            cs.amc2DefLuck = 0;
+                            cs.amc2DefCombatEXP = 0;
+                            cs.amc2DefSkillEXP = 0;
+
+                            cs.amc2DefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
+                            cs.amc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                            cs.amc2DefMaxMP = Convert.ToInt32(dr["MaxMP"]);
+                            cs.amc2DefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
+                            cs.amc2DefSpecialAtkEvRate = Convert.ToInt32(dr["SpecialAtkEvRate"]);
+                            cs.amc2DefMagicDR = Convert.ToInt32(dr["MagicDR"]);
+                            cs.amc2DefMelleDR = Convert.ToInt32(dr["MelleDR"]);
+                            cs.amc2DefRangeDR = Convert.ToInt32(dr["RangeDR"]);
+                            cs.amc2DefSiegeWeaponEvRate = Convert.ToInt32(dr["SiegeWeaponEvRate"]);
+
+
+
+
+
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.amc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.amc2Type = Convert.ToString(dr["Type"]);
-                        cs.amc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.amc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.amc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.amc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.amc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.amc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.amc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.amc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.amc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.amc2DefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.amc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.amc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysA2SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 28).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.amc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.amc2Type = Convert.ToString(dr["Type"]);
+                            cs.amc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.amc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.amc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.amc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.amc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.amc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.amc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.amc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.amc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.amc2DefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.amc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.amc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysA2SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.amc2DefHPRecovery = 0;
-                        cs.amc2DefSSFRes = 0;
-                        cs.amc2DefMaxMP = 0;
-                        cs.amc2DefMPRecovery = 0;
-                        cs.amc2DefSpecialAtkEvRate = 0;
-                        cs.amc2DefMagicDR = 0;
-                        cs.amc2DefMelleDR = 0;
-                        cs.amc2DefRangeDR = 0;
-                        cs.amc2DefSiegeWeaponEvRate = 0;
+                            cs.amc2DefHPRecovery = 0;
+                            cs.amc2DefSSFRes = 0;
+                            cs.amc2DefMaxMP = 0;
+                            cs.amc2DefMPRecovery = 0;
+                            cs.amc2DefSpecialAtkEvRate = 0;
+                            cs.amc2DefMagicDR = 0;
+                            cs.amc2DefMelleDR = 0;
+                            cs.amc2DefRangeDR = 0;
+                            cs.amc2DefSiegeWeaponEvRate = 0;
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.amc2Type + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.amc2Id);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.amc2Id);
+                else Item_img.Source = null;
                 CrysA2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysA2();
 
@@ -3163,89 +3903,120 @@ namespace BDHelper
             } //Armor Magic Crystal - 2
             if (cs.sgn == 23)
             {
-                if (SelectGear_cb.SelectedIndex <= 23)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Gloves Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.gmcId = Convert.ToInt32(dr["Id"]);
-                        cs.gmcType = Convert.ToString(dr["Type"]);
-                        cs.gmcDefMaxHP = 0;
-                        cs.gmcDefDR = 0;
-                        cs.gmcDefIgnoreAll = 0;
-                        cs.gmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.gmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
-                        cs.gmcDefDmgToDemi = 0;
-                        cs.gmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.gmcDefAllRes = 0;
-                        cs.gmcDefMaxST = 0;
-                        cs.gmcDefLuck = 0;
-                        cs.gmcDefCombatEXP = 0;
-                        cs.gmcDefSkillEXP = 0;
+                    cs.gmcId = -1;
+                    cs.gmcDefIgnoreAll =0;
+                    cs.gmcDefAccuracy = 0;
+                    cs.gmcDefDmgToHumans = 0;
+                    cs.gmcDefDmgToDemi = 0;
+                    cs.gmcDefWeight = 0;
+                    cs.gmcDefAllRes = 0;
+                    cs.gmcDefMaxHP = 0;
+                    cs.gmcDefMaxST = 0;
+                    cs.gmcDefDR = 0;
+                    cs.gmcDefLuck = 0;
+                    cs.gmcDefCombatEXP = 0;
+                    cs.gmcDefSkillEXP = 0;
+                    cs.CrysG1SB = 0;
 
-                        cs.gmcDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
-                        cs.gmcDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                        cs.gmcDefCrit = Convert.ToInt32(dr["Crit"]);
-                        cs.gmcDefGrapRes = Convert.ToInt32(dr["GrapRes"]);
-                        cs.gmcDefKFRes = Convert.ToInt32(dr["KFRes"]);
-                        cs.gmcDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                        cs.gmcDefMelleAP = Convert.ToInt32(dr["MelleAP"]);
-                        cs.gmcDefMagicAP = Convert.ToInt32(dr["MagicAP"]);
-                        cs.gmcDefRangedAP = Convert.ToInt32(dr["RangedAP"]);
-                    }
+                    cs.gmcDefAtkSpeed = 0;
+                    cs.gmcDefCastSpeed = 0;
+                    cs.gmcDefCrit = 0;
+                    cs.gmcDefGrapRes = 0;
+                    cs.gmcDefKFRes = 0;
+                    cs.gmcDefHidenAP = 0;
+                    cs.gmcDefMelleAP = 0;
+                    cs.gmcDefMagicAP = 0;
+                    cs.gmcDefRangedAP = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 24).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 23)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Gloves Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.gmcId = Convert.ToInt32(dr["Id"]);
+                            cs.gmcType = Convert.ToString(dr["Type"]);
+                            cs.gmcDefMaxHP = 0;
+                            cs.gmcDefDR = 0;
+                            cs.gmcDefIgnoreAll = 0;
+                            cs.gmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.gmcDefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
+                            cs.gmcDefDmgToDemi = 0;
+                            cs.gmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.gmcDefAllRes = 0;
+                            cs.gmcDefMaxST = 0;
+                            cs.gmcDefLuck = 0;
+                            cs.gmcDefCombatEXP = 0;
+                            cs.gmcDefSkillEXP = 0;
+
+                            cs.gmcDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
+                            cs.gmcDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                            cs.gmcDefCrit = Convert.ToInt32(dr["Crit"]);
+                            cs.gmcDefGrapRes = Convert.ToInt32(dr["GrapRes"]);
+                            cs.gmcDefKFRes = Convert.ToInt32(dr["KFRes"]);
+                            cs.gmcDefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                            cs.gmcDefMelleAP = Convert.ToInt32(dr["MelleAP"]);
+                            cs.gmcDefMagicAP = Convert.ToInt32(dr["MagicAP"]);
+                            cs.gmcDefRangedAP = Convert.ToInt32(dr["RangedAP"]);
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.gmcId = Convert.ToInt32(dr["Id"]);
-                        cs.gmcType = Convert.ToString(dr["Type"]);
-                        cs.gmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.gmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.gmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.gmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.gmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.gmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.gmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.gmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.gmcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.gmcDefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.gmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.gmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysG1SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 24).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.gmcId = Convert.ToInt32(dr["Id"]);
+                            cs.gmcType = Convert.ToString(dr["Type"]);
+                            cs.gmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.gmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.gmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.gmcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.gmcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.gmcDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.gmcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.gmcDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.gmcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.gmcDefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.gmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.gmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysG1SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.gmcDefAtkSpeed = 0;
-                        cs.gmcDefCastSpeed = 0;
-                        cs.gmcDefCrit = 0;
-                        cs.gmcDefGrapRes = 0;
-                        cs.gmcDefKFRes = 0;
-                        cs.gmcDefHidenAP = 0;
-                        cs.gmcDefMelleAP = 0;
-                        cs.gmcDefMagicAP = 0;
-                        cs.gmcDefRangedAP = 0;
+                            cs.gmcDefAtkSpeed = 0;
+                            cs.gmcDefCastSpeed = 0;
+                            cs.gmcDefCrit = 0;
+                            cs.gmcDefGrapRes = 0;
+                            cs.gmcDefKFRes = 0;
+                            cs.gmcDefHidenAP = 0;
+                            cs.gmcDefMelleAP = 0;
+                            cs.gmcDefMagicAP = 0;
+                            cs.gmcDefRangedAP = 0;
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.gmcType + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.gmcId);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.gmcId);
+                else Item_img.Source = null;
                 CrysG1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysG1();
 
@@ -3307,89 +4078,120 @@ namespace BDHelper
             } //Gloves Magic Crystal - 1
             if (cs.sgn == 24)
             {
-                if (SelectGear_cb.SelectedIndex <= 23)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Gloves Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.gmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.gmc2Type = Convert.ToString(dr["Type"]);
-                        cs.gmc2DefMaxHP = 0;
-                        cs.gmc2DefDR = 0;
-                        cs.gmc2DefIgnoreAll = 0;
-                        cs.gmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.gmc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
-                        cs.gmc2DefDmgToDemi = 0;
-                        cs.gmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.gmc2DefAllRes = 0;
-                        cs.gmc2DefMaxST = 0;
-                        cs.gmc2DefLuck = 0;
-                        cs.gmc2DefCombatEXP = 0;
-                        cs.gmc2DefSkillEXP = 0;
+                    cs.gmc2Id = -1;
+                    cs.gmc2DefIgnoreAll = 0;
+                    cs.gmc2DefAccuracy = 0;
+                    cs.gmc2DefDmgToHumans = 0;
+                    cs.gmc2DefDmgToDemi = 0;
+                    cs.gmc2DefWeight = 0;
+                    cs.gmc2DefAllRes = 0;
+                    cs.gmc2DefMaxHP = 0;
+                    cs.gmc2DefMaxST = 0;
+                    cs.gmc2DefDR = 0;
+                    cs.gmc2DefLuck = 0;
+                    cs.gmc2DefCombatEXP = 0;
+                    cs.gmc2DefSkillEXP = 0;
+                    cs.CrysG2SB = 0;
 
-                        cs.gmc2DefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
-                        cs.gmc2DefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
-                        cs.gmc2DefCrit = Convert.ToInt32(dr["Crit"]);
-                        cs.gmc2DefGrapRes = Convert.ToInt32(dr["GrapRes"]);
-                        cs.gmc2DefKFRes = Convert.ToInt32(dr["KFRes"]);
-                        cs.gmc2DefHidenAP = Convert.ToInt32(dr["HidenAP"]);
-                        cs.gmc2DefMelleAP = Convert.ToInt32(dr["MelleAP"]);
-                        cs.gmc2DefMagicAP = Convert.ToInt32(dr["MagicAP"]);
-                        cs.gmc2DefRangedAP = Convert.ToInt32(dr["RangedAP"]);
-                    }
+                    cs.gmc2DefAtkSpeed = 0;
+                    cs.gmc2DefCastSpeed = 0;
+                    cs.gmc2DefCrit = 0;
+                    cs.gmc2DefGrapRes = 0;
+                    cs.gmc2DefKFRes = 0;
+                    cs.gmc2DefHidenAP = 0;
+                    cs.gmc2DefMelleAP = 0;
+                    cs.gmc2DefMagicAP = 0;
+                    cs.gmc2DefRangedAP = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 24).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 23)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Gloves Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.gmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.gmc2Type = Convert.ToString(dr["Type"]);
+                            cs.gmc2DefMaxHP = 0;
+                            cs.gmc2DefDR = 0;
+                            cs.gmc2DefIgnoreAll = 0;
+                            cs.gmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.gmc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHumans"]);
+                            cs.gmc2DefDmgToDemi = 0;
+                            cs.gmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.gmc2DefAllRes = 0;
+                            cs.gmc2DefMaxST = 0;
+                            cs.gmc2DefLuck = 0;
+                            cs.gmc2DefCombatEXP = 0;
+                            cs.gmc2DefSkillEXP = 0;
+
+                            cs.gmc2DefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
+                            cs.gmc2DefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                            cs.gmc2DefCrit = Convert.ToInt32(dr["Crit"]);
+                            cs.gmc2DefGrapRes = Convert.ToInt32(dr["GrapRes"]);
+                            cs.gmc2DefKFRes = Convert.ToInt32(dr["KFRes"]);
+                            cs.gmc2DefHidenAP = Convert.ToInt32(dr["HidenAP"]);
+                            cs.gmc2DefMelleAP = Convert.ToInt32(dr["MelleAP"]);
+                            cs.gmc2DefMagicAP = Convert.ToInt32(dr["MagicAP"]);
+                            cs.gmc2DefRangedAP = Convert.ToInt32(dr["RangedAP"]);
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.gmc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.gmc2Type = Convert.ToString(dr["Type"]);
-                        cs.gmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.gmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.gmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.gmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.gmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.gmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.gmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.gmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.gmc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.gmc2DefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.gmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.gmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysG2SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 24).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.gmc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.gmc2Type = Convert.ToString(dr["Type"]);
+                            cs.gmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.gmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.gmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.gmc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.gmc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.gmc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.gmc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.gmc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.gmc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.gmc2DefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.gmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.gmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysG2SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.gmc2DefAtkSpeed = 0;
-                        cs.gmc2DefCastSpeed = 0;
-                        cs.gmc2DefCrit = 0;
-                        cs.gmc2DefGrapRes = 0;
-                        cs.gmc2DefKFRes = 0;
-                        cs.gmc2DefHidenAP = 0;
-                        cs.gmc2DefMelleAP = 0;
-                        cs.gmc2DefMagicAP = 0;
-                        cs.gmc2DefRangedAP = 0;
+                            cs.gmc2DefAtkSpeed = 0;
+                            cs.gmc2DefCastSpeed = 0;
+                            cs.gmc2DefCrit = 0;
+                            cs.gmc2DefGrapRes = 0;
+                            cs.gmc2DefKFRes = 0;
+                            cs.gmc2DefHidenAP = 0;
+                            cs.gmc2DefMelleAP = 0;
+                            cs.gmc2DefMagicAP = 0;
+                            cs.gmc2DefRangedAP = 0;
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.gmc2Type + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.gmc2Id);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.gmc2Id);
+                else Item_img.Source = null;
                 CrysG2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysG2();
 
@@ -3451,87 +4253,117 @@ namespace BDHelper
             } //Gloves Magic Crystal - 2
             if (cs.sgn == 25)
             {
-                if (SelectGear_cb.SelectedIndex <= 24)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Shoes Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.smcId = Convert.ToInt32(dr["Id"]);
-                        cs.smcType = Convert.ToString(dr["Type"]);
-                        cs.smcDefMaxHP = 0;
-                        cs.smcDefDR = 0;
-                        cs.smcDefIgnoreAll = 0;
-                        cs.smcDefAccuracy = 0;
-                        cs.smcDefDmgToHumans = Convert.ToInt32(dr["DmgToHum"]);
-                        cs.smcDefDmgToDemi = 0;
-                        cs.smcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.smcDefAllRes = 0;
-                        cs.smcDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.smcDefLuck = 0;
-                        cs.smcDefCombatEXP = 0;
-                        cs.smcDefSkillEXP = 0;
+                    cs.smcId = -1;
+                    cs.smcDefIgnoreAll = 0;
+                    cs.smcDefAccuracy = 0;
+                    cs.smcDefDmgToHumans = 0;
+                    cs.smcDefDmgToDemi = 0;
+                    cs.smcDefWeight = 0;
+                    cs.smcDefAllRes = 0;
+                    cs.smcDefMaxHP = 0;
+                    cs.smcDefMaxST = 0;
+                    cs.smcDefDR = 0;
+                    cs.smcDefLuck = 0;
+                    cs.smcDefCombatEXP = 0;
+                    cs.smcDefSkillEXP = 0;
+                    cs.CrysB1SB = 0;
 
-
-                        cs.smcDefKFRes = Convert.ToInt32(dr["KFRes"]);
-                        cs.smcDefKBRes = Convert.ToInt32(dr["KBRes"]);
-                        cs.smcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                        cs.smcDefMVSpeed = Convert.ToInt32(dr["MVSpeed"]);
-                        cs.smcDefJump = Convert.ToInt32(dr["Jump"]);
-                        cs.smcDefFallDamage = Convert.ToInt32(dr["FallDmg"]);
-                        cs.smcDefUnderWaterBreath = Convert.ToInt32(dr["UnderwaterBreath"]);
-                        cs.smcDefMaxEnergy = Convert.ToInt32(dr["MaxEnergy"]);
-                    }
+                    cs.smcDefKFRes = 0;
+                    cs.smcDefKBRes = 0;
+                    cs.smcDefSSFRes = 0;
+                    cs.smcDefMVSpeed = 0;
+                    cs.smcDefJump = 0;
+                    cs.smcDefFallDamage = 0;
+                    cs.smcDefUnderWaterBreath = 0;
+                    cs.smcDefMaxEnergy = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 25).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    if (SelectGear_cb.SelectedIndex <= 24)
                     {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.smcId = Convert.ToInt32(dr["Id"]);
-                        cs.smcType = Convert.ToString(dr["Type"]);
-                        cs.smcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.smcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.smcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.smcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.smcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.smcDefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.smcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.smcDefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.smcDefDR = Convert.ToInt32(dr["DR"]);
-                        cs.smcDefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.smcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.smcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysB1SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Shoes Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.smcId = Convert.ToInt32(dr["Id"]);
+                            cs.smcType = Convert.ToString(dr["Type"]);
+                            cs.smcDefMaxHP = 0;
+                            cs.smcDefDR = 0;
+                            cs.smcDefIgnoreAll = 0;
+                            cs.smcDefAccuracy = 0;
+                            cs.smcDefDmgToHumans = Convert.ToInt32(dr["DmgToHum"]);
+                            cs.smcDefDmgToDemi = 0;
+                            cs.smcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.smcDefAllRes = 0;
+                            cs.smcDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.smcDefLuck = 0;
+                            cs.smcDefCombatEXP = 0;
+                            cs.smcDefSkillEXP = 0;
 
-                        cs.smcDefKFRes = 0;
-                        cs.smcDefKBRes = 0;
-                        cs.smcDefSSFRes = 0;
-                        cs.smcDefMVSpeed = 0;
-                        cs.smcDefJump = 0;
-                        cs.smcDefFallDamage = 0;
-                        cs.smcDefUnderWaterBreath = 0;
-                        cs.smcDefMaxEnergy = 0;
+
+                            cs.smcDefKFRes = Convert.ToInt32(dr["KFRes"]);
+                            cs.smcDefKBRes = Convert.ToInt32(dr["KBRes"]);
+                            cs.smcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                            cs.smcDefMVSpeed = Convert.ToInt32(dr["MVSpeed"]);
+                            cs.smcDefJump = Convert.ToInt32(dr["Jump"]);
+                            cs.smcDefFallDamage = Convert.ToInt32(dr["FallDmg"]);
+                            cs.smcDefUnderWaterBreath = Convert.ToInt32(dr["UnderwaterBreath"]);
+                            cs.smcDefMaxEnergy = Convert.ToInt32(dr["MaxEnergy"]);
+                        }
+                    }
+
+                    else
+                    {
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 25).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.smcId = Convert.ToInt32(dr["Id"]);
+                            cs.smcType = Convert.ToString(dr["Type"]);
+                            cs.smcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.smcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.smcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.smcDefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.smcDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.smcDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.smcDefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.smcDefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.smcDefDR = Convert.ToInt32(dr["DR"]);
+                            cs.smcDefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.smcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.smcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysB1SB = Convert.ToInt32(dr["SetBonus"]);
+
+                            cs.smcDefKFRes = 0;
+                            cs.smcDefKBRes = 0;
+                            cs.smcDefSSFRes = 0;
+                            cs.smcDefMVSpeed = 0;
+                            cs.smcDefJump = 0;
+                            cs.smcDefFallDamage = 0;
+                            cs.smcDefUnderWaterBreath = 0;
+                            cs.smcDefMaxEnergy = 0;
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.smcType + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.smcId);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.smcId);
+                else Item_img.Source = null;
                 CrysB1_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysS1();
 
@@ -3589,90 +4421,121 @@ namespace BDHelper
             } //Shoes Magic Crystal - 1
             if (cs.sgn == 26)
             {
-                if (SelectGear_cb.SelectedIndex <= 24)
+                if (SelectGear_cb.SelectedIndex < 0)
                 {
-                    cmd.CommandText = "select * from [Shoes Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        cs.smc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.smc2Type = Convert.ToString(dr["Type"]);
-                        cs.smc2DefMaxHP = 0;
-                        cs.smc2DefDR = 0;
-                        cs.smc2DefIgnoreAll = 0;
-                        cs.smc2DefAccuracy = 0;
-                        cs.smc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHum"]);
-                        cs.smc2DefDmgToDemi = 0;
-                        cs.smc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.smc2DefAllRes = 0;
-                        cs.smc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.smc2DefLuck = 0;
-                        cs.smc2DefCombatEXP = 0;
-                        cs.smc2DefSkillEXP = 0;
+                    cs.smc2Id = -1;
+                    cs.smc2DefIgnoreAll = 0;
+                    cs.smc2DefAccuracy = 0;
+                    cs.smc2DefDmgToHumans = 0;
+                    cs.smc2DefDmgToDemi = 0;
+                    cs.smc2DefWeight = 0;
+                    cs.smc2DefAllRes = 0;
+                    cs.smc2DefMaxHP = 0;
+                    cs.smc2DefMaxST = 0;
+                    cs.smc2DefDR = 0;
+                    cs.smc2DefLuck = 0;
+                    cs.smc2DefCombatEXP = 0;
+                    cs.smc2DefSkillEXP = 0;
+                    cs.CrysB2SB = 0;
 
-
-                        cs.smc2DefKFRes = Convert.ToInt32(dr["KFRes"]);
-                        cs.smc2DefKBRes = Convert.ToInt32(dr["KBRes"]);
-                        cs.smc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                        cs.smc2DefMVSpeed = Convert.ToInt32(dr["MVSpeed"]);
-                        cs.smc2DefJump = Convert.ToInt32(dr["Jump"]);
-                        cs.smc2DefFallDamage = Convert.ToInt32(dr["FallDmg"]);
-                        cs.smc2DefUnderWaterBreath = Convert.ToInt32(dr["UnderwaterBreath"]);
-                        cs.smc2DefMaxEnergy = Convert.ToInt32(dr["MaxEnergy"]);
-
-                    }
+                    cs.smc2DefKFRes = 0;
+                    cs.smc2DefKBRes = 0;
+                    cs.smc2DefSSFRes = 0;
+                    cs.smc2DefMVSpeed = 0;
+                    cs.smc2DefJump = 0;
+                    cs.smc2DefFallDamage = 0;
+                    cs.smc2DefUnderWaterBreath = 0;
+                    cs.smc2DefMaxEnergy = 0;
                 }
 
                 else
                 {
-                    cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 25).ToString() + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+
+                    if (SelectGear_cb.SelectedIndex <= 24)
                     {
-                        da.Fill(dt);
+                        cmd.CommandText = "select * from [Shoes Magic Crystal] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.smc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.smc2Type = Convert.ToString(dr["Type"]);
+                            cs.smc2DefMaxHP = 0;
+                            cs.smc2DefDR = 0;
+                            cs.smc2DefIgnoreAll = 0;
+                            cs.smc2DefAccuracy = 0;
+                            cs.smc2DefDmgToHumans = Convert.ToInt32(dr["DmgToHum"]);
+                            cs.smc2DefDmgToDemi = 0;
+                            cs.smc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.smc2DefAllRes = 0;
+                            cs.smc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.smc2DefLuck = 0;
+                            cs.smc2DefCombatEXP = 0;
+                            cs.smc2DefSkillEXP = 0;
+
+
+                            cs.smc2DefKFRes = Convert.ToInt32(dr["KFRes"]);
+                            cs.smc2DefKBRes = Convert.ToInt32(dr["KBRes"]);
+                            cs.smc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                            cs.smc2DefMVSpeed = Convert.ToInt32(dr["MVSpeed"]);
+                            cs.smc2DefJump = Convert.ToInt32(dr["Jump"]);
+                            cs.smc2DefFallDamage = Convert.ToInt32(dr["FallDmg"]);
+                            cs.smc2DefUnderWaterBreath = Convert.ToInt32(dr["UnderwaterBreath"]);
+                            cs.smc2DefMaxEnergy = Convert.ToInt32(dr["MaxEnergy"]);
+
+                        }
                     }
-                    foreach (DataRow dr in dt.Rows)
+
+                    else
                     {
-                        cs.smc2Id = Convert.ToInt32(dr["Id"]);
-                        cs.smc2Type = Convert.ToString(dr["Type"]);
-                        cs.smc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
-                        cs.smc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                        cs.smc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-                        cs.smc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
-                        cs.smc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                        cs.smc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
-                        cs.smc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
-                        cs.smc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
-                        cs.smc2DefDR = Convert.ToInt32(dr["DR"]);
-                        cs.smc2DefLuck = Convert.ToInt32(dr["Luck"]);
-                        cs.smc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
-                        cs.smc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
-                        cs.CrysB2SB = Convert.ToInt32(dr["SetBonus"]);
+                        cmd.CommandText = "select * from [Versatile Magic Crystal] where Id='" + (SelectGear_cb.SelectedIndex - 25).ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cs.smc2Id = Convert.ToInt32(dr["Id"]);
+                            cs.smc2Type = Convert.ToString(dr["Type"]);
+                            cs.smc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
+                            cs.smc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                            cs.smc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
+                            cs.smc2DefDmgToDemi = Convert.ToInt32(dr["DamageToDemi"]);
+                            cs.smc2DefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                            cs.smc2DefAllRes = Convert.ToInt32(dr["AllRes"]);
+                            cs.smc2DefMaxHP = Convert.ToInt32(dr["MaxHP"]);
+                            cs.smc2DefMaxST = Convert.ToInt32(dr["MaxST"]);
+                            cs.smc2DefDR = Convert.ToInt32(dr["DR"]);
+                            cs.smc2DefLuck = Convert.ToInt32(dr["Luck"]);
+                            cs.smc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
+                            cs.smc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
+                            cs.CrysB2SB = Convert.ToInt32(dr["SetBonus"]);
 
-                        cs.smc2DefKFRes = 0;
-                        cs.smc2DefKBRes = 0;
-                        cs.smc2DefSSFRes = 0;
-                        cs.smc2DefMVSpeed = 0;
-                        cs.smc2DefJump = 0;
-                        cs.smc2DefFallDamage = 0;
-                        cs.smc2DefUnderWaterBreath = 0;
-                        cs.smc2DefMaxEnergy = 0;
+                            cs.smc2DefKFRes = 0;
+                            cs.smc2DefKBRes = 0;
+                            cs.smc2DefSSFRes = 0;
+                            cs.smc2DefMVSpeed = 0;
+                            cs.smc2DefJump = 0;
+                            cs.smc2DefFallDamage = 0;
+                            cs.smc2DefUnderWaterBreath = 0;
+                            cs.smc2DefMaxEnergy = 0;
 
 
+                        }
                     }
                 }
-
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
 
                 cs.Type = cs.smc2Type + " Magic Crystal";
-                Item_Icon_Load(cs.Type, cs.smc2Id);
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.smc2Id);
+                else Item_img.Source = null;
                 CrysB2_btn.Background = new ImageBrush(Item_img.Source);
                 cs.CrysS2();
 
@@ -3732,6 +4595,59 @@ namespace BDHelper
                 LoadItemEnch_cb();
 
             } //Shoes Magic Crystal - 2
+            if (cs.sgn == 27)
+            {
+                if (SelectGear_cb.SelectedIndex < 0)
+                {
+                    cs.shopcrId = -1;
+                    cs.shopcrDefAtkSpeed = 0;
+                    cs.shopcrDefCastSpeed = 0;
+                    cs.shopcrDefCrit = 0;
+                    cs.shopcrDefMVS = 0;
+                }
+
+                else
+                {
+                    cmd.CommandText = "select * from ShopCrys where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.shopcrId = Convert.ToInt32(dr["Id"]);
+                        cs.shopcrDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
+                        cs.shopcrDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                        cs.shopcrDefCrit = Convert.ToInt32(dr["Crit"]);
+                        cs.shopcrDefMVS = Convert.ToInt32(dr["MVS"]);
+                    }
+
+                }
+                LoadItemEnch_cb();
+                LoadItemCaph_cb();
+
+                cs.Type = "ShopCrys";
+                if (SelectGear_cb.SelectedIndex >= 0) Item_Icon_Load(cs.Type, cs.shopcrId);
+                else Item_img.Source = null;
+                ShopCrystal_btn.Background = new ImageBrush(Item_img.Source);
+                cs.ShopCrystal();
+
+                iAtkSpeed_n.Content = "+" + cs.shopcrAtkSpeed;
+                iCastSpeed_n.Content = "+" + cs.shopcrCastSpeed;
+                iMVS_n.Content = "+" + cs.shopcrMVS;
+                iCrit_n.Content = "+" + cs.shopcrCrit;
+
+                cs.iAtkSpeed=cs.shopcrAtkSpeed;
+                cs.iCastSpeed = cs.shopcrCastSpeed;
+                cs.iMVS = cs.shopcrMVS;
+                cs.iCrit= cs.shopcrCrit;
+
+                LoadItemEnch_cb();
+
+            } //Shop Magic Crystal
+
             //SetBonus
             cs.BossSetBonusCheck();
             cs.AccSetBonusCheck();
@@ -3742,17 +4658,7 @@ namespace BDHelper
             cs.WeaponSetBonus();
             cs.CrysSetBonus();
             cs.GearScoreBonus();
-            MainStateLabels();
-            AbilitiesLabels();
-            OffenceStateLabels();
-            SurvivalStateLabels();
-            BonusStateLabels();
-            DefenceStateLabels();
-            ProffessionStateLabels();
-            AdditionalStateLabels();
-            OtherStateLabels();
-            ItemStateLabels();
-            ResistanceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
 
 
@@ -4366,17 +5272,7 @@ namespace BDHelper
             } //Sub-Weapons
             LoadItemCaph_cb();
             cs.GearScoreBonus();
-            MainStateLabels();
-            AbilitiesLabels();
-            OffenceStateLabels();
-            SurvivalStateLabels();
-            BonusStateLabels();
-            DefenceStateLabels();
-            ProffessionStateLabels();
-            AdditionalStateLabels();
-            OtherStateLabels();
-            ItemStateLabels();
-            ResistanceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void ItemCaph_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -4400,17 +5296,7 @@ namespace BDHelper
                 FillCharacterState();
             } // Weapons
             cs.GearScoreBonus();
-            MainStateLabels();
-            AbilitiesLabels();
-            OffenceStateLabels();
-            SurvivalStateLabels();
-            BonusStateLabels();
-            DefenceStateLabels();
-            ProffessionStateLabels();
-            AdditionalStateLabels();
-            OtherStateLabels();
-            ItemStateLabels();
-            ResistanceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
 
@@ -4442,7 +5328,7 @@ namespace BDHelper
             if (Convert.ToInt32(Breath_tb.Text) > 28 & Convert.ToInt32(Breath_tb.Text) <= 30) { cs.cMaxST -= cs.tcsb; cs.tcsb = 25 * Convert.ToInt32(Breath_tb.Text) - 250; cs.cMaxST += cs.tcsb; }
             if (Convert.ToInt32(Breath_tb.Text) > 30 & Convert.ToInt32(Breath_tb.Text) <= 40) { cs.cMaxST -= cs.tcsb; cs.tcsb = 10 * Convert.ToInt32(Breath_tb.Text) + 200; cs.cMaxST += cs.tcsb; }
             if (Convert.ToInt32(Breath_tb.Text) > 40 & Convert.ToInt32(Breath_tb.Text) <= 50) { cs.cMaxST -= cs.tcsb; cs.tcsb = 20 * Convert.ToInt32(Breath_tb.Text) - 200; cs.cMaxST += cs.tcsb; }
-            MainStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
 
@@ -4466,7 +5352,7 @@ namespace BDHelper
             if (Convert.ToInt32(Strength_tb.Text) > 20 & Convert.ToInt32(Strength_tb.Text) <= 28) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 9; cs.cWeight += cs.tcss; }
             if (Convert.ToInt32(Strength_tb.Text) > 28 & Convert.ToInt32(Strength_tb.Text) <= 30) { cs.cWeight -= cs.tcss; cs.tcss = 1.5 * Convert.ToInt32(Strength_tb.Text) - 5; cs.cWeight += cs.tcss; }
             if (Convert.ToInt32(Strength_tb.Text) > 30) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 20; cs.cWeight += cs.tcss; }
-            MainStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void Strength_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -4485,7 +5371,7 @@ namespace BDHelper
             if (Convert.ToInt32(Health_tb.Text) > 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; ; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 40; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
             if (Convert.ToInt32(Health_tb.Text) > 28 & Convert.ToInt32(Health_tb.Text) <= 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 100; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
             if (Convert.ToInt32(Health_tb.Text) > 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 50; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
-            MainStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void Health_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -4499,7 +5385,7 @@ namespace BDHelper
             if (Underwear_cb.IsChecked == true) { cLuck_n.Content = Convert.ToString(cs.cluck + uwluck); }
             else { cLuck_n.Content = Convert.ToString(cs.cluck - uwluck); }
             cs.cluck = Convert.ToInt32(cLuck_n.Content);
-            AbilitiesLabels();
+            LabelsReMargin();
         }
 
         //IB journal
@@ -4546,135 +5432,105 @@ namespace BDHelper
         {
             if (ibChapter1_cb.IsChecked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cMaxHP -= 6; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter2_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter2_cb.IsChecked == true) { cs.cWeight += 4; cs.cacc += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cWeight -= 4; cs.cacc -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter3_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter3_cb.IsChecked == true) { cs.cWeight += 2; cs.cdp += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cWeight -= 2; cs.cdp -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter4_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter4_cb.IsChecked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; cs.cev += 2; }
             else { cs.cMaxHP -= 6; cs.cMaxST -= 5; cs.cev -= 2; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter5_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter5_cb.IsChecked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
             else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter6_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter6_cb.IsChecked == true) { cs.cap += 1; cs.caap += 1; cs.cacc += 1; cs.cMaxHP += 8; cs.cMaxST += 5; }
             else { cs.cap -= 1; cs.caap -= 1; cs.cacc -= 1; cs.cMaxHP -= 8; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter7_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter7_cb.IsChecked == true) { cs.cWeight += 5; cs.cMaxHP += 6; cs.cMaxST += 10; }
             else { cs.cWeight -= 5; cs.cMaxHP -= 6; cs.cMaxST -= 10; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter8_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter8_cb.IsChecked == true) { cs.cWeight += 2; cs.cacc += 2; cs.cMaxHP += 14; cs.cev += 1; }
             else { cs.cWeight -= 2; cs.cacc -= 2; cs.cMaxHP -= 14; cs.cev -= 1; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter9_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter9_cb.IsChecked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
             else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter10_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter10_cb.IsChecked == true) { cs.cev += 2; cs.cMaxHP += 6; cs.cMaxST += 5; }
             else { cs.cev -= 2; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter11_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter11_cb.IsChecked == true) { cs.cWeight += 2; cs.cMaxST += 5; cs.cMaxHP += 7; }
             else { cs.cWeight -= 2; cs.cMaxST -= 5; cs.cMaxHP -= 7; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter12_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter12_cb.IsChecked == true) { cs.cap += 1; cs.caap += 1; cs.cdp += 1; cs.cev += 1; cs.cMaxST += 5; }
             else { cs.cap -= 1; cs.caap -= 1; cs.cdp -= 1; cs.cev -= 1; cs.cMaxST -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter13_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter13_cb.IsChecked == true) { cs.cev += 1; cs.cMaxHP += 10; cs.cacc += 1; cs.cWeight += 5; }
             else { cs.cev -= 1; cs.cMaxHP -= 10; cs.cacc -= 1; cs.cWeight -= 5; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter14_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter14_cb.IsChecked == true) { cs.cap += 2; cs.caap += 2; cs.cMaxHP += 2; cs.cMaxST += 10; }
             else { cs.cap -= 2; cs.caap -= 2; cs.cMaxHP -= 2; cs.cMaxST -= 10; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         private void IbChapter15_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibChapter15_cb.IsChecked == true) { cs.cev += 1; cs.cMaxHP += 7; cs.cWeight += 2; }
             else { cs.cev -= 1; cs.cMaxHP -= 7; cs.cWeight -= 2; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
         //RT journal
@@ -4682,9 +5538,7 @@ namespace BDHelper
         {
             if (rtChapter1_cb.IsChecked == true) { cs.cWeight += 6; cs.cMaxHP += 18; }
             else { cs.cWeight -= 6; cs.cMaxHP -= 18; }
-            MainStateLabels();
-            OffenceStateLabels();
-            DefenceStateLabels();
+            LabelsReMargin();
             FillCharacterState();
         }
 
@@ -4965,44 +5819,36 @@ namespace BDHelper
             {
 
                 MainStatsExp.Height = 203;
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 444);
             }
             else if (SixthPos == true)
             {
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 471);
                 MainStatsExp.Height = 176;
             }
 
             else if (FifthPos == true)
             {
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 497);
                 MainStatsExp.Height = 150;
             }
 
             else if (FourthPos == true)
             {
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 521);
                 MainStatsExp.Height = 126;
             }
             else if (ThirdPos == true)
             {
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 547);
                 MainStatsExp.Height = 100;
             }
             else if (SecondPos == true)
             {
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 572);
                 MainStatsExp.Height = 75;
             }
             else if (FirstPos == true)
             {
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 600);
                 MainStatsExp.Height = 47;
             }
 
             else
             {
-                MainStatsExp.Margin = new Thickness(0, 0, 0, 623);
                 MainStatsExp.Height = 24;
             }
 
@@ -5053,43 +5899,43 @@ namespace BDHelper
             
             if (PositionCheck == 7)
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 232 +(203- MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height+5, 0, 0);
                 AbilitiesStatsExp.Height = 207;
             }
             else if (PositionCheck == 6)
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 261 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 0);
                 AbilitiesStatsExp.Height = 178;
             }
             else if (PositionCheck == 5)
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 288 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 0);
                 AbilitiesStatsExp.Height = 151;
             }
             else if (PositionCheck == 4)
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 309 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 0);
                 AbilitiesStatsExp.Height = 130;
             }
             else if (PositionCheck == 3)
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 340 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 0);
                 AbilitiesStatsExp.Height = 99;
             }
             else if (PositionCheck == 2)
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 365 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 0);
                 AbilitiesStatsExp.Height = 74;
             }
             else if (PositionCheck == 1)
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 391 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 0);
                 AbilitiesStatsExp.Height = 48;
             }
 
             else
             {
-                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 416 + (203 - MainStatsExp.Height));
+                AbilitiesStatsExp.Margin = new Thickness(0, MainStatsExp.Height + 5, 0, 0);
                 AbilitiesStatsExp.Height = 23;
             }
 
@@ -5227,10 +6073,26 @@ namespace BDHelper
                 }
             }
 
-                SurvivalStatesExp.Margin = new Thickness(170, OffenceStatsExp.Height + 5, 0, 232 + (307  - OffenceStatsExp.Height));
+            if(PositionCheck == 3)
+            {
+                SurvivalStatesExp.Height = 104;
+            }
+            else if (PositionCheck == 2)
+            {
+                SurvivalStatesExp.Height = 77;
+            }
+            else if (PositionCheck == 1)
+            {
+                SurvivalStatesExp.Height = 51;
+            }
+            else
+            {
+                SurvivalStatesExp.Height = 24;
+            }
+            SurvivalStatesExp.Margin = new Thickness(170, OffenceStatsExp.Height + 5, 0, 0);
 
         }
-
+        
         private void BonusStateLabels()
         {
             cSpiritRage_lbl.Visibility = Visibility.Collapsed;
@@ -5248,10 +6110,10 @@ namespace BDHelper
             cSkillEXP_n.Visibility = Visibility.Collapsed;
 
 
-            Label[] Bonus_lbl = new Label[6] { cSpiritRage_lbl, cBonusAP_lbl, cBonusAAP_lbl, cBonusDR_lbl, cCombatEXP_lbl, cSkillEXP_lbl };
+            Label[] Bonus_lbl = new Label[6] { cSpiritRage_lbl, cBonusAP_lbl, cBonusAAP_lbl,cBonusDR_lbl, cCombatEXP_lbl, cSkillEXP_lbl };
             Label[] Bonus_n = new Label[6] { cSpiritRage_n, cBonusAP_n, cBonusAAP_n, cBonusDR_n, cCombatEXP_n, cSkillEXP_n };
             Thickness[] lbl_thk = new Thickness[6] { new Thickness(10, 0, 0, 0), new Thickness(10, 26, 0, 0), new Thickness(10, 52, 0, 0), new Thickness(10, 78, 0, 0), new Thickness(10, 104, 0, 0), new Thickness(10, 130, 0, 0) };
-            Thickness[] n_thk = new Thickness[6] { new Thickness(116, 0, 0, 0), new Thickness(116, 26, 0, 0), new Thickness(116, 52, 0, 0), new Thickness(116, 78, 0, 0), new Thickness(116, 104, 0, 0), new Thickness(116, 130, 0, 0) };
+            Thickness[] n_thk = new Thickness[6] { new Thickness(200, 0, 0, 0), new Thickness(200, 26, 0, 0), new Thickness(200, 52, 0, 0), new Thickness(200, 78, 0, 0), new Thickness(200, 104, 0, 0), new Thickness(200, 130, 0, 0) };
             int[] Bonus = new int[6] { cs.cSpiritRage, cs.bcap, cs.bcaap, Convert.ToInt32(cs.bcdr), cs.cCombatExp, cs.cSkillExp};
             int PositionCheck = 0;
 
@@ -5267,10 +6129,10 @@ namespace BDHelper
                 }
             }
 
-            BonusStatesExp.Margin = new Thickness(0,  MainStatsExp.Height + AbilitiesStatsExp.Height+ 5, 0, 232 + (207 - AbilitiesStatsExp.Height));
-
+            BonusStatesExp.Margin = new Thickness(170, OffenceStatsExp.Height + SurvivalStatesExp.Height + 10, 0, 0);
+            
         }
-
+    
         private void DefenceStateLabels()
         {
             cDR_lbl.Visibility = Visibility.Collapsed;
@@ -5934,6 +6796,21 @@ namespace BDHelper
 
         }
 
+        private void LabelsReMargin()
+        {
+            MainStateLabels();
+            AbilitiesLabels();
+            OffenceStateLabels();
+            SurvivalStateLabels();
+            BonusStateLabels();
+            DefenceStateLabels();
+            ProffessionStateLabels();
+            AdditionalStateLabels();
+            OtherStateLabels();
+            ItemStateLabels();
+            ResistanceStateLabels();
+        }
+
         private void Save_btn_Click(object sender, RoutedEventArgs e)
         {
             if (SaveBuild_tb.Text != string.Empty)
@@ -6182,6 +7059,11 @@ namespace BDHelper
             FileInfo[] files = dir.GetFiles("*.save");
             LoadBuild_cb.ItemsSource = files;
             LoadBuild_cb.DisplayMemberPath = "Name";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SelectGear_cb.SelectedIndex = -1;
         }
     }
 }

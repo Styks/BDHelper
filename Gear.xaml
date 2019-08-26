@@ -108,7 +108,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ComboBox x:Name="SelectGear_cb" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" ItemTemplate="{StaticResource cmbTemplate}" Width="360" BorderBrush="#FFEEEEEE" Height="30" SelectionChanged="SelectGear_cb_SelectionChanged">
+                <ComboBox x:Name="SelectGear_cb" HorizontalAlignment="Left" ItemTemplate="{StaticResource cmbTemplate}" Margin="0,51,0,0" VerticalAlignment="Top" Width="360" BorderBrush="#FFEEEEEE" Height="30" SelectionChanged="SelectGear_cb_SelectionChanged" >
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -280,8 +280,8 @@
             </Grid>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,417,0,9" Width="1243">
-            <Grid Margin="9,5,9,0" Height="647" VerticalAlignment="Top">
-                <Expander x:Name="MainStatsExp" Header="Main Stats" Margin="0,0,0,444" RenderTransformOrigin="0,0" IsExpanded="True" Background="White" HorizontalAlignment="Left" Width="165" Height="203" VerticalAlignment="Bottom">
+            <Grid Margin="9,5,9,-1" Height="619" VerticalAlignment="Top">
+                <Expander x:Name="MainStatsExp" Header="Main Stats" Margin="0,1,0,0" RenderTransformOrigin="0,0" IsExpanded="True" Background="White" HorizontalAlignment="Left" Width="165" Height="203" VerticalAlignment="Top">
 
                     <Grid x:Name="MainStatsGrid" Height="204" Margin="7,0,0,0" RenderTransformOrigin="0,0" HorizontalAlignment="Left" Width="152">
                         <Grid.RowDefinitions>
@@ -393,23 +393,23 @@
                         <Label x:Name="cAlchCookTime_n" Content="- 0 sec" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="146,104,0,0" RenderTransformOrigin="-0.313,0.5"/>
                     </Grid>
                 </Expander>
-                <Expander x:Name="BonusStatesExp" Header="Bonuses" HorizontalAlignment="Left" Height="183" Margin="0,420,0,0" VerticalAlignment="Top" Width="145" IsExpanded="True">
+                <Expander x:Name="BonusStatesExp" Header="Bonuses" HorizontalAlignment="Left" Height="183" Margin="170,416,0,0" VerticalAlignment="Top" Width="255" IsExpanded="True">
                     <Grid Margin="0,0,-2,0" Height="173">
-                        <Label x:Name="cBonusAP_lbl" Content="Bonus AP" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="cBonusAAP_lbl" Content="Bonus AAP" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="cBonusAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="116,26,0,0" RenderTransformOrigin="-2.438,-2.615"/>
-                        <Label x:Name="cBonusDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="116,78,0,0" RenderTransformOrigin="1,0.5"/>
-                        <Label x:Name="cBonusDR_lbl" Content="Bonus DR" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="cBonusAAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="116,52,0,0" RenderTransformOrigin="-7.875,-3.269"/>
                         <Label x:Name="cSpiritRage_lbl" Content="Black Spirit's Rage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-                        <Label x:Name="cSpiritRage_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="116,0,0,0" RenderTransformOrigin="3.962,1"/>
+                        <Label x:Name="cSpiritRage_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,0,0,0" RenderTransformOrigin="3.962,1"/>
                         <Label x:Name="cCombatEXP_lbl" Content="Combat EXP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,104,0,0"/>
-                        <Label x:Name="cCombatEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,104,0,0" RenderTransformOrigin="-0.769,0.538"/>
+                        <Label x:Name="cCombatEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,104,0,0" RenderTransformOrigin="-0.769,0.538"/>
                         <Label x:Name="cSkillEXP_lbl" Content="Skill EXP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,0,0"/>
-                        <Label x:Name="cSkillEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,130,0,0" RenderTransformOrigin="-0.769,0.538"/>
+                        <Label x:Name="cSkillEXP_n" Content="+0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,130,0,0" RenderTransformOrigin="-0.769,0.538"/>
+                        <Label x:Name="cBonusAP_lbl" Content="Bonus AP" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="cBonusAAP_lbl" Content="Bonus Awakening AP" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="cBonusAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,26,0,0" RenderTransformOrigin="-2.438,-2.615"/>
+                        <Label x:Name="cBonusDR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,78,0,0" RenderTransformOrigin="1,0.5"/>
+                        <Label x:Name="cBonusDR_lbl" Content="Bonus Damage Reduction" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="cBonusAAP_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,52,0,0" RenderTransformOrigin="-7.875,-3.269"/>
                     </Grid>
                 </Expander>
-                <Expander x:Name="AbilitiesStatsExp" Header="Abilities" HorizontalAlignment="Left" Margin="0,208,0,232" Width="150" IsExpanded="True">
+                <Expander x:Name="AbilitiesStatsExp" Header="Abilities" HorizontalAlignment="Left" Margin="0,208,0,0" Width="150" IsExpanded="True" Height="207" VerticalAlignment="Top">
                     <Grid Height="197" Margin="0,0,-2,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -497,7 +497,7 @@
                         <Label x:Name="cMPR_lbl" Content="MP Recovery" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0"/>
                         <Label x:Name="cHPR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,0,0,0" RenderTransformOrigin="0.5,0.538"/>
                         <Label x:Name="cMPR_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,26,0,0" RenderTransformOrigin="0.625,0.385"/>
-                        <Label x:Name="cHPRecoveryChance_lbl" Content="HP Recovery by 5% of chance per hit " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0"/>
+                        <Label x:Name="cHPRecoveryChance_lbl" Content="HP Recovery by 5% of chance per hit " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,52,0,0"/>
                         <Label x:Name="cHPRecoveryChance_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,52,0,0" RenderTransformOrigin="0.562,0.462"/>
                     </Grid>
                 </Expander>
@@ -519,7 +519,7 @@
                 <Label x:Name="Health_lbl" Content="Health" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="Health_tb" HorizontalAlignment="Left" Height="23" Margin="65,164,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="40" TextAlignment="Center" UndoLimit="2" PreviewTextInput="Health_tb_PreviewTextInput" TextChanged="Health_tb_TextChanged"/>
                 <CheckBox x:Name="Underwear_cb" Content="Underwear" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.962,-0.267" Checked="Underwear_cb_Checked" Unchecked="Underwear_cb_Checked"/>
-                <Button x:Name="ShopCrystal_btn" Content="" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" Width="30" Height="30" Background="White" IsEnabled="False"/>
+                <Button x:Name="ShopCrystal_btn" Content="" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" Width="30" Height="30" Background="White" Click="ShopCrystal_btn_Click"/>
                 <Label x:Name="SCrystal_lbl" Content="Shop Crystal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,263,0,0"/>
             </Grid>
         </Border>
@@ -558,6 +558,7 @@
                 <Button x:Name="Delete_btn" Content="Delete" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Width="89" Background="White" Click="Delete_btn_Click"/>
             </Grid>
         </Border>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="972,35,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,0.545" Click="Button_Click"/>
 
     </Grid>
 </Window>

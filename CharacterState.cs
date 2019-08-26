@@ -1566,6 +1566,19 @@ namespace BDHelper
         public int smc2DefMaxEnergy;
         public int CrysB2SB;
 
+
+        public int shopcrId = 0;
+        public int shopcrMVS;
+        public int shopcrDefMVS;
+        public int shopcrAtkSpeed;
+        public int shopcrCastSpeed;
+        public int shopcrCrit;
+        public int shopcrDefAtkSpeed;
+        public int shopcrDefCastSpeed;
+        public int shopcrDefCrit;
+
+
+
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
         
 
@@ -5516,6 +5529,8 @@ namespace BDHelper
         public void GearScoreBonus()
         {
             //Bonus AP/AAP
+            if (cap <= 100) { bcap = 0; }
+            if (caap <= 100 ) { bcaap = 0; }
             if (cap >= 100 & cap <= 139) { bcap = 5; }
             if (caap >= 100 & caap <= 139) { bcaap = 5; }
             if (cap >= 140 & cap <= 169) { bcap = 10; }
@@ -5563,6 +5578,7 @@ namespace BDHelper
             if (cap >= 309) { bcap = 200; }
             if (caap >= 309) { bcaap = 200; }
             //Bonus DR
+            if (cdp < 203 ) { bcdr = 0; }
             if (cdp >= 203 & cdp <= 210) { bcdr = cdp * 0.01; }
             if (cdp >= 211 & cdp <= 217) { bcdr = cdp * 0.02; }
             if (cdp >= 218 & cdp <= 225) { bcdr = cdp * 0.03; }
@@ -8818,6 +8834,25 @@ namespace BDHelper
             smc2DefFallDamage = 0;
             smc2DefUnderWaterBreath = 0;
             smc2DefMaxEnergy = 0;
+        }
+
+        public void ShopCrystal()
+        {
+            cmvs -= shopcrMVS;
+            cAtkSpeed -= shopcrAtkSpeed;
+            cCastSpeed -= shopcrCastSpeed;
+            ccr -= shopcrCrit;
+
+            shopcrMVS = shopcrDefMVS;
+            shopcrAtkSpeed = shopcrDefAtkSpeed;
+            shopcrCastSpeed = shopcrDefCastSpeed;
+            shopcrCrit = shopcrDefCrit;
+
+            cmvs += shopcrMVS;
+            cAtkSpeed += shopcrAtkSpeed;
+            cCastSpeed += shopcrCastSpeed;
+            ccr += shopcrCrit;
+
         }
     }
 }
