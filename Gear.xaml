@@ -17,7 +17,7 @@
     <Grid Margin="0,0,0,1">
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="402" Margin="10,10,0,0" VerticalAlignment="Top" Width="393">
             <Grid Margin="-1,4,9,-1">
-                <Button x:Name="Helmet_btn" Content="" HorizontalAlignment="Left" Margin="118,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Helmet_btn_Click">
+                <Button x:Name="Helmet_btn" Content="" HorizontalAlignment="Left" Margin="118,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Helmet_btn_Click" RenderTransformOrigin="-0.8,0.325" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Helmet.png" Stretch="None"/>
                     </Button.Background>
@@ -28,69 +28,69 @@
                         <ImageBrush ImageSource="Resources/None.png"/>
                     </Rectangle.Fill>
                 </Rectangle>
-                <Button x:Name="Armour_btn" Content="" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click" FontSize="22" FontWeight="SemiBold">
+                <Button x:Name="Armour_btn" Content="" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Armour.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Earring1_btn" Content="" HorizontalAlignment="Left" Margin="68,72,0,0" VerticalAlignment="Top" Width="40" Height="40" RenderTransformOrigin="0.525,0.575" Click="Earring1_btn_Click">
+                <Button x:Name="Earring1_btn" Content="" HorizontalAlignment="Left" Margin="68,72,0,0" VerticalAlignment="Top" Width="40" Height="40" RenderTransformOrigin="0.525,0.575" Click="Earring1_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Earring.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Earring2_btn" Content="" HorizontalAlignment="Left" Margin="45,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Earring2_btn_Click">
+                <Button x:Name="Earring2_btn" Content="" HorizontalAlignment="Left" Margin="45,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Earring2_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Earring.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Boots_btn" Content="" HorizontalAlignment="Left" Margin="45,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Boots_btn_Click">
+                <Button x:Name="Boots_btn" Content="" HorizontalAlignment="Left" Margin="45,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Boots_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Boots.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Belt_btn" Content="" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Belt_btn_Click">
+                <Button x:Name="Belt_btn" Content="" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Belt_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Belt.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="MW_btn" Content="" HorizontalAlignment="Left" Margin="118,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="MW_btn_Click">
+                <Button x:Name="MW_btn" Content="" HorizontalAlignment="Left" Margin="118,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="MW_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/MainWeapon.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="AW_btn" Content="" HorizontalAlignment="Left" Margin="176,291,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="AW_btn_Click">
+                <Button x:Name="AW_btn" Content="" HorizontalAlignment="Left" Margin="176,291,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="AW_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/AwakeningWeapon.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="SW_btn" Content="" HorizontalAlignment="Left" Margin="233,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="SW_btn_Click">
+                <Button x:Name="SW_btn" Content="" HorizontalAlignment="Left" Margin="233,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="SW_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/SubWeapon.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Necklace_btn" Content="" HorizontalAlignment="Left" Margin="284,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Necklace_btn_Click">
+                <Button x:Name="Necklace_btn" Content="" HorizontalAlignment="Left" Margin="284,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Necklace_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Necklace.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Gloves_btn" Content="" HorizontalAlignment="Left" Margin="308,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Gloves_btn_Click">
+                <Button x:Name="Gloves_btn" Content="" HorizontalAlignment="Left" Margin="308,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Gloves_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Gloves.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Ring2_btn" Content="" HorizontalAlignment="Left" Margin="308,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring2_btn_Click">
+                <Button x:Name="Ring2_btn" Content="" HorizontalAlignment="Left" Margin="308,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring2_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Ring.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Ring1_btn" Content="" HorizontalAlignment="Left" Margin="284,73,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring1_btn_Click">
+                <Button x:Name="Ring1_btn" Content="" HorizontalAlignment="Left" Margin="284,73,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring1_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Ring.png" Stretch="None"/>
                     </Button.Background>
                 </Button>
                 <Button x:Name="AS_btn" Content="" HorizontalAlignment="Left" Margin="178,221,0,0" VerticalAlignment="Top" Width="40" Height="40" Background="{x:Null}" Click="AS_btn_Click"/>
-                <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="161,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH1_btn_Click"/>
-                <Button x:Name="CrysH2_btn" Content="" HorizontalAlignment="Left" Margin="161,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH2_btn_Click"/>
+                <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="162,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH1_btn_Click"/>
+                <Button x:Name="CrysH2_btn" Content="" HorizontalAlignment="Left" Margin="162,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH2_btn_Click"/>
                 <Button x:Name="CrysA1_btn" Content="" HorizontalAlignment="Left" Margin="210,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysA1_btn_Click"/>
                 <Button x:Name="CrysA2_btn" Content="" HorizontalAlignment="Left" Margin="210,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysA2_btn_Click"/>
                 <Button x:Name="CrysG1_btn" Content="" HorizontalAlignment="Left" Margin="284,177,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysG1_btn_Click"/>
@@ -277,6 +277,8 @@
                         <Label x:Name="iUnderwaterBreath_n" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="280,1717,0,0"/>
                     </Grid>
                 </Expander>
+                <Button x:Name="Remove_btn" Content="Remove" HorizontalAlignment="Left" Margin="51,25,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.36,0.545" Click="Remove_btn_Click" Background="White"/>
+                <Label x:Name="ItemName_lbl" Content="Item" HorizontalAlignment="Left" Margin="46,-1,0,0" VerticalAlignment="Top"/>
             </Grid>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,417,0,9" Width="1243">
@@ -558,7 +560,6 @@
                 <Button x:Name="Delete_btn" Content="Delete" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Width="89" Background="White" Click="Delete_btn_Click"/>
             </Grid>
         </Border>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="972,35,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,0.545" Click="Button_Click"/>
 
     </Grid>
 </Window>

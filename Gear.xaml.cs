@@ -253,6 +253,7 @@ namespace BDHelper
         //Item load procedurs
         private void LoadBelts() //Belt
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Belts";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -271,6 +272,7 @@ namespace BDHelper
 
         private void LoadNeck() //Neck
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Neck";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -289,6 +291,7 @@ namespace BDHelper
 
         private void Load1Ring() //First ring
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Rings";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -307,6 +310,7 @@ namespace BDHelper
 
         private void Load2Ring() //Second ring
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Rings";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -325,6 +329,7 @@ namespace BDHelper
 
         private void Load1Earring() //First earring
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Earrings";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -343,6 +348,7 @@ namespace BDHelper
 
         private void Load2Earring() //Second earring
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Earrings";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -361,6 +367,7 @@ namespace BDHelper
 
         private void LoadArmor() //Armor
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Armors";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -379,6 +386,7 @@ namespace BDHelper
 
         private void LoadHelmet() // Helmet
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Helmets";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -397,6 +405,7 @@ namespace BDHelper
 
         private void LoadGloves() // Gloves
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Gloves";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -415,6 +424,7 @@ namespace BDHelper
 
         private void LoadShoes() // Shoes
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from Shoes";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -433,6 +443,7 @@ namespace BDHelper
 
         private void LoadAW() // AW
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + sclass + " Awakening Weapons] order by Id";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -451,6 +462,7 @@ namespace BDHelper
         }
         private void LoadMW() // MW
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + chWeapon + " Main Weapon]";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -469,6 +481,7 @@ namespace BDHelper
         }
         private void LoadSW() // SW
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [" + chSubWeapon + " Sub-Weapons]";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -487,6 +500,7 @@ namespace BDHelper
 
         private void LoadAS() // Alchemy Stone
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from [Alchemy Stones]";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -505,6 +519,7 @@ namespace BDHelper
 
         private void LoadCrysMW1() // Weapon Magic Crystal 1
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -524,6 +539,7 @@ namespace BDHelper
 
         private void LoadCrysMW2()
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -543,6 +559,7 @@ namespace BDHelper
 
         private void LoadCrysSW1() // Sub-Weapon Magic Crystal 1
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Sub-Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -562,6 +579,7 @@ namespace BDHelper
 
         private void LoadCrysSW2()
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Sub-Weapon Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -582,6 +600,7 @@ namespace BDHelper
 
         private void LoadCrysH1() // Helmet Magic Crystal 1
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Helmet Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -601,6 +620,7 @@ namespace BDHelper
 
         private void LoadCrysH2()
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Helmet Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -621,6 +641,7 @@ namespace BDHelper
 
         private void LoadCrysA1() // Armor Magic Crystal 1
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Armor Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -640,6 +661,7 @@ namespace BDHelper
 
         private void LoadCrysA2()
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Armor Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -660,6 +682,7 @@ namespace BDHelper
 
         private void LoadCrysG1() // Gloves Magic Crystal 1
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Gloves Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -679,6 +702,7 @@ namespace BDHelper
 
         private void LoadCrysG2()
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Gloves Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -699,6 +723,7 @@ namespace BDHelper
 
         private void LoadCrysS1() // Shoes Magic Crystal 1
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Shoes Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -718,6 +743,7 @@ namespace BDHelper
 
         private void LoadCrysS2()
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"(Select Id, Name, Icon, Grade from [Shoes Magic Crystal]) union all (Select Id, Name, Icon, Grade from [Versatile Magic Crystal])";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -738,6 +764,7 @@ namespace BDHelper
 
         private void LoadShopCrystal()
         {
+            LabelsReMargin();
             SelectGear_cb.SelectionChanged -= SelectGear_cb_SelectionChanged;
             var sql = @"select * from ShopCrys";
             using (var da = new SqlDataAdapter(sql, Base_Connect.Connection))
@@ -795,92 +822,106 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 1;
             LoadBelts();
+            ItemName_lbl.Content = "Belt";
         }
         private void Necklace_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 2;
             LoadNeck();
+            ItemName_lbl.Content = "Necklace";
         }
         private void Ring1_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 3;
             Load1Ring();
+            ItemName_lbl.Content = "Ring";
         }
         private void Ring2_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 4;
             Load2Ring();
+            ItemName_lbl.Content = "Ring";
         }
         private void Earring1_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 5;
             Load1Earring();
+            ItemName_lbl.Content = "Earring";
         }
         private void Earring2_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 6;
             Load2Earring();
+            ItemName_lbl.Content = "Earring";
         }
         private void Armour_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 7;
             LoadArmor();
-
+            ItemName_lbl.Content = "Armour";
         }
         private void Helmet_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 8;
             LoadHelmet();
+            ItemName_lbl.Content = "Helmet";
         }
         private void Gloves_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 9;
             LoadGloves();
+            ItemName_lbl.Content = "Gloves";
         }
         private void Boots_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 10;
             LoadShoes();
+            ItemName_lbl.Content = "Shoes";
         }
         private void AW_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 11;
             LoadAW();
+            ItemName_lbl.Content = "Awakening Weapon";
         }
         private void MW_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 12;
             LoadMW();
+            ItemName_lbl.Content = "Main Weapon";
         }
         private void SW_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 13;
             LoadSW();
+            ItemName_lbl.Content = "Sub-Weapon";
         }
         private void AS_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 14;
             LoadAS();
+            ItemName_lbl.Content = "Alchimy Stone";
         }
 
         private void CrysMW1_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 15;
-             LoadCrysMW1();
+            LoadCrysMW1();
+            ItemName_lbl.Content = "Magic crystal (Main Weapon)";
         }
 
         private void CrysMW2_btn_Click(object sender, RoutedEventArgs e)
@@ -888,6 +929,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 16;
             LoadCrysMW2();
+            ItemName_lbl.Content = "Magic crystal (Main Weapon)";
         }
 
         private void CrysSW1_btn_Click(object sender, RoutedEventArgs e)
@@ -895,6 +937,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 17;
             LoadCrysSW1();
+            ItemName_lbl.Content = "Magic crystal (Sub-Weapon)";
         }
 
         private void CrysSW2_btn_Click(object sender, RoutedEventArgs e)
@@ -902,6 +945,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 18;
             LoadCrysSW2();
+            ItemName_lbl.Content = "Magic crystal (Sub-Weapon)";
         }
 
         private void CrysH1_btn_Click(object sender, RoutedEventArgs e)
@@ -909,6 +953,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 19;
             LoadCrysH1();
+            ItemName_lbl.Content = "Magic crystal (Helmet)";
         }
 
         private void CrysH2_btn_Click(object sender, RoutedEventArgs e)
@@ -916,6 +961,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 20;
             LoadCrysH2();
+            ItemName_lbl.Content = "Magic crystal (Helmet)";
         }
 
         private void CrysA1_btn_Click(object sender, RoutedEventArgs e)
@@ -923,6 +969,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 21;
             LoadCrysA1();
+            ItemName_lbl.Content = "Magic crystal (Armour)";
         }
 
         private void CrysA2_btn_Click(object sender, RoutedEventArgs e)
@@ -930,6 +977,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 22;
             LoadCrysA2();
+            ItemName_lbl.Content = "Magic crystal (Armour)";
         }
 
         private void CrysG1_btn_Click(object sender, RoutedEventArgs e)
@@ -937,6 +985,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 23;
             LoadCrysG1();
+            ItemName_lbl.Content = "Magic crystal (Gloves)";
         }
 
         private void CrysG2_btn_Click(object sender, RoutedEventArgs e)
@@ -944,6 +993,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 24;
             LoadCrysG2();
+            ItemName_lbl.Content = "Magic crystal (Gloves)";
         }
 
         private void CrysB1_btn_Click(object sender, RoutedEventArgs e)
@@ -951,6 +1001,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 25;
             LoadCrysS1();
+            ItemName_lbl.Content = "Magic crystal (Shoes)";
         }
 
         private void CrysB2_btn_Click(object sender, RoutedEventArgs e)
@@ -958,6 +1009,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 26;
             LoadCrysS2();
+            ItemName_lbl.Content = "Magic crystal (Shoes)";
         }
 
         private void ShopCrystal_btn_Click(object sender, RoutedEventArgs e)
@@ -965,6 +1017,7 @@ namespace BDHelper
             ItemStatClear();
             cs.sgn = 27;
             LoadShopCrystal();
+            ItemName_lbl.Content = "Magic crystal (Shop Item)";
         }
 
         private void SelectGear_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -6847,6 +6900,7 @@ namespace BDHelper
                     sw.WriteLine(cs.gmc2Id); //24
                     sw.WriteLine(cs.smcId); //25
                     sw.WriteLine(cs.smc2Id); //26
+                    sw.WriteLine(cs.shopcrId); //27
                     //Character stats
                     sw.WriteLine(apLvl_cb.IsChecked);
                     sw.WriteLine(dpLvl_cb.IsChecked);
@@ -6892,8 +6946,14 @@ namespace BDHelper
         private void Load_btn_Click(object sender, RoutedEventArgs e)
         {            
             if (LoadBuild_cb.Text != string.Empty)
-            {            
+            {               
                 {
+                    using (StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + LoadBuild_cb.Text))
+                    {
+                        progvers_sf = sr.ReadLine();
+                    }
+                    if (string.Compare(progvers, progvers_sf) != 0) { MessageBox.Show("Wrong version", "Error"); return; }
+                    //CharacterStats Clear
                     using (StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + LoadBuild_cb.Text))
                     {
                         progvers_sf = sr.ReadLine();
@@ -6926,6 +6986,7 @@ namespace BDHelper
                         cs.gmc2Id = Convert.ToInt32(sr.ReadLine());
                         cs.smcId = Convert.ToInt32(sr.ReadLine());
                         cs.smc2Id = Convert.ToInt32(sr.ReadLine());
+                        cs.shopcrId = Convert.ToInt32(sr.ReadLine());
                         //Character stats
                         apLvl_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
                         dpLvl_cb.IsChecked = Convert.ToBoolean(sr.ReadLine());
@@ -6963,69 +7024,174 @@ namespace BDHelper
                         cs.smcType = sr.ReadLine();
                         cs.smc2Type = sr.ReadLine();
                     }
-                    if (string.Compare(progvers, progvers_sf) != 0) { MessageBox.Show("Wrong version", "Error"); return; }
                     Window_Loaded(sender, e);
-                    cs.sgn = 1; LoadBelts();
+                    cs.sgn = 1; LoadBelts(); //Belt
                     if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
+                    else if (cs.beltEnch == false) Belt_btn.Content = "";
                     else Belt_btn.Content = ItemEnch_cb.SelectedValue;
-                    cs.sgn = 2; LoadNeck();
+                    if (cs.beltId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Belt.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Belt_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 2; LoadNeck(); //Necklace
                     if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Content = ""; }
+                    else if (cs.neckEnch == false) Necklace_btn.Content = "";
                     else { Necklace_btn.Content = ItemEnch_cb.SelectedValue; }
-                    cs.sgn = 3; Load1Ring();
+                    if (cs.neckId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Necklace.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Necklace_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 3; Load1Ring(); //Ring 1
                     if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Content = ""; }
+                    else if (cs.ring1Ench == false) Ring1_btn.Content = "";
                     else { Ring1_btn.Content = ItemEnch_cb.SelectedValue; }
-                    cs.sgn = 4; Load2Ring();
+                    if (cs.ring1Id == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Ring.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Ring1_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 4; Load2Ring(); //Ring 2
                     if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Content = ""; }
+                    else if (cs.ring2Ench == false) Ring2_btn.Content = "";
                     else { Ring2_btn.Content = ItemEnch_cb.SelectedValue; }
-                    cs.sgn = 5; Load1Earring();
+                    if (cs.ring2Id == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Ring.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Ring2_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 5; Load1Earring(); //Earring 1
                     if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Content = ""; }
+                    else if (cs.ear1Ench == false) Earring1_btn.Content = "";
                     else { Earring1_btn.Content = ItemEnch_cb.SelectedValue; }
-                    cs.sgn = 6; Load2Earring();
+                    if (cs.ear1Id == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Earring.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Earring1_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 6; Load2Earring(); //Earring 2
                     if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Content = ""; }
+                    else if (cs.ear2Ench == false) Earring2_btn.Content = "";
                     else { Earring2_btn.Content = ItemEnch_cb.SelectedValue; }
-                    cs.sgn = 7; LoadArmor();
+                    if (cs.ear2Id == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Earring.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Earring2_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 7; LoadArmor(); //Armour
                     if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Content = ""; }
+                    else if (cs.armEnch == false) Armour_btn.Content = "";
                     else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                     else Armour_btn.Content = ItemEnch_cb.SelectedValue;
-                    cs.sgn = 8; LoadHelmet();
+                    if (cs.armId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Armour.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Armour_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 8; LoadHelmet(); //Helmet
                     if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Content = ""; }
+                    else if (cs.helEnch == false) Helmet_btn.Content = "";
                     else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                     else Helmet_btn.Content = ItemEnch_cb.SelectedValue;
-                    cs.sgn = 9; LoadGloves();
+                    if (cs.helId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Helmet.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Helmet_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 9; LoadGloves(); //Gloves
                     if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Content = ""; }
+                    else if (cs.glovEnch == false) Gloves_btn.Content = "";
                     else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                     else Gloves_btn.Content = ItemEnch_cb.SelectedValue;
-                    cs.sgn = 10; LoadShoes();
+                    if (cs.glovId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Gloves.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Gloves_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 10; LoadShoes(); //Shoes
                     if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Content = ""; }
+                    else if (cs.shEnch == false) Boots_btn.Content = "";
                     else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                     else Boots_btn.Content = ItemEnch_cb.SelectedValue;
-                    cs.sgn = 11; LoadAW();
+                    if (cs.shId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/Boots.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        Boots_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 11; LoadAW(); //AwakeningWeapon
                     if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Content = ""; }
+                    else if (cs.awkEnch == false) AW_btn.Content = "";
                     else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                     else AW_btn.Content = ItemEnch_cb.SelectedValue;
-                    cs.sgn = 12; LoadMW();
+                    if (cs.awkId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/AwakeningWeapon.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        AW_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 12; LoadMW(); //MainWeapon
                     if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Content = ""; }
+                    else if (cs.mwEnch == false) MW_btn.Content = "";
                     else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                     else MW_btn.Content = ItemEnch_cb.SelectedValue;
-                    cs.sgn = 13; LoadSW();
+                    if (cs.mwId == -1) {
+                        var uri_i = new Uri("pack://application:,,,/Resources/MainWeapon.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        MW_btn.Background = new ImageBrush(imgc_i);
+                    }
+                    cs.sgn = 13; LoadSW(); //SubWeapon
                     if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Content = ""; }
                     else if (cs.swEnch == false) SW_btn.Content = "";
                     else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
                     else SW_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (cs.swId == -1)
+                    {
+                        var uri_i = new Uri("pack://application:,,,/Resources/SubWeapon.png");
+                        var imgc_i = new BitmapImage(uri_i);
+                        SW_btn.Background = new ImageBrush(imgc_i);
+                    }
                     cs.sgn = 14; LoadAS();
+                    if (cs.asId == -1) { AS_btn.Background = null; }
                     cs.sgn = 15; LoadCrysMW1();
+                    if (cs.wmcId == -1) { CrysMW1_btn.Background = null; }
                     cs.sgn = 16; LoadCrysMW2();
+                    if (cs.wmc2Id == -1) { CrysMW2_btn.Background = null; }
                     cs.sgn = 17; LoadCrysSW1();
+                    if (cs.swmcId == -1) { CrysSW1_btn.Background = null; }
                     cs.sgn = 18; LoadCrysSW2();
+                    if (cs.swmc2Id == -1) { CrysSW2_btn.Background = null; }
                     cs.sgn = 19; LoadCrysH1();
+                    if (cs.hmcId == -1) { CrysH1_btn.Background = null; }
                     cs.sgn = 20; LoadCrysH2();
+                    if (cs.hmc2Id == -1) { CrysH2_btn.Background = null; }
                     cs.sgn = 21; LoadCrysA1();
+                    if (cs.amcId == -1) { CrysA1_btn.Background = null; }
                     cs.sgn = 22; LoadCrysA2();
+                    if (cs.amc2Id == -1) { CrysA2_btn.Background = null; }
                     cs.sgn = 23; LoadCrysG1();
+                    if (cs.gmcId == -1) { CrysG1_btn.Background = null; }
                     cs.sgn = 24; LoadCrysG2();
+                    if (cs.gmc2Id == -1) { CrysG2_btn.Background = null; }
                     cs.sgn = 25; LoadCrysS1();
+                    if (cs.smcId == -1) { CrysB1_btn.Background = null; }
                     cs.sgn = 26; LoadCrysS2();
+                    if (cs.smc2Id == -1) { CrysB2_btn.Background = null; }
+                    cs.sgn = 27; LoadShopCrystal();
                     FillCharacterState();
+                    ItemStatClear();
+                    LabelsReMargin();
+                    SelectGear_cb.ItemsSource = null;
                     CharacterS_border.Visibility = Visibility.Visible;
                     string bnstr = LoadBuild_cb.Text;
                     int bnint = bnstr.Length - 5;
@@ -7061,9 +7227,11 @@ namespace BDHelper
             LoadBuild_cb.DisplayMemberPath = "Name";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Remove_btn_Click(object sender, RoutedEventArgs e)
         {
             SelectGear_cb.SelectedIndex = -1;
+            ItemEnch_cb.SelectedIndex = 0;
+            ItemCaph_cb.SelectedIndex = 0;
         }
     }
 }

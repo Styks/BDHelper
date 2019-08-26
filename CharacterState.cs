@@ -516,7 +516,7 @@ namespace BDHelper
         public int beltDR; //Belt DR
         public int beltHP; //Belt MaxHP
         public int beltWeight;//Belt Weight
-        public int beltId = 0; // Current belt Id
+        public int beltId = -1; // Current belt Id
         public int beltEnchLvl = 0; // Belt's enchant level
         public bool beltEnch; 
         public int beltDefap; //Betl default AP
@@ -545,7 +545,7 @@ namespace BDHelper
         public int neckG; //Neck Resists: Grapple
         public int neckKF; //Neck Resists: Knockback/Floating
         public int neckHP; //Neck Max HP
-        public int neckId = 0; //Current neck Id
+        public int neckId = -1; //Current neck Id
         public int neckEnchLvl = 0; // Neck's enchant level
         public bool neckEnch;
         public int neckDefap; //Neck AP
@@ -582,7 +582,7 @@ namespace BDHelper
         public int ring1HP; //Ring Max HP
         public int ring1MP; //Ring Max MP
         public int ring1ST; //Ring Max stamina
-        public int ring1Id = 0; // Current ring Id
+        public int ring1Id = -1; // Current ring Id
         public int ring1EnchLvl = 0; // Ring's enchant level
         public bool ring1Ench;
         public int ring1Defap; //Ring default AP
@@ -629,7 +629,7 @@ namespace BDHelper
         public int ring2HP; //Ring Max HP
         public int ring2MP; //Ring Max MP
         public int ring2ST; //Ring Max stamina
-        public int ring2Id = 0; // Current ring Id
+        public int ring2Id = -1; // Current ring Id
         public int ring2EnchLvl = 0; // Ring's enchant level
         public bool ring2Ench;
         public int ring2Defap; //Ring default AP
@@ -676,7 +676,7 @@ namespace BDHelper
         public int ear1HP; //Earring Max HP
         public int ear1MP; //Earring Max MP
         public int ear1ST; //Earring Max stamina
-        public int ear1Id = 0; // Current earring Id
+        public int ear1Id = -1; // Current earring Id
         public int ear1EnchLvl = 0; // Earring's enchant level
         public bool ear1Ench;
         public int ear1Defap; //Earring default AP
@@ -707,7 +707,7 @@ namespace BDHelper
         public int ear2HP; //Earring Max HP
         public int ear2MP; //Earring Max MP
         public int ear2ST; //Earring Max stamina
-        public int ear2Id = 0; // Current earring Id
+        public int ear2Id = -1; // Current earring Id
         public int ear2EnchLvl = 0; // Earring's enchant level
         public bool ear2Ench;
         public int ear2Defap; //Earring default AP
@@ -739,7 +739,7 @@ namespace BDHelper
         public int armHP;
         public int armMP;
         public bool armEnch;
-        public int armId = 0; // Current armor Id
+        public int armId = -1; // Current armor Id
         public int armEnchLvl = 0; // Armor's enchant level
         public int armCaphLvl = 0;
         public bool armIsBoss;// Armor is boss item or not
@@ -778,7 +778,7 @@ namespace BDHelper
         public int helKBRes;
         public int helGrapleRes;
         public bool helEnch;
-        public int helId = 0; // Current Helmet Id
+        public int helId = -1; // Current Helmet Id
         public int helEnchLvl = 0; // Helmet's enchant level
         public int helCaphLvl = 0;
         public bool helIsBoss;// Helmet is boss item or not
@@ -811,7 +811,7 @@ namespace BDHelper
         public int glovdr;// Gloves damage reduction
         public int glovhdr;// Gloves hiden damage reduction
         public bool glovEnch;
-        public int glovId = 0; // Current Gloves Id
+        public int glovId = -1; // Current Gloves Id
         public int glovEnchLvl = 0; // Gloves's enchant level
         public int glovCaphLvl = 0;
         public bool glovIsBoss;// Gloves is boss item or not
@@ -844,7 +844,7 @@ namespace BDHelper
         public int shdr;// Shoes damage reduction
         public int shhdr;// Shoes hiden damage reduction
         public bool shEnch;
-        public int shId = 0; // Current Shoes Id
+        public int shId = -1; // Current Shoes Id
         public int shEnchLvl = 0; // Shoes's enchant level
         public int shCaphLvl = 0;
         public bool shIsBoss;// Shoes is boss item or not
@@ -869,7 +869,7 @@ namespace BDHelper
 
 
         //Awakening Weapons State
-        public int awkId = 0;
+        public int awkId = -1;
         public bool awkEnch;
         public int awkEnchLvl = 0;
         public int awkCaphLvl = 0;
@@ -905,7 +905,7 @@ namespace BDHelper
 
         //Main Weapons State
         public int mwGems;
-        public int mwId = 0;
+        public int mwId = -1;
         public bool mwEnch;
         public int mwEnchLvl = 0;
         public int mwCaphLvl = 0;
@@ -940,7 +940,7 @@ namespace BDHelper
 
 
         //Sub-Weapons State
-        public int swId = 0;
+        public int swId = -1;
         public int swGems;
         public bool swEnch;
         public int swEnchLvl = 0;
@@ -981,7 +981,7 @@ namespace BDHelper
         public int swSB;
 
         //Alchemy Stones State
-        public int asId = 0;
+        public int asId = -1;
         public bool asEnch;
         public int asAPhigh;
         public int asAPlow;
@@ -1018,7 +1018,7 @@ namespace BDHelper
         public int asDefAllRes;
 
         //Weapon Magic Crystal - 1
-        public int wmcId = 0;
+        public int wmcId = -1;
         public string wmcType = "Weapon";
         public int wmcCrit;
         public int wmcDefCrit;
@@ -1055,7 +1055,7 @@ namespace BDHelper
         public int CrysMW1SB;
 
         //Weapon Magic Crystal - 2
-        public int wmc2Id = 0;
+        public int wmc2Id = -1;
         public string wmc2Type = "Weapon";
         public int wmc2Crit;
         public int wmc2DefCrit;
@@ -1092,7 +1092,7 @@ namespace BDHelper
         public int CrysMW2SB;
 
         //Sub-Weapon Magic Crystal - 1
-        public int swmcId = 0;
+        public int swmcId = -1;
         public string swmcType = "Sub-Weapon";
         public int swmcHidenAP;
         public int swmcDefHidenAP;
@@ -1145,7 +1145,7 @@ namespace BDHelper
         public int CrysSW1SB;
 
         //Sub-Weapon Magic Crystal - 2
-        public int swmc2Id = 0;
+        public int swmc2Id = -1;
         public string swmc2Type = "Sub-Weapon";
         public int swmc2HidenAP;
         public int swmc2DefHidenAP;
@@ -1200,7 +1200,7 @@ namespace BDHelper
 
 
         //Helmet Magic Crystal - 1
-        public int hmcId = 0;
+        public int hmcId = -1;
         public string hmcType = "Helmet";
         public int hmcIgnoreAll;
         public int hmcDefIgnoreAll;
@@ -1241,7 +1241,7 @@ namespace BDHelper
         public int CrysH1SB;
 
         //Helmet Magic Crystal - 2
-        public int hmc2Id = 0;
+        public int hmc2Id = -1;
         public string hmc2Type = "Helmet";
         public int hmc2IgnoreAll;
         public int hmc2DefIgnoreAll;
@@ -1282,7 +1282,7 @@ namespace BDHelper
         public int CrysH2SB;
 
         //Armor Magic Crystal - 1
-        public int amcId = 0;
+        public int amcId = -1;
         public string amcType = "Armor";
         public int amcIgnoreAll;
         public int amcDefIgnoreAll;
@@ -1330,7 +1330,7 @@ namespace BDHelper
         public int CrysA1SB;
 
         //Armor Magic Crystal - 2
-        public int amc2Id = 0;
+        public int amc2Id = -1;
         public string amc2Type = "Armor";
         public int amc2IgnoreAll;
         public int amc2DefIgnoreAll;
@@ -1379,7 +1379,7 @@ namespace BDHelper
 
 
         //Gloves Magic Crystal - 1
-        public int gmcId = 0;
+        public int gmcId = -1;
         public string gmcType = "Gloves";
         public int gmcIgnoreAll;
         public int gmcDefIgnoreAll;
@@ -1427,7 +1427,7 @@ namespace BDHelper
         public int CrysG1SB;
 
         //Gloves Magic Crystal - 2
-        public int gmc2Id = 0;
+        public int gmc2Id = -1;
         public string gmc2Type = "Gloves";
         public int gmc2IgnoreAll;
         public int gmc2DefIgnoreAll;
@@ -1475,7 +1475,7 @@ namespace BDHelper
         public int CrysG2SB;
         
         //Shoes Magic Crystal - 1
-        public int smcId = 0;
+        public int smcId = -1;
         public string smcType = "Shoes";
         public int smcIgnoreAll;
         public int smcDefIgnoreAll;
@@ -1521,7 +1521,7 @@ namespace BDHelper
         public int CrysB1SB;
 
         //Shoes Magic Crystal - 2
-        public int smc2Id = 0;
+        public int smc2Id = -1;
         public string smc2Type = "Shoes";
         public int smc2IgnoreAll;
         public int smc2DefIgnoreAll;
@@ -1566,8 +1566,8 @@ namespace BDHelper
         public int smc2DefMaxEnergy;
         public int CrysB2SB;
 
-
-        public int shopcrId = 0;
+        //Shop Magic Crystal
+        public int shopcrId = -1;
         public int shopcrMVS;
         public int shopcrDefMVS;
         public int shopcrAtkSpeed;
@@ -7628,7 +7628,7 @@ namespace BDHelper
         }
         public void CrysMW1Clear()
         {
-         wmcId = 0;
+         wmcId = -1;
          wmcType = "Weapon";
          wmcDefCrit= 0;
          wmcDefCastSpeed= 0;
@@ -7714,7 +7714,7 @@ namespace BDHelper
         }
         public void CrysMW2Clear()
         {
-            wmc2Id = 0;
+            wmc2Id = -1;
             wmc2Type = "Weapon";
             wmc2DefCrit = 0;
             wmc2DefCastSpeed = 0;
@@ -7820,7 +7820,7 @@ namespace BDHelper
         }
         public void CrysSW1Clear()
         {
-             swmcId = 0;
+             swmcId = -1;
         swmcType = "Sub-Weapon";
          swmcDefHidenAP= 0;
          swmcDefIgnoreAll= 0;
@@ -7934,7 +7934,7 @@ namespace BDHelper
         }
         public void CrysSW2Clear()
         {
-            swmc2Id = 0;
+            swmc2Id = -1;
             swmc2Type = "Sub-Weapon";
             swmc2DefHidenAP = 0;
             swmc2DefIgnoreAll = 0;
@@ -8043,7 +8043,7 @@ namespace BDHelper
         public void CrysH1Clear()
         {
 
-         hmcId = 0;
+         hmcId = -1;
          hmcType = "Helmet";
          hmcDefIgnoreAll= 0 ;
          hmcDefAccuracy= 0 ;
@@ -8147,7 +8147,7 @@ namespace BDHelper
         public void CrysH2Clear()
         {
 
-            hmc2Id = 0;
+            hmc2Id = -1;
             hmc2Type = "Helmet";
             hmc2DefIgnoreAll = 0;
             hmc2DefAccuracy = 0;
@@ -8254,7 +8254,7 @@ namespace BDHelper
         }
         public void CrysA1Clear()
         {
-            amcId = 0;
+            amcId = -1;
             amcType = "Armor";
             amcDefIgnoreAll = 0;
             amcDefAccuracy = 0;
@@ -8364,7 +8364,7 @@ namespace BDHelper
         }
         public void CrysA2Clear()
         {
-            amc2Id = 0;
+            amc2Id = -1;
             amc2Type = "Armor";
             amc2DefIgnoreAll = 0;
             amc2DefAccuracy = 0;
@@ -8475,7 +8475,7 @@ namespace BDHelper
         }
         public void CrysG1Clear()
         {
-             gmcId = 0;
+             gmcId = -1;
         gmcType = "Gloves";
          gmcDefIgnoreAll= 0;
          gmcDefAccuracy= 0;
@@ -8587,7 +8587,7 @@ namespace BDHelper
         }
         public void CrysG2Clear()
         {
-            gmc2Id = 0;
+            gmc2Id = -1;
             gmc2Type = "Gloves";
             gmc2DefIgnoreAll = 0;
             gmc2DefAccuracy = 0;
@@ -8700,7 +8700,7 @@ namespace BDHelper
         }
         public void CrysS1Clear()
         {
-         smcId = 0;
+         smcId = -1;
          smcType = "Shoes";
          smcDefIgnoreAll= 0;
          smcDefAccuracy= 0;
@@ -8811,7 +8811,7 @@ namespace BDHelper
         }
         public void CrysS2Clear()
         {
-            smc2Id = 0;
+            smc2Id = -1;
             smc2Type = "Shoes";
             smc2DefIgnoreAll = 0;
             smc2DefAccuracy = 0;
