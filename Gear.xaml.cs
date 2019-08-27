@@ -17,6 +17,7 @@ using System.Data;
 
 
 
+
 namespace BDHelper
 {
     /// <summary>
@@ -36,6 +37,8 @@ namespace BDHelper
 
         public string progvers = "0.1";
         public string progvers_sf;
+
+        private string SelectGearForegroundColor;
 
         public Gear()
         {
@@ -250,7 +253,6 @@ namespace BDHelper
         cs.iMaxEnergy = 0;
     }
 
-        //Item load procedurs
         private void LoadBelts() //Belt
         {
             LabelsReMargin();
@@ -261,6 +263,7 @@ namespace BDHelper
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 SelectGear_cb.ItemsSource = ds.Tables[0].DefaultView;
+
             }
             if (cs.beltId >= 0) Item_Icon_Load("Belts", cs.beltId);
             else Item_img.Source = null;
@@ -270,6 +273,7 @@ namespace BDHelper
             LoadItemCaph_cb();
         }
 
+        
         private void LoadNeck() //Neck
         {
             LabelsReMargin();
@@ -780,7 +784,6 @@ namespace BDHelper
             LoadItemEnch_cb();
             LoadItemCaph_cb();
         }
-
         //Lvl Bonus
         private void DpLvl_cb_Checked(object sender, RoutedEventArgs e)
         {
@@ -816,13 +819,18 @@ namespace BDHelper
             LabelsReMargin();
         }
 
-        //Item buttons
         private void Belt_btn_Click(object sender, RoutedEventArgs e)
         {
             ItemStatClear();
             cs.sgn = 1;
             LoadBelts();
             ItemName_lbl.Content = "Belt";
+            if (cs.beltId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
+
         }
         private void Necklace_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -830,6 +838,11 @@ namespace BDHelper
             cs.sgn = 2;
             LoadNeck();
             ItemName_lbl.Content = "Necklace";
+            if (cs.neckId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Ring1_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -837,6 +850,11 @@ namespace BDHelper
             cs.sgn = 3;
             Load1Ring();
             ItemName_lbl.Content = "Ring";
+            if (cs.ring1Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Ring2_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -844,6 +862,11 @@ namespace BDHelper
             cs.sgn = 4;
             Load2Ring();
             ItemName_lbl.Content = "Ring";
+            if (cs.ring2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Earring1_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -851,6 +874,11 @@ namespace BDHelper
             cs.sgn = 5;
             Load1Earring();
             ItemName_lbl.Content = "Earring";
+            if (cs.ear1Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Earring2_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -858,6 +886,11 @@ namespace BDHelper
             cs.sgn = 6;
             Load2Earring();
             ItemName_lbl.Content = "Earring";
+            if (cs.ear2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Armour_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -865,6 +898,11 @@ namespace BDHelper
             cs.sgn = 7;
             LoadArmor();
             ItemName_lbl.Content = "Armour";
+            if (cs.armId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Helmet_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -872,6 +910,11 @@ namespace BDHelper
             cs.sgn = 8;
             LoadHelmet();
             ItemName_lbl.Content = "Helmet";
+            if (cs.helId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Gloves_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -879,6 +922,11 @@ namespace BDHelper
             cs.sgn = 9;
             LoadGloves();
             ItemName_lbl.Content = "Gloves";
+            if (cs.glovId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void Boots_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -886,6 +934,11 @@ namespace BDHelper
             cs.sgn = 10;
             LoadShoes();
             ItemName_lbl.Content = "Shoes";
+            if (cs.shId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void AW_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -893,6 +946,11 @@ namespace BDHelper
             cs.sgn = 11;
             LoadAW();
             ItemName_lbl.Content = "Awakening Weapon";
+            if (cs.awkId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void MW_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -900,6 +958,11 @@ namespace BDHelper
             cs.sgn = 12;
             LoadMW();
             ItemName_lbl.Content = "Main Weapon";
+            if (cs.mwId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void SW_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -907,6 +970,11 @@ namespace BDHelper
             cs.sgn = 13;
             LoadSW();
             ItemName_lbl.Content = "Sub-Weapon";
+            if (cs.swId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
         private void AS_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -914,6 +982,11 @@ namespace BDHelper
             cs.sgn = 14;
             LoadAS();
             ItemName_lbl.Content = "Alchimy Stone";
+            if (cs.asId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysMW1_btn_Click(object sender, RoutedEventArgs e)
@@ -922,6 +995,11 @@ namespace BDHelper
             cs.sgn = 15;
             LoadCrysMW1();
             ItemName_lbl.Content = "Magic crystal (Main Weapon)";
+            if (cs.wmcId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysMW2_btn_Click(object sender, RoutedEventArgs e)
@@ -930,6 +1008,11 @@ namespace BDHelper
             cs.sgn = 16;
             LoadCrysMW2();
             ItemName_lbl.Content = "Magic crystal (Main Weapon)";
+            if (cs.wmc2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysSW1_btn_Click(object sender, RoutedEventArgs e)
@@ -938,6 +1021,11 @@ namespace BDHelper
             cs.sgn = 17;
             LoadCrysSW1();
             ItemName_lbl.Content = "Magic crystal (Sub-Weapon)";
+            if (cs.swmcId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysSW2_btn_Click(object sender, RoutedEventArgs e)
@@ -946,6 +1034,11 @@ namespace BDHelper
             cs.sgn = 18;
             LoadCrysSW2();
             ItemName_lbl.Content = "Magic crystal (Sub-Weapon)";
+            if (cs.swmc2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysH1_btn_Click(object sender, RoutedEventArgs e)
@@ -954,6 +1047,11 @@ namespace BDHelper
             cs.sgn = 19;
             LoadCrysH1();
             ItemName_lbl.Content = "Magic crystal (Helmet)";
+            if (cs.hmcId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysH2_btn_Click(object sender, RoutedEventArgs e)
@@ -962,6 +1060,11 @@ namespace BDHelper
             cs.sgn = 20;
             LoadCrysH2();
             ItemName_lbl.Content = "Magic crystal (Helmet)";
+            if (cs.hmc2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysA1_btn_Click(object sender, RoutedEventArgs e)
@@ -970,6 +1073,11 @@ namespace BDHelper
             cs.sgn = 21;
             LoadCrysA1();
             ItemName_lbl.Content = "Magic crystal (Armour)";
+            if (cs.amcId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysA2_btn_Click(object sender, RoutedEventArgs e)
@@ -978,6 +1086,11 @@ namespace BDHelper
             cs.sgn = 22;
             LoadCrysA2();
             ItemName_lbl.Content = "Magic crystal (Armour)";
+            if (cs.amc2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysG1_btn_Click(object sender, RoutedEventArgs e)
@@ -986,6 +1099,11 @@ namespace BDHelper
             cs.sgn = 23;
             LoadCrysG1();
             ItemName_lbl.Content = "Magic crystal (Gloves)";
+            if (cs.gmcId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysG2_btn_Click(object sender, RoutedEventArgs e)
@@ -994,6 +1112,11 @@ namespace BDHelper
             cs.sgn = 24;
             LoadCrysG2();
             ItemName_lbl.Content = "Magic crystal (Gloves)";
+            if (cs.gmc2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysB1_btn_Click(object sender, RoutedEventArgs e)
@@ -1002,6 +1125,11 @@ namespace BDHelper
             cs.sgn = 25;
             LoadCrysS1();
             ItemName_lbl.Content = "Magic crystal (Shoes)";
+            if (cs.smc2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void CrysB2_btn_Click(object sender, RoutedEventArgs e)
@@ -1010,6 +1138,11 @@ namespace BDHelper
             cs.sgn = 26;
             LoadCrysS2();
             ItemName_lbl.Content = "Magic crystal (Shoes)";
+            if (cs.smc2Id == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void ShopCrystal_btn_Click(object sender, RoutedEventArgs e)
@@ -1018,7 +1151,13 @@ namespace BDHelper
             cs.sgn = 27;
             LoadShopCrystal();
             ItemName_lbl.Content = "Magic crystal (Shop Item)";
+            if (cs.shopcrId == -1)
+            {
+                SelectGear_cb.Text = "Select an Item";
+                SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            }
         }
+
 
         private void SelectGear_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1067,6 +1206,9 @@ namespace BDHelper
                         cs.beltDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                         cs.beltDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                         cs.beltSB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
+
                     }
 
                 }
@@ -1088,7 +1230,7 @@ namespace BDHelper
                     Belt_btn.Background = new ImageBrush(imgc);
                 }
                 cs.BeltState();
-                if (cs.beltEnch == false) Belt_btn.Content = "";
+                if (cs.beltEnch == false) Belt_Text.Text = "";
 
                 if (cs.beltEnch == true && SelectGear_cb.SelectedIndex == cs.beltId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.beltEnchLvl = TempEnchLvl; }
                 if (cs.beltEnch == true && SelectGear_cb.SelectedIndex != cs.beltId) { ItemEnch_cb.SelectedIndex = 0; cs.beltEnchLvl = 0; TempEnchLvl = 0; }
@@ -1170,6 +1312,8 @@ namespace BDHelper
                         cs.neckDefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
                         cs.neckDefBackDamage = Convert.ToInt32(dr["BackDamage"]);
                         cs.neckSB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
                 LoadItemEnch_cb();
@@ -1191,7 +1335,7 @@ namespace BDHelper
                     Necklace_btn.Background = new ImageBrush(imgc);
                 }
                 cs.NeckState();
-                if (cs.neckEnch == false) Necklace_btn.Content = "";
+                if (cs.neckEnch == false) Neck_Text.Text = "";
 
                 if (cs.neckEnch == true && SelectGear_cb.SelectedIndex == cs.neckId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.neckEnchLvl = TempEnchLvl; }
                 if (cs.neckEnch == true && SelectGear_cb.SelectedIndex != cs.neckId) { ItemEnch_cb.SelectedIndex = 0; cs.neckEnchLvl = 0; TempEnchLvl = 0; }
@@ -1285,6 +1429,8 @@ namespace BDHelper
                         cs.ring1DefBidding = Convert.ToInt32(dr["MarketBidding"]);
                         cs.ring1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                         cs.ring1SB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
 
@@ -1308,7 +1454,7 @@ namespace BDHelper
                     Ring1_btn.Background = new ImageBrush(imgc);
                 }
                 cs.Ring1State();
-                if (cs.ring1Ench == false) Ring1_btn.Content = "";
+                if (cs.ring1Ench == false) Ring1_Text.Text = "";
 
                 if (cs.ring1Ench == true && SelectGear_cb.SelectedIndex == cs.ring1Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ring1EnchLvl = TempEnchLvl; }
                 if (cs.ring1Ench == true && SelectGear_cb.SelectedIndex != cs.ring1Id) { ItemEnch_cb.SelectedIndex = 0; cs.ring1EnchLvl = 0; TempEnchLvl = 0; }
@@ -1405,6 +1551,8 @@ namespace BDHelper
                         cs.ring2DefBidding = Convert.ToInt32(dr["MarketBidding"]);
                         cs.ring2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                         cs.ring2SB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
                 LoadItemEnch_cb();
@@ -1426,7 +1574,7 @@ namespace BDHelper
                     Ring2_btn.Background = new ImageBrush(imgc);
                 }
                 cs.Ring2State();
-                if (cs.ring2Ench == false) Ring2_btn.Content = "";
+                if (cs.ring2Ench == false) Ring2_Text.Text = "";
 
                 if (cs.ring2Ench == true && SelectGear_cb.SelectedIndex == cs.ring2Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ring2EnchLvl = TempEnchLvl; }
                 if (cs.ring2Ench == true && SelectGear_cb.SelectedIndex != cs.ring2Id) { ItemEnch_cb.SelectedIndex = 0; cs.ring2EnchLvl = 0; TempEnchLvl = 0; }
@@ -1512,6 +1660,8 @@ namespace BDHelper
                         cs.ear1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                         cs.ear1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
                         cs.ear1SB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
                 LoadItemEnch_cb();
@@ -1535,7 +1685,7 @@ namespace BDHelper
                 }
 
                 cs.Earring1State();
-                if (cs.ear1Ench == false) Earring1_btn.Content = "";
+                if (cs.ear1Ench == false) Earring1_Text.Text = "";
 
                 if (cs.ear1Ench == true && SelectGear_cb.SelectedIndex == cs.ear1Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ear1EnchLvl = TempEnchLvl; }
                 if (cs.ear1Ench == true && SelectGear_cb.SelectedIndex != cs.ear1Id) { ItemEnch_cb.SelectedIndex = 0; cs.ear1EnchLvl = 0; TempEnchLvl = 0; }
@@ -1611,6 +1761,8 @@ namespace BDHelper
                         cs.ear2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                         cs.ear2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
                         cs.ear2SB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
                 LoadItemEnch_cb();
@@ -1633,7 +1785,7 @@ namespace BDHelper
                     Earring2_btn.Background = new ImageBrush(imgc);
                 }
                 cs.Earring2State();
-                if (cs.ear2Ench == false) Earring2_btn.Content = "";
+                if (cs.ear2Ench == false) Earring2_Text.Text = "";
 
                 if (cs.ear2Ench == true && SelectGear_cb.SelectedIndex == cs.ear2Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ear2EnchLvl = TempEnchLvl; }
                 if (cs.ear2Ench == true && SelectGear_cb.SelectedIndex != cs.ear2Id) { ItemEnch_cb.SelectedIndex = 0; cs.ear2EnchLvl = 0; TempEnchLvl = 0; }
@@ -1715,6 +1867,8 @@ namespace BDHelper
                         cs.armSB = Convert.ToInt32(dr["SetBonus"]);
                         cs.armDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
                         cs.armDefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
                 LoadItemEnch_cb();
@@ -1734,7 +1888,7 @@ namespace BDHelper
                     Armour_btn.Background = new ImageBrush(imgc);
                 }
                 cs.ArmorState();
-                if (cs.armEnch == false) Armour_btn.Content = "";
+                if (cs.armEnch == false) Arm_Text.Text = "";
 
                 if (cs.armEnch == true && SelectGear_cb.SelectedIndex == cs.armId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.armEnchLvl = TempEnchLvl; }
                 if (cs.armEnch == true && SelectGear_cb.SelectedIndex != cs.armId) { ItemEnch_cb.SelectedIndex = 0; cs.armEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.armCaphLvl = 0; TempCaphLvl = 0; }
@@ -1839,6 +1993,8 @@ namespace BDHelper
                         cs.helDefST = Convert.ToInt32(dr["MaxStamina"]);
                         cs.helDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
                         cs.helDefLuck = Convert.ToInt32(dr["Luck"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
                 LoadItemEnch_cb();
@@ -1858,7 +2014,7 @@ namespace BDHelper
                     Helmet_btn.Background = new ImageBrush(imgc);
                 }
                 cs.HelmetState();
-                if (cs.helEnch == false) Helmet_btn.Content = "";
+                if (cs.helEnch == false) Helmet_Text.Text = "";
 
                 if (cs.helEnch == true && SelectGear_cb.SelectedIndex == cs.helId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.helEnchLvl = TempEnchLvl; }
                 if (cs.helEnch == true && SelectGear_cb.SelectedIndex != cs.helId) { ItemEnch_cb.SelectedIndex = 0; cs.helEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.helCaphLvl = 0; TempCaphLvl = 0; }
@@ -1960,6 +2116,8 @@ namespace BDHelper
                         cs.glovDefCrit = Convert.ToInt32(dr["CriticalHit"]);
                         cs.glovDefGrapleRes = Convert.ToInt32(dr["GrapleRes"]);
                         cs.glovDefDamage = Convert.ToInt32(dr["DamageToAll"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                     }
                 }
                 LoadItemEnch_cb();
@@ -1979,7 +2137,7 @@ namespace BDHelper
                     Gloves_btn.Background = new ImageBrush(imgc);
                 }
                 cs.GlovesState();
-                if (cs.glovEnch == false) Gloves_btn.Content = "";
+                if (cs.glovEnch == false) Gloves_Text.Text = "";
 
                 if (cs.glovEnch == true && SelectGear_cb.SelectedIndex == cs.glovId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.glovEnchLvl = TempEnchLvl; }
                 if (cs.glovEnch == true && SelectGear_cb.SelectedIndex != cs.glovId) { ItemEnch_cb.SelectedIndex = 0; cs.glovEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.glovCaphLvl = 0; TempCaphLvl = 0; }
@@ -2071,8 +2229,7 @@ namespace BDHelper
                         cs.shDefKBRes = Convert.ToInt32(dr["KBRes"]);
                         cs.shDefMaxST = Convert.ToInt32(dr["MaxStamina"]);
                         cs.shDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-
-
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                     }
                 }
                 LoadItemEnch_cb();
@@ -2092,7 +2249,7 @@ namespace BDHelper
                     Boots_btn.Background = new ImageBrush(imgc);
                 }
                 cs.ShoesState();
-                if (cs.shEnch == false) Boots_btn.Content = "";
+                if (cs.shEnch == false) Shoes_Text.Text = "";
                 if (cs.shEnch == true && SelectGear_cb.SelectedIndex == cs.shId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.shEnchLvl = TempEnchLvl; }
                 if (cs.shEnch == true && SelectGear_cb.SelectedIndex != cs.shId) { ItemEnch_cb.SelectedIndex = 0; cs.shEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.shCaphLvl = 0; TempCaphLvl = 0; }
                 else if (cs.shEnch == false) { cs.shEnchLvl = 0; cs.shCaphLvl = 0; }
@@ -2181,6 +2338,8 @@ namespace BDHelper
                             cs.awkDefDPReduction = Convert.ToInt32(dr["DPReduction"]);
                             cs.awkDefMvsSpeedRed = Convert.ToInt32(dr["MvsSpeedRed"]);
                             cs.awkDefSpeedIncrease = Convert.ToInt32(dr["SpeedIncrease"]);
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                         }
                     }
 
@@ -2202,6 +2361,8 @@ namespace BDHelper
                             cs.awkDefDPReduction = 0;
                             cs.awkDefMvsSpeedRed = 0;
                             cs.awkDefSpeedIncrease = 0;
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
+
                         }
                     }
                 }
@@ -2224,7 +2385,7 @@ namespace BDHelper
 
 
                 cs.AwakeningState(sclass);
-                if (cs.awkEnch == false) AW_btn.Content = "";
+                if (cs.awkEnch == false) AW_Text.Text = "";
 
                 if (cs.awkEnch == true && SelectGear_cb.SelectedIndex == cs.awkId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.awkEnchLvl = TempEnchLvl; }
                 if (cs.awkEnch == true && SelectGear_cb.SelectedIndex != cs.awkId) { ItemEnch_cb.SelectedIndex = 0; cs.awkEnchLvl = 0; TempEnchLvl = 0; }
@@ -2297,6 +2458,7 @@ namespace BDHelper
                         cs.mwDefRecoveryChance = Convert.ToInt32(dr["ChanceRecovery"]);
                         cs.mwEnch = Convert.ToBoolean(dr["Ench"]);
                         cs.mwSB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                     }
                 }
                 LoadItemEnch_cb();
@@ -2316,7 +2478,7 @@ namespace BDHelper
                     MW_btn.Background = new ImageBrush(imgc);
                 }
                 cs.MainWeaponState(chWeapon);
-                if (cs.mwEnch == false) MW_btn.Content = "";
+                if (cs.mwEnch == false) MW_Text.Text = "";
 
                 if (cs.mwEnch == true && SelectGear_cb.SelectedIndex == cs.mwId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.mwEnchLvl = TempEnchLvl; }
                 if (cs.mwEnch == true && SelectGear_cb.SelectedIndex != cs.mwId) { ItemEnch_cb.SelectedIndex = 0; cs.mwEnchLvl = 0; TempEnchLvl = 0; }
@@ -2423,6 +2585,7 @@ namespace BDHelper
                         cs.swDefAllRes = Convert.ToInt32(dr["AllRes"]);
                         cs.swEnch = Convert.ToBoolean(dr["Ench"]);
                         cs.swSB = Convert.ToInt32(dr["SetBonus"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                     }
                 }
                 LoadItemEnch_cb();
@@ -2442,7 +2605,7 @@ namespace BDHelper
                     SW_btn.Background = new ImageBrush(imgc);
                 }
                 cs.SubWeaponState(chSubWeapon);
-                if (cs.swEnch == false) SW_btn.Content = "";
+                if (cs.swEnch == false) SW_Text.Text = "";
 
                 if (cs.swEnch == true && SelectGear_cb.SelectedIndex == cs.swId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.swEnchLvl = TempEnchLvl; }
                 if (cs.swEnch == true && SelectGear_cb.SelectedIndex != cs.swId) { ItemEnch_cb.SelectedIndex = 0; cs.swEnchLvl = 0; TempEnchLvl = 0; }
@@ -2551,7 +2714,7 @@ namespace BDHelper
                         cs.asDefGathFish = Convert.ToInt32(dr["GathFish"]);
                         cs.asDefGathDropRate = Convert.ToInt32(dr["GathDrop"]);
                         cs.asDefAlchCookTime = Convert.ToDouble(dr["AlchCockTime"]);
-
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                     }
                 }
 
@@ -2651,7 +2814,7 @@ namespace BDHelper
                             cs.wmcDefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
                             cs.wmcDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
                             cs.wmcDefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.wmcDefDmgToDemi = 0;
                             cs.wmcDefWeight = 0;
                             cs.wmcDefAllRes = 0;
@@ -2690,7 +2853,7 @@ namespace BDHelper
                             cs.wmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.wmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysMW1SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.wmcDefCrit = 0;
                             cs.wmcDefCastSpeed = 0;
                             cs.wmcDefAtkSpeed = 0;
@@ -2797,7 +2960,7 @@ namespace BDHelper
                             cs.wmc2DefIgnoreAll = Convert.ToInt32(dr["IgnoreAllRes"]);
                             cs.wmc2DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
                             cs.wmc2DefDmgToHumans = Convert.ToInt32(dr["DamageToHumans"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.wmc2DefDmgToDemi = 0;
                             cs.wmc2DefWeight = 0;
                             cs.wmc2DefAllRes = 0;
@@ -2836,7 +2999,7 @@ namespace BDHelper
                             cs.wmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.wmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysMW2SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.wmc2DefCrit = 0;
                             cs.wmc2DefCastSpeed = 0;
                             cs.wmc2DefAtkSpeed = 0;
@@ -2955,7 +3118,7 @@ namespace BDHelper
                             cs.swmcDefLuck = 0;
                             cs.swmcDefCombatEXP = 0;
                             cs.swmcDefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.swmcDefCritDmg = Convert.ToInt32(dr["CritChance"]);
                             cs.swmcDefAirDmg = Convert.ToInt32(dr["AirAttackDmg"]);
                             cs.swmcDefBackDmg = Convert.ToInt32(dr["BackAttackDmg"]);
@@ -2996,7 +3159,7 @@ namespace BDHelper
                             cs.swmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.swmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysSW1SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.swmcDefCritDmg = 0;
                             cs.swmcDefAirDmg = 0;
                             cs.swmcDefBackDmg = 0;
@@ -3142,7 +3305,7 @@ namespace BDHelper
                             cs.swmc2DefLuck = 0;
                             cs.swmc2DefCombatEXP = 0;
                             cs.swmc2DefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.swmc2DefCritDmg = Convert.ToInt32(dr["CritChance"]);
                             cs.swmc2DefAirDmg = Convert.ToInt32(dr["AirAttackDmg"]);
                             cs.swmc2DefBackDmg = Convert.ToInt32(dr["BackAttackDmg"]);
@@ -3183,7 +3346,7 @@ namespace BDHelper
                             cs.swmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.swmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysSW2SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.swmc2DefCritDmg = 0;
                             cs.swmc2DefAirDmg = 0;
                             cs.swmc2DefBackDmg = 0;
@@ -3322,7 +3485,7 @@ namespace BDHelper
                             cs.hmcDefLuck = 0;
                             cs.hmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.hmcDefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.hmcDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
                             cs.hmcDefEV = Convert.ToInt32(dr["Evasion"]);
                             cs.hmcDefKBRes = Convert.ToInt32(dr["KBRes"]);
@@ -3361,8 +3524,7 @@ namespace BDHelper
                             cs.hmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.hmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysH1SB = Convert.ToInt32(dr["SetBonus"]);
-
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.hmcDefHPRecovery = 0;
                             cs.hmcDefEV = 0;
                             cs.hmcDefKBRes = 0;
@@ -3485,7 +3647,7 @@ namespace BDHelper
                             cs.hmc2DefLuck = 0;
                             cs.hmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.hmc2DefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.hmc2DefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
                             cs.hmc2DefEV = Convert.ToInt32(dr["Evasion"]);
                             cs.hmc2DefKBRes = Convert.ToInt32(dr["KBRes"]);
@@ -3524,8 +3686,7 @@ namespace BDHelper
                             cs.hmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.hmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysH2SB = Convert.ToInt32(dr["SetBonus"]);
-
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.hmc2DefHPRecovery = 0;
                             cs.hmc2DefEV = 0;
                             cs.hmc2DefKBRes = 0;
@@ -3652,7 +3813,7 @@ namespace BDHelper
                             cs.amcDefLuck = 0;
                             cs.amcDefCombatEXP = 0;
                             cs.amcDefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.amcDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
                             cs.amcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
                             cs.amcDefMaxMP = Convert.ToInt32(dr["MaxMP"]);
@@ -3696,8 +3857,7 @@ namespace BDHelper
                             cs.amcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.amcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysA1SB = Convert.ToInt32(dr["SetBonus"]);
-
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.amcDefHPRecovery = 0;
                             cs.amcDefSSFRes = 0;
                             cs.amcDefMaxMP = 0;
@@ -3832,7 +3992,7 @@ namespace BDHelper
                             cs.amc2DefLuck = 0;
                             cs.amc2DefCombatEXP = 0;
                             cs.amc2DefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.amc2DefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
                             cs.amc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
                             cs.amc2DefMaxMP = Convert.ToInt32(dr["MaxMP"]);
@@ -3876,7 +4036,7 @@ namespace BDHelper
                             cs.amc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.amc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysA2SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.amc2DefHPRecovery = 0;
                             cs.amc2DefSSFRes = 0;
                             cs.amc2DefMaxMP = 0;
@@ -4011,7 +4171,7 @@ namespace BDHelper
                             cs.gmcDefLuck = 0;
                             cs.gmcDefCombatEXP = 0;
                             cs.gmcDefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.gmcDefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
                             cs.gmcDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
                             cs.gmcDefCrit = Convert.ToInt32(dr["Crit"]);
@@ -4050,7 +4210,7 @@ namespace BDHelper
                             cs.gmcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.gmcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysG1SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.gmcDefAtkSpeed = 0;
                             cs.gmcDefCastSpeed = 0;
                             cs.gmcDefCrit = 0;
@@ -4186,7 +4346,7 @@ namespace BDHelper
                             cs.gmc2DefLuck = 0;
                             cs.gmc2DefCombatEXP = 0;
                             cs.gmc2DefSkillEXP = 0;
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.gmc2DefAtkSpeed = Convert.ToInt32(dr["AtkSpeed"]);
                             cs.gmc2DefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
                             cs.gmc2DefCrit = Convert.ToInt32(dr["Crit"]);
@@ -4225,7 +4385,7 @@ namespace BDHelper
                             cs.gmc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.gmc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysG2SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.gmc2DefAtkSpeed = 0;
                             cs.gmc2DefCastSpeed = 0;
                             cs.gmc2DefCrit = 0;
@@ -4360,8 +4520,7 @@ namespace BDHelper
                             cs.smcDefLuck = 0;
                             cs.smcDefCombatEXP = 0;
                             cs.smcDefSkillEXP = 0;
-
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.smcDefKFRes = Convert.ToInt32(dr["KFRes"]);
                             cs.smcDefKBRes = Convert.ToInt32(dr["KBRes"]);
                             cs.smcDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
@@ -4399,7 +4558,7 @@ namespace BDHelper
                             cs.smcDefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.smcDefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysB1SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.smcDefKFRes = 0;
                             cs.smcDefKBRes = 0;
                             cs.smcDefSSFRes = 0;
@@ -4529,8 +4688,7 @@ namespace BDHelper
                             cs.smc2DefLuck = 0;
                             cs.smc2DefCombatEXP = 0;
                             cs.smc2DefSkillEXP = 0;
-
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.smc2DefKFRes = Convert.ToInt32(dr["KFRes"]);
                             cs.smc2DefKBRes = Convert.ToInt32(dr["KBRes"]);
                             cs.smc2DefSSFRes = Convert.ToInt32(dr["SSFRes"]);
@@ -4569,7 +4727,7 @@ namespace BDHelper
                             cs.smc2DefCombatEXP = Convert.ToInt32(dr["CombatEXP"]);
                             cs.smc2DefSkillEXP = Convert.ToInt32(dr["SkillEXP"]);
                             cs.CrysB2SB = Convert.ToInt32(dr["SetBonus"]);
-
+                            SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                             cs.smc2DefKFRes = 0;
                             cs.smc2DefKBRes = 0;
                             cs.smc2DefSSFRes = 0;
@@ -4675,6 +4833,7 @@ namespace BDHelper
                         cs.shopcrDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
                         cs.shopcrDefCrit = Convert.ToInt32(dr["Crit"]);
                         cs.shopcrDefMVS = Convert.ToInt32(dr["MVS"]);
+                        SelectGearForegroundColor = Convert.ToString(dr["Grade"]);
                     }
 
                 }
@@ -4713,6 +4872,14 @@ namespace BDHelper
             cs.GearScoreBonus();
             LabelsReMargin();
             FillCharacterState();
+
+
+            if (SelectGear_cb.SelectedIndex == -1) SelectGear_cb.Foreground = new SolidColorBrush(Colors.Black);
+            else if (SelectGearForegroundColor == "Orange") SelectGear_cb.Foreground = new SolidColorBrush(Colors.Orange);
+            else if (SelectGearForegroundColor == "Gold") SelectGear_cb.Foreground = new SolidColorBrush(Colors.Gold);
+            else if (SelectGearForegroundColor == "Blue") SelectGear_cb.Foreground = new SolidColorBrush(Colors.Blue);
+            else SelectGear_cb.Foreground = new SolidColorBrush(Colors.Green);
+
 
 
         }
@@ -4824,8 +4991,8 @@ namespace BDHelper
                 cs.iSpiritRage = cs.beltSpiritRage;
                 cs.iEAPa = cs.beltAPagaingst;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
-                else Belt_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { Belt_Text.Text = ""; }
+                else Belt_Text.Text = (string)ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
 
@@ -4868,8 +5035,8 @@ namespace BDHelper
                 cs.iExtraDamKama = cs.neckKamaDamage;
                 cs.iEDtoBack = cs.neckBackDamage;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Content = ""; }
-                else { Necklace_btn.Content = ItemEnch_cb.SelectedValue; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Neck_Text.Text = ""; }
+                else { Neck_Text.Text = (string)ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
 
@@ -4912,8 +5079,8 @@ namespace BDHelper
                 cs.iBidding = cs.ring1Bidding;
                 cs.iSpiritRage = cs.ring1SpiritRage;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Content = ""; }
-                else { Ring1_btn.Content = ItemEnch_cb.SelectedValue; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Ring1_Text.Text = ""; }
+                else { Ring1_Text.Text = (string)ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } // Ring1
@@ -4956,8 +5123,8 @@ namespace BDHelper
                 cs.iBidding = cs.ring2Bidding;
                 cs.iSpiritRage = cs.ring2SpiritRage;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Content = ""; }
-                else { Ring2_btn.Content = ItemEnch_cb.SelectedValue; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Ring2_Text.Text = ""; }
+                else { Ring2_Text.Text = (string)ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } //Ring2
@@ -4991,8 +5158,8 @@ namespace BDHelper
                 cs.iEAPa = cs.ear1APagaingst;
                 cs.iExtraDamKama = cs.ear1KamaDamage;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Content = ""; }
-                else { Earring1_btn.Content = ItemEnch_cb.SelectedValue; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Earring1_Text.Text = ""; }
+                else { Earring1_Text.Text = (string)ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } //Earring 1
@@ -5026,8 +5193,8 @@ namespace BDHelper
                 cs.iEAPa = cs.ear2APagaingst;
                 cs.iExtraDamKama = cs.ear2KamaDamage;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Content = ""; }
-                else { Earring2_btn.Content = ItemEnch_cb.SelectedValue; }
+                if (ItemEnch_cb.SelectedIndex == 0) { Earring2_Text.Text = ""; }
+                else { Earring2_Text.Text = (string)ItemEnch_cb.SelectedValue; }
 
                 FillCharacterState();
             } //Earring 2
@@ -5068,9 +5235,9 @@ namespace BDHelper
                 cs.iHPR = cs.armHPRecovery;
                 cs.iMPR = cs.armMPRecovery;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                else Armour_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { Arm_Text.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Arm_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                else Arm_Text.Text = (string)ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } // Armor
@@ -5114,9 +5281,9 @@ namespace BDHelper
                 cs.iHPR = cs.helHPRecovery;
                 cs.iLuck = cs.helLuck;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                else Helmet_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { Helmet_Text.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                else Helmet_Text.Text = (string)ItemEnch_cb.SelectedValue;
                 FillCharacterState();
             } // Helmet
 
@@ -5156,9 +5323,9 @@ namespace BDHelper
                 cs.iWeight = cs.glovWeight;
                 cs.iEDtA = cs.glovDamage;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                else Gloves_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { Gloves_Text.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                else Gloves_Text.Text = (string)ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Gloves
@@ -5193,9 +5360,9 @@ namespace BDHelper
                 cs.iST = cs.shMaxST;
                 cs.iWeight = cs.shWeight;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                else Boots_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { Shoes_Text.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Shoes_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                else Shoes_Text.Text = (string)ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Shoes
@@ -5222,9 +5389,9 @@ namespace BDHelper
                 cs.iEDtA = cs.awkDamageAll;
                 cs.iEAPa = cs.awkAPagainst;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                else AW_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { AW_Text.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                else AW_Text.Text = (string)ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Awakening Weapons
@@ -5263,9 +5430,9 @@ namespace BDHelper
                 cs.iHPRecoveryChance = cs.mwRecoveryChance;
                 cs.iIgnoreResistance = cs.mwIgnore;
 
-                if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Content = ""; }
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                else MW_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { MW_Text.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                else MW_Text.Text = (string)ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Main Weapons
@@ -5316,10 +5483,10 @@ namespace BDHelper
                 cs.iSpecialAttackEvRate = cs.swSpecialAttackEv;
 
 
-                if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Content = ""; }
-                else if (cs.swEnch == false) SW_btn.Content = "";
-                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                else SW_btn.Content = ItemEnch_cb.SelectedValue;
+                if (ItemEnch_cb.SelectedIndex == 0) { SW_Text.Text = ""; }
+                else if (cs.swEnch == false) SW_Text.Text = "";
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                else SW_Text.Text = (string)ItemEnch_cb.SelectedValue;
 
                 FillCharacterState();
             } //Sub-Weapons
@@ -5441,7 +5608,6 @@ namespace BDHelper
             LabelsReMargin();
         }
 
-        //IB journal
         private void IbCheckAll_cb_Checked(object sender, RoutedEventArgs e)
         {
             if (ibCheckAll_cb.IsChecked == true)
@@ -5594,7 +5760,6 @@ namespace BDHelper
             LabelsReMargin();
             FillCharacterState();
         }
-
         private void MainStateLabels()
         {
             bool FirstPos = false;
@@ -6863,7 +7028,6 @@ namespace BDHelper
             ItemStateLabels();
             ResistanceStateLabels();
         }
-
         private void Save_btn_Click(object sender, RoutedEventArgs e)
         {
             if (SaveBuild_tb.Text != string.Empty)
@@ -6944,7 +7108,8 @@ namespace BDHelper
         }
 
         private void Load_btn_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            AllItemClear(sender,e); 
             if (LoadBuild_cb.Text != string.Empty)
             {               
                 {
@@ -6953,7 +7118,6 @@ namespace BDHelper
                         progvers_sf = sr.ReadLine();
                     }
                     if (string.Compare(progvers, progvers_sf) != 0) { MessageBox.Show("Wrong version", "Error"); return; }
-                    //CharacterStats Clear
                     using (StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + LoadBuild_cb.Text))
                     {
                         progvers_sf = sr.ReadLine();
@@ -7026,9 +7190,9 @@ namespace BDHelper
                     }
                     Window_Loaded(sender, e);
                     cs.sgn = 1; LoadBelts(); //Belt
-                    if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Content = ""; }
-                    else if (cs.beltEnch == false) Belt_btn.Content = "";
-                    else Belt_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { Belt_Text.Text = ""; }
+                    else if (cs.beltEnch == false) Belt_Text.Text = "";
+                    else Belt_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.beltId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Belt.png");
@@ -7036,9 +7200,9 @@ namespace BDHelper
                         Belt_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 2; LoadNeck(); //Necklace
-                    if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Content = ""; }
-                    else if (cs.neckEnch == false) Necklace_btn.Content = "";
-                    else { Necklace_btn.Content = ItemEnch_cb.SelectedValue; }
+                    if (ItemEnch_cb.SelectedIndex == 0) { Neck_Text.Text = ""; }
+                    else if (cs.neckEnch == false) Neck_Text.Text = "";
+                    else { Neck_Text.Text = (string)ItemEnch_cb.SelectedValue; }
                     if (cs.neckId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Necklace.png");
@@ -7046,9 +7210,9 @@ namespace BDHelper
                         Necklace_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 3; Load1Ring(); //Ring 1
-                    if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Content = ""; }
-                    else if (cs.ring1Ench == false) Ring1_btn.Content = "";
-                    else { Ring1_btn.Content = ItemEnch_cb.SelectedValue; }
+                    if (ItemEnch_cb.SelectedIndex == 0) { Ring1_Text.Text = ""; }
+                    else if (cs.ring1Ench == false) Ring1_Text.Text = "";
+                    else { Ring1_Text.Text = (string)ItemEnch_cb.SelectedValue; }
                     if (cs.ring1Id == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Ring.png");
@@ -7056,9 +7220,9 @@ namespace BDHelper
                         Ring1_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 4; Load2Ring(); //Ring 2
-                    if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Content = ""; }
-                    else if (cs.ring2Ench == false) Ring2_btn.Content = "";
-                    else { Ring2_btn.Content = ItemEnch_cb.SelectedValue; }
+                    if (ItemEnch_cb.SelectedIndex == 0) { Ring2_Text.Text = ""; }
+                    else if (cs.ring2Ench == false) Ring2_Text.Text = "";
+                    else { Ring2_Text.Text = (string)ItemEnch_cb.SelectedValue; }
                     if (cs.ring2Id == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Ring.png");
@@ -7066,9 +7230,9 @@ namespace BDHelper
                         Ring2_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 5; Load1Earring(); //Earring 1
-                    if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Content = ""; }
-                    else if (cs.ear1Ench == false) Earring1_btn.Content = "";
-                    else { Earring1_btn.Content = ItemEnch_cb.SelectedValue; }
+                    if (ItemEnch_cb.SelectedIndex == 0) { Earring1_Text.Text = ""; }
+                    else if (cs.ear1Ench == false) Earring1_Text.Text = "";
+                    else { Earring1_Text.Text = (string)ItemEnch_cb.SelectedValue; }
                     if (cs.ear1Id == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Earring.png");
@@ -7076,9 +7240,9 @@ namespace BDHelper
                         Earring1_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 6; Load2Earring(); //Earring 2
-                    if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Content = ""; }
-                    else if (cs.ear2Ench == false) Earring2_btn.Content = "";
-                    else { Earring2_btn.Content = ItemEnch_cb.SelectedValue; }
+                    if (ItemEnch_cb.SelectedIndex == 0) { Earring2_Text.Text = ""; }
+                    else if (cs.ear2Ench == false) Earring2_Text.Text = "";
+                    else { Earring2_Text.Text = (string)ItemEnch_cb.SelectedValue; }
                     if (cs.ear2Id == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Earring.png");
@@ -7086,10 +7250,10 @@ namespace BDHelper
                         Earring2_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 7; LoadArmor(); //Armour
-                    if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Content = ""; }
-                    else if (cs.armEnch == false) Armour_btn.Content = "";
-                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                    else Armour_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { Arm_Text.Text = ""; }
+                    else if (cs.armEnch == false) Arm_Text.Text = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Arm_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                    else Arm_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.armId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Armour.png");
@@ -7097,10 +7261,10 @@ namespace BDHelper
                         Armour_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 8; LoadHelmet(); //Helmet
-                    if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Content = ""; }
-                    else if (cs.helEnch == false) Helmet_btn.Content = "";
-                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                    else Helmet_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { Helmet_Text.Text = ""; }
+                    else if (cs.helEnch == false) Helmet_Text.Text = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                    else Helmet_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.helId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Helmet.png");
@@ -7108,10 +7272,10 @@ namespace BDHelper
                         Helmet_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 9; LoadGloves(); //Gloves
-                    if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Content = ""; }
-                    else if (cs.glovEnch == false) Gloves_btn.Content = "";
-                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                    else Gloves_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { Gloves_Text.Text = ""; }
+                    else if (cs.glovEnch == false) Gloves_Text.Text = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                    else Gloves_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.glovId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Gloves.png");
@@ -7119,10 +7283,10 @@ namespace BDHelper
                         Gloves_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 10; LoadShoes(); //Shoes
-                    if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Content = ""; }
-                    else if (cs.shEnch == false) Boots_btn.Content = "";
-                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                    else Boots_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { Shoes_Text.Text = ""; }
+                    else if (cs.shEnch == false) Shoes_Text.Text = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Shoes_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                    else Shoes_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.shId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/Boots.png");
@@ -7130,10 +7294,10 @@ namespace BDHelper
                         Boots_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 11; LoadAW(); //AwakeningWeapon
-                    if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Content = ""; }
-                    else if (cs.awkEnch == false) AW_btn.Content = "";
-                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                    else AW_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { AW_Text.Text = ""; }
+                    else if (cs.awkEnch == false) AW_Text.Text = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                    else AW_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.awkId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/AwakeningWeapon.png");
@@ -7141,20 +7305,20 @@ namespace BDHelper
                         AW_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 12; LoadMW(); //MainWeapon
-                    if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Content = ""; }
-                    else if (cs.mwEnch == false) MW_btn.Content = "";
-                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                    else MW_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { MW_Text.Text = ""; }
+                    else if (cs.mwEnch == false) MW_Text.Text = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                    else MW_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.mwId == -1) {
                         var uri_i = new Uri("pack://application:,,,/Resources/MainWeapon.png");
                         var imgc_i = new BitmapImage(uri_i);
                         MW_btn.Background = new ImageBrush(imgc_i);
                     }
                     cs.sgn = 13; LoadSW(); //SubWeapon
-                    if (ItemEnch_cb.SelectedIndex == 0) { SW_btn.Content = ""; }
-                    else if (cs.swEnch == false) SW_btn.Content = "";
-                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_btn.Content = "+" + ItemEnch_cb.SelectedValue; }
-                    else SW_btn.Content = ItemEnch_cb.SelectedValue;
+                    if (ItemEnch_cb.SelectedIndex == 0) { SW_Text.Text = ""; }
+                    else if (cs.swEnch == false) SW_Text.Text = "";
+                    else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { SW_Text.Text = "+" + ItemEnch_cb.SelectedValue; }
+                    else SW_Text.Text = (string)ItemEnch_cb.SelectedValue;
                     if (cs.swId == -1)
                     {
                         var uri_i = new Uri("pack://application:,,,/Resources/SubWeapon.png");
@@ -7232,6 +7396,70 @@ namespace BDHelper
             SelectGear_cb.SelectedIndex = -1;
             ItemEnch_cb.SelectedIndex = 0;
             ItemCaph_cb.SelectedIndex = 0;
+            SelectGear_cb.Text = "Select an Item";
+        }
+
+        private void AllItemClear(Object sender, RoutedEventArgs e)
+        {
+            Helmet_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysH1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysH2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Armour_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysA1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysA2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Boots_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysB1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysB2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Gloves_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysG1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysG2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            AW_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            MW_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysMW1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysMW2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            SW_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysSW1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysSW2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            MW_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysMW1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            CrysMW2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Necklace_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Belt_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Ring1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Ring2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Earring1_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            Earring2_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+            AS_btn_Click(sender, e);
+            SelectGear_cb.SelectedIndex = -1;
+
         }
     }
 }

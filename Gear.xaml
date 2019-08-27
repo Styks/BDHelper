@@ -10,17 +10,24 @@
         <DataTemplate x:Key="cmbTemplate">
             <WrapPanel Margin="0 -3 0 0" Height="30">
                 <Image Width="30" Height="30" Stretch="Fill" Source="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
-                <Label Content="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Foreground="{Binding Grade}"/>
+                <Label Name="LabelcmbTemp" Content="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12"  Foreground="{Binding Grade}"/>
             </WrapPanel>
         </DataTemplate>
     </Window.Resources>
     <Grid Margin="0,0,0,1">
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="402" Margin="10,10,0,0" VerticalAlignment="Top" Width="393">
             <Grid Margin="-1,4,9,-1">
-                <Button x:Name="Helmet_btn" Content="" HorizontalAlignment="Left" Margin="118,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Helmet_btn_Click" RenderTransformOrigin="-0.8,0.325" FontWeight="Medium" Foreground="White">
+                <Button x:Name="Helmet_btn" HorizontalAlignment="Left" Margin="118,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Helmet_btn_Click" RenderTransformOrigin="-0.8,0.325" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Helmet.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Helmet_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
                 <Label x:Name="Sclass_lbl" Content="None" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="159,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.793,0.479" Width="74" FontFamily="Microsoft Sans Serif" UseLayoutRounding="False" Background="{x:Null}"/>
                 <Rectangle x:Name="Cimg_img" HorizontalAlignment="Left" Height="70" Margin="161,114,0,0" Stroke="Black" VerticalAlignment="Top" Width="70">
@@ -28,65 +35,149 @@
                         <ImageBrush ImageSource="Resources/None.png"/>
                     </Rectangle.Fill>
                 </Rectangle>
-                <Button x:Name="Armour_btn" Content="" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="Armour_btn" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click" FontWeight="Medium" Foreground="{x:Null}">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Armour.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Arm_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Earring1_btn" Content="" HorizontalAlignment="Left" Margin="68,72,0,0" VerticalAlignment="Top" Width="40" Height="40" RenderTransformOrigin="0.525,0.575" Click="Earring1_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="Earring1_btn"  HorizontalAlignment="Left" Margin="68,72,0,0" VerticalAlignment="Top" Width="40" Height="40" RenderTransformOrigin="0.525,0.575" Click="Earring1_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Earring.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Earring1_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Earring2_btn" Content="" HorizontalAlignment="Left" Margin="45,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Earring2_btn_Click" Foreground="White" FontWeight="Medium">
+                <Button x:Name="Earring2_btn" HorizontalAlignment="Left" Margin="45,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Earring2_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Earring.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Earring2_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Boots_btn" Content="" HorizontalAlignment="Left" Margin="45,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Boots_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="Boots_btn" HorizontalAlignment="Left" Margin="45,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Boots_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Boots.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Shoes_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Belt_btn" Content="" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Belt_btn_Click" Foreground="White" FontWeight="Medium">
+                <Button x:Name="Belt_btn" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Belt_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Belt.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Belt_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="MW_btn" Content="" HorizontalAlignment="Left" Margin="118,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="MW_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="MW_btn" HorizontalAlignment="Left" Margin="118,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="MW_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/MainWeapon.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="MW_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="AW_btn" Content="" HorizontalAlignment="Left" Margin="176,291,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="AW_btn_Click" Foreground="White" FontWeight="Medium">
+                <Button x:Name="AW_btn" HorizontalAlignment="Left" Margin="176,291,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="AW_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/AwakeningWeapon.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="AW_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="SW_btn" Content="" HorizontalAlignment="Left" Margin="233,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="SW_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="SW_btn" HorizontalAlignment="Left" Margin="233,272,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="SW_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/SubWeapon.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="SW_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Necklace_btn" Content="" HorizontalAlignment="Left" Margin="284,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Necklace_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="Necklace_btn" HorizontalAlignment="Left" Margin="284,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Necklace_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Necklace.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Neck_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Gloves_btn" Content="" HorizontalAlignment="Left" Margin="308,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Gloves_btn_Click" Foreground="White" FontWeight="Medium">
+                <Button x:Name="Gloves_btn" HorizontalAlignment="Left" Margin="308,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Gloves_btn_Click" Foreground="White" FontWeight="Medium">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Gloves.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Gloves_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Ring2_btn" Content="" HorizontalAlignment="Left" Margin="308,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring2_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="Ring2_btn" HorizontalAlignment="Left" Margin="308,126,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring2_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Ring.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Ring2_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Ring1_btn" Content="" HorizontalAlignment="Left" Margin="284,73,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring1_btn_Click" FontWeight="Medium" Foreground="White">
+                <Button x:Name="Ring1_btn" HorizontalAlignment="Left" Margin="284,73,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Ring1_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Ring.png" Stretch="None"/>
                     </Button.Background>
+                    <local:OutlinedTextBlock x:Name="Ring1_Text" Stroke="Red" 
+                             ClipToBounds="True"
+                             FontSize="16" 
+                             Fill="White"
+                             StrokePosition="Outside"
+                             StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                    </local:OutlinedTextBlock>
                 </Button>
                 <Button x:Name="AS_btn" Content="" HorizontalAlignment="Left" Margin="178,221,0,0" VerticalAlignment="Top" Width="40" Height="40" Background="{x:Null}" Click="AS_btn_Click"/>
                 <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="162,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH1_btn_Click"/>
@@ -108,30 +199,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ComboBox x:Name="SelectGear_cb" HorizontalAlignment="Left" ItemTemplate="{StaticResource cmbTemplate}" Margin="0,51,0,0" VerticalAlignment="Top" Width="360" BorderBrush="#FFEEEEEE" Height="30" SelectionChanged="SelectGear_cb_SelectionChanged" >
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
-                </ComboBox>
-                <ComboBox x:Name="ItemCaph_cb" HorizontalAlignment="Left" Margin="304,26,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemCaph_cb_SelectionChanged">
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
-                </ComboBox>
-                <ComboBox x:Name="ItemEnch_cb" HorizontalAlignment="Left" Margin="304,2,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemEnch_cb_SelectionChanged">
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
-                </ComboBox>
+                <ComboBox x:Name="SelectGear_cb" ItemTemplate="{StaticResource cmbTemplate}" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="360" BorderBrush="#FFEEEEEE" Height="30" SelectionChanged="SelectGear_cb_SelectionChanged" TextSearch.TextPath ="Name" IsEditable="True" Background="White" Text="Select an Item" FontSize="15" />
+                <ComboBox x:Name="ItemCaph_cb" HorizontalAlignment="Left" Margin="304,26,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemCaph_cb_SelectionChanged" Background="#FFF9F9F9"/>
+                <ComboBox x:Name="ItemEnch_cb" HorizontalAlignment="Left" Margin="304,2,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFEEEEEE" Height="21" SelectionChanged="ItemEnch_cb_SelectionChanged" Background="White"/>
                 <Label x:Name="Ench_lbl" Content="Enhancement level" HorizontalAlignment="Left" Margin="194,-1,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="Caph_lbl" Content="Caphras level" HorizontalAlignment="Left" Margin="194,21,0,0" VerticalAlignment="Top"/>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="44" Margin="2,1,0,0" VerticalAlignment="Top" Width="44">

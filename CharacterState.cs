@@ -8854,5 +8854,10 @@ namespace BDHelper
             ccr += shopcrCrit;
 
         }
+
+        public void AllItemStatsClear()
+        {
+
+        }
     }
 }
