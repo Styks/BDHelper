@@ -532,6 +532,7 @@ namespace BDHelper
         public int beltSpiritRage; // Black Spirit's Rage
         public int beltDefSpiritRage;
         public int beltSB; // Belt SetBonus
+        public string beltGrade;
 
         // Neck stats
         public int neckap; //Neck AP
@@ -572,6 +573,7 @@ namespace BDHelper
         public int neckDefBackDamage;
 
         public int neckSB; // Neck SetBonus
+        public string neckGrade;
 
         //First Ring stats
         public int ring1ap; //Ring AP
@@ -619,6 +621,7 @@ namespace BDHelper
         public int ring1DefBidding;
 
         public int ring1SB; // Ring SetBonus
+        public string ring1Grade;
 
         //Second Ring stats
         public int ring2ap; //Ring AP
@@ -666,6 +669,7 @@ namespace BDHelper
         public int ring2DefBidding;
 
         public int ring2SB; // Ring SetBonus
+        public string ring2Grade;
 
         //First earring stats
         public int ear1ap; //Earring AP
@@ -697,6 +701,7 @@ namespace BDHelper
         public int ear1DefSpiritRage;
 
         public int ear1SB; // Earring SetBonus
+        public string ear1Grade;
 
         //Second earring stats
         public int ear2ap; //Earring AP
@@ -728,6 +733,7 @@ namespace BDHelper
         public int ear2DefSpiritRage;
 
         public int ear2SB; // Earring SetBonus
+        public string ear2Grade;
 
         //Armor stats
         public int armdp;// Armor DP
@@ -764,6 +770,7 @@ namespace BDHelper
         public int armDefMPRecovery;
            
         public int armSB; //set bonus
+        public string armGrade;
 
         //Helmet stats
         public int helGems;
@@ -801,6 +808,7 @@ namespace BDHelper
         public int helHPRecovery;
         public int helLuck;
         public int helDefLuck;
+        public string helGrade;
 
         //Gloves stats
         public int glovGems;
@@ -835,6 +843,7 @@ namespace BDHelper
 
         public int glovDamage;
         public int glovDefDamage;
+        public string glovGrade;
 
         //Shoes stats
         public int shGems;
@@ -866,6 +875,7 @@ namespace BDHelper
 
         public int shWeight;
         public int shDefWeight;
+        public string shGrade;
 
 
         //Awakening Weapons State
@@ -901,6 +911,7 @@ namespace BDHelper
 
         public int awkDefSpeedIncrease;
         public int awkSpeedIncrease;
+        public string awkGrade;
 
 
         //Main Weapons State
@@ -937,6 +948,7 @@ namespace BDHelper
         public int mwHidenAP;
         public int mwDefHidenAP;
         public int mwSB;
+        public string mwGrade;
 
 
         //Sub-Weapons State
@@ -979,6 +991,7 @@ namespace BDHelper
         public int swDP;
         public int swDefDP;
         public int swSB;
+        public string swGrade;
 
         //Alchemy Stones State
         public int asId = -1;
@@ -1016,6 +1029,8 @@ namespace BDHelper
         public int asDefMaxHP;
         public int asAllRes;
         public int asDefAllRes;
+        public string asGrade;
+
 
         //Weapon Magic Crystal - 1
         public int wmcId = -1;
@@ -1053,6 +1068,7 @@ namespace BDHelper
         public int wmcSkillEXP;
         public int wmcDefSkillEXP;
         public int CrysMW1SB;
+        public string wmcGrade;
 
         //Weapon Magic Crystal - 2
         public int wmc2Id = -1;
@@ -1090,6 +1106,7 @@ namespace BDHelper
         public int wmc2SkillEXP;
         public int wmc2DefSkillEXP;
         public int CrysMW2SB;
+        public string wmc2Grade;
 
         //Sub-Weapon Magic Crystal - 1
         public int swmcId = -1;
@@ -1143,6 +1160,7 @@ namespace BDHelper
         public int swmcDmgToKama;
         public int swmcDefDmgToKama;
         public int CrysSW1SB;
+        public string swmcGrade;
 
         //Sub-Weapon Magic Crystal - 2
         public int swmc2Id = -1;
@@ -1197,6 +1215,7 @@ namespace BDHelper
         public int swmc2DmgToKama;
         public int swmc2DefDmgToKama;
         public int CrysSW2SB;
+        public string swmc2Grade;
 
 
         //Helmet Magic Crystal - 1
@@ -1239,6 +1258,7 @@ namespace BDHelper
         public int hmcVisionRange;
         public int hmcDefVisionRange;
         public int CrysH1SB;
+        public string hmcGrade;
 
         //Helmet Magic Crystal - 2
         public int hmc2Id = -1;
@@ -1280,6 +1300,7 @@ namespace BDHelper
         public int hmc2VisionRange;
         public int hmc2DefVisionRange;
         public int CrysH2SB;
+        public string hmc2Grade;
 
         //Armor Magic Crystal - 1
         public int amcId = -1;
@@ -1328,6 +1349,7 @@ namespace BDHelper
         public int amcSiegeWeaponEvRate;
         public int amcDefSiegeWeaponEvRate;
         public int CrysA1SB;
+        public string amcGrade;
 
         //Armor Magic Crystal - 2
         public int amc2Id = -1;
@@ -1376,6 +1398,7 @@ namespace BDHelper
         public int amc2SiegeWeaponEvRate;
         public int amc2DefSiegeWeaponEvRate;
         public int CrysA2SB;
+        public string amc2Grade;
 
 
         //Gloves Magic Crystal - 1
@@ -1426,6 +1449,8 @@ namespace BDHelper
         public int gmcDefRangedAP;
         public int CrysG1SB;
 
+        public string gmcGrade;
+
         //Gloves Magic Crystal - 2
         public int gmc2Id = -1;
         public string gmc2Type = "Gloves";
@@ -1473,7 +1498,8 @@ namespace BDHelper
         public int gmc2RangedAP;
         public int gmc2DefRangedAP;
         public int CrysG2SB;
-        
+        public string gmc2Grade;
+
         //Shoes Magic Crystal - 1
         public int smcId = -1;
         public string smcType = "Shoes";
@@ -1519,6 +1545,7 @@ namespace BDHelper
         public int smcMaxEnergy;
         public int smcDefMaxEnergy;
         public int CrysB1SB;
+        public string smcGrade;
 
         //Shoes Magic Crystal - 2
         public int smc2Id = -1;
@@ -1565,6 +1592,7 @@ namespace BDHelper
         public int smc2MaxEnergy;
         public int smc2DefMaxEnergy;
         public int CrysB2SB;
+        public string smc2Grade;
 
         //Shop Magic Crystal
         public int shopcrId = -1;
@@ -1576,6 +1604,7 @@ namespace BDHelper
         public int shopcrDefAtkSpeed;
         public int shopcrDefCastSpeed;
         public int shopcrDefCrit;
+        public string shopcrGrade;
 
 
 
@@ -7757,6 +7786,7 @@ namespace BDHelper
             cEDtoAir -= swmcAirDmg; 
             cEDtoCounter -=swmcCounterDmg;
             cEDtoDown -= swmcDownDmg;
+            cEDtoBack -= swmcBackDmg;
             cGrapResistIgnore -= swmcGrapResIgnore; 
             cKBResistIgnore -= swmcKBResIgnore;
             cKDResistIgnore -= swmcKDResIgnore; 
@@ -7788,6 +7818,7 @@ namespace BDHelper
             swmcStunResIgnore = swmcDefStunResIgnore;
             swmcSpeedAtkDmg = swmcDefSpeedAtkDmg;
             swmcCritDmg = swmcDefCritDmg;
+            swmcBackDmg = swmcDefBackDmg;
 
             chap += swmcHidenAP;
             cResistIgnore += swmcIgnoreAll;
@@ -7815,6 +7846,7 @@ namespace BDHelper
             cStunResistIgnore += swmcStunResIgnore;
             cSpeedAtkDmg += swmcSpeedAtkDmg;
             cCritHitDmg += swmcCritDmg;
+            cEDtoBack += swmcBackDmg;
 
 
         }
@@ -8852,12 +8884,7 @@ namespace BDHelper
             cAtkSpeed += shopcrAtkSpeed;
             cCastSpeed += shopcrCastSpeed;
             ccr += shopcrCrit;
-
         }
 
-        public void AllItemStatsClear()
-        {
-
-        }
     }
 }

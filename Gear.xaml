@@ -13,6 +13,7 @@
                 <Label Name="LabelcmbTemp" Content="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12"  Foreground="{Binding Grade}"/>
             </WrapPanel>
         </DataTemplate>
+
     </Window.Resources>
     <Grid Margin="0,0,0,1">
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="402" Margin="10,10,0,0" VerticalAlignment="Top" Width="393">
@@ -35,7 +36,7 @@
                         <ImageBrush ImageSource="Resources/None.png"/>
                     </Rectangle.Fill>
                 </Rectangle>
-                <Button x:Name="Armour_btn" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click" FontWeight="Medium" Foreground="{x:Null}">
+                <Button x:Name="Armour_btn" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Armour_btn_Click" FontWeight="Medium" Foreground="{x:Null}" >
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Armour.png" Stretch="None"/>
                     </Button.Background>
@@ -73,7 +74,7 @@
                 </Button>
                 <Button x:Name="Boots_btn" HorizontalAlignment="Left" Margin="45,177,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Boots_btn_Click" FontWeight="Medium" Foreground="White">
                     <Button.Background>
-                        <ImageBrush ImageSource="Resources/Boots.png" Stretch="None"/>
+                        <ImageBrush Stretch="None" ImageSource="Resources/Boots.png"/>
                     </Button.Background>
                     <local:OutlinedTextBlock x:Name="Shoes_Text" Stroke="Red" 
                              ClipToBounds="True"
@@ -83,7 +84,7 @@
                              StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
                     </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="Belt_btn" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Belt_btn_Click" Foreground="White" FontWeight="Medium">
+                <Button x:Name="Belt_btn" HorizontalAlignment="Left" Margin="68,230,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Belt_btn_Click" Foreground="White" FontWeight="Medium" BorderThickness="1">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/Belt.png" Stretch="None"/>
                     </Button.Background>
@@ -179,7 +180,20 @@
                              StrokeThickness="1"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
                     </local:OutlinedTextBlock>
                 </Button>
-                <Button x:Name="AS_btn" Content="" HorizontalAlignment="Left" Margin="178,221,0,0" VerticalAlignment="Top" Width="40" Height="40" Background="{x:Null}" Click="AS_btn_Click"/>
+                <Button x:Name="AS_btn" Content="" HorizontalAlignment="Left" Margin="178,221,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="AS_btn_Click">
+                    <Button.Background>
+                        <ImageBrush>
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </Button.Background>
+                </Button>
                 <Button x:Name="CrysH1_btn" Content="" HorizontalAlignment="Left" Margin="162,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH1_btn_Click"/>
                 <Button x:Name="CrysH2_btn" Content="" HorizontalAlignment="Left" Margin="162,51,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysH2_btn_Click"/>
                 <Button x:Name="CrysA1_btn" Content="" HorizontalAlignment="Left" Margin="210,29,0,0" VerticalAlignment="Top" Width="18" Height="18" Background="{x:Null}" Click="CrysA1_btn_Click"/>
@@ -502,7 +516,7 @@
                         <Label x:Name="cCastSpeedRate_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118,156,0,0"/>
                     </Grid>
                 </Expander>
-                <Expander x:Name="OtherStatesExp" Header="Other" HorizontalAlignment="Left" Height="284" Margin="932,1,-30,0" VerticalAlignment="Top" Width="321" IsExpanded="True">
+                <Expander x:Name="OtherStatesExp" Header="Other" HorizontalAlignment="Left" Height="284" Margin="927,1,-46,0" VerticalAlignment="Top" Width="342" IsExpanded="True">
                     <Grid Margin="0,0,-2,0" Height="273">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -532,7 +546,7 @@
                         <Label x:Name="cSunMoon_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="252,231,0,0" RenderTransformOrigin="0.538,0.154"/>
                     </Grid>
                 </Expander>
-                <Expander x:Name="AdditionalStateExp" Header="Additional" HorizontalAlignment="Left" Height="343" Margin="610,0,0,0" VerticalAlignment="Top" Width="317" IsExpanded="True">
+                <Expander x:Name="AdditionalStateExp" Header="Additional" HorizontalAlignment="Left" Height="343" Margin="610,0,0,0" VerticalAlignment="Top" Width="328" IsExpanded="True">
                     <Grid Margin="0,0,-2,0">
                         <Label x:Name="cCHDamage_lbl" Content="Additional Critical Hit Damage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,0,0,0"/>
                         <Label x:Name="cCHDamage_n" Content="0%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="287,1,0,0" RenderTransformOrigin="1.962,0.577"/>
@@ -624,7 +638,7 @@
                 <TextBox x:Name="SaveBuild_tb" HorizontalAlignment="Left" Height="23" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89"/>
                 <Label x:Name="BuildN_lbl" Content="Build Name" HorizontalAlignment="Left" Margin="5,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.5" Height="24"/>
                 <Label x:Name="slb_lbl" Content="Save/Load builds" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.423" Margin="4,0,0,0"/>
-                <ComboBox x:Name="LoadBuild_cb" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="89" DropDownOpened="LoadBuild_cb_DropDownOpened"/>
+                <ComboBox x:Name="LoadBuild_cb" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="89" DropDownOpened="LoadBuild_cb_DropDownOpened" Background="White"/>
                 <Label x:Name="SelectBuildN_lbl" Content="Select build" HorizontalAlignment="Left" Margin="6,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,0.5" Height="24"/>
                 <Button x:Name="Load_btn" Content="Load" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="89" Background="White" Click="Load_btn_Click"/>
                 <Button x:Name="Delete_btn" Content="Delete" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Width="89" Background="White" Click="Delete_btn_Click"/>
