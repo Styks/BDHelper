@@ -1,2 +1,2 @@
 # Black Desert Helper (WPF)
-C# .Net Fraemwork
+C# .NET Framework
